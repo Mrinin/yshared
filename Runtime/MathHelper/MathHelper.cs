@@ -85,7 +85,7 @@ namespace YShared.MathHelper
 			return new(a.x, a.y, b);
 		}
 
-		public static T[] ToRegularArray<T>(this NativeList<T> a) where T : unmanaged
+		/*public static T[] ToRegularArray<T>(this NativeList<T> a) where T : unmanaged
 		{
 			var res = new T[a.Length];
 			for (int i = 0; i < a.Length; i++)
@@ -93,7 +93,7 @@ namespace YShared.MathHelper
 				res[i] = a[i];
 			}
 			return res;
-		}
+		}*/
 
 		public static (float, Vector3) MakeLookAtLocation(UnityEngine.Transform t, Vector3 target, float offset = 0)
 		{
