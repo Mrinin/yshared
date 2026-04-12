@@ -472,6 +472,33 @@ namespace YShared.MathHelper
 			}
 			return result;
 		}
+
+		public static float SumArray(this float[] floats)
+		{
+			float sum = 0;
+			for (int i = 0; i < floats.Length; i++)
+			{
+				sum += floats[i];
+			}
+
+			return sum;
+		}
+
+		public static int SumArray(this int[] floats)
+		{
+			int sum = 0;
+			for (int i = 0; i < floats.Length; i++)
+			{
+				sum += floats[i];
+			}
+
+			return sum;
+		}
+
+		public static float AvgArray(this float[] floats)
+		{
+			return SumArray(floats) / floats.Length;
+		}
 	}
 
 	[System.Serializable]

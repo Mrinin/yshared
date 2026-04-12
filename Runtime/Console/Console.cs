@@ -62,7 +62,14 @@ namespace YShared.Console
         {
             if (Input.GetKeyDown(KeyCode.F3))
             {
-                isEnabled = !isEnabled;
+                if (Input.GetKeyDown(KeyCode.LeftShift))
+                {
+                    ClearConsole();
+                }
+                else
+                {
+                    isEnabled = !isEnabled;   
+                }
             }
         }
 
@@ -132,18 +139,36 @@ namespace YShared.Console
                 FinalText += $"{space}{key.ToUpper()}: {value}\n";
             }
         }
+        
         public static void Write(int id, string _key, object _value)
         {
             string s = _value.ToString();
             DebugTexts[id] = new Text { key = _key, value = s };
         }
 
-        public static void WriteFloat(int id, string _key, float _float_value, int decimals = 2)
+        public static void Write(int id, string _key, float _float_value, int decimals = 2)
         {
             Write(id, _key, (_float_value).ToString($"F{decimals}"));
         }
 
-        public static float RoundToXDecimals(float number, int x)
+        public static void Write(int id, string _key, Vector3 _float_value, int decimals = 2)
+        {
+            Write(id, _key, (_float_value).ToString($"F{decimals}"));
+        }
+
+        public static void Write(int id, string _key, Vector2 _float_value, int decimals = 2)
+        {
+            Write(id, _key, (_float_value).ToString($"F{decimals}"));
+        }
+
+
+        // Here for backwards compatbility!
+        public static void WriteFloat(int id, string _key, float _float_value, int decimals = 2)
+        {
+            Write(id, _key, _float_value, decimals);
+        }
+
+        static float RoundToXDecimals(float number, int x)
         {
             float m = Mathf.Pow(10, x);
             return Mathf.RoundToInt(number * m) / m;
@@ -153,7 +178,7 @@ namespace YShared.Console
         static float deltaTime = 0;
         static int frameCount = 0;
         const float updateInterval = 1.0f;
-        public static void CalculateFPS()
+        static void CalculateFPS()
         {
             deltaTime += Time.deltaTime;
             frameCount += 1;
@@ -169,6 +194,14 @@ namespace YShared.Console
                 // Reset the timer
                 deltaTime = 0.0f;
                 frameCount = 0;
+            }
+        }
+
+        static void ClearConsole()
+        {
+            for (int i = 0; i < DebugTexts.Length; i++)
+            {
+                DebugTexts[i].key = "";
             }
         }
     }
