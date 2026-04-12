@@ -62,7 +62,7 @@ namespace YShared.Console
         {
             if (Input.GetKeyDown(KeyCode.F3))
             {
-                if (Input.GetKeyDown(KeyCode.LeftShift))
+                if (Input.GetKey(KeyCode.LeftShift))
                 {
                     ClearConsole();
                 }
@@ -139,7 +139,7 @@ namespace YShared.Console
                 FinalText += $"{space}{key.ToUpper()}: {value}\n";
             }
         }
-        
+
         public static void Write(int id, string _key, object _value)
         {
             string s = _value.ToString();
