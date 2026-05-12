@@ -336,6 +336,7 @@ namespace YShared.NamedTimers
                     {
                         ActiveTimer = timer.duration;
                         timer.opts.loops--;
+                        timer.opts.callbackSent = true;
                     }
                     else
                     {
