@@ -60,9 +60,9 @@ namespace YShared.Console
 
         private void Update()
         {
-            if (Input.GetKeyDown(KeyCode.F3))
+            if (Keyboard.current.f3Key.wasPressedThisFrame)
             {
-                if (Input.GetKey(KeyCode.LeftShift))
+                if (Keyboard.current.leftShiftKey.isPressed)
                 {
                     ClearConsole();
                 }
