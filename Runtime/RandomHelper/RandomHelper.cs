@@ -33,7 +33,7 @@ namespace YShared.RandomHelper
             int max = int.MaxValue
         )
         {
-            return (int)NormalNumber(mean, standardDeviation, min, max);
+            return (int)NormalNumber(mean, standardDeviation, (float)min, (float)max);
         }
 
         public static T GetWeightedRandom<T>(
