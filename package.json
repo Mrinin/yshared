@@ -1,6 +1,6 @@
 {
   "name": "com.mrinin.yshared",
-  "version": "1.0.6",
+  "version": "1.1.0",
   "displayName": "Shared Utilites",
   "description": "Includes: Console, TimerHandler, Singleton, Math, Random Functions",
   "unity": "6000.2",
