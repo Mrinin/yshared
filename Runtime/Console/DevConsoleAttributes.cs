@@ -200,7 +200,7 @@ namespace YShared.Console
 
     public sealed class YCEnum: YCmdArgumentAttribute
     {
-        Type enumType;
+        public Type enumType { get; private set; }
 
         public override string getDescriptionText()
         {
@@ -220,6 +220,11 @@ namespace YShared.Console
         public override bool Parse<T>(string s, out T val)
         {
             val = default;
+
+            if (int.TryParse(s, out int intval))
+            {
+                
+            }
 
             if (Enum.TryParse(enumType, s, true, out object result))
             {

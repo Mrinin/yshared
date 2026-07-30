@@ -165,72 +165,6 @@ namespace YShared.Console
             }
         }
 
-        [YCommand("help", "Show this text.")]
-        static void Help()
-        {
-            string result = "";
-
-            foreach (var kvp in commands)
-            {
-                List<string> parts = new(10);
-
-                Command cmd = commands[kvp.Key];
-
-                parts.Add(kvp.Key);
-
-                for (int i = 0; i < cmd.arguments.Length; i++)
-                {
-                    parts.Add($"[{cmd.arguments[i].getDescriptionText()}]");
-                }
-
-                parts.Add("-");
-                parts.Add(cmd.description);
-
-                string r = string.Join(" ", parts);
-                result += r + "\n";
-                
-                Feedback(r);
-            }
-        }
-
-        [YCommand("dildo", "uuu i wonder what this does")]
-        static void Dildo()
-        {
-            //string dick = "⠀⠖⠖⡆⠀⠀⠀⠀⣀⣀⣀⠀⠀\n⢸⠀⠀⡗⠐⠉⠁⠀⠀⣇⡤⠽⡆\n⠀⢉⡟⠳⡄⠀⠀⠀⢀⣇⣀⡴⠃\n⠀⡏⠀⠀⡸⠉⠉⠉⠁⠀⠀⠀⠀\n⠀⠙⠒⠚⠁⠀⠀⠀⠀⠀⠀⠀⠀";
-            //string dick = "  /---\\\n |     |\n  \\---/\n   | |\n   | |\n   | |\n";
-            string dick = "\\\n 8=====D -~ --~\n/";
-            dick.Split("\n").ForEach(str => Feedback(str));
-        }
-
-        /*[YCommand("getenum", "Show possible values of an enum")]
-        [YCString("typeId")]
-        static void GetEnum(string typeid)
-        {
-            Type t = Type.GetType(typeid);
-
-            if (!(t != null && t.IsEnum))
-            {
-                Feedback($"Enum of type \"{typeid}\" has not been found.");
-                if (t != null)
-                {
-                    Feedback(t.ToString());
-                }
-                return;
-            }
-
-            Array arr = Enum.GetValues(t);
-
-            List<string> parts = new(10);
-
-            foreach (var asd in arr)
-            {
-                parts.Add(asd.ToString());
-            }
-
-            string r = string.Join(", ", parts);
-            Feedback($"Values: {r}");
-        }*/
-
         public static void Feedback(string text)
         {
             if (feedbackActive)
@@ -238,7 +172,78 @@ namespace YShared.Console
                 CommandFeedback?.Invoke(text);
             }
         }
+
+        public static class DefaultCommands
+        {
+            [YCommand("help", "Show this text.")]
+            static void Help()
+            {
+                string result = "";
+
+                foreach (var kvp in commands)
+                {
+                    List<string> parts = new(10);
+
+                    Command cmd = commands[kvp.Key];
+
+                    parts.Add(kvp.Key);
+
+                    for (int i = 0; i < cmd.arguments.Length; i++)
+                    {
+                        parts.Add($"[{cmd.arguments[i].getDescriptionText()}]");
+                    }
+
+                    parts.Add("-");
+                    parts.Add(cmd.description);
+
+                    string r = string.Join(" ", parts);
+                    result += r + "\n";
+                    
+                    Feedback(r);
+                }
+            }
+
+            [YCommand("enum", "View the available options of a command that requires enums")]
+            [YCString("command")]
+            static void EnumFields(string command)
+            {
+                if (commands.TryGetValue(command, out Command cmd))
+                {
+                    foreach (var arg in cmd.arguments)
+                    {
+                        if (arg is YCEnum ye)
+                        {
+                            List<string> parts = new();
+                            Array arr = Enum.GetValues(ye.enumType);
+                            foreach (object v in arr)
+                            {
+                                int ver = Convert.ToInt32(v);
+                                parts.Add($"{v.ToString()}({ver})");
+                            }
+
+                            string r = string.Join(", ", parts);
+                            string result = $"{ye.variableName} values: {r}.";
+                            
+                            Feedback(result);
+                        }
+                    }
+                    
+                    return;
+                }
+
+                Feedback($"Command {cmd.command} not found!");
+            }
+
+
+            [YCommand("dildo", "uuu i wonder what this does")]
+            static void Dildo()
+            {
+                string dick = "\\\n 8=====D -~ --~\n/";
+                dick.Split("\n").ForEach(str => Feedback(str));
+            }
+        }
     }
+    
 
     public class DevConsoleException : Exception
     {
