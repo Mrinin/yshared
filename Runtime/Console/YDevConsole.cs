@@ -29,12 +29,14 @@ namespace YShared.Console
             DevConsole.CommandFeedback += RecievedFeedback;
         }
 
+        int dontRegisterbackquoteKey = 0;
         private void Update()
         {
             if (Keyboard.current.backquoteKey.wasPressedThisFrame && Togglable)
             {
                 visible = !visible;
-                historyScroll = 0;   
+                historyScroll = 0;
+                dontRegisterbackquoteKey = 4;
             }
 
             if (visible)
@@ -79,6 +81,16 @@ namespace YShared.Console
             // Current input
             GUI.SetNextControlName("ConsoleInput");
 
+            if (dontRegisterbackquoteKey > 0)
+            {
+                if (input.Length > 0 && input[input.Length - 1] == '"')
+                {
+                    input = input.Substring(0, input.Length - 1);
+                }
+                dontRegisterbackquoteKey -= 1;
+            }
+
+
             input = GUI.TextField(
                 new Rect(
                     10,
@@ -89,14 +101,13 @@ namespace YShared.Console
                 input,
                 inputStyle
             );
-
+        
             // Submit
             if (
                 Keyboard.current.numpadEnterKey.wasPressedThisFrame ||
                 Keyboard.current.enterKey.wasPressedThisFrame)
             {
                 Submit();
-                Event.current.Use();
             }
 
             GUI.FocusControl("ConsoleInput");
@@ -134,9 +145,6 @@ namespace YShared.Console
                 inputHistory.RemoveAt(inputHistory.Count - 1);
 
             bool success = DevConsole.Execute(input);
-
-            if (!success)
-                history.Add("Invalid command.");
 
             input = "";
             historyScroll = -1;

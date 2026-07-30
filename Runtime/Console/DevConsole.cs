@@ -67,7 +67,7 @@ namespace YShared.Console
 
             if (arguments.Length - 1 != result.Length)
             {
-                throw new DevConsoleException($"Number of arguments do not match! {cmd.arguments.Length - 1 }, {result.Length}");
+                throw new DevConsoleException($"Number of arguments do not match: Expected: {result.Length}, Got: {arguments.Length - 1 }");
             }
 
             for (int i = 1; i < arguments.Length; i++)
@@ -132,25 +132,34 @@ namespace YShared.Console
 
             string command = parts[0];
 
+            feedbackActive = true;
             if (!commands.TryGetValue(command, out Command cmd))
+            {
+                DevConsole.Feedback("Invalid command");
                 return false;
+            }
 
+            bool succesful = false;
             try
             {
                 object[] parameters = GetParameters(parts, cmd);
 
-                feedbackActive = true;
                 cmd.action.Invoke(null, parameters);
-                feedbackActive = false;
 
-                return true;
+                succesful = true;
             } 
             catch (DevConsoleException dce)
             {
-                Debug.Log(dce.Message);
+                DevConsole.Feedback(dce.Message);
+                succesful = false;
+            } 
+            finally
+            {
+                feedbackActive = false;
             }
 
-            return false;
+            return succesful;
+
         }
 
         private static IEnumerable<Type> GetTypesSafe(Assembly assembly)
@@ -173,7 +182,7 @@ namespace YShared.Console
             }
         }
 
-        public static class DefaultCommands
+        static class DefaultCommands
         {
             [YCommand("help", "Show this text.")]
             static void Help()
@@ -231,7 +240,7 @@ namespace YShared.Console
                     return;
                 }
 
-                Feedback($"Command {cmd.command} not found!");
+                Feedback($"Command {command} not found!");
             }
 
 
@@ -240,6 +249,13 @@ namespace YShared.Console
             {
                 string dick = "\\\n 8=====D -~ --~\n/";
                 dick.Split("\n").ForEach(str => Feedback(str));
+            }
+
+            [YCommand("echo", "Echo feedback")]
+            [YCString("string")]
+            static void Echo(string str)
+            {
+                Feedback(str);
             }
         }
     }
