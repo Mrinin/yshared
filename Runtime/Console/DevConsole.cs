@@ -4,6 +4,7 @@ using System.Linq;
 using System.Reflection;
 using System.Xml;
 using UnityEditor;
+using UnityEditor.SearchService;
 using UnityEngine;
 using YShared.Console;
 using YShared.MathHelper;
@@ -12,14 +13,21 @@ namespace YShared.Console
 {
     public static class DevConsole
     {
+        struct Parameter
+        {
+            public bool hasDefault;
+            public object defaultval;
+        }
+
         class Command
         {
             public string command;
             public string description;
             public YCmdArgumentAttribute[] arguments;
             public MethodInfo action;
+            public Parameter[] functionParameters;
         }
-        private static readonly Dictionary<string, Command> commands = new();
+        private static readonly SortedDictionary<string, Command> commands = new();
 
         public static Action<string> CommandFeedback;
         static bool feedbackActive;
@@ -53,6 +61,17 @@ namespace YShared.Console
                         cmd.arguments = arguments;
                         cmd.action = method;
 
+                        ParameterInfo[] pi = method.GetParameters();
+                        cmd.functionParameters = new Parameter[pi.Length];
+                        for (int i = 0; i < pi.Length; i++)
+                        {
+                            if (pi[i].HasDefaultValue)
+                            {
+                                cmd.functionParameters[i].hasDefault = true;
+                                cmd.functionParameters[i].defaultval = pi[i].DefaultValue;
+                            }
+                        }
+
                         commands[attribute.Name] = cmd;
                     }
                 }
@@ -63,61 +82,76 @@ namespace YShared.Console
 
         static object[] GetParameters(string[] arguments, Command cmd)
         {
+            // arguments[0] is the command itself
+
             object[] result = new object[cmd.arguments.Length];
+            int succesful_parses = 0;
 
-            if (arguments.Length - 1 != result.Length)
+            for (int i = 0; i < cmd.arguments.Length; i++)
             {
-                throw new DevConsoleException($"Number of arguments do not match: Expected: {result.Length}, Got: {arguments.Length - 1 }");
-            }
-
-            for (int i = 1; i < arguments.Length; i++)
-            {
-                YCmdArgumentAttribute arg = cmd.arguments[i - 1];
+                YCmdArgumentAttribute arg = cmd.arguments[i];
 
                 bool successful_parse = false;
                 object parsed_arg = 0;
-                
-                if (arg is YCInt yc)
+
+                if (i + 1 < arguments.Length)
                 {
-                    if (yc.Parse<int>(arguments[i], out int val))
+                    if (arg is YCInt yc)
                     {
-                        parsed_arg = val;
-                        successful_parse = true;
+                        if (yc.Parse<int>(arguments[i + 1], out int val))
+                        {
+                            parsed_arg = val;
+                            successful_parse = true;
+                        }
                     }
-                }
-                else if (arg is YCBool yb)
-                {
-                    if (yb.Parse<bool>(arguments[i], out bool val))
+                    else if (arg is YCBool yb)
                     {
-                        parsed_arg = val;
-                        successful_parse = true;
+                        if (yb.Parse<bool>(arguments[i + 1], out bool val))
+                        {
+                            parsed_arg = val;
+                            successful_parse = true;
+                        }
                     }
-                }
-                else if (arg is YCString ys)
-                {
-                    if (ys.Parse<string>(arguments[i], out string val))
+                    else if (arg is YCString ys)
                     {
-                        parsed_arg = val;
-                        successful_parse = true;
+                        if (ys.Parse<string>(arguments[i + 1], out string val))
+                        {
+                            parsed_arg = val;
+                            successful_parse = true;
+                        }
                     }
-                }
-                else if (arg is YCEnum ye)
-                {
-                    if (ye.Parse<Enum>(arguments[i], out Enum val))
+                    else if (arg is YCEnum ye)
                     {
-                        parsed_arg = val;
-                        successful_parse = true;
+                        if (ye.Parse<Enum>(arguments[i + 1], out Enum val))
+                        {
+                            parsed_arg = val;
+                            successful_parse = true;
+                        }
                     }
                 }
 
                 if (successful_parse)
                 {
-                    result[i - 1] = parsed_arg;
+                    result[i] = parsed_arg;
+                    succesful_parses++;
                 }
                 else
                 {
-                    throw new DevConsoleException("Failed to parse or invalid input.");
+                    if (cmd.functionParameters[i].hasDefault)
+                    {
+                        result[i] = cmd.functionParameters[i].defaultval;
+                        succesful_parses++;
+                    }
+                    else
+                    {
+                        throw new DevConsoleException("Failed to parse or invalid input.");
+                    }
                 }
+            }
+
+            if (succesful_parses != result.Length)
+            {
+                throw new DevConsoleException($"Number of arguments do not match: Expected: {result.Length}, Got: {succesful_parses}");
             }
 
             return result;
@@ -125,7 +159,9 @@ namespace YShared.Console
 
         public static bool Execute(string line)
         {
-            string[] parts = line.Split(" ");
+            string[] parts = System.Text.RegularExpressions.Regex.Matches(line, @"[\""].*?[\""]|\S+")
+                .Select(m => m.Value.Trim('"'))
+                .ToArray();
 
             if (parts.Length == 0)
                 return false;
@@ -185,12 +221,41 @@ namespace YShared.Console
         static class DefaultCommands
         {
             [YCommand("help", "Show this text.")]
-            static void Help()
+            [YCInt("page", 0)]
+            static void Help(int page = 0)
             {
+                const int PAGE_SIZE = 10;
                 string result = "";
+
+                int commands_showed = 0;
+                int commands_looped_through = 0;
+
+                int page_amount = ((commands.Count - 1) / PAGE_SIZE) + 1;
+
+                if (page != 0)
+                    DevConsole.Feedback($"Pages {page}/{page_amount}");
+                else
+                {
+                    if (page_amount > 1)
+                        DevConsole.Feedback($"{page_amount} Pages (all shown)");
+                    else
+                        DevConsole.Feedback($"{page_amount} Page (all shown)");
+                }
 
                 foreach (var kvp in commands)
                 {
+                    if (page != 0)
+                    {    
+                        commands_looped_through++;
+                        int lb = commands_showed * PAGE_SIZE * (page - 1);
+                        int ub = commands_showed * PAGE_SIZE * (page);
+
+                        if (!(commands_looped_through >= lb && commands_looped_through < ub))
+                        {
+                            continue;
+                        }
+                    }
+
                     List<string> parts = new(10);
 
                     Command cmd = commands[kvp.Key];
@@ -199,7 +264,11 @@ namespace YShared.Console
 
                     for (int i = 0; i < cmd.arguments.Length; i++)
                     {
-                        parts.Add($"[{cmd.arguments[i].getDescriptionText()}]");
+                        string defaulttext = "";
+                        if (cmd.functionParameters[i].hasDefault)
+                            defaulttext = $"={cmd.functionParameters[i].defaultval}";
+
+                        parts.Add($"[{cmd.arguments[i].getDescriptionText()}{defaulttext}]");
                     }
 
                     parts.Add("-");
@@ -208,7 +277,9 @@ namespace YShared.Console
                     string r = string.Join(" ", parts);
                     result += r + "\n";
                     
-                    Feedback(r);
+                    DevConsole.Feedback(r);
+
+                    commands_showed++;
                 }
             }
 

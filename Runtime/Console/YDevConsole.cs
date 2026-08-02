@@ -60,20 +60,47 @@ namespace YShared.Console
                 ""
             );
 
+            float contentWidth = Screen.width - 40;
+            float y = 0f;
+
+            // Calculate total content height first.
+            float contentHeight = 0f;
+
+            for (int i = 0; i < history.Count; i++)
+            {
+                float textHeight = textStyle.CalcHeight(
+                    new GUIContent(history[i]),
+                    contentWidth
+                );
+
+                contentHeight += Mathf.Max(25f, textHeight);
+            }
+
             // History
             scrollPosition = GUI.BeginScrollView(
                 new Rect(10, 10, Screen.width - 20, height - 55),
                 scrollPosition,
-                new Rect(0, 0, Screen.width - 40, history.Count * 25)
+                new Rect(0, 0, contentWidth, contentHeight)
             );
 
+            // Draw history
             for (int i = 0; i < history.Count; i++)
             {
-                GUI.Label(
-                    new Rect(0, i * 25, Screen.width - 40, 25),
+                float textHeight = Mathf.Max(
+                    25f,
+                    textStyle.CalcHeight(
+                        new GUIContent(history[i]),
+                        contentWidth
+                    )
+                );
+
+                GUI.TextArea(
+                    new Rect(0, y, contentWidth, textHeight),
                     history[i],
                     textStyle
                 );
+
+                y += textHeight;
             }
 
             GUI.EndScrollView();

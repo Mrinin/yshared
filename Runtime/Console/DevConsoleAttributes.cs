@@ -1,29 +1,8 @@
 using UnityEngine;
 using System;
-using UnityEngine.InputSystem.Controls;
-using Codice.CM.SEIDInfo;
 
 namespace YShared.Console
 {
-    public class Test
-    {
-        /*[YCommand("givecard", "Give Card Test")]
-        [YCInt("CardId")]
-        [YCBool("Animate")]
-        public static void givecard(int id, bool animate)
-        {
-            DevConsole.Feedback($"Gave card {id} with {animate}");
-        }
-
-        [YCommand("enumtest", "Test Physicts Constirant adawjk")]
-        [YCEnum("Enum", typeof(RigidbodyConstraints2D))]
-        public static void givecard(RigidbodyConstraints2D rb2d)
-        {
-            DevConsole.Feedback($"Set constraints to {rb2d}");
-        }*/
-    }
-
-
     /// <summary>
     /// Use: YCInt(min,max), YCFloat(min,max), YCEnum(typeof Enum), YCBool or YCString after YCommand to add arguments.
     /// </summary>
