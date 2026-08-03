@@ -77,7 +77,7 @@ namespace YShared.Console
                 }
             }
 
-            Debug.Log($"Registered {commands.Count} game commands.");
+            //Debug.Log($"Registered {commands.Count} game commands.");
         }
 
         static object[] GetParameters(string[] arguments, Command cmd)
@@ -188,7 +188,17 @@ namespace YShared.Console
             {
                 DevConsole.Feedback(dce.Message);
                 succesful = false;
-            } 
+            }
+            catch (Exception e)
+            {   
+                string s = e.ToString();
+                string err_only = s.Substring("System.Reflection.TargetInvocationException: Exception has been thrown by the target of an invocation. ---> ".Length);
+                string[] lines = err_only.Split('\n');
+                string result = string.Join("\n", lines, 0, lines.Length - 6);
+
+                DevConsole.Feedback($"Called command threw an error: {result}");
+                succesful = false;
+            }
             finally
             {
                 feedbackActive = false;

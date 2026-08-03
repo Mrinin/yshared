@@ -42,6 +42,15 @@ namespace YShared.Console
             if (visible)
             {
                 UpDownArrowKey();
+
+                // Submit
+                if (
+                    Keyboard.current.numpadEnterKey.wasPressedThisFrame ||
+                    Keyboard.current.enterKey.wasPressedThisFrame)
+                {
+                    Submit();
+                }
+
             }
         }
 
@@ -128,15 +137,7 @@ namespace YShared.Console
                 input,
                 inputStyle
             );
-        
-            // Submit
-            if (
-                Keyboard.current.numpadEnterKey.wasPressedThisFrame ||
-                Keyboard.current.enterKey.wasPressedThisFrame)
-            {
-                Submit();
-            }
-
+    
             GUI.FocusControl("ConsoleInput");
         }
 
@@ -166,6 +167,8 @@ namespace YShared.Console
                 return;
 
             history.Add("> " + input);
+
+            Debug.Log("what?");
 
             inputHistory.Insert(0, input);
             if (inputHistory.Count > 100)
