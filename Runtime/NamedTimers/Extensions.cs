@@ -51,7 +51,7 @@ namespace YShared.NamedTimers
             return TimerHandler.GetTimers(go);
         }
 
-        // int versions (used with constants)
+        #region Int Versions
         public static float GetTimer(this GameObject go, int name)
         {
             return TimerHandler.GetTimer(iCombine(go, name));
@@ -78,14 +78,20 @@ namespace YShared.NamedTimers
         }
 
 
+        [Obsolete("Use SetTimeout instead")]
         public static void AddNamelessTimer(this GameObject go, float a, Action callback)
         {
             TimerHandler.AddNamelessTimer(a, callback);
         }
 
-        public static bool ClearTimer(this GameObject go, int name)
+        public static void SetTimeout(this GameObject go, float a, Action callback)
         {
-            return TimerHandler.ClearTimer(iCombine(go, name));
+            TimerHandler.SetTimeout(a, callback);
+        }
+
+        public static bool RemoveTimer(this GameObject go, int name)
+        {
+            return TimerHandler.RemoveTimer(iCombine(go, name));
         }
 
 
@@ -94,7 +100,12 @@ namespace YShared.NamedTimers
             return TimerHandler.TriggerChronometer(iCombine(go, name), target);
         }
 
+        public static bool TimerCooldown(this GameObject go, int name, float time)
+        {
+            return TimerHandler.TimerCooldown(iCombine(go, name), time);
+        }
 
+        #endregion
         #region String Versions
         public static float GetTimer(this GameObject go, string name)
         {
@@ -117,9 +128,9 @@ namespace YShared.NamedTimers
             return go.SetTimer(Hash(name), a, opts);
         }
 
-        public static bool ClearTimer(this GameObject go, string name)
+        public static bool RemoveTimer(this GameObject go, string name)
         {
-            return go.ClearTimer(Hash(name));
+            return go.RemoveTimer(Hash(name));
         }
 
         public static bool TriggerChronometer(this GameObject go, string name, float target)
@@ -138,6 +149,11 @@ namespace YShared.NamedTimers
         {
             opts.stringName = name;
             TimerHandler.RegisterTimer(name, iCombine(go, Hash(name)), opts);
+        }
+
+        public static bool TimerCooldown(this GameObject go, string name, float time)
+        {
+            return TimerHandler.TimerCooldown(iCombine(go, Hash(name)), time);
         }
 
         #endregion

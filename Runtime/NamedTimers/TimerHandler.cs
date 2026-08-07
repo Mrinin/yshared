@@ -183,12 +183,18 @@ namespace YShared.NamedTimers
             Timers[id] = t;
         }
 
+        [Obsolete("Use SetTimeout instead")]
         public static void AddNamelessTimer(float a, Action callback)
         {
             NamelessTimers.Add(new NamelessTimer() { time_left = a, callback = callback, remove = false });
         }
 
-        public static bool ClearTimer(long name)
+        public static void SetTimeout(float a, Action callback)
+        {
+            NamelessTimers.Add(new NamelessTimer() { time_left = a, callback = callback, remove = false });
+        }
+
+        public static bool RemoveTimer(long name)
         {
             if (Timers.TryGetValue(name, out var timer))
             {
@@ -196,6 +202,21 @@ namespace YShared.NamedTimers
                 return true;
             }
             return false;
+        }
+
+        public static bool TimerCooldown(long name, float timer)
+        {
+            float t = GetTimer(name);
+
+            if (t > 0)
+            {
+                return false;
+            }
+            else
+            {
+                SetTimer(name, timer);
+                return true;
+            }
         }
 
         /// <summary>

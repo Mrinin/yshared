@@ -252,18 +252,20 @@ namespace YShared.Console
                         DevConsole.Feedback($"{page_amount} Page (all shown)");
                 }
 
+                int lb = PAGE_SIZE * (page - 1);
+                int ub = PAGE_SIZE * (page);
+
                 foreach (var kvp in commands)
                 {
                     if (page != 0)
                     {    
-                        commands_looped_through++;
-                        int lb = commands_showed * PAGE_SIZE * (page - 1);
-                        int ub = commands_showed * PAGE_SIZE * (page);
-
                         if (!(commands_looped_through >= lb && commands_looped_through < ub))
                         {
+                            commands_looped_through++;
                             continue;
                         }
+
+                        commands_looped_through++;
                     }
 
                     List<string> parts = new(10);
