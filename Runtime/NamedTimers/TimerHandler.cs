@@ -52,7 +52,7 @@ namespace YShared.NamedTimers
             pause = false;
             binding = default;
 
-            if (opts.Callback == null)
+            if (opts.CallbackCondition == null)
                 hasConditional = false;
             else
                 hasConditional = true;
