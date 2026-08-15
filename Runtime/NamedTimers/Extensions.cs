@@ -71,22 +71,9 @@ namespace YShared.NamedTimers
         {
             long l = iCombine(go, name);
             SetTimerResult res = TimerHandler.SetTimer(l, time, opts);
-
-            if (!opts.binding.noAutomaticBind)
-                TimerHandler.BindObjectToTimer(go, l);
+            TimerHandler.BindObjectToTimer(go, l);
+            
             return res;
-        }
-
-
-        [Obsolete("Use SetTimeout instead")]
-        public static void AddNamelessTimer(this GameObject go, float a, Action callback)
-        {
-            TimerHandler.AddNamelessTimer(a, callback);
-        }
-
-        public static void SetTimeout(this GameObject go, float a, Action callback)
-        {
-            TimerHandler.SetTimeout(a, callback);
         }
 
         public static bool RemoveTimer(this GameObject go, int name)
@@ -154,6 +141,25 @@ namespace YShared.NamedTimers
         public static bool TimerCooldown(this GameObject go, string name, float time)
         {
             return TimerHandler.TimerCooldown(iCombine(go, Hash(name)), time);
+        }
+
+        #endregion
+
+        #region  Unnamed variants
+            [Obsolete("Use SetTimeout instead")]
+        public static void AddNamelessTimer(this GameObject go, float a, Action callback)
+        {
+            TimerHandler.AddNamelessTimer(a, callback);
+        }
+
+        public static void SetTimeout(this GameObject go, float a, Action callback)
+        {
+            TimerHandler.SetTimeout(a, callback);
+        }
+
+        public static void RunNextFrame(this GameObject go, Action callback)
+        {
+            TimerHandler.RunNextFrame(callback);
         }
 
         #endregion

@@ -168,8 +168,6 @@ namespace YShared.Console
 
             history.Add("> " + input);
 
-            Debug.Log("what?");
-
             inputHistory.Insert(0, input);
             if (inputHistory.Count > 100)
                 inputHistory.RemoveAt(inputHistory.Count - 1);

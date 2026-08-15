@@ -55,24 +55,24 @@ namespace YShared.NamedTimers
             foreach (var timer in timers)
             {
                 EditorGUILayout.BeginHorizontal();
-                GUILayout.Label(timer.opts.stringName.ToString(), GUILayout.Width(150));
+                GUILayout.Label(timer.state.opts.stringName.ToString(), GUILayout.Width(150));
                 GUILayout.Label(timer.time_left.ToString(), GUILayout.Width(70));
                 GUILayout.Label(timer.duration.ToString(), GUILayout.Width(70));
 
-                if (timer.opts.binding.is_bound)
+                if (timer.state.binding.is_bound)
                 {
-                    if (timer.opts.binding.bound_object)
-                        GUILayout.Label(timer.opts.binding.bound_object.gameObject.name, GUILayout.Width(80));
+                    if (timer.state.binding.bound_object)
+                        GUILayout.Label(timer.state.binding.bound_object.gameObject.name, GUILayout.Width(80));
                     else
                         GUILayout.Label("Destroyed", GUILayout.Width(80));
                 }
                 else
                     GUILayout.Label("Global", GUILayout.Width(80));
 
-                GUILayout.Label(timer.opts.preserve.ToString(), GUILayout.Width(60));
-                GUILayout.Label(timer.opts.loopInfinitely.ToString(), GUILayout.Width(60));
-                GUILayout.Label(timer.opts.loops.ToString(), GUILayout.Width(50));
-                GUILayout.Label(timer.opts.runOnUnscaledTime.ToString(), GUILayout.Width(60));
+                GUILayout.Label(timer.state.opts.preserve.ToString(), GUILayout.Width(60));
+                GUILayout.Label(timer.state.opts.loopInfinitely.ToString(), GUILayout.Width(60));
+                GUILayout.Label(timer.state.opts.loops.ToString(), GUILayout.Width(50));
+                GUILayout.Label(timer.state.opts.runOnUnscaledTime.ToString(), GUILayout.Width(60));
                 EditorGUILayout.EndHorizontal();
             }
         }

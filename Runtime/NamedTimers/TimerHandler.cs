@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.CompilerServices;
+using System.Timers;
 using UnityEngine;
 
 namespace YShared.NamedTimers
@@ -26,15 +27,36 @@ namespace YShared.NamedTimers
         public bool runOnUnscaledTime; // runs on scaled time by default
 
         public bool preserve;
-        public bool pause;
         public string stringName; // Only used for debugging purposes
 
-
-        public bool callbackSent;
+        public Func<Timer, bool> CallbackCondition;
         public Action Callback;
         public Action<float, float> OnUpdate;
 
+    }
+
+    public struct TimerState
+    {
+        public TimerOptions opts;
         public GameObjectBinding binding;
+        public bool callbackSent;
+        public bool hasConditional;
+
+        public bool pause;
+
+        public TimerState(TimerOptions opts)
+        {
+            this.opts = opts;
+
+            callbackSent = false;
+            pause = false;
+            binding = default;
+
+            if (opts.Callback == null)
+                hasConditional = false;
+            else
+                hasConditional = true;
+        }
     }
 
     public static class TimerHandler
@@ -100,7 +122,7 @@ namespace YShared.NamedTimers
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static SetTimerResult SetTimer(long name, float time)
         {
-            return SetTimer(name, time, new TimerOptions());
+            return SetTimer(name, time, new TimerOptions() { });
         }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
@@ -111,25 +133,30 @@ namespace YShared.NamedTimers
 
         public static SetTimerResult SetTimer(long name, float a, TimerOptions opts)
         {
+            if (string.IsNullOrEmpty(opts.stringName))
+                opts.stringName = name.ToString();
+
             if (Timers.TryGetValue(name, out var timer))
             {
                 timer.time_left = a;
-                timer.opts.callbackSent = false;
+                timer.state.callbackSent = false;
 
                 if (opts.Callback != null)
                 {
-                    timer.opts.Callback = opts.Callback;
+                    timer.state.opts.Callback = opts.Callback;
                     return SetTimerResult.ReplacedAction;
                 }
 
                 return SetTimerResult.ChangedTimeLeft;
             }
 
-            Timer t = new Timer();
-            t.name = name;
-            t.time_left = a;
-            t.duration = a;
-            t.opts = opts;
+            Timer t = new Timer
+            {
+                name = name,
+                time_left = a,
+                duration = a,
+                state = new TimerState(opts)
+            };
 
             Timers.Add(name, t);
 
@@ -160,11 +187,10 @@ namespace YShared.NamedTimers
 
             Timer t = new Timer();
             t.name = n;
-            t.opts = opts;
-
-            t.opts = opts;
             t.time_left = 0;
             t.duration = 1;
+            t.state = new TimerState(opts);
+
             Timers[n] = t;
         }
 
@@ -175,11 +201,10 @@ namespace YShared.NamedTimers
 
             Timer t = new Timer();
             t.name = id;
-            t.opts = opts;
-
-            t.opts = opts;
             t.time_left = 0;
             t.duration = 1;
+            t.state = new TimerState(opts);
+
             Timers[id] = t;
         }
 
@@ -192,6 +217,11 @@ namespace YShared.NamedTimers
         public static void SetTimeout(float a, Action callback)
         {
             NamelessTimers.Add(new NamelessTimer() { time_left = a, callback = callback, remove = false });
+        }
+
+        public static void RunNextFrame(Action callback)
+        {
+            NamelessTimers.Add(new NamelessTimer() { time_left = 0, callback = callback, remove = false });
         }
 
         public static bool RemoveTimer(long name)
@@ -263,8 +293,8 @@ namespace YShared.NamedTimers
         {
             if (Timers.TryGetValue(name, out var timer))
             {
-                timer.opts.binding.is_bound = true;
-                timer.opts.binding.bound_object = go;
+                timer.state.binding.is_bound = true;
+                timer.state.binding.bound_object = go;
                 return true;
             }
             return false;
@@ -303,20 +333,21 @@ namespace YShared.NamedTimers
             foreach (var key in arr)
             {
                 Timer timer = Timers[key];
+                ref TimerState state = ref timer.state;
 
-                if (timer.opts.binding.is_bound)
+                if (state.binding.is_bound)
                 {
-                    if (timer.opts.binding.bound_object == null)
+                    if (state.binding.bound_object == null)
                     {
                         keys_to_clear.Add(key);
                         continue;
                     }
-                    if (timer.opts.binding.bound_object.activeInHierarchy == false)
+                    if (state.binding.bound_object.activeInHierarchy == false)
                     {
                         continue;
                     }
 
-                    if (timer.opts.pause)
+                    if (state.pause)
                     {
                         continue;
                     }
@@ -326,7 +357,7 @@ namespace YShared.NamedTimers
 
                 if (ActiveTimer > 0)
                 {
-                    if (timer.opts.runOnUnscaledTime)
+                    if (state.opts.runOnUnscaledTime)
                     {
                         ActiveTimer -= Time.unscaledDeltaTime;
                     }
@@ -336,32 +367,36 @@ namespace YShared.NamedTimers
                     }
                 }
 
-                if (timer.opts.OnUpdate != null && timer.opts.callbackSent == false)
+                if (state.opts.OnUpdate != null && state.callbackSent == false)
                 {
                     if (ActiveTimer < 0)
-                        timer.opts.OnUpdate(0, timer.duration);
+                        state.opts.OnUpdate(0, timer.duration);
                     else
-                        timer.opts.OnUpdate(timer.time_left, timer.duration);
+                        state.opts.OnUpdate(timer.time_left, timer.duration);
                 }
 
-                if (ActiveTimer <= 0 && timer.opts.callbackSent == false)
+                if (ActiveTimer <= 0 && state.callbackSent == false)
                 {
+                    if (state.hasConditional && state.opts.CallbackCondition(timer) == false)
+                    {
+                        continue;
+                    }
+
                     ActiveTimer = 0;
-                    timer.opts.callbackSent = true;
+                    state.callbackSent = true;
 
+                    if (state.opts.Callback != null)
+                        state.opts.Callback();
 
-                    if (timer.opts.Callback != null)
-                        timer.opts.Callback();
-
-                    if (timer.opts.loopInfinitely || timer.opts.loops > 0)
+                    if (state.opts.loopInfinitely || state.opts.loops > 0)
                     {
                         ActiveTimer = timer.duration;
-                        timer.opts.loops--;
-                        timer.opts.callbackSent = true;
+                        state.opts.loops--;
+                        state.callbackSent = true;
                     }
                     else
                     {
-                        if (!timer.opts.preserve)
+                        if (!state.opts.preserve)
                             keys_to_clear.Add(key);
                     }
                 }
@@ -434,6 +469,6 @@ namespace YShared.NamedTimers
         public float time_left;
         public float duration;
 
-        public TimerOptions opts;
+        public TimerState state;
     }
 }
