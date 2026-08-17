@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
+using System.Security.Cryptography;
 using System.Xml;
 using UnityEditor;
 using UnityEditor.SearchService;
@@ -13,13 +14,13 @@ namespace YShared.Console
 {
     public static class DevConsole
     {
-        struct Parameter
+        public struct Parameter
         {
             public bool hasDefault;
             public object defaultval;
         }
 
-        class Command
+        public class Command
         {
             public string command;
             public string description;
@@ -27,9 +28,10 @@ namespace YShared.Console
             public MethodInfo action;
             public Parameter[] functionParameters;
         }
-        private static readonly SortedDictionary<string, Command> commands = new();
+        public static readonly SortedDictionary<string, Command> commands = new();
+        public static string[] CommandArray;
 
-        public static Action<string> CommandFeedback;
+        public static Action<string, FeedbackFlavor> CommandFeedback;
         static bool feedbackActive;
 
         [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)]
@@ -77,6 +79,7 @@ namespace YShared.Console
                 }
             }
 
+            DevConsole.CommandArray = DevConsole.commands.Select(cmd => cmd.Key).ToArray();
             //Debug.Log($"Registered {commands.Count} game commands.");
         }
 
@@ -128,6 +131,14 @@ namespace YShared.Console
                             successful_parse = true;
                         }
                     }
+                    else if (arg is YCCmdArg ycmdarg)
+                    {
+                        if (ycmdarg.Parse<Command>(arguments[i + 1], out Command val))
+                        {
+                            parsed_arg = val;
+                            successful_parse = true;
+                        }
+                    }
                 }
 
                 if (successful_parse)
@@ -144,7 +155,8 @@ namespace YShared.Console
                     }
                     else
                     {
-                        throw new DevConsoleException("Failed to parse or invalid input.");
+                        string s = $"Expected \"{cmd.arguments[i].variableName}\" of type {cmd.arguments[i].getTypeName}";
+                        throw new DevConsoleException("Failed to parse or invalid input. " + s);
                     }
                 }
             }
@@ -157,24 +169,43 @@ namespace YShared.Console
             return result;
         }
 
-        public static bool Execute(string line)
+        // splits command to parts.
+        static string[] SplitCommand(string line)
         {
-            string[] parts = System.Text.RegularExpressions.Regex.Matches(line, @"[\""].*?[\""]|\S+")
+            return System.Text.RegularExpressions.Regex.Matches(line, @"[\""].*?[\""]|\S+")
                 .Select(m => m.Value.Trim('"'))
                 .ToArray();
+        }
+
+        static bool GetCommand(string[] parts, out Command cmd)
+        {
+            cmd = default;
 
             if (parts.Length == 0)
                 return false;
 
             string command = parts[0];
 
-            feedbackActive = true;
-            if (!commands.TryGetValue(command, out Command cmd))
+            if (!commands.TryGetValue(command, out cmd))
             {
-                DevConsole.Feedback("Invalid command");
                 return false;
             }
 
+            return true;
+        }
+
+        public static bool Execute(string line)
+        {
+            string[] parts = SplitCommand(line);
+            if (!GetCommand(parts, out Command cmd))
+            {
+                feedbackActive = true;
+                DevConsole.Feedback("Invalid command", FeedbackFlavor.Info);
+                feedbackActive = false;
+                return false;
+            }
+
+            feedbackActive = true;
             bool succesful = false;
             try
             {
@@ -186,7 +217,7 @@ namespace YShared.Console
             } 
             catch (DevConsoleException dce)
             {
-                DevConsole.Feedback(dce.Message);
+                DevConsole.Feedback(dce.Message, FeedbackFlavor.Warning);
                 succesful = false;
             }
             catch (Exception e)
@@ -196,7 +227,7 @@ namespace YShared.Console
                 string[] lines = err_only.Split('\n');
                 string result = string.Join("\n", lines, 0, lines.Length - 6);
 
-                DevConsole.Feedback($"Called command threw an error: {result}");
+                DevConsole.Feedback($"Called command threw an error: {result}", FeedbackFlavor.Error);
                 succesful = false;
             }
             finally
@@ -205,7 +236,41 @@ namespace YShared.Console
             }
 
             return succesful;
+        }
 
+        public static string[] GetAutocompleteList(string line)
+        {
+            if (line.Length == 0)
+                return null;
+
+            bool has_space_at_the_end = line.Substring(line.Length - 1) == " ";
+            string[] parts = SplitCommand(line);
+
+            int next_input = parts.Length - 1;
+            if (has_space_at_the_end)
+                next_input++;
+
+        
+            if (next_input <= 0)
+            {
+                return CommandArray;
+            }
+            
+            if (GetCommand(parts, out Command cmd))
+            { 
+                next_input--;
+                if (next_input < cmd.arguments.Length)
+                {
+                    var param = cmd.arguments[next_input];
+
+                    if (param.hasAutocompleteArray)
+                    {
+                        return param.getAutocompleteArray();
+                    }
+                }
+            }
+
+            return null;
         }
 
         private static IEnumerable<Type> GetTypesSafe(Assembly assembly)
@@ -220,11 +285,11 @@ namespace YShared.Console
             }
         }
 
-        public static void Feedback(string text)
+        public static void Feedback(string text, FeedbackFlavor flavor = FeedbackFlavor.Feedback)
         {
             if (feedbackActive)
             {
-                CommandFeedback?.Invoke(text);
+                CommandFeedback?.Invoke(text, flavor);
             }
         }
 
@@ -239,6 +304,7 @@ namespace YShared.Console
 
                 int commands_showed = 0;
                 int commands_looped_through = 0;
+                int longest_command = 0;
 
                 int page_amount = ((commands.Count - 1) / PAGE_SIZE) + 1;
 
@@ -255,6 +321,8 @@ namespace YShared.Console
                 int lb = PAGE_SIZE * (page - 1);
                 int ub = PAGE_SIZE * (page);
 
+                List<Command> printCommands = new List<Command>();
+
                 foreach (var kvp in commands)
                 {
                     if (page != 0)
@@ -268,11 +336,22 @@ namespace YShared.Console
                         commands_looped_through++;
                     }
 
+                    printCommands.Add(kvp.Value);
+
+                    if (kvp.Key.Length > longest_command)
+                        longest_command = kvp.Key.Length;
+
+                    commands_showed++;
+                }
+
+                foreach (Command cmd in printCommands)
+                {
                     List<string> parts = new(10);
 
-                    Command cmd = commands[kvp.Key];
+                    parts.Add("-");
 
-                    parts.Add(kvp.Key);
+                    string padded = cmd.command.PadRight(longest_command + 1);
+                    parts.Add(padded);
 
                     for (int i = 0; i < cmd.arguments.Length; i++)
                     {
@@ -283,47 +362,71 @@ namespace YShared.Console
                         parts.Add($"[{cmd.arguments[i].getDescriptionText()}{defaulttext}]");
                     }
 
-                    parts.Add("-");
                     parts.Add(cmd.description);
 
                     string r = string.Join(" ", parts);
                     result += r + "\n";
                     
                     DevConsole.Feedback(r);
-
-                    commands_showed++;
                 }
             }
 
-            [YCommand("enum", "View the available options of a command that requires enums")]
-            [YCString("command")]
-            static void EnumFields(string command)
+            [YCommand("helpcmd", "Show the usage of a specific command")]
+            [YCCmdArg("command")]
+            static void Help2(Command cmd)
             {
-                if (commands.TryGetValue(command, out Command cmd))
-                {
-                    foreach (var arg in cmd.arguments)
-                    {
-                        if (arg is YCEnum ye)
-                        {
-                            List<string> parts = new();
-                            Array arr = Enum.GetValues(ye.enumType);
-                            foreach (object v in arr)
-                            {
-                                int ver = Convert.ToInt32(v);
-                                parts.Add($"{v.ToString()}({ver})");
-                            }
+                List<string> parts = new(10);
 
-                            string r = string.Join(", ", parts);
-                            string result = $"{ye.variableName} values: {r}.";
-                            
-                            Feedback(result);
-                        }
-                    }
-                    
-                    return;
+                parts.Add(cmd.command);
+                parts.Add(":");
+                parts.Add(cmd.description);
+
+                for (int i = 0; i < cmd.arguments.Length; i++)
+                {
+                    string defaulttext = "";
+                    if (cmd.functionParameters[i].hasDefault)
+                        defaulttext = $" = {cmd.functionParameters[i].defaultval}";
+
+                    parts.Add($"\n- {cmd.arguments[i].getDescriptionText()}{defaulttext}"); 
                 }
 
-                Feedback($"Command {command} not found!");
+
+                string r = string.Join(" ", parts);
+                
+                DevConsole.Feedback(r);
+            }
+
+            [YCommand("enum", "View the available options of a command that requires enums")]
+            [YCCmdArg("command")]
+            static void EnumFields(Command cmd)
+            {
+                foreach (var arg in cmd.arguments)
+                {
+                    int amt = 0;
+                    if (arg is YCEnum ye)
+                    {
+                        List<string> parts = new();
+                        Array arr = Enum.GetValues(ye.enumType);
+                        foreach (object v in arr)
+                        {
+                            int ver = Convert.ToInt32(v);
+                            parts.Add($"{v.ToString()}({ver})");
+                        }
+
+                        string r = string.Join(", ", parts);
+                        string result = $"{ye.variableName} values: {r}.";
+                        
+                        Feedback(result);
+                        amt++;
+                    }
+
+                    if (amt == 0)
+                    {
+                        Feedback($"That command ({cmd.command}) does not have any enum inputs.", FeedbackFlavor.Warning);
+                    }
+                }
+                
+                return;
             }
 
 
@@ -350,5 +453,10 @@ namespace YShared.Console
         {
             
         }
+    }
+
+    public enum FeedbackFlavor
+    {
+        Info, Feedback, Command, Warning, Error, Misc
     }
 }

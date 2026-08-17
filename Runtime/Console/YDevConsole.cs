@@ -6,7 +6,7 @@ using YShared.Singleton;
 
 namespace YShared.Console
 {
-    public class YDevConsole : Singleton<YDevConsole>
+    public class YDevConsole : YSingleton<YDevConsole>
     {
         public override bool CallDontDestroyOnLoad => true;
         [SerializeField] private Font font;
@@ -26,7 +26,7 @@ namespace YShared.Console
 
         void Start()
         {
-            DevConsole.CommandFeedback += RecievedFeedback;
+            //DevConsole.CommandFeedback += RecievedFeedback;
         }
 
         int dontRegisterbackquoteKey = 0;
@@ -205,10 +205,6 @@ namespace YShared.Console
             history.Add(text);
         }
 
-        [YCommand("clear", "Clear console")]
-        static void Clear()
-        {
-            FindFirstObjectByType<YDevConsole>()?.history.Clear();
-        }
+
     }
 }
