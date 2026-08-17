@@ -362,7 +362,10 @@ namespace YShared.Console
                         parts.Add($"[{cmd.arguments[i].getDescriptionText()}{defaulttext}]");
                     }
 
-                    parts.Add(cmd.description);
+                    if (string.IsNullOrEmpty(cmd.description))
+                        parts.Add("(No description)");
+                    else
+                        parts.Add(cmd.description);
 
                     string r = string.Join(" ", parts);
                     result += r + "\n";
@@ -379,7 +382,11 @@ namespace YShared.Console
 
                 parts.Add(cmd.command);
                 parts.Add(":");
-                parts.Add(cmd.description);
+
+                if (string.IsNullOrEmpty(cmd.description))
+                    parts.Add("(No description)");
+                else
+                    parts.Add(cmd.description);
 
                 for (int i = 0; i < cmd.arguments.Length; i++)
                 {

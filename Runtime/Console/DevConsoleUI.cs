@@ -53,6 +53,7 @@ namespace YShared.Console
         private bool isOpen;
         private bool isAnimating;
         private Coroutine slideRoutine;
+        private int caretPosition;
 
         private void Start()
         {
@@ -84,6 +85,14 @@ namespace YShared.Console
             if (!isOpen) 
                 return;
 
+            if (kb.downArrowKey.wasPressedThisFrame || kb.upArrowKey.wasPressedThisFrame)
+            {
+                inputField.caretPosition = caretPosition;
+            }
+            else
+            {
+                caretPosition = inputField.caretPosition;
+            }
 
             if (autocompleteRoot != null && autocompleteRoot.gameObject.activeSelf)
             {
@@ -196,7 +205,7 @@ namespace YShared.Console
             {
                 case FeedbackFlavor.Warning: hex = "#FFD100"; break;
                 case FeedbackFlavor.Error: hex = "#FF4C4C"; break;
-                case FeedbackFlavor.Misc: hex = "#ff1616"; break;
+                case FeedbackFlavor.Misc: hex = "#1980ff"; break;
                 case FeedbackFlavor.Command: hex = "#4C9CFF"; break;
                 case FeedbackFlavor.Info:
                 case FeedbackFlavor.Feedback:
@@ -328,6 +337,7 @@ namespace YShared.Console
 
             // Position the popup horizontally over the word being typed, just above the input field.
             float wordX = GetTextWidth(inputField.text.Substring(0, wordStartIndex));
+
             autocompleteRoot.anchoredPosition = new Vector2(
                 inputRect.anchoredPosition.x + wordX + 8f,
                 inputRect.anchoredPosition.y + inputRect.rect.height);
@@ -351,11 +361,14 @@ namespace YShared.Console
 
         private void AcceptAutocomplete()
         {
-            if (autocompleteIndex < 0 || autocompleteIndex >= currentSuggestions.Count) return;
+            if (autocompleteIndex < 0 || autocompleteIndex >= currentSuggestions.Count)
+                return;
 
             string text = inputField.text;
             int caret = inputField.caretPosition;
             int wordStart = text.LastIndexOf(' ', Mathf.Max(0, caret - 1)) + 1;
+
+            //wordStart = inputField.text.Length;
 
             string chosen = currentSuggestions[autocompleteIndex];
             string newText = text.Substring(0, wordStart) + chosen + " " + text.Substring(caret);
@@ -370,13 +383,15 @@ namespace YShared.Console
             //ShowAutocomplete(wordStart);
 
             UpdateAutocompleteListFromText(newText);
-            ShowSuggestions("", 0);
+            ShowSuggestions("", newText.Length);
 
             //gameObject.SetTimeout(1f, () => ShowAutocomplete(wordStart));
         }
 
         private float GetTextWidth(string s)
         {
+            return inputField.textComponent.textBounds.size.x;
+            return s.Length * fontSize;
             return 0;
             /*if (string.IsNullOrEmpty(s)) 
                 return 0f;

@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -6,6 +7,7 @@ using YShared.Singleton;
 
 namespace YShared.Console
 {
+    [Obsolete("Use DevConsoleUI instead.")]
     public class YDevConsole : YSingleton<YDevConsole>
     {
         public override bool CallDontDestroyOnLoad => true;
