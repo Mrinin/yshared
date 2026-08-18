@@ -20,16 +20,14 @@ namespace YShared.Console
         [Header("Appearance")]
         [SerializeField] private int fontSize = 18;
         [SerializeField] private float slideDuration = 0.15f;
-        [SerializeField] private Color backgroundColor = new Color(0f, 0f, 0f, 0.88f);
-        [SerializeField] private Font font; // leave null to use built-in Arial
 
         [Header("Autocomplete")]
         [Tooltip("Editable at runtime via AddAutocompleteCommand / RemoveAutocompleteCommand / SetAutocompleteList.")]
         string[] autocompleteCommands;
         [SerializeField] private int maxAutocompleteResults = 6;
 
-        private const int MaxLogEntries = 100;
-        private const int MaxCommandHistory = 10;
+        private const int MAX_LOG_ENTRIES = 100;
+        private const int MAX_COMMMAND_HISTORY = 10;
 
         // -- runtime built UI --
         [SerializeField] Canvas canvas;
@@ -54,6 +52,8 @@ namespace YShared.Console
         private bool isAnimating;
         private Coroutine slideRoutine;
         private int caretPosition;
+
+        public bool IsOpen => isAnimating || isOpen;
 
         private void Start()
         {
@@ -178,7 +178,9 @@ namespace YShared.Console
             }
             panelRect.anchoredPosition = new Vector2(0f, to);
 
-            if (!opening) canvas.gameObject.SetActive(false);
+            if (!opening)
+                canvas.gameObject.SetActive(false);
+                
             isAnimating = false;
         }
 
@@ -190,7 +192,7 @@ namespace YShared.Console
         {
             logEntries.Add((message, flavor));
 
-            if (logEntries.Count > MaxLogEntries) 
+            if (logEntries.Count > MAX_LOG_ENTRIES) 
                 logEntries.RemoveAt(0);
 
             AppendLogLine(message, flavor);
@@ -249,7 +251,7 @@ namespace YShared.Console
 
             commandHistory.Add(text);
 
-            if (commandHistory.Count > MaxCommandHistory) 
+            if (commandHistory.Count > MAX_COMMMAND_HISTORY) 
                 commandHistory.RemoveAt(0);
 
             historyCursor = commandHistory.Count;
