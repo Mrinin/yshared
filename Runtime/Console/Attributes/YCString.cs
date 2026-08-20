@@ -6,12 +6,19 @@ namespace YShared.Console
     /// </summary>
     public sealed class YCString: YCmdArgumentAttribute
     {
+        string[] autocompleteOptions;
+        bool hasArray;
+
         public override string getDescriptionText()
         {
             return $"{variableName}:string";
         }
         public override string getTypeName => "string";
-        public override bool hasAutocompleteArray => false;
+        public override bool hasAutocompleteArray => hasArray;
+        public override string[] getAutocompleteArray()
+        {
+            return autocompleteOptions;
+        }
 
         protected override bool Validate<T>(T s) => true;
 
@@ -23,9 +30,12 @@ namespace YShared.Console
             return true;
         }
 
-        public YCString(string varname)
+        public YCString(string varname, string[] autocompleteOptions = null)
         {
             variableName = varname;
+            hasArray = autocompleteOptions != null;
+
+            this.autocompleteOptions = autocompleteOptions;
         }
     }
 }

@@ -4,6 +4,7 @@ using System.Linq;
 using System.Reflection;
 using System.Security.Cryptography;
 using System.Xml;
+using Codice.CM.Client.Differences.Merge;
 using UnityEditor;
 using UnityEditor.SearchService;
 using UnityEngine;
@@ -394,7 +395,25 @@ namespace YShared.Console
                     if (cmd.functionParameters[i].hasDefault)
                         defaulttext = $" = {cmd.functionParameters[i].defaultval}";
 
-                    parts.Add($"\n- {cmd.arguments[i].getDescriptionText()}{defaulttext}"); 
+                    string nextline = $"{cmd.arguments[i].getDescriptionText()}{defaulttext}";
+
+                    if (cmd.arguments[i].hasAutocompleteArray)
+                    {
+                        string autocompletePreview = "Options: (";
+                        List<string> autocompleteParts = new();
+
+                        foreach (string s in cmd.arguments[i].getAutocompleteArray())
+                        {
+                            autocompleteParts.Add(s);
+                        }
+
+                        autocompletePreview += string.Join(", ", autocompleteParts);
+
+                        autocompletePreview += ")";
+                        nextline += " " + autocompletePreview;
+                    }
+
+                    parts.Add($"\n- {nextline}"); 
                 }
 
 

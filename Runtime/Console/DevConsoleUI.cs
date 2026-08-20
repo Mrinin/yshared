@@ -96,15 +96,16 @@ namespace YShared.Console
 
             if (autocompleteRoot != null && autocompleteRoot.gameObject.activeSelf)
             {
-                if (kb.upArrowKey.wasPressedThisFrame) { MoveAutocomplete(-1); return; }
-                if (kb.downArrowKey.wasPressedThisFrame) { MoveAutocomplete(1); return; }
+                if (IsUpArrow()) { MoveAutocomplete(-1); return; }
+                if (IsDownArrow()) { MoveAutocomplete(1); return; }
+
                 if (kb.tabKey.wasPressedThisFrame) { AcceptAutocomplete(); return; }
                 if (kb.escapeKey.wasPressedThisFrame) { HideAutocomplete(); return; }
             }
             else
             {
-                if (kb.upArrowKey.wasPressedThisFrame) { StepHistory(-1); return; }
-                if (kb.downArrowKey.wasPressedThisFrame) { StepHistory(1); return; }
+                if (IsUpArrow()) { StepHistory(-1); return; }
+                if (IsDownArrow()) { StepHistory(1); return; }
             }
 
             if (kb.enterKey.wasPressedThisFrame || kb.numpadEnterKey.wasPressedThisFrame)
@@ -113,6 +114,11 @@ namespace YShared.Console
                     AcceptAutocomplete();
                 else
                     OnSubmit(inputField.text);
+            }
+
+            if (IsMegaOmegaDelete())
+            {
+                DeleteCtrlBacksapce();
             }
         }
 
@@ -348,7 +354,9 @@ namespace YShared.Console
 
         private void HideAutocomplete()
         {
-            if (autocompleteRoot != null) autocompleteRoot.gameObject.SetActive(false);
+            if (autocompleteRoot != null) 
+                autocompleteRoot.gameObject.SetActive(false);
+
             currentSuggestions.Clear();
             autocompleteIndex = -1;
         }
@@ -378,11 +386,7 @@ namespace YShared.Console
             inputField.text = newText;
             inputField.caretPosition = wordStart + chosen.Length + 1;
 
-            HideAutocomplete();
             inputField.ActivateInputField();
-
-            //OnInputChanged(chosen);
-            //ShowAutocomplete(wordStart);
 
             UpdateAutocompleteListFromText(newText);
             ShowSuggestions("", newText.Length);
@@ -392,16 +396,8 @@ namespace YShared.Console
 
         private float GetTextWidth(string s)
         {
-            return inputField.textComponent.textBounds.size.x;
-            return s.Length * fontSize;
-            return 0;
-            /*if (string.IsNullOrEmpty(s)) 
-                return 0f;
-                
-            var settings = inputField.textComponent.GetGenerationSettings(inputField.textComponent.rectTransform.rect.size);
-            settings.scaleFactor = 1f;
-            var gen = new TextGenerator();
-            return gen.GetPreferredWidth(s, settings);*/
+            //LayoutRebuilder.ForceRebuildLayoutImmediate(inputField.textComponent.rectTransform);
+            return inputField.textComponent.GetPreferredValues().x;
         }
         public void SetFontSize(int size)
         {
@@ -417,6 +413,33 @@ namespace YShared.Console
             rect.sizeDelta = new Vector2(rect.sizeDelta.x, size * 2);
             logText.fontSize = size;
         }
+
+        private void DeleteCtrlBacksapce()
+        {
+            Debug.Log("asd");
+            string text = inputField.text;
+            int caret = inputField.caretPosition;
+            int newCaretPosition = caret;
+
+            while (newCaretPosition > 0 && !char.IsWhiteSpace(text[newCaretPosition - 1]))
+                newCaretPosition--;
+
+            string newText = text.Remove(newCaretPosition, caret - newCaretPosition);
+
+            inputField.text = newText;
+            inputField.caretPosition = newCaretPosition;
+
+            inputField.ActivateInputField();
+
+            UpdateAutocompleteListFromText(newText);
+            ShowSuggestions("", newText.Length);
+
+            //gameObject.SetTimeout(1f, () => ShowAutocomplete(wordStart));
+        }
+        
+        /// COMMANDS
+        /// /// COMMANDS
+        /// /// COMMANDS
 
 
         [YCommand("fontsize", "Change the font size used in this console. Leave empty to check the current value.")]
@@ -437,6 +460,54 @@ namespace YShared.Console
         public static void Clear()
         {
             Instance.ClearLogs();
+        }
+
+        // Delayed Auto Key
+
+        float downArrowKeyLastPress;
+        public bool IsDownArrow()
+        {
+            if (Keyboard.current.downArrowKey.wasPressedThisFrame)
+            {
+                downArrowKeyLastPress = Time.time + 0.5f;
+                return true;
+            }
+
+            if (downArrowKeyLastPress < Time.time && Keyboard.current.downArrowKey.isPressed)
+            {
+                downArrowKeyLastPress = Time.time + 0.05f;
+                return true;
+            }
+
+            return false;
+        }
+
+        float upArrowKeyLastPress;
+        public bool IsUpArrow()
+        {
+            if (Keyboard.current.upArrowKey.wasPressedThisFrame)
+            {
+                upArrowKeyLastPress = Time.time + 0.5f;
+                return true;
+            }
+
+            if (upArrowKeyLastPress < Time.time && Keyboard.current.upArrowKey.isPressed)
+            {
+                upArrowKeyLastPress = Time.time + 0.05f;
+                return true;
+            }
+
+            return false;
+        }
+
+        bool IsMegaOmegaDelete()
+        {
+            /*Debug.Log("lsb" + Keyboard.current.leftShiftKey.isPressed);
+            Debug.Log("bsk" + Keyboard.current.backspaceKey.wasPressedThisFrame);*/
+            if (Keyboard.current.leftShiftKey.isPressed && Keyboard.current.backspaceKey.wasPressedThisFrame)
+                return true;
+
+            return false;
         }
 
         // ---------------------------------------------------------------
