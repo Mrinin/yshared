@@ -28,7 +28,10 @@ namespace YShared.Singleton
             Instance = this as T;
 
             if (CallDontDestroyOnLoad)
+            {
+                gameObject.transform.SetParent(null);
                 DontDestroyOnLoad(gameObject);
+            }
         }
 
         protected virtual void OnDestroy()
