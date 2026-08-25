@@ -5,6 +5,7 @@ using System.Linq;
 using System.Reflection;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices.WindowsRuntime;
+using System.Xml.Schema;
 using UnityEngine;
 
 namespace YShared.Console
@@ -48,18 +49,38 @@ namespace YShared.Console
                 return r;
             }
         }
+
+        public int CommandWordLength;
+        string[] commandWords;
+        public string[] CommandWords
+        {
+            get
+            {
+                if (commandWords != null)
+                    return commandWords;
+
+                commandWords = System.Text.RegularExpressions.Regex.Matches(command, @"[\""].*?[\""]|\S+")
+                    .Select(m => m.Value.Trim('"'))
+                    .ToArray();
+
+                return commandWords;
+            }
+        }
     }
     public static class CommandRegistry
     {
 
         static readonly Dictionary<MethodSignature, Command> commandSignatures = new();
-        public static readonly Dictionary<string, List<Command>> commands = new();
+        //public static readonly Dictionary<string, List<Command>> commands = new();
+        public static readonly CommandNode Root = new();
 
         /// <summary>
         /// The list of all top-level commands active, sorted alphabetically.
         /// Note that there may be duplicate entires because of commands with the same name but with different signatures.
         /// </summary>
-        public static string[] CommandArray;
+        
+        public static Command[] alphabeticalCommands;
+        private static List<Command> Commands = new();
 
         public static int HighestDuplicateCommandAmt;
         public static string HighestDuplicateCommandName;
@@ -67,7 +88,8 @@ namespace YShared.Console
         [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)]
         private static void Initialize()
         {
-            commands.Clear();
+            Root.Clear();
+            Commands.Clear();
 
             foreach (Assembly assembly in AppDomain.CurrentDomain.GetAssemblies())
             {
@@ -83,11 +105,15 @@ namespace YShared.Console
                 }
             }
 
-            CommandArray = commands
+            alphabeticalCommands = Commands
+                .OrderBy(cmd => cmd.command)
+                .ToArray();
+
+            /*CommandArray = commands
                 .Select(cmd => cmd.Key)
                 .Distinct()
                 .OrderBy(cmd => cmd)
-                .ToArray();
+                .ToArray();*/
 
             //Debug.Log($"Registered {commands.Count} game commands.");
         }
@@ -133,6 +159,8 @@ namespace YShared.Console
                 }
             }
 
+            cmd.CommandWordLength = cmd.CommandWords.Length + pi.Length;
+
             var signature = MethodSignature.Create(method);
 
             if (commandSignatures.ContainsKey(signature))
@@ -141,34 +169,56 @@ namespace YShared.Console
             }
 
             commandSignatures[signature] = cmd;
+            Commands.Add(cmd);
 
-            if (commands.TryGetValue(cmd.command, out List<Command> cmdList))
+            CommandNode node = Root;
+
+            foreach (string word in cmd.CommandWords)
             {
-                cmdList.Add(cmd);
+                if (!node.children.TryGetValue(word, out CommandNode child))
+                {
+                    child = new CommandNode();
+                    node.children.Add(word, child);
+                }
+
+                node = child;
             }
-            else
-            {
-                commands.Add(cmd.command, new List<Command>() { cmd } );
-            }
+
+            node.commands.Add(cmd);
         }
 
-        public static bool GetCommands(string[] parts, out List<Command> cmd)
+        public static bool GetCommands(string command_str, out List<Command> cmd)
         {
             cmd = new();
 
-            if (parts.Length == 0)
-                return false;
-
-            string command = parts[0];
-
-            
-
-            if (!commands.TryGetValue(command, out cmd))
+            if (string.IsNullOrEmpty(command_str))
             {
                 return false;
             }
 
-            return true;
+            CommandNode node = Root;
+            bool fail = false;
+
+            foreach (string s in DevConsole.SplitCommand(command_str))
+            {
+                if (node.children.TryGetValue(s, out CommandNode value))
+                {
+                    node = value;
+                }
+                else
+                {
+                    fail = false;
+                    break;
+                }
+            }
+
+            if (!fail)
+            {
+                cmd = node.commands;
+                return true;
+            }
+
+            return false;
         }
     }
 }

@@ -23,16 +23,16 @@ namespace YShared.Console
         static bool ignoreExceedingParameters = true;
         static bool correctIncorrectParametersIfDefaultExists = true;
 
-        static object[] GetParameters(string[] arguments, Command cmd)
+        static object[] GetParameters(string[] parameters, int parameter_start_index, Command cmd)
         {
             // arguments[0] is the command itself
 
             object[] result = new object[cmd.arguments.Length];
             int succesful_parses = 0;
 
-            if (!ignoreExceedingParameters && arguments.Length - 1> cmd.arguments.Length)
+            if (!ignoreExceedingParameters && parameters.Length - parameter_start_index > cmd.arguments.Length)
             {
-                throw new DevConsoleException($"Got more arguments than expected: {result.Length}, Got: {arguments.Length - 1}");
+                throw new DevConsoleException($"Got more arguments than expected: {result.Length}, Got: {parameters.Length - 1}");
             }
 
             for (int i = 0; i < cmd.arguments.Length; i++)
@@ -43,13 +43,15 @@ namespace YShared.Console
                 bool parsing_attempted = false;
                 object parsed_arg = 0;
 
-                if (i + 1 < arguments.Length)
+                int ind = i + parameter_start_index;
+
+                if (ind < parameters.Length)
                 {
                     parsing_attempted = true;
 
                     if (arg is YCInt yc)
                     {
-                        if (yc.Parse<int>(arguments[i + 1], out int val))
+                        if (yc.Parse<int>(parameters[ind], out int val))
                         {
                             parsed_arg = val;
                             par_successfully_acquired = true;
@@ -57,7 +59,7 @@ namespace YShared.Console
                     }
                     else if (arg is YCBool yb)
                     {
-                        if (yb.Parse<bool>(arguments[i + 1], out bool val))
+                        if (yb.Parse<bool>(parameters[ind], out bool val))
                         {
                             parsed_arg = val;
                             par_successfully_acquired = true;
@@ -65,7 +67,7 @@ namespace YShared.Console
                     }
                     else if (arg is YCString ys)
                     {
-                        if (ys.Parse<string>(arguments[i + 1], out string val))
+                        if (ys.Parse<string>(parameters[ind], out string val))
                         {
                             parsed_arg = val;
                             par_successfully_acquired = true;
@@ -73,7 +75,7 @@ namespace YShared.Console
                     }
                     else if (arg is YCEnum ye)
                     {
-                        if (ye.Parse<Enum>(arguments[i + 1], out Enum val))
+                        if (ye.Parse<Enum>(parameters[ind], out Enum val))
                         {
                             parsed_arg = val;
                             par_successfully_acquired = true;
@@ -81,7 +83,7 @@ namespace YShared.Console
                     }
                     else if (arg is YCCmdArg ycmdarg)
                     {
-                        if (ycmdarg.Parse<List<Command>>(arguments[i + 1], out List<Command> val))
+                        if (ycmdarg.Parse<List<Command>>(parameters[ind], out List<Command> val))
                         {
                             parsed_arg = val.ToArray();
                             par_successfully_acquired = true;
@@ -111,7 +113,7 @@ namespace YShared.Console
                 }
                 else
                 {
-                    string s = $"Expected \"{cmd.arguments[i].variableName}\" of type {cmd.arguments[i].getTypeName}";
+                    string s = $"Expected \"{cmd.arguments[i].variableName}\" of type {cmd.arguments[i].getTypeName}.";
                     throw new DevConsoleException("Failed to parse or invalid input. " + s);
                 }
             }
@@ -125,7 +127,7 @@ namespace YShared.Console
         }
 
         // splits command to parts.
-        static string[] SplitCommand(string line)
+        public static string[] SplitCommand(string line)
         {
             return System.Text.RegularExpressions.Regex.Matches(line, @"[\""].*?[\""]|\S+")
                 .Select(m => m.Value.Trim('"'))
@@ -135,12 +137,33 @@ namespace YShared.Console
         public static bool Execute(string line)
         {
             string[] parts = SplitCommand(line);
-            string main_command = parts[0];
+            string main_command = "";
 
-            if (!CommandRegistry.GetCommands(parts, out List<Command> cmds))
+            bool found_command = false;
+            int parameter_start = 0;
+            int parameters_amt = 0;
+            List<Command> cmds = null;
+
+            for (int i = 0; i < parts.Length; i++)
+            {
+                if (i != 0)
+                    main_command += " ";
+
+                main_command += parts[i];
+
+                if (CommandRegistry.GetCommands(main_command, out cmds))
+                {
+                    found_command = true;
+                    parameter_start = i + 1;
+                    parameters_amt = parts.Length - parameter_start;
+                    break;
+                }
+            }
+
+            if (!found_command)
             {
                 feedbackActive = true;
-                DevConsole.Feedback("Invalid command.", FeedbackFlavor.Error);
+                DevConsole.Feedback("Command not found.", FeedbackFlavor.Error);
                 feedbackActive = false;
                 return false;
             }
@@ -156,7 +179,7 @@ namespace YShared.Console
                 correctIncorrectParametersIfDefaultExists = true;
                 commandToRun = cmds[0];
                 
-                success = GetParameters(cmds[0], parts, out parameters, out string failMessage);
+                success = GetParameters(cmds[0], parts, parameter_start, out parameters, out string failMessage);
 
                 if (!success)
                     DevConsole.Feedback(failMessage, FeedbackFlavor.Warning);
@@ -170,7 +193,7 @@ namespace YShared.Console
 
                 for (int i = 0; i < cmds.Count; i++)
                 {
-                    success = GetParameters(cmds[i], parts, out parameters, out failMessages[i]);
+                    success = GetParameters(cmds[i], parts, parameter_start, out parameters, out failMessages[i]);
 
                     if (success)
                     {
@@ -184,7 +207,7 @@ namespace YShared.Console
                 {
                     string error_message;
                     FeedbackFlavor flavor;
-                    if (parts.Length == 1)
+                    if (parameters_amt == 0)
                     {
                         error_message = $"Multiple commands are registered to {main_command}. Options:\n";
                         flavor = FeedbackFlavor.Info;
@@ -236,13 +259,13 @@ namespace YShared.Console
             }
         }
 
-        static bool GetParameters(Command cmd, string[] parts, out object[] parameters, out string propagatedFailMessage)
+        static bool GetParameters(Command cmd, string[] parts, int parameter_start_index, out object[] parameters, out string propagatedFailMessage)
         {
             propagatedFailMessage = "";
 
             try
             {
-                parameters = GetParameters(parts, cmd);
+                parameters = GetParameters(parts, parameter_start_index, cmd);
                 
                 return true;
             } 
@@ -269,69 +292,6 @@ namespace YShared.Console
                 }
             }
         }*/
-
-        public static string[] GetAutocompleteList(string line)
-        {
-            /*if (commandAutocompleteLists == null)
-                CreateAutocompleteList();*/
-
-            if (line.Length == 0)
-                return null;
-
-            bool has_space_at_the_end = line.Substring(line.Length - 1) == " ";
-            string[] parts = SplitCommand(line);
-
-            int next_input = parts.Length - 1;
-            if (has_space_at_the_end)
-                next_input++;
-
-        
-            if (next_input <= 0)
-            {
-                return CommandRegistry.CommandArray;
-            }
-            
-            if (CommandRegistry.GetCommands(parts, out List<Command> cmd))
-            { 
-                next_input--;
-
-                if (cmd.Count == 1)
-                {    
-                    if (next_input < cmd[0].arguments.Length)
-                    {
-                        var param = cmd[0].arguments[next_input];
-
-                        if (param.hasAutocompleteArray)
-                        {
-                            return param.getAutocompleteArray();
-                        }
-                    }
-                }
-                if (cmd.Count >= 2)
-                {
-                    List<string> autocompleteArray = new List<string>(1000);
-
-                    for (int k = 0; k < cmd.Count; k++)
-                    {
-                        Command currentCmd = cmd[k];
-
-                        if (next_input < currentCmd.arguments.Length)
-                        {
-                            var param = currentCmd.arguments[next_input];
-
-                            if (param.hasAutocompleteArray)
-                            {
-                                autocompleteArray.AddRange(param.getAutocompleteArray());
-                            }
-                        }
-                    }
-
-                    return autocompleteArray.ToArray();
-                }
-            }
-
-            return null;
-        }
 
         public static void Feedback(string text, FeedbackFlavor flavor = FeedbackFlavor.Feedback)
         {

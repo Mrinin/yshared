@@ -18,7 +18,7 @@ namespace YShared.Console
             int commands_looped_through = 0;
             int longest_command = 0;
 
-            int page_amount = ((CommandRegistry.commands.Count - 1) / PAGE_SIZE) + 1;
+            int page_amount = ((CommandRegistry.alphabeticalCommands.Length - 1) / PAGE_SIZE) + 1;
 
             if (page > page_amount)
             {
@@ -41,7 +41,7 @@ namespace YShared.Console
 
             List<Command> printCommands = new List<Command>();
 
-            foreach (var kvp in CommandRegistry.commands)
+            foreach (Command cmd in CommandRegistry.alphabeticalCommands)
             {
                 if (page != 0)
                 {
@@ -54,10 +54,10 @@ namespace YShared.Console
                     commands_looped_through++;
                 }
 
-                printCommands.AddRange(kvp.Value);
+                printCommands.Add(cmd);
 
-                if (kvp.Key.Length > longest_command)
-                    longest_command = kvp.Key.Length;
+                if (cmd.command.Length > longest_command)
+                    longest_command = cmd.command.Length;
 
                 commands_showed++;
             }

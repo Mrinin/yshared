@@ -12,7 +12,6 @@ using YShared.Singleton;
 
 namespace YShared.Console
 {
-
     public class DevConsoleUI : YSingleton<DevConsoleUI>
     {
         public override bool CallDontDestroyOnLoad => true;
@@ -63,7 +62,8 @@ namespace YShared.Console
 
             AppendLogLine("UberYagiz+ Console - \"help\" for list of commands.", FeedbackFlavor.Misc);
 
-            SetAutocompleteList(CommandRegistry.CommandArray);
+            //SetAutocompleteList(CommandRegistry.RootCommandArray);
+            UpdateAutocompleteListFromText("");
         }
 
         protected override void OnDestroy()
@@ -215,7 +215,7 @@ namespace YShared.Console
                 case FeedbackFlavor.Error: hex = "#FF4C4C"; break;
                 case FeedbackFlavor.Misc: hex = "#1980ff"; break;
                 case FeedbackFlavor.Command: hex = "#4C9CFF"; break;
-                case FeedbackFlavor.Info:
+                case FeedbackFlavor.Info: hex = "#adadad"; break;
                 case FeedbackFlavor.Feedback:
                     default: hex = "#FFFFFF"; break; // Feedback, Info
             }
@@ -292,7 +292,7 @@ namespace YShared.Console
 
         void UpdateAutocompleteListFromText(string text)
         {
-            string[] lst = DevConsole.GetAutocompleteList(text);
+            string[] lst = Autocomplete.GetAutocompleteList(text);
             SetAutocompleteList(lst);
         }
 

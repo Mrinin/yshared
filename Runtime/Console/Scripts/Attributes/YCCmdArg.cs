@@ -14,7 +14,7 @@ namespace YShared.Console
         public override bool hasAutocompleteArray => true;
         public override string[] getAutocompleteArray()
         {
-            return CommandRegistry.CommandArray;
+            return Autocomplete.RootCommandArray;
         }
 
         // Unused for this argument type
@@ -24,13 +24,12 @@ namespace YShared.Console
         {
             val = default;
 
-            if (CommandRegistry.commands.TryGetValue(s, out var cmd))
+            if (CommandRegistry.GetCommands(s, out var cmds))
             {
-                val = (T)(object)cmd;
-
+                val = (T)(object)cmds;
+                
                 return true;
             }
-
 
             return false;
         }
