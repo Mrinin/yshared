@@ -113,7 +113,7 @@ namespace YShared.Console
                 }
                 else
                 {
-                    string s = $"Expected \"{cmd.arguments[i].variableName}\" of type {cmd.arguments[i].getTypeName}.";
+                    string s = $"Expected \"{cmd.arguments[i].variableName}\" of type {cmd.arguments[i].getTypeName}.\nProper usage: {cmd.ProperUsage}";
                     throw new DevConsoleException("Failed to parse or invalid input. " + s);
                 }
             }
@@ -126,47 +126,47 @@ namespace YShared.Console
             return result;
         }
 
-        // splits command to parts.
-        public static string[] SplitCommand(string line)
-        {
-            return System.Text.RegularExpressions.Regex.Matches(line, @"[\""].*?[\""]|\S+")
-                .Select(m => m.Value.Trim('"'))
-                .ToArray();
-        }
-
         public static bool Execute(string line)
         {
-            string[] parts = SplitCommand(line);
-            string main_command = "";
-
-            bool found_command = false;
-            int parameter_start = 0;
-            int parameters_amt = 0;
-            List<Command> cmds = null;
-
-            for (int i = 0; i < parts.Length; i++)
+            string[] parts = CommandsHelper.SplitCommand(line);
+            if (parts.Length == 0)
             {
-                if (i != 0)
-                    main_command += " ";
+                Debug.Log("Early exit?");
+                return false;
+            }
 
-                main_command += parts[i];
+            int wordCount = parts.Length;
 
-                if (CommandRegistry.GetCommands(main_command, out cmds))
+            CommandNode node = CommandRegistry.Root;
+
+            // Traverse all completely entered command words.
+            int parameter_start = 0;
+
+            for (int i = 0; i < wordCount; i++)
+            {
+                if (node.children.ContainsKey(parts[i]))
                 {
-                    found_command = true;
-                    parameter_start = i + 1;
-                    parameters_amt = parts.Length - parameter_start;
+                    node = node.children[parts[i]];
+                    parameter_start++;
+                }
+                else
+                {
                     break;
                 }
             }
 
-            if (!found_command)
+            bool empty_input = parameter_start == parts.Length;
+
+            if (node.commands.Count == 0)
             {
-                feedbackActive = true;
-                DevConsole.Feedback("Command not found.", FeedbackFlavor.Error);
-                feedbackActive = false;
+                string entered_command_portion = string.Join(" ", parts.Take(parameter_start));
+                DisplayCommandIndistinctionFailure(node, empty_input, entered_command_portion, parts[^1]);
                 return false;
             }
+
+            string main_command = node.commands[0].command;
+
+            List<Command> cmds = node.commands;
 
             feedbackActive = true;
             bool success = false;
@@ -207,7 +207,8 @@ namespace YShared.Console
                 {
                     string error_message;
                     FeedbackFlavor flavor;
-                    if (parameters_amt == 0)
+
+                    if (empty_input)
                     {
                         error_message = $"Multiple commands are registered to {main_command}. Options:\n";
                         flavor = FeedbackFlavor.Info;
@@ -277,21 +278,33 @@ namespace YShared.Console
             }
         }
 
-        /*public static void CreateAutocompleteList()
+        static void DisplayCommandIndistinctionFailure(CommandNode node, bool isParametersEmpty, string commandPortion, string lastWord)
         {
-            commandAutocompleteLists = new();
+            feedbackActive = true;
 
-            foreach (var kvp in CommandRegistry.commands)
+            if (node == CommandRegistry.Root)
             {
-                List<string> autocompletes = new();
-
-                foreach (Command subcommand in kvp.Value)
-                {
-                    if (subcommand.arguments[].)
-                    autocompletes.Add(sub))
-                }
+                DevConsole.Feedback("Command not found.", FeedbackFlavor.Error);    
             }
-        }*/
+            else
+            {
+                if (!isParametersEmpty)
+                {
+                    DevConsole.Feedback($"\"{lastWord}\" is not a valid subcommand of {commandPortion}", FeedbackFlavor.Error);
+                }
+
+                List<Command> subcommands = new();
+                CommandRegistry.GetRecursiveCommands(node, subcommands);
+
+                string result = $"\"{commandPortion}\" contains {subcommands.Count} subcommands:\n";
+                result += CommandsHelper.PrintCommands(subcommands, "  ");
+
+
+                DevConsole.Feedback(result, FeedbackFlavor.Info);
+            }
+
+            feedbackActive = false;
+        }
 
         public static void Feedback(string text, FeedbackFlavor flavor = FeedbackFlavor.Feedback)
         {
@@ -299,6 +312,11 @@ namespace YShared.Console
             {
                 CommandFeedback?.Invoke(text, flavor);
             }
+        }
+
+        public static void Log(string text, FeedbackFlavor flavor = FeedbackFlavor.Feedback)
+        {
+            CommandFeedback?.Invoke(text, flavor);
         }
     }
     

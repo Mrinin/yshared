@@ -23,7 +23,7 @@ namespace YShared.Console
         [Header("Autocomplete")]
         [Tooltip("Editable at runtime via AddAutocompleteCommand / RemoveAutocompleteCommand / SetAutocompleteList.")]
         string[] autocompleteCommands;
-        [SerializeField] private int maxAutocompleteResults = 6;
+        [SerializeField] private int autocompleteAmount = 7;
 
         private const int MAX_LOG_ENTRIES = 100;
         private const int MAX_COMMMAND_HISTORY = 10;
@@ -32,12 +32,14 @@ namespace YShared.Console
         [SerializeField] Canvas canvas;
         [SerializeField] RectTransform panelRect;
         [SerializeField] ScrollRect scrollRect;
-        [SerializeField] RectTransform contentRect;
         [SerializeField] TextMeshProUGUI logText;
         [SerializeField] TMP_InputField inputField;
         [SerializeField] RectTransform inputRect;
         [SerializeField] RectTransform autocompleteRoot;
-        [SerializeField] List<TextMeshProUGUI> autocompleteRows = new List<TextMeshProUGUI>();
+        [SerializeField] TextMeshProUGUI autocompleteRow;
+        TextMeshProUGUI autocompleteTopRow;
+        TextMeshProUGUI autocompleteBottomRow;
+        List<TextMeshProUGUI> autocompleteRows = new List<TextMeshProUGUI>();
 
 
         private List<string> currentSuggestions = new List<string>();
@@ -56,6 +58,7 @@ namespace YShared.Console
 
         private void Start()
         {
+            CreateAutocomplete();
             SetFontSize(fontSize);
 
             DevConsole.CommandFeedback += RecievedFeedback;
@@ -110,10 +113,7 @@ namespace YShared.Console
 
             if (kb.enterKey.wasPressedThisFrame || kb.numpadEnterKey.wasPressedThisFrame)
             {
-                if (autocompleteRoot != null && autocompleteRoot.gameObject.activeSelf)
-                    AcceptAutocomplete();
-                else
-                    OnSubmit(inputField.text);
+                OnSubmit(inputField.text);
             }
 
             if (IsMegaOmegaDelete())
@@ -130,9 +130,6 @@ namespace YShared.Console
         {
             if (isAnimating)
                 StopCoroutine(slideRoutine);
-
-            if (canvas == null) 
-                BuildUI();
 
             isOpen = !isOpen;
             canvas.gameObject.SetActive(true);
@@ -283,9 +280,9 @@ namespace YShared.Console
         // ---------------------------------------------------------------
 
         string[] emptyCommandList = new string[] { } ;
-        public void SetAutocompleteList(string[] commands) {
-            if (commands == null)
-                commands = emptyCommandList;
+        public void SetAutocompleteList(string[] commands) 
+        {
+            commands ??= emptyCommandList;
 
             autocompleteCommands = commands;
         }
@@ -301,7 +298,6 @@ namespace YShared.Console
             currentSuggestions = autocompleteCommands
                 .Where(c => c.StartsWith(beginning, StringComparison.OrdinalIgnoreCase))
                 .OrderBy(c => c.Length)
-                .Take(maxAutocompleteResults)
                 .ToList();
 
             if (currentSuggestions.Count == 0)
@@ -337,11 +333,21 @@ namespace YShared.Console
             for (int i = 0; i < autocompleteRows.Count; i++)
                 autocompleteRows[i].gameObject.SetActive(i < currentSuggestions.Count);
 
-            for (int i = 0; i < currentSuggestions.Count; i++)
+            
+            for (int i = 0; i < autocompleteAmount; i++)
             {
-                autocompleteRows[i].text = currentSuggestions[i];
+                autocompleteRows[i].text = currentSuggestions[Mathf.Clamp(i, 0, currentSuggestions.Count - 1)];
                 autocompleteRows[i].color = i == autocompleteIndex ? Color.yellow : Color.white;
             }
+
+            bool allVisibleAtOnce = currentSuggestions.Count <= autocompleteAmount;
+            autocompleteBottomRow.gameObject.SetActive(!allVisibleAtOnce);
+            autocompleteTopRow.gameObject.SetActive(!allVisibleAtOnce);
+
+            int largest_width = currentSuggestions.Max(str => str.Length);
+            autocompleteRoot.sizeDelta = new Vector2(largest_width * fontSize, autocompleteRoot.sizeDelta.y);
+
+            MoveAutocomplete(0);
 
             // Position the popup horizontally over the word being typed, just above the input field.
             float wordX = GetTextWidth(inputField.text.Substring(0, wordStartIndex));
@@ -361,17 +367,94 @@ namespace YShared.Console
             autocompleteIndex = -1;
         }
 
+        private int selectedSuggestionIndex = 0;        // Index in currentSuggestions
+        private int autocompleteScrollOffset = 0;       // First visible suggestion
+
         private void MoveAutocomplete(int dir)
         {
-            if (currentSuggestions.Count == 0) return;
-            autocompleteIndex = (autocompleteIndex + dir + currentSuggestions.Count) % currentSuggestions.Count;
-            for (int i = 0; i < currentSuggestions.Count; i++)
+            if (currentSuggestions.Count == 0)
+                return;
+
+            int count = currentSuggestions.Count;
+            int visibleCount = Mathf.Min(autocompleteAmount, count);
+            int maxScroll = count - visibleCount; // the index at which the highest scroll amount is reached
+            bool allVisibleAtOnce = maxScroll == 0;
+
+            // Move through the actual suggestion list.
+            selectedSuggestionIndex = selectedSuggestionIndex + dir;
+
+            if (selectedSuggestionIndex < 0)
+            {
+                selectedSuggestionIndex = count - 1;
+                autocompleteScrollOffset = maxScroll;
+            }
+
+            if (selectedSuggestionIndex >= count)
+            {
+                selectedSuggestionIndex = 0;
+                autocompleteScrollOffset = 0;
+            }
+
+            int halfway = visibleCount / 2;
+
+            // Move selection relative to the visible window.
+            int relativeIndex = selectedSuggestionIndex - autocompleteScrollOffset;
+
+            // Moving down past the halfway point.
+            if (dir > 0 && (relativeIndex - 1) >= halfway)
+            {
+                if (autocompleteScrollOffset < maxScroll)
+                    autocompleteScrollOffset++;
+            }
+
+            // Moving up past the halfway point.
+            else if (dir < 0 && (relativeIndex + 1) <= halfway)
+            {
+                if (autocompleteScrollOffset > 0)
+                    autocompleteScrollOffset--;
+            }
+
+            // Calculate which visible row the selected suggestion occupies.
+            autocompleteIndex = selectedSuggestionIndex - autocompleteScrollOffset;
+
+            // Update the visible rows.
+            for (int i = 0; i < visibleCount; i++)
+            {
+                int suggestionIndex = autocompleteScrollOffset + i;
+
+                autocompleteRows[i].text = currentSuggestions[suggestionIndex];
+
                 autocompleteRows[i].color = i == autocompleteIndex ? Color.yellow : Color.white;
+            }
+
+            // Hide unused rows.
+            for (int i = visibleCount; i < autocompleteAmount; i++)
+            {
+                autocompleteRows[i].text = "";
+            }
+
+            if (allVisibleAtOnce)
+            {
+                autocompleteTopRow.text = "";
+                autocompleteBottomRow.text = "";
+            }
+            else
+            {
+                if (autocompleteScrollOffset == 0)
+                    autocompleteTopRow.text = $" - ";
+                else
+                    autocompleteTopRow.text = $" ^ {autocompleteScrollOffset}";
+
+                if (autocompleteScrollOffset == maxScroll)
+                    autocompleteBottomRow.text = $" - ";
+                else
+                    autocompleteBottomRow.text = $" v {maxScroll - autocompleteScrollOffset}";
+            }
         }
 
         private void AcceptAutocomplete()
         {
-            if (autocompleteIndex < 0 || autocompleteIndex >= currentSuggestions.Count)
+            if (selectedSuggestionIndex < 0 || selectedSuggestionIndex >= currentSuggestions.Count)
                 return;
 
             string text = inputField.text;
@@ -380,7 +463,7 @@ namespace YShared.Console
 
             //wordStart = inputField.text.Length;
 
-            string chosen = currentSuggestions[autocompleteIndex];
+            string chosen = currentSuggestions[selectedSuggestionIndex];
             string newText = text.Substring(0, wordStart) + chosen + " " + text.Substring(caret);
 
             inputField.text = newText;
@@ -407,6 +490,9 @@ namespace YShared.Console
             {
                 autocompleteRows[i].fontSize = size;
             }
+
+            autocompleteBottomRow.fontSize = size;
+            autocompleteTopRow.fontSize = size;
 
             inputField.pointSize = size;
             RectTransform rect = inputField.GetComponent<RectTransform>();
@@ -509,157 +595,23 @@ namespace YShared.Console
             return false;
         }
 
-        // ---------------------------------------------------------------
-        // UI construction - built once, on first toggle
-        // ---------------------------------------------------------------
-
-        [ContextMenu("Build UI")]
-        private void BuildUI()
+        // Create Autocomplete Files
+        public void CreateAutocomplete()
         {
-            return;
-            /*GameObject canvasGO = new GameObject("DevConsoleCanvas", typeof(Canvas), typeof(CanvasScaler), typeof(GraphicRaycaster));
-            canvas = canvasGO.GetComponent<Canvas>();
-            canvas.renderMode = RenderMode.ScreenSpaceOverlay;
-            canvas.sortingOrder = 5000;
-            var scaler = canvasGO.GetComponent<CanvasScaler>();
-            scaler.uiScaleMode = CanvasScaler.ScaleMode.ScaleWithScreenSize;
-            scaler.referenceResolution = new Vector2(1920, 1080);
-            canvasGO.transform.SetParent(transform, false);
+            autocompleteTopRow = GameObject.Instantiate(autocompleteRow, autocompleteRoot);
+            autocompleteTopRow.text = "";
 
-            // Panel covers the top half of the screen, starts slid off above it.
-            GameObject panelGO = new GameObject("Panel", typeof(Image));
-            panelRect = panelGO.GetComponent<RectTransform>();
-            panelGO.transform.SetParent(canvasGO.transform, false);
-            panelRect.anchorMin = new Vector2(0f, 0.5f);
-            panelRect.anchorMax = new Vector2(1f, 1f);
-            panelRect.offsetMin = Vector2.zero;
-            panelRect.offsetMax = Vector2.zero;
-            panelGO.GetComponent<Image>().color = backgroundColor;
-            panelRect.anchoredPosition = new Vector2(0f, panelRect.rect.height > 0f ? panelRect.rect.height : Screen.height * 0.5f);
-
-            // Scrollable log.
-            GameObject scrollGO = new GameObject("LogScroll", typeof(ScrollRect), typeof(Image));
-            scrollGO.transform.SetParent(panelGO.transform, false);
-            RectTransform scrollRT = scrollGO.GetComponent<RectTransform>();
-            scrollRT.anchorMin = new Vector2(0f, 0f);
-            scrollRT.anchorMax = new Vector2(1f, 1f);
-            scrollRT.offsetMin = new Vector2(8f, 40f); // room for input field
-            scrollRT.offsetMax = new Vector2(-8f, -8f);
-            scrollGO.GetComponent<Image>().color = new Color(0f, 0f, 0f, 0.01f); // needed for it to receive scroll input
-            scrollRect = scrollGO.GetComponent<ScrollRect>();
-            scrollRect.horizontal = false;
-
-            GameObject viewportGO = new GameObject("Viewport", typeof(Image), typeof(Mask));
-            viewportGO.transform.SetParent(scrollGO.transform, false);
-            RectTransform viewportRT = viewportGO.GetComponent<RectTransform>();
-            viewportRT.anchorMin = Vector2.zero;
-            viewportRT.anchorMax = Vector2.one;
-            viewportRT.offsetMin = Vector2.zero;
-            viewportRT.offsetMax = Vector2.zero;
-            viewportGO.GetComponent<Image>().color = new Color(1f, 1f, 1f, 0.001f);
-            viewportGO.GetComponent<Mask>().showMaskGraphic = false;
-
-            GameObject contentGO = new GameObject("Content", typeof(ContentSizeFitter), typeof(VerticalLayoutGroup));
-            contentGO.transform.SetParent(viewportGO.transform, false);
-            contentRect = contentGO.GetComponent<RectTransform>();
-            contentRect.anchorMin = new Vector2(0f, 1f);
-            contentRect.anchorMax = new Vector2(1f, 1f);
-            contentRect.pivot = new Vector2(0f, 1f);
-            contentGO.GetComponent<ContentSizeFitter>().verticalFit = ContentSizeFitter.FitMode.PreferredSize;
-            var vlg = contentGO.GetComponent<VerticalLayoutGroup>();
-            vlg.childForceExpandHeight = false;
-            vlg.childControlHeight = true;
-
-            GameObject textGO = new GameObject("LogText", typeof(Text), typeof(ContentSizeFitter));
-            textGO.transform.SetParent(contentGO.transform, false);
-            logText = textGO.GetComponent<Text>();
-            logText.font = font != null ? font : Resources.GetBuiltinResource<Font>("Arial.ttf");
-            logText.fontSize = fontSize;
-            logText.supportRichText = true;
-            logText.color = Color.white;
-            logText.alignment = TextAnchor.LowerLeft;
-            logText.horizontalOverflow = HorizontalWrapMode.Wrap;
-            logText.verticalOverflow = VerticalWrapMode.Overflow;
-            textGO.GetComponent<ContentSizeFitter>().verticalFit = ContentSizeFitter.FitMode.PreferredSize;
-
-            scrollRect.viewport = viewportRT;
-            scrollRect.content = contentRect;
-            scrollRect.vertical = true;
-
-            // Input field, pinned to the bottom of the panel.
-            GameObject inputGO = new GameObject("Input", typeof(Image), typeof(InputField));
-            inputGO.transform.SetParent(panelGO.transform, false);
-            inputRect = inputGO.GetComponent<RectTransform>();
-            inputRect.anchorMin = new Vector2(0f, 0f);
-            inputRect.anchorMax = new Vector2(1f, 0f);
-            inputRect.pivot = new Vector2(0f, 0f);
-            inputRect.sizeDelta = new Vector2(0f, 32f);
-            inputRect.anchoredPosition = new Vector2(8f, 4f);
-            inputGO.GetComponent<Image>().color = new Color(1f, 1f, 1f, 0.08f);
-
-            GameObject inputTextGO = new GameObject("Text", typeof(Text));
-            inputTextGO.transform.SetParent(inputGO.transform, false);
-            RectTransform inputTextRT = inputTextGO.GetComponent<RectTransform>();
-            inputTextRT.anchorMin = Vector2.zero;
-            inputTextRT.anchorMax = Vector2.one;
-            inputTextRT.offsetMin = new Vector2(6f, 2f);
-            inputTextRT.offsetMax = new Vector2(-6f, -2f);
-            Text inputText = inputTextGO.GetComponent<Text>();
-            inputText.font = logText.font;
-            inputText.fontSize = fontSize;
-            inputText.color = Color.white;
-            inputText.alignment = TextAnchor.MiddleLeft;
-
-            GameObject placeholderGO = new GameObject("Placeholder", typeof(Text));
-            placeholderGO.transform.SetParent(inputGO.transform, false);
-            RectTransform placeholderRT = placeholderGO.GetComponent<RectTransform>();
-            placeholderRT.anchorMin = Vector2.zero;
-            placeholderRT.anchorMax = Vector2.one;
-            placeholderRT.offsetMin = new Vector2(6f, 2f);
-            placeholderRT.offsetMax = new Vector2(-6f, -2f);
-            Text placeholderText = placeholderGO.GetComponent<Text>();
-            placeholderText.font = logText.font;
-            placeholderText.fontSize = fontSize;
-            placeholderText.color = new Color(1f, 1f, 1f, 0.4f);
-            placeholderText.text = "enter command...";
-
-            inputField = inputGO.GetComponent<InputField>();
-            inputField.textComponent = inputText;
-            inputField.placeholder = placeholderText;
-            inputField.lineType = InputField.LineType.SingleLine;
-            inputField.onValueChanged.AddListener(OnInputChanged);
-
-            // Autocomplete popup - repositioned per keystroke over the word being typed.
-            GameObject acRootGO = new GameObject("Autocomplete", typeof(Image), typeof(VerticalLayoutGroup), typeof(ContentSizeFitter));
-            acRootGO.transform.SetParent(panelGO.transform, false);
-            autocompleteRoot = acRootGO.GetComponent<RectTransform>();
-            autocompleteRoot.anchorMin = new Vector2(0f, 0f);
-            autocompleteRoot.anchorMax = new Vector2(0f, 0f);
-            autocompleteRoot.pivot = new Vector2(0f, 0f);
-            acRootGO.GetComponent<Image>().color = new Color(0.05f, 0.05f, 0.05f, 0.95f);
-            var acLayout = acRootGO.GetComponent<VerticalLayoutGroup>();
-            acLayout.childForceExpandWidth = false;
-            acLayout.childControlWidth = true;
-            acLayout.padding = new RectOffset(4, 4, 4, 4);
-            var acFitter = acRootGO.GetComponent<ContentSizeFitter>();
-            acFitter.horizontalFit = ContentSizeFitter.FitMode.PreferredSize;
-            acFitter.verticalFit = ContentSizeFitter.FitMode.PreferredSize;
-
-            for (int i = 0; i < maxAutocompleteResults; i++)
+            for (int i = 0; i < autocompleteAmount; i++)
             {
-                GameObject rowGO = new GameObject($"Row{i}", typeof(Text), typeof(LayoutElement));
-                rowGO.transform.SetParent(acRootGO.transform, false);
-                Text rowText = rowGO.GetComponent<Text>();
-                rowText.font = logText.font;
-                rowText.fontSize = fontSize;
-                rowText.color = Color.white;
-                rowGO.GetComponent<LayoutElement>().minWidth = 120f;
-                autocompleteRows.Add(rowText);
+                TextMeshProUGUI txt = GameObject.Instantiate(autocompleteRow, autocompleteRoot);
+                txt.text = "";
+                autocompleteRows.Add(txt);
             }
-            autocompleteRoot.gameObject.SetActive(false);
 
-            // Flush anything received before the UI was built.
-            RebuildLogText();*/
+            autocompleteBottomRow = GameObject.Instantiate(autocompleteRow, autocompleteRoot);
+            autocompleteBottomRow.text = "";
+
+            autocompleteRow.gameObject.SetActive(false);
         }
     }
 }

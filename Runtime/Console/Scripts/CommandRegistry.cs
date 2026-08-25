@@ -10,63 +10,6 @@ using UnityEngine;
 
 namespace YShared.Console
 {
-    public struct Parameter
-    {
-        public bool hasDefault;
-        public object defaultval;
-    }
-
-    public class Command
-    {
-        public string command;
-        public string description;
-        public YCmdArgumentAttribute[] arguments;
-        public MethodInfo action;
-        public Parameter[] functionParameters;
-
-
-        string formattedArguments;
-
-        public string FormattedArguments
-        {
-            get
-            {
-                if (formattedArguments != null)
-                    return formattedArguments;
-
-                List<string> parts = new();
-                for (int i = 0; i < arguments.Length; i++)
-                {
-                    string defaulttext = "";
-                    if (functionParameters[i].hasDefault)
-                        defaulttext = $"={functionParameters[i].defaultval}";
-
-                    parts.Add($"[{arguments[i].getDescriptorText()}{defaulttext}]");
-                }
-
-                string r = string.Join(" ", parts);
-                formattedArguments = r;
-                return r;
-            }
-        }
-
-        public int CommandWordLength;
-        string[] commandWords;
-        public string[] CommandWords
-        {
-            get
-            {
-                if (commandWords != null)
-                    return commandWords;
-
-                commandWords = System.Text.RegularExpressions.Regex.Matches(command, @"[\""].*?[\""]|\S+")
-                    .Select(m => m.Value.Trim('"'))
-                    .ToArray();
-
-                return commandWords;
-            }
-        }
-    }
     public static class CommandRegistry
     {
 
@@ -108,14 +51,6 @@ namespace YShared.Console
             alphabeticalCommands = Commands
                 .OrderBy(cmd => cmd.command)
                 .ToArray();
-
-            /*CommandArray = commands
-                .Select(cmd => cmd.Key)
-                .Distinct()
-                .OrderBy(cmd => cmd)
-                .ToArray();*/
-
-            //Debug.Log($"Registered {commands.Count} game commands.");
         }
 
         private static IEnumerable<Type> GetTypesSafe(Assembly assembly)
@@ -158,11 +93,16 @@ namespace YShared.Console
                     cmd.functionParameters[i].defaultval = pi[i].DefaultValue;
                 }
             }
+            cmd.ProperUsageWordAmount = cmd.CommandWords.Length + pi.Length;
 
-            cmd.CommandWordLength = cmd.CommandWords.Length + pi.Length;
+            cmd.aliases = new();
+            var aliases = method.GetCustomAttributes<AliasAttribute>().ToArray();
+            foreach (AliasAttribute alias in aliases)
+            {
+                cmd.aliases.Add(alias.Shorthand, new(alias));
+            }
 
             var signature = MethodSignature.Create(method);
-
             if (commandSignatures.ContainsKey(signature))
             {
                 throw new Exception($"Two methods with the same function signature was attempted to be registered to the CommandRegistry.\nKeeping: \"{commandSignatures[signature].action.Name}\", Not Registering: \"{method.Name}\"");
@@ -199,7 +139,7 @@ namespace YShared.Console
             CommandNode node = Root;
             bool fail = false;
 
-            foreach (string s in DevConsole.SplitCommand(command_str))
+            foreach (string s in CommandsHelper.SplitCommand(command_str))
             {
                 if (node.children.TryGetValue(s, out CommandNode value))
                 {
@@ -219,6 +159,16 @@ namespace YShared.Console
             }
 
             return false;
+        }
+
+        public static void GetRecursiveCommands(CommandNode node, List<Command> commands)
+        {
+            commands.AddRange(node.commands);
+
+            foreach (var kvp in node.children)
+            {
+                GetRecursiveCommands(kvp.Value, commands);
+            }
         }
     }
 }

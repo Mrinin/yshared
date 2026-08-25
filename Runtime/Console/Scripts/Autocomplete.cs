@@ -8,6 +8,15 @@ namespace YShared.Console
     public static class Autocomplete
     {
         public static string[] RootCommandArray;
+        static string[] commandAsAnArgumentAutocompleteArray;
+        public static string[] CommandAsAnArgumentAutocompleteArray()
+        {
+            if (commandAsAnArgumentAutocompleteArray != null)
+                return commandAsAnArgumentAutocompleteArray;
+
+            commandAsAnArgumentAutocompleteArray = CommandRegistry.alphabeticalCommands.Select(str => $"\"{str.command}\"").ToArray();
+            return commandAsAnArgumentAutocompleteArray;
+        }
         
         public static string[] GetAutocompleteList(string line)
         {
@@ -20,12 +29,9 @@ namespace YShared.Console
                 return RootCommandArray;
 
             bool trailingSpace = line[^1] == ' ';
-            string[] parts = DevConsole.SplitCommand(line);
+            string[] parts = CommandsHelper.SplitCommand(line);
 
             int wordCount = parts.Length;
-
-            /*if (!trailingSpace)
-                wordCount--;*/
 
             CommandNode node = CommandRegistry.Root;
 
@@ -37,17 +43,6 @@ namespace YShared.Console
                     node = node.children[parts[i]];
                 }
             }
-
-            // We're currently typing a command word.
-            /*if (!trailingSpace)
-            {
-                Debug.Log("typing commandword?");
-                string prefix = parts[^1];
-
-                return node.children.Keys
-                    .Where(x => x.StartsWith(prefix, System.StringComparison.OrdinalIgnoreCase))
-                    .ToArray();
-            }*/
 
             // We're after a complete command word.
             // Therefore either another command word or an argument can follow.

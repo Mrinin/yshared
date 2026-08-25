@@ -56,40 +56,12 @@ namespace YShared.Console
 
                 printCommands.Add(cmd);
 
-                if (cmd.command.Length > longest_command)
-                    longest_command = cmd.command.Length;
-
                 commands_showed++;
             }
 
-            foreach (Command cmd in printCommands)
-            {
-                List<string> parts = new(10);
+            result += CommandsHelper.PrintCommands(printCommands);
 
-                parts.Add("-");
-
-                string padded = cmd.command.PadRight(longest_command + 1);
-                parts.Add(padded);
-
-                for (int i = 0; i < cmd.arguments.Length; i++)
-                {
-                    string defaulttext = "";
-                    if (cmd.functionParameters[i].hasDefault)
-                        defaulttext = $"={cmd.functionParameters[i].defaultval}";
-
-                    parts.Add($"[{cmd.arguments[i].getDescriptorText()}{defaulttext}]");
-                }
-
-                if (string.IsNullOrEmpty(cmd.description))
-                    parts.Add("(No description)");
-                else
-                    parts.Add(cmd.description);
-
-                string r = string.Join(" ", parts);
-                result += r + "\n";
-
-                DevConsole.Feedback(r);
-            }
+            DevConsole.Feedback(result);
         }
 
         [YCommand("help", "Show the usage of a specific command")]
