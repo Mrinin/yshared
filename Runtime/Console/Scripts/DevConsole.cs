@@ -245,7 +245,57 @@ namespace YShared.Console
         {
             try
             {
-                cmd.action.Invoke(null, parameters);
+                if (cmd.action.IsStatic)
+                {
+                    cmd.action.Invoke(null, parameters);                
+                }
+                else
+                {
+                    Type t = cmd.action.DeclaringType;
+
+                    if (cmd.objectFindType == ObjectFindType.First)
+                    {
+                        UnityEngine.Object obj = GameObject.FindFirstObjectByType(t, cmd.findObjectsInactive);
+                        if (obj == null)
+                        {
+                            DevConsole.Feedback(
+                                $"Command \"{cmd.command}\" calls a non-static method on the first instance of type \"{t.ToString()}\", but there is currently no instance of \"{t.ToString()}\" in any scene!", FeedbackFlavor.Warning);
+                            return false;
+                        }
+                        cmd.action.Invoke(obj, parameters);
+                    } 
+                    else if (cmd.objectFindType == ObjectFindType.Any)
+                    {
+                        UnityEngine.Object obj = GameObject.FindAnyObjectByType(t, cmd.findObjectsInactive);
+                        if (obj == null)
+                        {
+                            DevConsole.Feedback(
+                                $"Command \"{cmd.command}\" calls a non-static method on any instance of type \"{t.ToString()}\", but there is currently no instance of \"{t.ToString()}\" in any scene!", FeedbackFlavor.Warning);
+                            return false;
+                        }
+                        cmd.action.Invoke(obj, parameters);
+                    } 
+                    else if (cmd.objectFindType == ObjectFindType.All)
+                    {
+                        UnityEngine.Object[] objs = GameObject.FindObjectsByType(t, cmd.findObjectsInactive, FindObjectsSortMode.None);
+                        if (objs.Length == 0)
+                        {
+                            DevConsole.Feedback(
+                                $"Command \"{cmd.command}\" calls a non-static method on all instances of type \"{t.ToString()}\", but there aren't any instances of \"{t.ToString()}\" in any scene!", FeedbackFlavor.Warning);
+                            return false;
+                        }
+
+                        for (int i = 0; i < objs.Length; i++)
+                        {
+                            cmd.action.Invoke(objs[i], parameters);                        
+                        }
+                    } 
+                    else
+                    {
+                        DevConsole.Feedback($"Unrecognized ObjectFindType {cmd.objectFindType}", FeedbackFlavor.Error);
+                        return false;
+                    }
+                }
                 return true;
             } 
             catch (Exception e)

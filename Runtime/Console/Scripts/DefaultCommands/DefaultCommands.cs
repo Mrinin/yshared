@@ -16,7 +16,6 @@ namespace YShared.Console
 
             int commands_showed = 0;
             int commands_looped_through = 0;
-            int longest_command = 0;
 
             int page_amount = ((CommandRegistry.alphabeticalCommands.Length - 1) / PAGE_SIZE) + 1;
 

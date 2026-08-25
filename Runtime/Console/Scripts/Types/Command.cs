@@ -14,6 +14,10 @@ namespace YShared.Console
     {
         public string command;
         public string description;
+        
+        public ObjectFindType objectFindType; 
+        public UnityEngine.FindObjectsInactive findObjectsInactive;
+
         public YCmdArgumentAttribute[] arguments;
         public MethodInfo action;
         public Parameter[] functionParameters;

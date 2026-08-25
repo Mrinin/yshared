@@ -4,7 +4,7 @@ namespace YShared.Console
 {
     public enum ObjectFindType
     {
-        All, First
+        All, Any, First
     }
 
 }

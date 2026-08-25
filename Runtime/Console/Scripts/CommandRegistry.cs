@@ -39,9 +39,12 @@ namespace YShared.Console
                 foreach (Type type in GetTypesSafe(assembly))
                 {
                     foreach (MethodInfo method in type.GetMethods(
-                        BindingFlags.Static |
                         BindingFlags.Public |
-                        BindingFlags.NonPublic))
+                        BindingFlags.NonPublic |
+                        BindingFlags.Instance |
+                        BindingFlags.Static |
+                        BindingFlags.DeclaredOnly
+                        ))
                     {
                         RegisterCommand(method);
                     }
@@ -51,6 +54,8 @@ namespace YShared.Console
             alphabeticalCommands = Commands
                 .OrderBy(cmd => cmd.command)
                 .ToArray();
+
+            //Debug.Log($"Registered {alphabeticalCommands.Length}");
         }
 
         private static IEnumerable<Type> GetTypesSafe(Assembly assembly)
@@ -79,6 +84,7 @@ namespace YShared.Console
 
             cmd.command = attribute.Name;
             cmd.description = attribute.Desc;
+            cmd.objectFindType = attribute.objectFindType;
 
             cmd.arguments = arguments;
             cmd.action = method;
