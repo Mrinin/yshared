@@ -5,7 +5,7 @@ namespace YShared.Console
     public abstract class YCmdArgumentAttribute : Attribute
     {
         public string variableName;
-        public abstract string getDescriptionText();
+        public abstract string getDescriptorText();
         public abstract string getTypeName { get; }
 
         public abstract bool hasAutocompleteArray { get; }

@@ -9,7 +9,7 @@ namespace YShared.Console
         string[] autocompleteOptions;
         bool hasArray;
 
-        public override string getDescriptionText()
+        public override string getDescriptorText()
         {
             return $"{variableName}:string";
         }

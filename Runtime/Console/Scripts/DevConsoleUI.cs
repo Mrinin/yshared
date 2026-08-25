@@ -61,9 +61,9 @@ namespace YShared.Console
 
             DevConsole.CommandFeedback += RecievedFeedback;
 
-            AppendLogLine("UberYagiz Console - \"help\" for list of commands.", FeedbackFlavor.Misc);
+            AppendLogLine("UberYagiz+ Console - \"help\" for list of commands.", FeedbackFlavor.Misc);
 
-            SetAutocompleteList(DevConsole.CommandArray);
+            SetAutocompleteList(CommandRegistry.CommandArray);
         }
 
         protected override void OnDestroy()
@@ -416,7 +416,6 @@ namespace YShared.Console
 
         private void DeleteCtrlBacksapce()
         {
-            Debug.Log("asd");
             string text = inputField.text;
             int caret = inputField.caretPosition;
             int newCaretPosition = caret;

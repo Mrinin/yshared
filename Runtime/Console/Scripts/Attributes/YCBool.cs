@@ -7,7 +7,7 @@ namespace YShared.Console
     /// </summary>
     public sealed class YCBool: YCmdArgumentAttribute
     {
-        public override string getDescriptionText()
+        public override string getDescriptorText()
         {
             return $"{variableName}:bool";
         }

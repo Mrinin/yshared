@@ -6,7 +6,7 @@ using UnityEngine.InputSystem;
 
 namespace YShared.Console
 {
-    public class Console : Singleton.Singleton<Console>
+    public class Console : Singleton.YSingleton<Console>
     {
 
         [SerializeField] Font FontToUse;

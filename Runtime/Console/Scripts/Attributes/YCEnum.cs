@@ -11,7 +11,7 @@ namespace YShared.Console
         int enumTypeValueAmount;
         string[] enumValues;
 
-        public override string getDescriptionText()
+        public override string getDescriptorText()
         {
             return $"{variableName}:enum({enumType.ToString()})";
         }

@@ -21,7 +21,7 @@ namespace YShared.Console
     ///         Use <c>YCString</c> for string arguments.
     ///     </item>
     ///     <item>
-    ///         Use <c>YCArgCmd</c> to accept the name of another command as an argument.
+    ///         Use <c>YCCmdArg</c> to get registered commands as an input. (Use Command[])
     ///     </item>
     /// </list>
     /// </summary>

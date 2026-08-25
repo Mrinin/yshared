@@ -1,9 +1,12 @@
 using System;
 namespace YShared.Console
 {
+    /// <summary>
+    ///         Use <c>YCCmdArg</c> to get registered commands as an input. (Use Command[])
+    /// </summary>
     public sealed class YCCmdArg: YCmdArgumentAttribute
     {
-        public override string getDescriptionText()
+        public override string getDescriptorText()
         {
             return $"{variableName}:command";
         }
@@ -11,7 +14,7 @@ namespace YShared.Console
         public override bool hasAutocompleteArray => true;
         public override string[] getAutocompleteArray()
         {
-            return DevConsole.CommandArray;
+            return CommandRegistry.CommandArray;
         }
 
         // Unused for this argument type
@@ -21,7 +24,7 @@ namespace YShared.Console
         {
             val = default;
 
-            if (DevConsole.commands.TryGetValue(s, out var cmd))
+            if (CommandRegistry.commands.TryGetValue(s, out var cmd))
             {
                 val = (T)(object)cmd;
 

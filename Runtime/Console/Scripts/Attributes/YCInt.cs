@@ -8,11 +8,16 @@ namespace YShared.Console
     {
         int min, max;
 
-        public override string getDescriptionText()
+        public override string getDescriptorText()
         {
             if (min != int.MinValue || max != int.MaxValue)
             {
-                return $"{variableName}:int({min},{max})";
+                if (max == int.MaxValue)
+                    return $"{variableName}:int({min}..)";
+                else if (min == int.MinValue)
+                    return $"{variableName}:int(..{max})";
+                else
+                    return $"{variableName}:int({min}..{max})";
             }
             return $"{variableName}:int";
         }

@@ -9,7 +9,7 @@ namespace YShared.Console
     {
         float min, max;
 
-        public override string getDescriptionText()
+        public override string getDescriptorText()
         {
             if (min != float.MinValue || max != float.MaxValue)
             {
