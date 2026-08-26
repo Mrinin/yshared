@@ -1,0 +1,24 @@
+### YamlMime:ManagedReference
+items:
+- uid: YShared.RandomHelper
+  commentId: N:YShared.RandomHelper
+  id: YShared.RandomHelper
+  children:
+  - YShared.RandomHelper.YRandom
+  langs:
+  - csharp
+  - vb
+  name: YShared.RandomHelper
+  nameWithType: YShared.RandomHelper
+  fullName: YShared.RandomHelper
+  type: Namespace
+  assemblies:
+  - YShared.Runtime
+references:
+- uid: YShared.RandomHelper.YRandom
+  commentId: T:YShared.RandomHelper.YRandom
+  isExternal: true
+  href: YShared.RandomHelper.YRandom.html
+  name: YRandom
+  nameWithType: YRandom
+  fullName: YShared.RandomHelper.YRandom

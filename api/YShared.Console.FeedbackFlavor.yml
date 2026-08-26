@@ -1,0 +1,335 @@
+### YamlMime:ManagedReference
+items:
+- uid: YShared.Console.FeedbackFlavor
+  commentId: T:YShared.Console.FeedbackFlavor
+  id: FeedbackFlavor
+  parent: YShared.Console
+  children:
+  - YShared.Console.FeedbackFlavor.Command
+  - YShared.Console.FeedbackFlavor.Error
+  - YShared.Console.FeedbackFlavor.Feedback
+  - YShared.Console.FeedbackFlavor.Info
+  - YShared.Console.FeedbackFlavor.Misc
+  - YShared.Console.FeedbackFlavor.Return
+  - YShared.Console.FeedbackFlavor.Warning
+  langs:
+  - csharp
+  - vb
+  name: FeedbackFlavor
+  nameWithType: FeedbackFlavor
+  fullName: YShared.Console.FeedbackFlavor
+  type: Enum
+  assemblies:
+  - YShared.Runtime
+  namespace: YShared.Console
+  syntax:
+    content: public enum FeedbackFlavor
+    content.vb: Public Enum FeedbackFlavor
+  extensionMethods:
+  - System.Object.YShared.MathHelper.YMathHelper.TryAs``1({T}@)
+- uid: YShared.Console.FeedbackFlavor.Info
+  commentId: F:YShared.Console.FeedbackFlavor.Info
+  id: Info
+  parent: YShared.Console.FeedbackFlavor
+  langs:
+  - csharp
+  - vb
+  name: Info
+  nameWithType: FeedbackFlavor.Info
+  fullName: YShared.Console.FeedbackFlavor.Info
+  type: Field
+  assemblies:
+  - YShared.Runtime
+  namespace: YShared.Console
+  summary: Gray color. Should be used when a command simply gives back info without doing anything.
+  example: []
+  syntax:
+    content: Info = 0
+    return:
+      type: YShared.Console.FeedbackFlavor
+- uid: YShared.Console.FeedbackFlavor.Feedback
+  commentId: F:YShared.Console.FeedbackFlavor.Feedback
+  id: Feedback
+  parent: YShared.Console.FeedbackFlavor
+  langs:
+  - csharp
+  - vb
+  name: Feedback
+  nameWithType: FeedbackFlavor.Feedback
+  fullName: YShared.Console.FeedbackFlavor.Feedback
+  type: Field
+  assemblies:
+  - YShared.Runtime
+  namespace: YShared.Console
+  summary: White color, and the default feedback flavor. Should be used when a command completes succesfuly, giving details on how the operation was handled.
+  example: []
+  syntax:
+    content: Feedback = 1
+    return:
+      type: YShared.Console.FeedbackFlavor
+- uid: YShared.Console.FeedbackFlavor.Return
+  commentId: F:YShared.Console.FeedbackFlavor.Return
+  id: Return
+  parent: YShared.Console.FeedbackFlavor
+  langs:
+  - csharp
+  - vb
+  name: Return
+  nameWithType: FeedbackFlavor.Return
+  fullName: YShared.Console.FeedbackFlavor.Return
+  type: Field
+  assemblies:
+  - YShared.Runtime
+  namespace: YShared.Console
+  summary: Blue-ish color. Should generally not be used - it is the flavor of the return values shown in the console history.
+  example: []
+  syntax:
+    content: Return = 2
+    return:
+      type: YShared.Console.FeedbackFlavor
+- uid: YShared.Console.FeedbackFlavor.Command
+  commentId: F:YShared.Console.FeedbackFlavor.Command
+  id: Command
+  parent: YShared.Console.FeedbackFlavor
+  langs:
+  - csharp
+  - vb
+  name: Command
+  nameWithType: FeedbackFlavor.Command
+  fullName: YShared.Console.FeedbackFlavor.Command
+  type: Field
+  assemblies:
+  - YShared.Runtime
+  namespace: YShared.Console
+  summary: Blue color. Should generally not be used - it is the flavor of the submitted commands shown in the console history.
+  example: []
+  syntax:
+    content: Command = 3
+    return:
+      type: YShared.Console.FeedbackFlavor
+- uid: YShared.Console.FeedbackFlavor.Warning
+  commentId: F:YShared.Console.FeedbackFlavor.Warning
+  id: Warning
+  parent: YShared.Console.FeedbackFlavor
+  langs:
+  - csharp
+  - vb
+  name: Warning
+  nameWithType: FeedbackFlavor.Warning
+  fullName: YShared.Console.FeedbackFlavor.Warning
+  type: Field
+  assemblies:
+  - YShared.Runtime
+  namespace: YShared.Console
+  summary: Yellow color. Should be used when a command completes with warnings.
+  example: []
+  syntax:
+    content: Warning = 4
+    return:
+      type: YShared.Console.FeedbackFlavor
+- uid: YShared.Console.FeedbackFlavor.Error
+  commentId: F:YShared.Console.FeedbackFlavor.Error
+  id: Error
+  parent: YShared.Console.FeedbackFlavor
+  langs:
+  - csharp
+  - vb
+  name: Error
+  nameWithType: FeedbackFlavor.Error
+  fullName: YShared.Console.FeedbackFlavor.Error
+  type: Field
+  assemblies:
+  - YShared.Runtime
+  namespace: YShared.Console
+  summary: Red color. Should be used when a command fails entirely. Exceptions are automatically handled by the DevConsole and are shown in this flavor.
+  example: []
+  syntax:
+    content: Error = 5
+    return:
+      type: YShared.Console.FeedbackFlavor
+- uid: YShared.Console.FeedbackFlavor.Misc
+  commentId: F:YShared.Console.FeedbackFlavor.Misc
+  id: Misc
+  parent: YShared.Console.FeedbackFlavor
+  langs:
+  - csharp
+  - vb
+  name: Misc
+  nameWithType: FeedbackFlavor.Misc
+  fullName: YShared.Console.FeedbackFlavor.Misc
+  type: Field
+  assemblies:
+  - YShared.Runtime
+  namespace: YShared.Console
+  syntax:
+    content: Misc = 6
+    return:
+      type: YShared.Console.FeedbackFlavor
+references:
+- uid: YShared.Console
+  commentId: N:YShared.Console
+  isExternal: true
+  href: YShared.html
+  name: YShared.Console
+  nameWithType: YShared.Console
+  fullName: YShared.Console
+  spec.csharp:
+  - uid: YShared
+    name: YShared
+    isExternal: true
+    href: YShared.html
+  - name: .
+  - uid: YShared.Console
+    name: Console
+    isExternal: true
+    href: YShared.Console.html
+  spec.vb:
+  - uid: YShared
+    name: YShared
+    isExternal: true
+    href: YShared.html
+  - name: .
+  - uid: YShared.Console
+    name: Console
+    isExternal: true
+    href: YShared.Console.html
+- uid: System.Object.YShared.MathHelper.YMathHelper.TryAs``1({T}@)
+  commentId: M:YShared.MathHelper.YMathHelper.TryAs``1(System.Object,``0@)
+  parent: YShared.MathHelper.YMathHelper
+  definition: YShared.MathHelper.YMathHelper.TryAs``1(System.Object,``0@)
+  href: YShared.MathHelper.YMathHelper.html#YShared_MathHelper_YMathHelper_TryAs__1_System_Object___0__
+  name: TryAs<T>(object, out T)
+  nameWithType: YMathHelper.TryAs<T>(object, out T)
+  fullName: YShared.MathHelper.YMathHelper.TryAs<T>(object, out T)
+  nameWithType.vb: YMathHelper.TryAs(Of T)(Object, T)
+  fullName.vb: YShared.MathHelper.YMathHelper.TryAs(Of T)(Object, T)
+  name.vb: TryAs(Of T)(Object, T)
+  spec.csharp:
+  - uid: YShared.MathHelper.YMathHelper.TryAs``1(System.Object,``0@)
+    name: TryAs
+    isExternal: true
+    href: YShared.MathHelper.YMathHelper.html#YShared_MathHelper_YMathHelper_TryAs__1_System_Object___0__
+  - name: <
+  - name: T
+  - name: '>'
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - name: out
+  - name: " "
+  - name: T
+  - name: )
+  spec.vb:
+  - uid: YShared.MathHelper.YMathHelper.TryAs``1(System.Object,``0@)
+    name: TryAs
+    isExternal: true
+    href: YShared.MathHelper.YMathHelper.html#YShared_MathHelper_YMathHelper_TryAs__1_System_Object___0__
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - name: T
+  - name: )
+- uid: YShared.MathHelper.YMathHelper.TryAs``1(System.Object,``0@)
+  commentId: M:YShared.MathHelper.YMathHelper.TryAs``1(System.Object,``0@)
+  isExternal: true
+  href: YShared.MathHelper.YMathHelper.html#YShared_MathHelper_YMathHelper_TryAs__1_System_Object___0__
+  name: TryAs<T>(object, out T)
+  nameWithType: YMathHelper.TryAs<T>(object, out T)
+  fullName: YShared.MathHelper.YMathHelper.TryAs<T>(object, out T)
+  nameWithType.vb: YMathHelper.TryAs(Of T)(Object, T)
+  fullName.vb: YShared.MathHelper.YMathHelper.TryAs(Of T)(Object, T)
+  name.vb: TryAs(Of T)(Object, T)
+  spec.csharp:
+  - uid: YShared.MathHelper.YMathHelper.TryAs``1(System.Object,``0@)
+    name: TryAs
+    isExternal: true
+    href: YShared.MathHelper.YMathHelper.html#YShared_MathHelper_YMathHelper_TryAs__1_System_Object___0__
+  - name: <
+  - name: T
+  - name: '>'
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - name: out
+  - name: " "
+  - name: T
+  - name: )
+  spec.vb:
+  - uid: YShared.MathHelper.YMathHelper.TryAs``1(System.Object,``0@)
+    name: TryAs
+    isExternal: true
+    href: YShared.MathHelper.YMathHelper.html#YShared_MathHelper_YMathHelper_TryAs__1_System_Object___0__
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - name: T
+  - name: )
+- uid: YShared.MathHelper.YMathHelper
+  commentId: T:YShared.MathHelper.YMathHelper
+  parent: YShared.MathHelper
+  isExternal: true
+  href: YShared.MathHelper.YMathHelper.html
+  name: YMathHelper
+  nameWithType: YMathHelper
+  fullName: YShared.MathHelper.YMathHelper
+- uid: YShared.MathHelper
+  commentId: N:YShared.MathHelper
+  isExternal: true
+  href: YShared.html
+  name: YShared.MathHelper
+  nameWithType: YShared.MathHelper
+  fullName: YShared.MathHelper
+  spec.csharp:
+  - uid: YShared
+    name: YShared
+    isExternal: true
+    href: YShared.html
+  - name: .
+  - uid: YShared.MathHelper
+    name: MathHelper
+    isExternal: true
+    href: YShared.MathHelper.html
+  spec.vb:
+  - uid: YShared
+    name: YShared
+    isExternal: true
+    href: YShared.html
+  - name: .
+  - uid: YShared.MathHelper
+    name: MathHelper
+    isExternal: true
+    href: YShared.MathHelper.html
+- uid: YShared.Console.FeedbackFlavor
+  commentId: T:YShared.Console.FeedbackFlavor
+  parent: YShared.Console
+  isExternal: true
+  href: YShared.Console.FeedbackFlavor.html
+  name: FeedbackFlavor
+  nameWithType: FeedbackFlavor
+  fullName: YShared.Console.FeedbackFlavor

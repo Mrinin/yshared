@@ -1,0 +1,1083 @@
+### YamlMime:ManagedReference
+items:
+- uid: YShared.Console.Command
+  commentId: T:YShared.Console.Command
+  id: Command
+  parent: YShared.Console
+  children:
+  - YShared.Console.Command.#ctor
+  - YShared.Console.Command.CommandWords
+  - YShared.Console.Command.FormattedArguments
+  - YShared.Console.Command.ProperUsage
+  - YShared.Console.Command.ProperUsageWordAmount
+  - YShared.Console.Command.action
+  - YShared.Console.Command.aliases
+  - YShared.Console.Command.arguments
+  - YShared.Console.Command.command
+  - YShared.Console.Command.description
+  - YShared.Console.Command.findObjectsInactive
+  - YShared.Console.Command.functionParameters
+  - YShared.Console.Command.objectFindType
+  langs:
+  - csharp
+  - vb
+  name: Command
+  nameWithType: Command
+  fullName: YShared.Console.Command
+  type: Class
+  assemblies:
+  - YShared.Runtime
+  namespace: YShared.Console
+  syntax:
+    content: public class Command
+    content.vb: Public Class Command
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  extensionMethods:
+  - System.Object.YShared.MathHelper.YMathHelper.TryAs``1({T}@)
+  - YShared.Console.Command.YShared.Console.CommandsHelper.GetHelpText(System.Int32)
+- uid: YShared.Console.Command.command
+  commentId: F:YShared.Console.Command.command
+  id: command
+  parent: YShared.Console.Command
+  langs:
+  - csharp
+  - vb
+  name: command
+  nameWithType: Command.command
+  fullName: YShared.Console.Command.command
+  type: Field
+  assemblies:
+  - YShared.Runtime
+  namespace: YShared.Console
+  syntax:
+    content: public string command
+    return:
+      type: System.String
+    content.vb: Public command As String
+- uid: YShared.Console.Command.description
+  commentId: F:YShared.Console.Command.description
+  id: description
+  parent: YShared.Console.Command
+  langs:
+  - csharp
+  - vb
+  name: description
+  nameWithType: Command.description
+  fullName: YShared.Console.Command.description
+  type: Field
+  assemblies:
+  - YShared.Runtime
+  namespace: YShared.Console
+  syntax:
+    content: public string description
+    return:
+      type: System.String
+    content.vb: Public description As String
+- uid: YShared.Console.Command.objectFindType
+  commentId: F:YShared.Console.Command.objectFindType
+  id: objectFindType
+  parent: YShared.Console.Command
+  langs:
+  - csharp
+  - vb
+  name: objectFindType
+  nameWithType: Command.objectFindType
+  fullName: YShared.Console.Command.objectFindType
+  type: Field
+  assemblies:
+  - YShared.Runtime
+  namespace: YShared.Console
+  syntax:
+    content: public ObjectFindType objectFindType
+    return:
+      type: YShared.Console.ObjectFindType
+    content.vb: Public objectFindType As ObjectFindType
+- uid: YShared.Console.Command.findObjectsInactive
+  commentId: F:YShared.Console.Command.findObjectsInactive
+  id: findObjectsInactive
+  parent: YShared.Console.Command
+  langs:
+  - csharp
+  - vb
+  name: findObjectsInactive
+  nameWithType: Command.findObjectsInactive
+  fullName: YShared.Console.Command.findObjectsInactive
+  type: Field
+  assemblies:
+  - YShared.Runtime
+  namespace: YShared.Console
+  syntax:
+    content: public FindObjectsInactive findObjectsInactive
+    return:
+      type: UnityEngine.FindObjectsInactive
+    content.vb: Public findObjectsInactive As FindObjectsInactive
+- uid: YShared.Console.Command.arguments
+  commentId: F:YShared.Console.Command.arguments
+  id: arguments
+  parent: YShared.Console.Command
+  langs:
+  - csharp
+  - vb
+  name: arguments
+  nameWithType: Command.arguments
+  fullName: YShared.Console.Command.arguments
+  type: Field
+  assemblies:
+  - YShared.Runtime
+  namespace: YShared.Console
+  syntax:
+    content: public YCmdArgumentAttribute[] arguments
+    return:
+      type: YShared.Console.YCmdArgumentAttribute[]
+    content.vb: Public arguments As YCmdArgumentAttribute()
+- uid: YShared.Console.Command.action
+  commentId: F:YShared.Console.Command.action
+  id: action
+  parent: YShared.Console.Command
+  langs:
+  - csharp
+  - vb
+  name: action
+  nameWithType: Command.action
+  fullName: YShared.Console.Command.action
+  type: Field
+  assemblies:
+  - YShared.Runtime
+  namespace: YShared.Console
+  syntax:
+    content: public MethodInfo action
+    return:
+      type: System.Reflection.MethodInfo
+    content.vb: Public action As MethodInfo
+- uid: YShared.Console.Command.functionParameters
+  commentId: F:YShared.Console.Command.functionParameters
+  id: functionParameters
+  parent: YShared.Console.Command
+  langs:
+  - csharp
+  - vb
+  name: functionParameters
+  nameWithType: Command.functionParameters
+  fullName: YShared.Console.Command.functionParameters
+  type: Field
+  assemblies:
+  - YShared.Runtime
+  namespace: YShared.Console
+  syntax:
+    content: public Parameter[] functionParameters
+    return:
+      type: YShared.Console.Parameter[]
+    content.vb: Public functionParameters As Parameter()
+- uid: YShared.Console.Command.ProperUsageWordAmount
+  commentId: F:YShared.Console.Command.ProperUsageWordAmount
+  id: ProperUsageWordAmount
+  parent: YShared.Console.Command
+  langs:
+  - csharp
+  - vb
+  name: ProperUsageWordAmount
+  nameWithType: Command.ProperUsageWordAmount
+  fullName: YShared.Console.Command.ProperUsageWordAmount
+  type: Field
+  assemblies:
+  - YShared.Runtime
+  namespace: YShared.Console
+  syntax:
+    content: public int ProperUsageWordAmount
+    return:
+      type: System.Int32
+    content.vb: Public ProperUsageWordAmount As Integer
+- uid: YShared.Console.Command.aliases
+  commentId: F:YShared.Console.Command.aliases
+  id: aliases
+  parent: YShared.Console.Command
+  langs:
+  - csharp
+  - vb
+  name: aliases
+  nameWithType: Command.aliases
+  fullName: YShared.Console.Command.aliases
+  type: Field
+  assemblies:
+  - YShared.Runtime
+  namespace: YShared.Console
+  syntax:
+    content: public Dictionary<string, AliasData> aliases
+    return:
+      type: System.Collections.Generic.Dictionary{System.String,YShared.Console.AliasData}
+    content.vb: Public aliases As Dictionary(Of String, AliasData)
+- uid: YShared.Console.Command.#ctor
+  commentId: M:YShared.Console.Command.#ctor
+  id: '#ctor'
+  parent: YShared.Console.Command
+  langs:
+  - csharp
+  - vb
+  name: Command()
+  nameWithType: Command.Command()
+  fullName: YShared.Console.Command.Command()
+  type: Constructor
+  assemblies:
+  - YShared.Runtime
+  namespace: YShared.Console
+  syntax:
+    content: public Command()
+    content.vb: Public Sub New()
+  overload: YShared.Console.Command.#ctor*
+  nameWithType.vb: Command.New()
+  fullName.vb: YShared.Console.Command.New()
+  name.vb: New()
+- uid: YShared.Console.Command.FormattedArguments
+  commentId: P:YShared.Console.Command.FormattedArguments
+  id: FormattedArguments
+  parent: YShared.Console.Command
+  langs:
+  - csharp
+  - vb
+  name: FormattedArguments
+  nameWithType: Command.FormattedArguments
+  fullName: YShared.Console.Command.FormattedArguments
+  type: Property
+  assemblies:
+  - YShared.Runtime
+  namespace: YShared.Console
+  syntax:
+    content: public string FormattedArguments { get; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public ReadOnly Property FormattedArguments As String
+  overload: YShared.Console.Command.FormattedArguments*
+- uid: YShared.Console.Command.CommandWords
+  commentId: P:YShared.Console.Command.CommandWords
+  id: CommandWords
+  parent: YShared.Console.Command
+  langs:
+  - csharp
+  - vb
+  name: CommandWords
+  nameWithType: Command.CommandWords
+  fullName: YShared.Console.Command.CommandWords
+  type: Property
+  assemblies:
+  - YShared.Runtime
+  namespace: YShared.Console
+  syntax:
+    content: public string[] CommandWords { get; }
+    parameters: []
+    return:
+      type: System.String[]
+    content.vb: Public ReadOnly Property CommandWords As String()
+  overload: YShared.Console.Command.CommandWords*
+- uid: YShared.Console.Command.ProperUsage
+  commentId: P:YShared.Console.Command.ProperUsage
+  id: ProperUsage
+  parent: YShared.Console.Command
+  langs:
+  - csharp
+  - vb
+  name: ProperUsage
+  nameWithType: Command.ProperUsage
+  fullName: YShared.Console.Command.ProperUsage
+  type: Property
+  assemblies:
+  - YShared.Runtime
+  namespace: YShared.Console
+  syntax:
+    content: public string ProperUsage { get; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public ReadOnly Property ProperUsage As String
+  overload: YShared.Console.Command.ProperUsage*
+references:
+- uid: YShared.Console
+  commentId: N:YShared.Console
+  isExternal: true
+  href: YShared.html
+  name: YShared.Console
+  nameWithType: YShared.Console
+  fullName: YShared.Console
+  spec.csharp:
+  - uid: YShared
+    name: YShared
+    isExternal: true
+    href: YShared.html
+  - name: .
+  - uid: YShared.Console
+    name: Console
+    isExternal: true
+    href: YShared.Console.html
+  spec.vb:
+  - uid: YShared
+    name: YShared
+    isExternal: true
+    href: YShared.html
+  - name: .
+  - uid: YShared.Console
+    name: Console
+    isExternal: true
+    href: YShared.Console.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.YShared.MathHelper.YMathHelper.TryAs``1({T}@)
+  commentId: M:YShared.MathHelper.YMathHelper.TryAs``1(System.Object,``0@)
+  parent: YShared.MathHelper.YMathHelper
+  definition: YShared.MathHelper.YMathHelper.TryAs``1(System.Object,``0@)
+  href: YShared.MathHelper.YMathHelper.html#YShared_MathHelper_YMathHelper_TryAs__1_System_Object___0__
+  name: TryAs<T>(object, out T)
+  nameWithType: YMathHelper.TryAs<T>(object, out T)
+  fullName: YShared.MathHelper.YMathHelper.TryAs<T>(object, out T)
+  nameWithType.vb: YMathHelper.TryAs(Of T)(Object, T)
+  fullName.vb: YShared.MathHelper.YMathHelper.TryAs(Of T)(Object, T)
+  name.vb: TryAs(Of T)(Object, T)
+  spec.csharp:
+  - uid: YShared.MathHelper.YMathHelper.TryAs``1(System.Object,``0@)
+    name: TryAs
+    isExternal: true
+    href: YShared.MathHelper.YMathHelper.html#YShared_MathHelper_YMathHelper_TryAs__1_System_Object___0__
+  - name: <
+  - name: T
+  - name: '>'
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - name: out
+  - name: " "
+  - name: T
+  - name: )
+  spec.vb:
+  - uid: YShared.MathHelper.YMathHelper.TryAs``1(System.Object,``0@)
+    name: TryAs
+    isExternal: true
+    href: YShared.MathHelper.YMathHelper.html#YShared_MathHelper_YMathHelper_TryAs__1_System_Object___0__
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - name: T
+  - name: )
+- uid: YShared.Console.Command.YShared.Console.CommandsHelper.GetHelpText(System.Int32)
+  commentId: M:YShared.Console.CommandsHelper.GetHelpText(YShared.Console.Command,System.Int32)
+  parent: YShared.Console.CommandsHelper
+  definition: YShared.Console.CommandsHelper.GetHelpText(YShared.Console.Command,System.Int32)
+  href: YShared.Console.CommandsHelper.html#YShared_Console_CommandsHelper_GetHelpText_YShared_Console_Command_System_Int32_
+  name: GetHelpText(Command, int)
+  nameWithType: CommandsHelper.GetHelpText(Command, int)
+  fullName: YShared.Console.CommandsHelper.GetHelpText(YShared.Console.Command, int)
+  nameWithType.vb: CommandsHelper.GetHelpText(Command, Integer)
+  fullName.vb: YShared.Console.CommandsHelper.GetHelpText(YShared.Console.Command, Integer)
+  name.vb: GetHelpText(Command, Integer)
+  spec.csharp:
+  - uid: YShared.Console.CommandsHelper.GetHelpText(YShared.Console.Command,System.Int32)
+    name: GetHelpText
+    isExternal: true
+    href: YShared.Console.CommandsHelper.html#YShared_Console_CommandsHelper_GetHelpText_YShared_Console_Command_System_Int32_
+  - name: (
+  - uid: YShared.Console.Command
+    name: Command
+    isExternal: true
+    href: YShared.Console.Command.html
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: )
+  spec.vb:
+  - uid: YShared.Console.CommandsHelper.GetHelpText(YShared.Console.Command,System.Int32)
+    name: GetHelpText
+    isExternal: true
+    href: YShared.Console.CommandsHelper.html#YShared_Console_CommandsHelper_GetHelpText_YShared_Console_Command_System_Int32_
+  - name: (
+  - uid: YShared.Console.Command
+    name: Command
+    isExternal: true
+    href: YShared.Console.Command.html
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: YShared.MathHelper.YMathHelper.TryAs``1(System.Object,``0@)
+  commentId: M:YShared.MathHelper.YMathHelper.TryAs``1(System.Object,``0@)
+  isExternal: true
+  href: YShared.MathHelper.YMathHelper.html#YShared_MathHelper_YMathHelper_TryAs__1_System_Object___0__
+  name: TryAs<T>(object, out T)
+  nameWithType: YMathHelper.TryAs<T>(object, out T)
+  fullName: YShared.MathHelper.YMathHelper.TryAs<T>(object, out T)
+  nameWithType.vb: YMathHelper.TryAs(Of T)(Object, T)
+  fullName.vb: YShared.MathHelper.YMathHelper.TryAs(Of T)(Object, T)
+  name.vb: TryAs(Of T)(Object, T)
+  spec.csharp:
+  - uid: YShared.MathHelper.YMathHelper.TryAs``1(System.Object,``0@)
+    name: TryAs
+    isExternal: true
+    href: YShared.MathHelper.YMathHelper.html#YShared_MathHelper_YMathHelper_TryAs__1_System_Object___0__
+  - name: <
+  - name: T
+  - name: '>'
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - name: out
+  - name: " "
+  - name: T
+  - name: )
+  spec.vb:
+  - uid: YShared.MathHelper.YMathHelper.TryAs``1(System.Object,``0@)
+    name: TryAs
+    isExternal: true
+    href: YShared.MathHelper.YMathHelper.html#YShared_MathHelper_YMathHelper_TryAs__1_System_Object___0__
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - name: T
+  - name: )
+- uid: YShared.MathHelper.YMathHelper
+  commentId: T:YShared.MathHelper.YMathHelper
+  parent: YShared.MathHelper
+  isExternal: true
+  href: YShared.MathHelper.YMathHelper.html
+  name: YMathHelper
+  nameWithType: YMathHelper
+  fullName: YShared.MathHelper.YMathHelper
+- uid: YShared.Console.CommandsHelper.GetHelpText(YShared.Console.Command,System.Int32)
+  commentId: M:YShared.Console.CommandsHelper.GetHelpText(YShared.Console.Command,System.Int32)
+  isExternal: true
+  href: YShared.Console.CommandsHelper.html#YShared_Console_CommandsHelper_GetHelpText_YShared_Console_Command_System_Int32_
+  name: GetHelpText(Command, int)
+  nameWithType: CommandsHelper.GetHelpText(Command, int)
+  fullName: YShared.Console.CommandsHelper.GetHelpText(YShared.Console.Command, int)
+  nameWithType.vb: CommandsHelper.GetHelpText(Command, Integer)
+  fullName.vb: YShared.Console.CommandsHelper.GetHelpText(YShared.Console.Command, Integer)
+  name.vb: GetHelpText(Command, Integer)
+  spec.csharp:
+  - uid: YShared.Console.CommandsHelper.GetHelpText(YShared.Console.Command,System.Int32)
+    name: GetHelpText
+    isExternal: true
+    href: YShared.Console.CommandsHelper.html#YShared_Console_CommandsHelper_GetHelpText_YShared_Console_Command_System_Int32_
+  - name: (
+  - uid: YShared.Console.Command
+    name: Command
+    isExternal: true
+    href: YShared.Console.Command.html
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: )
+  spec.vb:
+  - uid: YShared.Console.CommandsHelper.GetHelpText(YShared.Console.Command,System.Int32)
+    name: GetHelpText
+    isExternal: true
+    href: YShared.Console.CommandsHelper.html#YShared_Console_CommandsHelper_GetHelpText_YShared_Console_Command_System_Int32_
+  - name: (
+  - uid: YShared.Console.Command
+    name: Command
+    isExternal: true
+    href: YShared.Console.Command.html
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: )
+- uid: YShared.Console.CommandsHelper
+  commentId: T:YShared.Console.CommandsHelper
+  parent: YShared.Console
+  isExternal: true
+  href: YShared.Console.CommandsHelper.html
+  name: CommandsHelper
+  nameWithType: CommandsHelper
+  fullName: YShared.Console.CommandsHelper
+- uid: YShared.MathHelper
+  commentId: N:YShared.MathHelper
+  isExternal: true
+  href: YShared.html
+  name: YShared.MathHelper
+  nameWithType: YShared.MathHelper
+  fullName: YShared.MathHelper
+  spec.csharp:
+  - uid: YShared
+    name: YShared
+    isExternal: true
+    href: YShared.html
+  - name: .
+  - uid: YShared.MathHelper
+    name: MathHelper
+    isExternal: true
+    href: YShared.MathHelper.html
+  spec.vb:
+  - uid: YShared
+    name: YShared
+    isExternal: true
+    href: YShared.html
+  - name: .
+  - uid: YShared.MathHelper
+    name: MathHelper
+    isExternal: true
+    href: YShared.MathHelper.html
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: YShared.Console.ObjectFindType
+  commentId: T:YShared.Console.ObjectFindType
+  parent: YShared.Console
+  isExternal: true
+  href: YShared.Console.ObjectFindType.html
+  name: ObjectFindType
+  nameWithType: ObjectFindType
+  fullName: YShared.Console.ObjectFindType
+- uid: UnityEngine.FindObjectsInactive
+  isExternal: true
+  name: FindObjectsInactive
+  nameWithType: FindObjectsInactive
+  fullName: UnityEngine.FindObjectsInactive
+- uid: YShared.Console.YCmdArgumentAttribute[]
+  isExternal: true
+  href: YShared.Console.YCmdArgumentAttribute.html
+  name: YCmdArgumentAttribute[]
+  nameWithType: YCmdArgumentAttribute[]
+  fullName: YShared.Console.YCmdArgumentAttribute[]
+  nameWithType.vb: YCmdArgumentAttribute()
+  fullName.vb: YShared.Console.YCmdArgumentAttribute()
+  name.vb: YCmdArgumentAttribute()
+  spec.csharp:
+  - uid: YShared.Console.YCmdArgumentAttribute
+    name: YCmdArgumentAttribute
+    isExternal: true
+    href: YShared.Console.YCmdArgumentAttribute.html
+  - name: '['
+  - name: ']'
+  spec.vb:
+  - uid: YShared.Console.YCmdArgumentAttribute
+    name: YCmdArgumentAttribute
+    isExternal: true
+    href: YShared.Console.YCmdArgumentAttribute.html
+  - name: (
+  - name: )
+- uid: System.Reflection.MethodInfo
+  commentId: T:System.Reflection.MethodInfo
+  parent: System.Reflection
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.reflection.methodinfo
+  name: MethodInfo
+  nameWithType: MethodInfo
+  fullName: System.Reflection.MethodInfo
+- uid: System.Reflection
+  commentId: N:System.Reflection
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Reflection
+  nameWithType: System.Reflection
+  fullName: System.Reflection
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Reflection
+    name: Reflection
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.reflection
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Reflection
+    name: Reflection
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.reflection
+- uid: YShared.Console.Parameter[]
+  isExternal: true
+  href: YShared.Console.Parameter.html
+  name: Parameter[]
+  nameWithType: Parameter[]
+  fullName: YShared.Console.Parameter[]
+  nameWithType.vb: Parameter()
+  fullName.vb: YShared.Console.Parameter()
+  name.vb: Parameter()
+  spec.csharp:
+  - uid: YShared.Console.Parameter
+    name: Parameter
+    isExternal: true
+    href: YShared.Console.Parameter.html
+  - name: '['
+  - name: ']'
+  spec.vb:
+  - uid: YShared.Console.Parameter
+    name: Parameter
+    isExternal: true
+    href: YShared.Console.Parameter.html
+  - name: (
+  - name: )
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: System.Collections.Generic.Dictionary{System.String,YShared.Console.AliasData}
+  commentId: T:System.Collections.Generic.Dictionary{System.String,YShared.Console.AliasData}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.Dictionary`2
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2
+  name: Dictionary<string, AliasData>
+  nameWithType: Dictionary<string, AliasData>
+  fullName: System.Collections.Generic.Dictionary<string, YShared.Console.AliasData>
+  nameWithType.vb: Dictionary(Of String, AliasData)
+  fullName.vb: System.Collections.Generic.Dictionary(Of String, YShared.Console.AliasData)
+  name.vb: Dictionary(Of String, AliasData)
+  spec.csharp:
+  - uid: System.Collections.Generic.Dictionary`2
+    name: Dictionary
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2
+  - name: <
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: YShared.Console.AliasData
+    name: AliasData
+    isExternal: true
+    href: YShared.Console.AliasData.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.Dictionary`2
+    name: Dictionary
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: YShared.Console.AliasData
+    name: AliasData
+    isExternal: true
+    href: YShared.Console.AliasData.html
+  - name: )
+- uid: System.Collections.Generic.Dictionary`2
+  commentId: T:System.Collections.Generic.Dictionary`2
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2
+  name: Dictionary<TKey, TValue>
+  nameWithType: Dictionary<TKey, TValue>
+  fullName: System.Collections.Generic.Dictionary<TKey, TValue>
+  nameWithType.vb: Dictionary(Of TKey, TValue)
+  fullName.vb: System.Collections.Generic.Dictionary(Of TKey, TValue)
+  name.vb: Dictionary(Of TKey, TValue)
+  spec.csharp:
+  - uid: System.Collections.Generic.Dictionary`2
+    name: Dictionary
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2
+  - name: <
+  - name: TKey
+  - name: ','
+  - name: " "
+  - name: TValue
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.Dictionary`2
+    name: Dictionary
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TKey
+  - name: ','
+  - name: " "
+  - name: TValue
+  - name: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+- uid: YShared.Console.Command.#ctor*
+  commentId: Overload:YShared.Console.Command.#ctor
+  isExternal: true
+  href: YShared.Console.Command.html#YShared_Console_Command__ctor
+  name: Command
+  nameWithType: Command.Command
+  fullName: YShared.Console.Command.Command
+  nameWithType.vb: Command.New
+  fullName.vb: YShared.Console.Command.New
+  name.vb: New
+- uid: YShared.Console.Command.FormattedArguments*
+  commentId: Overload:YShared.Console.Command.FormattedArguments
+  isExternal: true
+  href: YShared.Console.Command.html#YShared_Console_Command_FormattedArguments
+  name: FormattedArguments
+  nameWithType: Command.FormattedArguments
+  fullName: YShared.Console.Command.FormattedArguments
+- uid: YShared.Console.Command.CommandWords*
+  commentId: Overload:YShared.Console.Command.CommandWords
+  isExternal: true
+  href: YShared.Console.Command.html#YShared_Console_Command_CommandWords
+  name: CommandWords
+  nameWithType: Command.CommandWords
+  fullName: YShared.Console.Command.CommandWords
+- uid: System.String[]
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string[]
+  nameWithType: string[]
+  fullName: string[]
+  nameWithType.vb: String()
+  fullName.vb: String()
+  name.vb: String()
+  spec.csharp:
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: '['
+  - name: ']'
+  spec.vb:
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: (
+  - name: )
+- uid: YShared.Console.Command.ProperUsage*
+  commentId: Overload:YShared.Console.Command.ProperUsage
+  isExternal: true
+  href: YShared.Console.Command.html#YShared_Console_Command_ProperUsage
+  name: ProperUsage
+  nameWithType: Command.ProperUsage
+  fullName: YShared.Console.Command.ProperUsage

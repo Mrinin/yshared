@@ -1,0 +1,1258 @@
+### YamlMime:ManagedReference
+items:
+- uid: YShared.NamedTimers.TimerHandler
+  commentId: T:YShared.NamedTimers.TimerHandler
+  id: TimerHandler
+  parent: YShared.NamedTimers
+  children:
+  - YShared.NamedTimers.TimerHandler.AddNamelessTimer(System.Single,System.Action)
+  - YShared.NamedTimers.TimerHandler.BindObjectToTimer(UnityEngine.GameObject,System.Int64)
+  - YShared.NamedTimers.TimerHandler.ClearAll
+  - YShared.NamedTimers.TimerHandler.ClearFromGameObject(UnityEngine.GameObject)
+  - YShared.NamedTimers.TimerHandler.GetTimer(System.Int64)
+  - YShared.NamedTimers.TimerHandler.GetTimerClass(System.Int64)
+  - YShared.NamedTimers.TimerHandler.GetTimerClass(System.String)
+  - YShared.NamedTimers.TimerHandler.GetTimers
+  - YShared.NamedTimers.TimerHandler.GetTimers(UnityEngine.GameObject)
+  - YShared.NamedTimers.TimerHandler.Hash(System.String)
+  - YShared.NamedTimers.TimerHandler.RegisterTimer(System.String,System.Int64,YShared.NamedTimers.TimerOptions)
+  - YShared.NamedTimers.TimerHandler.RegisterTimer(System.String,YShared.NamedTimers.TimerOptions)
+  - YShared.NamedTimers.TimerHandler.RemoveTimer(System.Int64)
+  - YShared.NamedTimers.TimerHandler.RunNextFrame(System.Action)
+  - YShared.NamedTimers.TimerHandler.SetTimeout(System.Single,System.Action)
+  - YShared.NamedTimers.TimerHandler.SetTimer(System.Int64,System.Single)
+  - YShared.NamedTimers.TimerHandler.SetTimer(System.Int64,System.Single,System.Action)
+  - YShared.NamedTimers.TimerHandler.SetTimer(System.Int64,System.Single,YShared.NamedTimers.TimerOptions)
+  - YShared.NamedTimers.TimerHandler.SetTimer(System.String,System.Single)
+  - YShared.NamedTimers.TimerHandler.SetTimer(System.String,System.Single,System.Action)
+  - YShared.NamedTimers.TimerHandler.SetTimer(System.String,System.Single,YShared.NamedTimers.TimerOptions)
+  - YShared.NamedTimers.TimerHandler.Tick
+  - YShared.NamedTimers.TimerHandler.TimerCooldown(System.Int64,System.Single)
+  - YShared.NamedTimers.TimerHandler.TriggerChronometer(System.Int64,System.Single)
+  langs:
+  - csharp
+  - vb
+  name: TimerHandler
+  nameWithType: TimerHandler
+  fullName: YShared.NamedTimers.TimerHandler
+  type: Class
+  assemblies:
+  - YShared.Runtime
+  namespace: YShared.NamedTimers
+  syntax:
+    content: public static class TimerHandler
+    content.vb: Public Module TimerHandler
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+- uid: YShared.NamedTimers.TimerHandler.Tick
+  commentId: M:YShared.NamedTimers.TimerHandler.Tick
+  id: Tick
+  parent: YShared.NamedTimers.TimerHandler
+  langs:
+  - csharp
+  - vb
+  name: Tick()
+  nameWithType: TimerHandler.Tick()
+  fullName: YShared.NamedTimers.TimerHandler.Tick()
+  type: Method
+  assemblies:
+  - YShared.Runtime
+  namespace: YShared.NamedTimers
+  syntax:
+    content: public static void Tick()
+    content.vb: Public Shared Sub Tick()
+  overload: YShared.NamedTimers.TimerHandler.Tick*
+- uid: YShared.NamedTimers.TimerHandler.GetTimer(System.Int64)
+  commentId: M:YShared.NamedTimers.TimerHandler.GetTimer(System.Int64)
+  id: GetTimer(System.Int64)
+  parent: YShared.NamedTimers.TimerHandler
+  langs:
+  - csharp
+  - vb
+  name: GetTimer(long)
+  nameWithType: TimerHandler.GetTimer(long)
+  fullName: YShared.NamedTimers.TimerHandler.GetTimer(long)
+  type: Method
+  assemblies:
+  - YShared.Runtime
+  namespace: YShared.NamedTimers
+  syntax:
+    content: public static float GetTimer(long name)
+    parameters:
+    - id: name
+      type: System.Int64
+    return:
+      type: System.Single
+    content.vb: Public Shared Function GetTimer(name As Long) As Single
+  overload: YShared.NamedTimers.TimerHandler.GetTimer*
+  nameWithType.vb: TimerHandler.GetTimer(Long)
+  fullName.vb: YShared.NamedTimers.TimerHandler.GetTimer(Long)
+  name.vb: GetTimer(Long)
+- uid: YShared.NamedTimers.TimerHandler.SetTimer(System.String,System.Single)
+  commentId: M:YShared.NamedTimers.TimerHandler.SetTimer(System.String,System.Single)
+  id: SetTimer(System.String,System.Single)
+  parent: YShared.NamedTimers.TimerHandler
+  langs:
+  - csharp
+  - vb
+  name: SetTimer(string, float)
+  nameWithType: TimerHandler.SetTimer(string, float)
+  fullName: YShared.NamedTimers.TimerHandler.SetTimer(string, float)
+  type: Method
+  assemblies:
+  - YShared.Runtime
+  namespace: YShared.NamedTimers
+  syntax:
+    content: public static SetTimerResult SetTimer(string name, float time)
+    parameters:
+    - id: name
+      type: System.String
+    - id: time
+      type: System.Single
+    return:
+      type: YShared.NamedTimers.SetTimerResult
+    content.vb: Public Shared Function SetTimer(name As String, time As Single) As SetTimerResult
+  overload: YShared.NamedTimers.TimerHandler.SetTimer*
+  nameWithType.vb: TimerHandler.SetTimer(String, Single)
+  fullName.vb: YShared.NamedTimers.TimerHandler.SetTimer(String, Single)
+  name.vb: SetTimer(String, Single)
+- uid: YShared.NamedTimers.TimerHandler.SetTimer(System.String,System.Single,System.Action)
+  commentId: M:YShared.NamedTimers.TimerHandler.SetTimer(System.String,System.Single,System.Action)
+  id: SetTimer(System.String,System.Single,System.Action)
+  parent: YShared.NamedTimers.TimerHandler
+  langs:
+  - csharp
+  - vb
+  name: SetTimer(string, float, Action)
+  nameWithType: TimerHandler.SetTimer(string, float, Action)
+  fullName: YShared.NamedTimers.TimerHandler.SetTimer(string, float, System.Action)
+  type: Method
+  assemblies:
+  - YShared.Runtime
+  namespace: YShared.NamedTimers
+  syntax:
+    content: public static SetTimerResult SetTimer(string name, float a, Action callback)
+    parameters:
+    - id: name
+      type: System.String
+    - id: a
+      type: System.Single
+    - id: callback
+      type: System.Action
+    return:
+      type: YShared.NamedTimers.SetTimerResult
+    content.vb: Public Shared Function SetTimer(name As String, a As Single, callback As Action) As SetTimerResult
+  overload: YShared.NamedTimers.TimerHandler.SetTimer*
+  nameWithType.vb: TimerHandler.SetTimer(String, Single, Action)
+  fullName.vb: YShared.NamedTimers.TimerHandler.SetTimer(String, Single, System.Action)
+  name.vb: SetTimer(String, Single, Action)
+- uid: YShared.NamedTimers.TimerHandler.SetTimer(System.String,System.Single,YShared.NamedTimers.TimerOptions)
+  commentId: M:YShared.NamedTimers.TimerHandler.SetTimer(System.String,System.Single,YShared.NamedTimers.TimerOptions)
+  id: SetTimer(System.String,System.Single,YShared.NamedTimers.TimerOptions)
+  parent: YShared.NamedTimers.TimerHandler
+  langs:
+  - csharp
+  - vb
+  name: SetTimer(string, float, TimerOptions)
+  nameWithType: TimerHandler.SetTimer(string, float, TimerOptions)
+  fullName: YShared.NamedTimers.TimerHandler.SetTimer(string, float, YShared.NamedTimers.TimerOptions)
+  type: Method
+  assemblies:
+  - YShared.Runtime
+  namespace: YShared.NamedTimers
+  syntax:
+    content: public static SetTimerResult SetTimer(string name, float a, TimerOptions opts)
+    parameters:
+    - id: name
+      type: System.String
+    - id: a
+      type: System.Single
+    - id: opts
+      type: YShared.NamedTimers.TimerOptions
+    return:
+      type: YShared.NamedTimers.SetTimerResult
+    content.vb: Public Shared Function SetTimer(name As String, a As Single, opts As TimerOptions) As SetTimerResult
+  overload: YShared.NamedTimers.TimerHandler.SetTimer*
+  nameWithType.vb: TimerHandler.SetTimer(String, Single, TimerOptions)
+  fullName.vb: YShared.NamedTimers.TimerHandler.SetTimer(String, Single, YShared.NamedTimers.TimerOptions)
+  name.vb: SetTimer(String, Single, TimerOptions)
+- uid: YShared.NamedTimers.TimerHandler.SetTimer(System.Int64,System.Single)
+  commentId: M:YShared.NamedTimers.TimerHandler.SetTimer(System.Int64,System.Single)
+  id: SetTimer(System.Int64,System.Single)
+  parent: YShared.NamedTimers.TimerHandler
+  langs:
+  - csharp
+  - vb
+  name: SetTimer(long, float)
+  nameWithType: TimerHandler.SetTimer(long, float)
+  fullName: YShared.NamedTimers.TimerHandler.SetTimer(long, float)
+  type: Method
+  assemblies:
+  - YShared.Runtime
+  namespace: YShared.NamedTimers
+  syntax:
+    content: public static SetTimerResult SetTimer(long name, float time)
+    parameters:
+    - id: name
+      type: System.Int64
+    - id: time
+      type: System.Single
+    return:
+      type: YShared.NamedTimers.SetTimerResult
+    content.vb: Public Shared Function SetTimer(name As Long, time As Single) As SetTimerResult
+  overload: YShared.NamedTimers.TimerHandler.SetTimer*
+  nameWithType.vb: TimerHandler.SetTimer(Long, Single)
+  fullName.vb: YShared.NamedTimers.TimerHandler.SetTimer(Long, Single)
+  name.vb: SetTimer(Long, Single)
+- uid: YShared.NamedTimers.TimerHandler.SetTimer(System.Int64,System.Single,System.Action)
+  commentId: M:YShared.NamedTimers.TimerHandler.SetTimer(System.Int64,System.Single,System.Action)
+  id: SetTimer(System.Int64,System.Single,System.Action)
+  parent: YShared.NamedTimers.TimerHandler
+  langs:
+  - csharp
+  - vb
+  name: SetTimer(long, float, Action)
+  nameWithType: TimerHandler.SetTimer(long, float, Action)
+  fullName: YShared.NamedTimers.TimerHandler.SetTimer(long, float, System.Action)
+  type: Method
+  assemblies:
+  - YShared.Runtime
+  namespace: YShared.NamedTimers
+  syntax:
+    content: public static SetTimerResult SetTimer(long name, float a, Action callback)
+    parameters:
+    - id: name
+      type: System.Int64
+    - id: a
+      type: System.Single
+    - id: callback
+      type: System.Action
+    return:
+      type: YShared.NamedTimers.SetTimerResult
+    content.vb: Public Shared Function SetTimer(name As Long, a As Single, callback As Action) As SetTimerResult
+  overload: YShared.NamedTimers.TimerHandler.SetTimer*
+  nameWithType.vb: TimerHandler.SetTimer(Long, Single, Action)
+  fullName.vb: YShared.NamedTimers.TimerHandler.SetTimer(Long, Single, System.Action)
+  name.vb: SetTimer(Long, Single, Action)
+- uid: YShared.NamedTimers.TimerHandler.SetTimer(System.Int64,System.Single,YShared.NamedTimers.TimerOptions)
+  commentId: M:YShared.NamedTimers.TimerHandler.SetTimer(System.Int64,System.Single,YShared.NamedTimers.TimerOptions)
+  id: SetTimer(System.Int64,System.Single,YShared.NamedTimers.TimerOptions)
+  parent: YShared.NamedTimers.TimerHandler
+  langs:
+  - csharp
+  - vb
+  name: SetTimer(long, float, TimerOptions)
+  nameWithType: TimerHandler.SetTimer(long, float, TimerOptions)
+  fullName: YShared.NamedTimers.TimerHandler.SetTimer(long, float, YShared.NamedTimers.TimerOptions)
+  type: Method
+  assemblies:
+  - YShared.Runtime
+  namespace: YShared.NamedTimers
+  syntax:
+    content: public static SetTimerResult SetTimer(long name, float a, TimerOptions opts)
+    parameters:
+    - id: name
+      type: System.Int64
+    - id: a
+      type: System.Single
+    - id: opts
+      type: YShared.NamedTimers.TimerOptions
+    return:
+      type: YShared.NamedTimers.SetTimerResult
+    content.vb: Public Shared Function SetTimer(name As Long, a As Single, opts As TimerOptions) As SetTimerResult
+  overload: YShared.NamedTimers.TimerHandler.SetTimer*
+  nameWithType.vb: TimerHandler.SetTimer(Long, Single, TimerOptions)
+  fullName.vb: YShared.NamedTimers.TimerHandler.SetTimer(Long, Single, YShared.NamedTimers.TimerOptions)
+  name.vb: SetTimer(Long, Single, TimerOptions)
+- uid: YShared.NamedTimers.TimerHandler.GetTimerClass(System.String)
+  commentId: M:YShared.NamedTimers.TimerHandler.GetTimerClass(System.String)
+  id: GetTimerClass(System.String)
+  parent: YShared.NamedTimers.TimerHandler
+  langs:
+  - csharp
+  - vb
+  name: GetTimerClass(string)
+  nameWithType: TimerHandler.GetTimerClass(string)
+  fullName: YShared.NamedTimers.TimerHandler.GetTimerClass(string)
+  type: Method
+  assemblies:
+  - YShared.Runtime
+  namespace: YShared.NamedTimers
+  syntax:
+    content: public static Timer GetTimerClass(string name)
+    parameters:
+    - id: name
+      type: System.String
+    return:
+      type: YShared.NamedTimers.Timer
+    content.vb: Public Shared Function GetTimerClass(name As String) As Timer
+  overload: YShared.NamedTimers.TimerHandler.GetTimerClass*
+  nameWithType.vb: TimerHandler.GetTimerClass(String)
+  fullName.vb: YShared.NamedTimers.TimerHandler.GetTimerClass(String)
+  name.vb: GetTimerClass(String)
+- uid: YShared.NamedTimers.TimerHandler.GetTimerClass(System.Int64)
+  commentId: M:YShared.NamedTimers.TimerHandler.GetTimerClass(System.Int64)
+  id: GetTimerClass(System.Int64)
+  parent: YShared.NamedTimers.TimerHandler
+  langs:
+  - csharp
+  - vb
+  name: GetTimerClass(long)
+  nameWithType: TimerHandler.GetTimerClass(long)
+  fullName: YShared.NamedTimers.TimerHandler.GetTimerClass(long)
+  type: Method
+  assemblies:
+  - YShared.Runtime
+  namespace: YShared.NamedTimers
+  syntax:
+    content: public static Timer GetTimerClass(long name)
+    parameters:
+    - id: name
+      type: System.Int64
+    return:
+      type: YShared.NamedTimers.Timer
+    content.vb: Public Shared Function GetTimerClass(name As Long) As Timer
+  overload: YShared.NamedTimers.TimerHandler.GetTimerClass*
+  nameWithType.vb: TimerHandler.GetTimerClass(Long)
+  fullName.vb: YShared.NamedTimers.TimerHandler.GetTimerClass(Long)
+  name.vb: GetTimerClass(Long)
+- uid: YShared.NamedTimers.TimerHandler.RegisterTimer(System.String,YShared.NamedTimers.TimerOptions)
+  commentId: M:YShared.NamedTimers.TimerHandler.RegisterTimer(System.String,YShared.NamedTimers.TimerOptions)
+  id: RegisterTimer(System.String,YShared.NamedTimers.TimerOptions)
+  parent: YShared.NamedTimers.TimerHandler
+  langs:
+  - csharp
+  - vb
+  name: RegisterTimer(string, TimerOptions)
+  nameWithType: TimerHandler.RegisterTimer(string, TimerOptions)
+  fullName: YShared.NamedTimers.TimerHandler.RegisterTimer(string, YShared.NamedTimers.TimerOptions)
+  type: Method
+  assemblies:
+  - YShared.Runtime
+  namespace: YShared.NamedTimers
+  syntax:
+    content: public static void RegisterTimer(string name, TimerOptions opts = default)
+    parameters:
+    - id: name
+      type: System.String
+    - id: opts
+      type: YShared.NamedTimers.TimerOptions
+    content.vb: Public Shared Sub RegisterTimer(name As String, opts As TimerOptions = Nothing)
+  overload: YShared.NamedTimers.TimerHandler.RegisterTimer*
+  nameWithType.vb: TimerHandler.RegisterTimer(String, TimerOptions)
+  fullName.vb: YShared.NamedTimers.TimerHandler.RegisterTimer(String, YShared.NamedTimers.TimerOptions)
+  name.vb: RegisterTimer(String, TimerOptions)
+- uid: YShared.NamedTimers.TimerHandler.RegisterTimer(System.String,System.Int64,YShared.NamedTimers.TimerOptions)
+  commentId: M:YShared.NamedTimers.TimerHandler.RegisterTimer(System.String,System.Int64,YShared.NamedTimers.TimerOptions)
+  id: RegisterTimer(System.String,System.Int64,YShared.NamedTimers.TimerOptions)
+  parent: YShared.NamedTimers.TimerHandler
+  langs:
+  - csharp
+  - vb
+  name: RegisterTimer(string, long, TimerOptions)
+  nameWithType: TimerHandler.RegisterTimer(string, long, TimerOptions)
+  fullName: YShared.NamedTimers.TimerHandler.RegisterTimer(string, long, YShared.NamedTimers.TimerOptions)
+  type: Method
+  assemblies:
+  - YShared.Runtime
+  namespace: YShared.NamedTimers
+  syntax:
+    content: public static void RegisterTimer(string name, long id, TimerOptions opts = default)
+    parameters:
+    - id: name
+      type: System.String
+    - id: id
+      type: System.Int64
+    - id: opts
+      type: YShared.NamedTimers.TimerOptions
+    content.vb: Public Shared Sub RegisterTimer(name As String, id As Long, opts As TimerOptions = Nothing)
+  overload: YShared.NamedTimers.TimerHandler.RegisterTimer*
+  nameWithType.vb: TimerHandler.RegisterTimer(String, Long, TimerOptions)
+  fullName.vb: YShared.NamedTimers.TimerHandler.RegisterTimer(String, Long, YShared.NamedTimers.TimerOptions)
+  name.vb: RegisterTimer(String, Long, TimerOptions)
+- uid: YShared.NamedTimers.TimerHandler.AddNamelessTimer(System.Single,System.Action)
+  commentId: M:YShared.NamedTimers.TimerHandler.AddNamelessTimer(System.Single,System.Action)
+  id: AddNamelessTimer(System.Single,System.Action)
+  parent: YShared.NamedTimers.TimerHandler
+  langs:
+  - csharp
+  - vb
+  name: AddNamelessTimer(float, Action)
+  nameWithType: TimerHandler.AddNamelessTimer(float, Action)
+  fullName: YShared.NamedTimers.TimerHandler.AddNamelessTimer(float, System.Action)
+  type: Method
+  assemblies:
+  - YShared.Runtime
+  namespace: YShared.NamedTimers
+  syntax:
+    content: >-
+      [Obsolete("Use SetTimeout instead")]
+
+      public static void AddNamelessTimer(float a, Action callback)
+    parameters:
+    - id: a
+      type: System.Single
+    - id: callback
+      type: System.Action
+    content.vb: >-
+      <Obsolete("Use SetTimeout instead")>
+
+      Public Shared Sub AddNamelessTimer(a As Single, callback As Action)
+  overload: YShared.NamedTimers.TimerHandler.AddNamelessTimer*
+  attributes:
+  - type: System.ObsoleteAttribute
+    ctor: System.ObsoleteAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: Use SetTimeout instead
+  nameWithType.vb: TimerHandler.AddNamelessTimer(Single, Action)
+  fullName.vb: YShared.NamedTimers.TimerHandler.AddNamelessTimer(Single, System.Action)
+  name.vb: AddNamelessTimer(Single, Action)
+- uid: YShared.NamedTimers.TimerHandler.SetTimeout(System.Single,System.Action)
+  commentId: M:YShared.NamedTimers.TimerHandler.SetTimeout(System.Single,System.Action)
+  id: SetTimeout(System.Single,System.Action)
+  parent: YShared.NamedTimers.TimerHandler
+  langs:
+  - csharp
+  - vb
+  name: SetTimeout(float, Action)
+  nameWithType: TimerHandler.SetTimeout(float, Action)
+  fullName: YShared.NamedTimers.TimerHandler.SetTimeout(float, System.Action)
+  type: Method
+  assemblies:
+  - YShared.Runtime
+  namespace: YShared.NamedTimers
+  syntax:
+    content: public static void SetTimeout(float a, Action callback)
+    parameters:
+    - id: a
+      type: System.Single
+    - id: callback
+      type: System.Action
+    content.vb: Public Shared Sub SetTimeout(a As Single, callback As Action)
+  overload: YShared.NamedTimers.TimerHandler.SetTimeout*
+  nameWithType.vb: TimerHandler.SetTimeout(Single, Action)
+  fullName.vb: YShared.NamedTimers.TimerHandler.SetTimeout(Single, System.Action)
+  name.vb: SetTimeout(Single, Action)
+- uid: YShared.NamedTimers.TimerHandler.RunNextFrame(System.Action)
+  commentId: M:YShared.NamedTimers.TimerHandler.RunNextFrame(System.Action)
+  id: RunNextFrame(System.Action)
+  parent: YShared.NamedTimers.TimerHandler
+  langs:
+  - csharp
+  - vb
+  name: RunNextFrame(Action)
+  nameWithType: TimerHandler.RunNextFrame(Action)
+  fullName: YShared.NamedTimers.TimerHandler.RunNextFrame(System.Action)
+  type: Method
+  assemblies:
+  - YShared.Runtime
+  namespace: YShared.NamedTimers
+  syntax:
+    content: public static void RunNextFrame(Action callback)
+    parameters:
+    - id: callback
+      type: System.Action
+    content.vb: Public Shared Sub RunNextFrame(callback As Action)
+  overload: YShared.NamedTimers.TimerHandler.RunNextFrame*
+- uid: YShared.NamedTimers.TimerHandler.RemoveTimer(System.Int64)
+  commentId: M:YShared.NamedTimers.TimerHandler.RemoveTimer(System.Int64)
+  id: RemoveTimer(System.Int64)
+  parent: YShared.NamedTimers.TimerHandler
+  langs:
+  - csharp
+  - vb
+  name: RemoveTimer(long)
+  nameWithType: TimerHandler.RemoveTimer(long)
+  fullName: YShared.NamedTimers.TimerHandler.RemoveTimer(long)
+  type: Method
+  assemblies:
+  - YShared.Runtime
+  namespace: YShared.NamedTimers
+  syntax:
+    content: public static bool RemoveTimer(long name)
+    parameters:
+    - id: name
+      type: System.Int64
+    return:
+      type: System.Boolean
+    content.vb: Public Shared Function RemoveTimer(name As Long) As Boolean
+  overload: YShared.NamedTimers.TimerHandler.RemoveTimer*
+  nameWithType.vb: TimerHandler.RemoveTimer(Long)
+  fullName.vb: YShared.NamedTimers.TimerHandler.RemoveTimer(Long)
+  name.vb: RemoveTimer(Long)
+- uid: YShared.NamedTimers.TimerHandler.TimerCooldown(System.Int64,System.Single)
+  commentId: M:YShared.NamedTimers.TimerHandler.TimerCooldown(System.Int64,System.Single)
+  id: TimerCooldown(System.Int64,System.Single)
+  parent: YShared.NamedTimers.TimerHandler
+  langs:
+  - csharp
+  - vb
+  name: TimerCooldown(long, float)
+  nameWithType: TimerHandler.TimerCooldown(long, float)
+  fullName: YShared.NamedTimers.TimerHandler.TimerCooldown(long, float)
+  type: Method
+  assemblies:
+  - YShared.Runtime
+  namespace: YShared.NamedTimers
+  syntax:
+    content: public static bool TimerCooldown(long name, float timer)
+    parameters:
+    - id: name
+      type: System.Int64
+    - id: timer
+      type: System.Single
+    return:
+      type: System.Boolean
+    content.vb: Public Shared Function TimerCooldown(name As Long, timer As Single) As Boolean
+  overload: YShared.NamedTimers.TimerHandler.TimerCooldown*
+  nameWithType.vb: TimerHandler.TimerCooldown(Long, Single)
+  fullName.vb: YShared.NamedTimers.TimerHandler.TimerCooldown(Long, Single)
+  name.vb: TimerCooldown(Long, Single)
+- uid: YShared.NamedTimers.TimerHandler.GetTimers(UnityEngine.GameObject)
+  commentId: M:YShared.NamedTimers.TimerHandler.GetTimers(UnityEngine.GameObject)
+  id: GetTimers(UnityEngine.GameObject)
+  parent: YShared.NamedTimers.TimerHandler
+  langs:
+  - csharp
+  - vb
+  name: GetTimers(GameObject)
+  nameWithType: TimerHandler.GetTimers(GameObject)
+  fullName: YShared.NamedTimers.TimerHandler.GetTimers(UnityEngine.GameObject)
+  type: Method
+  assemblies:
+  - YShared.Runtime
+  namespace: YShared.NamedTimers
+  summary: Returns all timers on a specific gameobject
+  example: []
+  syntax:
+    content: public static List<long> GetTimers(GameObject go)
+    parameters:
+    - id: go
+      type: UnityEngine.GameObject
+    return:
+      type: System.Collections.Generic.List{System.Int64}
+    content.vb: Public Shared Function GetTimers(go As GameObject) As List(Of Long)
+  overload: YShared.NamedTimers.TimerHandler.GetTimers*
+- uid: YShared.NamedTimers.TimerHandler.GetTimers
+  commentId: M:YShared.NamedTimers.TimerHandler.GetTimers
+  id: GetTimers
+  parent: YShared.NamedTimers.TimerHandler
+  langs:
+  - csharp
+  - vb
+  name: GetTimers()
+  nameWithType: TimerHandler.GetTimers()
+  fullName: YShared.NamedTimers.TimerHandler.GetTimers()
+  type: Method
+  assemblies:
+  - YShared.Runtime
+  namespace: YShared.NamedTimers
+  summary: Returns all timers
+  example: []
+  syntax:
+    content: public static List<long> GetTimers()
+    return:
+      type: System.Collections.Generic.List{System.Int64}
+    content.vb: Public Shared Function GetTimers() As List(Of Long)
+  overload: YShared.NamedTimers.TimerHandler.GetTimers*
+- uid: YShared.NamedTimers.TimerHandler.ClearFromGameObject(UnityEngine.GameObject)
+  commentId: M:YShared.NamedTimers.TimerHandler.ClearFromGameObject(UnityEngine.GameObject)
+  id: ClearFromGameObject(UnityEngine.GameObject)
+  parent: YShared.NamedTimers.TimerHandler
+  langs:
+  - csharp
+  - vb
+  name: ClearFromGameObject(GameObject)
+  nameWithType: TimerHandler.ClearFromGameObject(GameObject)
+  fullName: YShared.NamedTimers.TimerHandler.ClearFromGameObject(UnityEngine.GameObject)
+  type: Method
+  assemblies:
+  - YShared.Runtime
+  namespace: YShared.NamedTimers
+  syntax:
+    content: public static int ClearFromGameObject(GameObject go)
+    parameters:
+    - id: go
+      type: UnityEngine.GameObject
+    return:
+      type: System.Int32
+    content.vb: Public Shared Function ClearFromGameObject(go As GameObject) As Integer
+  overload: YShared.NamedTimers.TimerHandler.ClearFromGameObject*
+- uid: YShared.NamedTimers.TimerHandler.ClearAll
+  commentId: M:YShared.NamedTimers.TimerHandler.ClearAll
+  id: ClearAll
+  parent: YShared.NamedTimers.TimerHandler
+  langs:
+  - csharp
+  - vb
+  name: ClearAll()
+  nameWithType: TimerHandler.ClearAll()
+  fullName: YShared.NamedTimers.TimerHandler.ClearAll()
+  type: Method
+  assemblies:
+  - YShared.Runtime
+  namespace: YShared.NamedTimers
+  syntax:
+    content: public static void ClearAll()
+    content.vb: Public Shared Sub ClearAll()
+  overload: YShared.NamedTimers.TimerHandler.ClearAll*
+- uid: YShared.NamedTimers.TimerHandler.BindObjectToTimer(UnityEngine.GameObject,System.Int64)
+  commentId: M:YShared.NamedTimers.TimerHandler.BindObjectToTimer(UnityEngine.GameObject,System.Int64)
+  id: BindObjectToTimer(UnityEngine.GameObject,System.Int64)
+  parent: YShared.NamedTimers.TimerHandler
+  langs:
+  - csharp
+  - vb
+  name: BindObjectToTimer(GameObject, long)
+  nameWithType: TimerHandler.BindObjectToTimer(GameObject, long)
+  fullName: YShared.NamedTimers.TimerHandler.BindObjectToTimer(UnityEngine.GameObject, long)
+  type: Method
+  assemblies:
+  - YShared.Runtime
+  namespace: YShared.NamedTimers
+  syntax:
+    content: public static bool BindObjectToTimer(GameObject go, long name)
+    parameters:
+    - id: go
+      type: UnityEngine.GameObject
+    - id: name
+      type: System.Int64
+    return:
+      type: System.Boolean
+    content.vb: Public Shared Function BindObjectToTimer(go As GameObject, name As Long) As Boolean
+  overload: YShared.NamedTimers.TimerHandler.BindObjectToTimer*
+  nameWithType.vb: TimerHandler.BindObjectToTimer(GameObject, Long)
+  fullName.vb: YShared.NamedTimers.TimerHandler.BindObjectToTimer(UnityEngine.GameObject, Long)
+  name.vb: BindObjectToTimer(GameObject, Long)
+- uid: YShared.NamedTimers.TimerHandler.TriggerChronometer(System.Int64,System.Single)
+  commentId: M:YShared.NamedTimers.TimerHandler.TriggerChronometer(System.Int64,System.Single)
+  id: TriggerChronometer(System.Int64,System.Single)
+  parent: YShared.NamedTimers.TimerHandler
+  langs:
+  - csharp
+  - vb
+  name: TriggerChronometer(long, float)
+  nameWithType: TimerHandler.TriggerChronometer(long, float)
+  fullName: YShared.NamedTimers.TimerHandler.TriggerChronometer(long, float)
+  type: Method
+  assemblies:
+  - YShared.Runtime
+  namespace: YShared.NamedTimers
+  syntax:
+    content: public static bool TriggerChronometer(long name, float target)
+    parameters:
+    - id: name
+      type: System.Int64
+    - id: target
+      type: System.Single
+    return:
+      type: System.Boolean
+    content.vb: Public Shared Function TriggerChronometer(name As Long, target As Single) As Boolean
+  overload: YShared.NamedTimers.TimerHandler.TriggerChronometer*
+  nameWithType.vb: TimerHandler.TriggerChronometer(Long, Single)
+  fullName.vb: YShared.NamedTimers.TimerHandler.TriggerChronometer(Long, Single)
+  name.vb: TriggerChronometer(Long, Single)
+- uid: YShared.NamedTimers.TimerHandler.Hash(System.String)
+  commentId: M:YShared.NamedTimers.TimerHandler.Hash(System.String)
+  id: Hash(System.String)
+  parent: YShared.NamedTimers.TimerHandler
+  langs:
+  - csharp
+  - vb
+  name: Hash(string)
+  nameWithType: TimerHandler.Hash(string)
+  fullName: YShared.NamedTimers.TimerHandler.Hash(string)
+  type: Method
+  assemblies:
+  - YShared.Runtime
+  namespace: YShared.NamedTimers
+  syntax:
+    content: public static int Hash(string str)
+    parameters:
+    - id: str
+      type: System.String
+    return:
+      type: System.Int32
+    content.vb: Public Shared Function Hash(str As String) As Integer
+  overload: YShared.NamedTimers.TimerHandler.Hash*
+  nameWithType.vb: TimerHandler.Hash(String)
+  fullName.vb: YShared.NamedTimers.TimerHandler.Hash(String)
+  name.vb: Hash(String)
+references:
+- uid: YShared.NamedTimers
+  commentId: N:YShared.NamedTimers
+  isExternal: true
+  href: YShared.html
+  name: YShared.NamedTimers
+  nameWithType: YShared.NamedTimers
+  fullName: YShared.NamedTimers
+  spec.csharp:
+  - uid: YShared
+    name: YShared
+    isExternal: true
+    href: YShared.html
+  - name: .
+  - uid: YShared.NamedTimers
+    name: NamedTimers
+    isExternal: true
+    href: YShared.NamedTimers.html
+  spec.vb:
+  - uid: YShared
+    name: YShared
+    isExternal: true
+    href: YShared.html
+  - name: .
+  - uid: YShared.NamedTimers
+    name: NamedTimers
+    isExternal: true
+    href: YShared.NamedTimers.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: YShared.NamedTimers.TimerHandler.Tick*
+  commentId: Overload:YShared.NamedTimers.TimerHandler.Tick
+  isExternal: true
+  href: YShared.NamedTimers.TimerHandler.html#YShared_NamedTimers_TimerHandler_Tick
+  name: Tick
+  nameWithType: TimerHandler.Tick
+  fullName: YShared.NamedTimers.TimerHandler.Tick
+- uid: YShared.NamedTimers.TimerHandler.GetTimer*
+  commentId: Overload:YShared.NamedTimers.TimerHandler.GetTimer
+  isExternal: true
+  href: YShared.NamedTimers.TimerHandler.html#YShared_NamedTimers_TimerHandler_GetTimer_System_Int64_
+  name: GetTimer
+  nameWithType: TimerHandler.GetTimer
+  fullName: YShared.NamedTimers.TimerHandler.GetTimer
+- uid: System.Int64
+  commentId: T:System.Int64
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int64
+  name: long
+  nameWithType: long
+  fullName: long
+  nameWithType.vb: Long
+  fullName.vb: Long
+  name.vb: Long
+- uid: System.Single
+  commentId: T:System.Single
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.single
+  name: float
+  nameWithType: float
+  fullName: float
+  nameWithType.vb: Single
+  fullName.vb: Single
+  name.vb: Single
+- uid: YShared.NamedTimers.TimerHandler.SetTimer*
+  commentId: Overload:YShared.NamedTimers.TimerHandler.SetTimer
+  isExternal: true
+  href: YShared.NamedTimers.TimerHandler.html#YShared_NamedTimers_TimerHandler_SetTimer_System_String_System_Single_
+  name: SetTimer
+  nameWithType: TimerHandler.SetTimer
+  fullName: YShared.NamedTimers.TimerHandler.SetTimer
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: YShared.NamedTimers.SetTimerResult
+  commentId: T:YShared.NamedTimers.SetTimerResult
+  parent: YShared.NamedTimers
+  isExternal: true
+  href: YShared.NamedTimers.SetTimerResult.html
+  name: SetTimerResult
+  nameWithType: SetTimerResult
+  fullName: YShared.NamedTimers.SetTimerResult
+- uid: System.Action
+  commentId: T:System.Action
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.action
+  name: Action
+  nameWithType: Action
+  fullName: System.Action
+- uid: YShared.NamedTimers.TimerOptions
+  commentId: T:YShared.NamedTimers.TimerOptions
+  parent: YShared.NamedTimers
+  isExternal: true
+  href: YShared.NamedTimers.TimerOptions.html
+  name: TimerOptions
+  nameWithType: TimerOptions
+  fullName: YShared.NamedTimers.TimerOptions
+- uid: YShared.NamedTimers.TimerHandler.GetTimerClass*
+  commentId: Overload:YShared.NamedTimers.TimerHandler.GetTimerClass
+  isExternal: true
+  href: YShared.NamedTimers.TimerHandler.html#YShared_NamedTimers_TimerHandler_GetTimerClass_System_String_
+  name: GetTimerClass
+  nameWithType: TimerHandler.GetTimerClass
+  fullName: YShared.NamedTimers.TimerHandler.GetTimerClass
+- uid: YShared.NamedTimers.Timer
+  commentId: T:YShared.NamedTimers.Timer
+  parent: YShared.NamedTimers
+  isExternal: true
+  href: YShared.NamedTimers.Timer.html
+  name: Timer
+  nameWithType: Timer
+  fullName: YShared.NamedTimers.Timer
+- uid: YShared.NamedTimers.TimerHandler.RegisterTimer*
+  commentId: Overload:YShared.NamedTimers.TimerHandler.RegisterTimer
+  isExternal: true
+  href: YShared.NamedTimers.TimerHandler.html#YShared_NamedTimers_TimerHandler_RegisterTimer_System_String_YShared_NamedTimers_TimerOptions_
+  name: RegisterTimer
+  nameWithType: TimerHandler.RegisterTimer
+  fullName: YShared.NamedTimers.TimerHandler.RegisterTimer
+- uid: YShared.NamedTimers.TimerHandler.AddNamelessTimer*
+  commentId: Overload:YShared.NamedTimers.TimerHandler.AddNamelessTimer
+  isExternal: true
+  href: YShared.NamedTimers.TimerHandler.html#YShared_NamedTimers_TimerHandler_AddNamelessTimer_System_Single_System_Action_
+  name: AddNamelessTimer
+  nameWithType: TimerHandler.AddNamelessTimer
+  fullName: YShared.NamedTimers.TimerHandler.AddNamelessTimer
+- uid: YShared.NamedTimers.TimerHandler.SetTimeout*
+  commentId: Overload:YShared.NamedTimers.TimerHandler.SetTimeout
+  isExternal: true
+  href: YShared.NamedTimers.TimerHandler.html#YShared_NamedTimers_TimerHandler_SetTimeout_System_Single_System_Action_
+  name: SetTimeout
+  nameWithType: TimerHandler.SetTimeout
+  fullName: YShared.NamedTimers.TimerHandler.SetTimeout
+- uid: YShared.NamedTimers.TimerHandler.RunNextFrame*
+  commentId: Overload:YShared.NamedTimers.TimerHandler.RunNextFrame
+  isExternal: true
+  href: YShared.NamedTimers.TimerHandler.html#YShared_NamedTimers_TimerHandler_RunNextFrame_System_Action_
+  name: RunNextFrame
+  nameWithType: TimerHandler.RunNextFrame
+  fullName: YShared.NamedTimers.TimerHandler.RunNextFrame
+- uid: YShared.NamedTimers.TimerHandler.RemoveTimer*
+  commentId: Overload:YShared.NamedTimers.TimerHandler.RemoveTimer
+  isExternal: true
+  href: YShared.NamedTimers.TimerHandler.html#YShared_NamedTimers_TimerHandler_RemoveTimer_System_Int64_
+  name: RemoveTimer
+  nameWithType: TimerHandler.RemoveTimer
+  fullName: YShared.NamedTimers.TimerHandler.RemoveTimer
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: YShared.NamedTimers.TimerHandler.TimerCooldown*
+  commentId: Overload:YShared.NamedTimers.TimerHandler.TimerCooldown
+  isExternal: true
+  href: YShared.NamedTimers.TimerHandler.html#YShared_NamedTimers_TimerHandler_TimerCooldown_System_Int64_System_Single_
+  name: TimerCooldown
+  nameWithType: TimerHandler.TimerCooldown
+  fullName: YShared.NamedTimers.TimerHandler.TimerCooldown
+- uid: YShared.NamedTimers.TimerHandler.GetTimers*
+  commentId: Overload:YShared.NamedTimers.TimerHandler.GetTimers
+  isExternal: true
+  href: YShared.NamedTimers.TimerHandler.html#YShared_NamedTimers_TimerHandler_GetTimers_UnityEngine_GameObject_
+  name: GetTimers
+  nameWithType: TimerHandler.GetTimers
+  fullName: YShared.NamedTimers.TimerHandler.GetTimers
+- uid: UnityEngine.GameObject
+  isExternal: true
+  name: GameObject
+  nameWithType: GameObject
+  fullName: UnityEngine.GameObject
+- uid: System.Collections.Generic.List{System.Int64}
+  commentId: T:System.Collections.Generic.List{System.Int64}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.List`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<long>
+  nameWithType: List<long>
+  fullName: System.Collections.Generic.List<long>
+  nameWithType.vb: List(Of Long)
+  fullName.vb: System.Collections.Generic.List(Of Long)
+  name.vb: List(Of Long)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - uid: System.Int64
+    name: long
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int64
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Int64
+    name: Long
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int64
+  - name: )
+- uid: System.Collections.Generic.List`1
+  commentId: T:System.Collections.Generic.List`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<T>
+  nameWithType: List<T>
+  fullName: System.Collections.Generic.List<T>
+  nameWithType.vb: List(Of T)
+  fullName.vb: System.Collections.Generic.List(Of T)
+  name.vb: List(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+- uid: YShared.NamedTimers.TimerHandler.ClearFromGameObject*
+  commentId: Overload:YShared.NamedTimers.TimerHandler.ClearFromGameObject
+  isExternal: true
+  href: YShared.NamedTimers.TimerHandler.html#YShared_NamedTimers_TimerHandler_ClearFromGameObject_UnityEngine_GameObject_
+  name: ClearFromGameObject
+  nameWithType: TimerHandler.ClearFromGameObject
+  fullName: YShared.NamedTimers.TimerHandler.ClearFromGameObject
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: YShared.NamedTimers.TimerHandler.ClearAll*
+  commentId: Overload:YShared.NamedTimers.TimerHandler.ClearAll
+  isExternal: true
+  href: YShared.NamedTimers.TimerHandler.html#YShared_NamedTimers_TimerHandler_ClearAll
+  name: ClearAll
+  nameWithType: TimerHandler.ClearAll
+  fullName: YShared.NamedTimers.TimerHandler.ClearAll
+- uid: YShared.NamedTimers.TimerHandler.BindObjectToTimer*
+  commentId: Overload:YShared.NamedTimers.TimerHandler.BindObjectToTimer
+  isExternal: true
+  href: YShared.NamedTimers.TimerHandler.html#YShared_NamedTimers_TimerHandler_BindObjectToTimer_UnityEngine_GameObject_System_Int64_
+  name: BindObjectToTimer
+  nameWithType: TimerHandler.BindObjectToTimer
+  fullName: YShared.NamedTimers.TimerHandler.BindObjectToTimer
+- uid: YShared.NamedTimers.TimerHandler.TriggerChronometer*
+  commentId: Overload:YShared.NamedTimers.TimerHandler.TriggerChronometer
+  isExternal: true
+  href: YShared.NamedTimers.TimerHandler.html#YShared_NamedTimers_TimerHandler_TriggerChronometer_System_Int64_System_Single_
+  name: TriggerChronometer
+  nameWithType: TimerHandler.TriggerChronometer
+  fullName: YShared.NamedTimers.TimerHandler.TriggerChronometer
+- uid: YShared.NamedTimers.TimerHandler.Hash*
+  commentId: Overload:YShared.NamedTimers.TimerHandler.Hash
+  isExternal: true
+  href: YShared.NamedTimers.TimerHandler.html#YShared_NamedTimers_TimerHandler_Hash_System_String_
+  name: Hash
+  nameWithType: TimerHandler.Hash
+  fullName: YShared.NamedTimers.TimerHandler.Hash

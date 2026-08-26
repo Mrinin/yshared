@@ -1,0 +1,457 @@
+### YamlMime:ManagedReference
+items:
+- uid: YShared.Console.Parameter
+  commentId: T:YShared.Console.Parameter
+  id: Parameter
+  parent: YShared.Console
+  children:
+  - YShared.Console.Parameter.defaultval
+  - YShared.Console.Parameter.hasDefault
+  langs:
+  - csharp
+  - vb
+  name: Parameter
+  nameWithType: Parameter
+  fullName: YShared.Console.Parameter
+  type: Struct
+  assemblies:
+  - YShared.Runtime
+  namespace: YShared.Console
+  syntax:
+    content: public struct Parameter
+    content.vb: Public Structure Parameter
+  inheritedMembers:
+  - System.ValueType.Equals(System.Object)
+  - System.ValueType.GetHashCode
+  - System.ValueType.ToString
+  - System.Object.GetType
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  extensionMethods:
+  - System.Object.YShared.MathHelper.YMathHelper.TryAs``1({T}@)
+- uid: YShared.Console.Parameter.hasDefault
+  commentId: F:YShared.Console.Parameter.hasDefault
+  id: hasDefault
+  parent: YShared.Console.Parameter
+  langs:
+  - csharp
+  - vb
+  name: hasDefault
+  nameWithType: Parameter.hasDefault
+  fullName: YShared.Console.Parameter.hasDefault
+  type: Field
+  assemblies:
+  - YShared.Runtime
+  namespace: YShared.Console
+  syntax:
+    content: public bool hasDefault
+    return:
+      type: System.Boolean
+    content.vb: Public hasDefault As Boolean
+- uid: YShared.Console.Parameter.defaultval
+  commentId: F:YShared.Console.Parameter.defaultval
+  id: defaultval
+  parent: YShared.Console.Parameter
+  langs:
+  - csharp
+  - vb
+  name: defaultval
+  nameWithType: Parameter.defaultval
+  fullName: YShared.Console.Parameter.defaultval
+  type: Field
+  assemblies:
+  - YShared.Runtime
+  namespace: YShared.Console
+  syntax:
+    content: public object defaultval
+    return:
+      type: System.Object
+    content.vb: Public defaultval As Object
+references:
+- uid: YShared.Console
+  commentId: N:YShared.Console
+  isExternal: true
+  href: YShared.html
+  name: YShared.Console
+  nameWithType: YShared.Console
+  fullName: YShared.Console
+  spec.csharp:
+  - uid: YShared
+    name: YShared
+    isExternal: true
+    href: YShared.html
+  - name: .
+  - uid: YShared.Console
+    name: Console
+    isExternal: true
+    href: YShared.Console.html
+  spec.vb:
+  - uid: YShared
+    name: YShared
+    isExternal: true
+    href: YShared.html
+  - name: .
+  - uid: YShared.Console
+    name: Console
+    isExternal: true
+    href: YShared.Console.html
+- uid: System.ValueType.Equals(System.Object)
+  commentId: M:System.ValueType.Equals(System.Object)
+  parent: System.ValueType
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  name: Equals(object)
+  nameWithType: ValueType.Equals(object)
+  fullName: System.ValueType.Equals(object)
+  nameWithType.vb: ValueType.Equals(Object)
+  fullName.vb: System.ValueType.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.ValueType.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.ValueType.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.ValueType.GetHashCode
+  commentId: M:System.ValueType.GetHashCode
+  parent: System.ValueType
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  name: GetHashCode()
+  nameWithType: ValueType.GetHashCode()
+  fullName: System.ValueType.GetHashCode()
+  spec.csharp:
+  - uid: System.ValueType.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.ValueType.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  - name: (
+  - name: )
+- uid: System.ValueType.ToString
+  commentId: M:System.ValueType.ToString
+  parent: System.ValueType
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype.tostring
+  name: ToString()
+  nameWithType: ValueType.ToString()
+  fullName: System.ValueType.ToString()
+  spec.csharp:
+  - uid: System.ValueType.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.ValueType.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.tostring
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.YShared.MathHelper.YMathHelper.TryAs``1({T}@)
+  commentId: M:YShared.MathHelper.YMathHelper.TryAs``1(System.Object,``0@)
+  parent: YShared.MathHelper.YMathHelper
+  definition: YShared.MathHelper.YMathHelper.TryAs``1(System.Object,``0@)
+  href: YShared.MathHelper.YMathHelper.html#YShared_MathHelper_YMathHelper_TryAs__1_System_Object___0__
+  name: TryAs<T>(object, out T)
+  nameWithType: YMathHelper.TryAs<T>(object, out T)
+  fullName: YShared.MathHelper.YMathHelper.TryAs<T>(object, out T)
+  nameWithType.vb: YMathHelper.TryAs(Of T)(Object, T)
+  fullName.vb: YShared.MathHelper.YMathHelper.TryAs(Of T)(Object, T)
+  name.vb: TryAs(Of T)(Object, T)
+  spec.csharp:
+  - uid: YShared.MathHelper.YMathHelper.TryAs``1(System.Object,``0@)
+    name: TryAs
+    isExternal: true
+    href: YShared.MathHelper.YMathHelper.html#YShared_MathHelper_YMathHelper_TryAs__1_System_Object___0__
+  - name: <
+  - name: T
+  - name: '>'
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - name: out
+  - name: " "
+  - name: T
+  - name: )
+  spec.vb:
+  - uid: YShared.MathHelper.YMathHelper.TryAs``1(System.Object,``0@)
+    name: TryAs
+    isExternal: true
+    href: YShared.MathHelper.YMathHelper.html#YShared_MathHelper_YMathHelper_TryAs__1_System_Object___0__
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.ValueType
+  commentId: T:System.ValueType
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype
+  name: ValueType
+  nameWithType: ValueType
+  fullName: System.ValueType
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: YShared.MathHelper.YMathHelper.TryAs``1(System.Object,``0@)
+  commentId: M:YShared.MathHelper.YMathHelper.TryAs``1(System.Object,``0@)
+  isExternal: true
+  href: YShared.MathHelper.YMathHelper.html#YShared_MathHelper_YMathHelper_TryAs__1_System_Object___0__
+  name: TryAs<T>(object, out T)
+  nameWithType: YMathHelper.TryAs<T>(object, out T)
+  fullName: YShared.MathHelper.YMathHelper.TryAs<T>(object, out T)
+  nameWithType.vb: YMathHelper.TryAs(Of T)(Object, T)
+  fullName.vb: YShared.MathHelper.YMathHelper.TryAs(Of T)(Object, T)
+  name.vb: TryAs(Of T)(Object, T)
+  spec.csharp:
+  - uid: YShared.MathHelper.YMathHelper.TryAs``1(System.Object,``0@)
+    name: TryAs
+    isExternal: true
+    href: YShared.MathHelper.YMathHelper.html#YShared_MathHelper_YMathHelper_TryAs__1_System_Object___0__
+  - name: <
+  - name: T
+  - name: '>'
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - name: out
+  - name: " "
+  - name: T
+  - name: )
+  spec.vb:
+  - uid: YShared.MathHelper.YMathHelper.TryAs``1(System.Object,``0@)
+    name: TryAs
+    isExternal: true
+    href: YShared.MathHelper.YMathHelper.html#YShared_MathHelper_YMathHelper_TryAs__1_System_Object___0__
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - name: T
+  - name: )
+- uid: YShared.MathHelper.YMathHelper
+  commentId: T:YShared.MathHelper.YMathHelper
+  parent: YShared.MathHelper
+  isExternal: true
+  href: YShared.MathHelper.YMathHelper.html
+  name: YMathHelper
+  nameWithType: YMathHelper
+  fullName: YShared.MathHelper.YMathHelper
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: YShared.MathHelper
+  commentId: N:YShared.MathHelper
+  isExternal: true
+  href: YShared.html
+  name: YShared.MathHelper
+  nameWithType: YShared.MathHelper
+  fullName: YShared.MathHelper
+  spec.csharp:
+  - uid: YShared
+    name: YShared
+    isExternal: true
+    href: YShared.html
+  - name: .
+  - uid: YShared.MathHelper
+    name: MathHelper
+    isExternal: true
+    href: YShared.MathHelper.html
+  spec.vb:
+  - uid: YShared
+    name: YShared
+    isExternal: true
+    href: YShared.html
+  - name: .
+  - uid: YShared.MathHelper
+    name: MathHelper
+    isExternal: true
+    href: YShared.MathHelper.html
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean

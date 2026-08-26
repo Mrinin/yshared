@@ -10,7 +10,7 @@ namespace YShared.Console
         public object defaultval;
     }
 
-    public class Command
+    public sealed class Command
     {
         public string command;
         public string description;
@@ -18,8 +18,15 @@ namespace YShared.Console
         public ObjectFindType objectFindType; 
         public UnityEngine.FindObjectsInactive findObjectsInactive;
 
+        public MemberInfo action;
+        // Can be: 
+        // - MethodInfo
+        // - Field Info
+
+        public bool IsStatic { get; set; }
+        public bool hasReturnType { get; set; }
+
         public YCmdArgumentAttribute[] arguments;
-        public MethodInfo action;
         public Parameter[] functionParameters;
 
 

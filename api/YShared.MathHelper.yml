@@ -1,0 +1,97 @@
+### YamlMime:ManagedReference
+items:
+- uid: YShared.MathHelper
+  commentId: N:YShared.MathHelper
+  id: YShared.MathHelper
+  children:
+  - YShared.MathHelper.ArrayFunctions
+  - YShared.MathHelper.SinValue
+  - YShared.MathHelper.TrackedVariable`1
+  - YShared.MathHelper.YMathHelper
+  langs:
+  - csharp
+  - vb
+  name: YShared.MathHelper
+  nameWithType: YShared.MathHelper
+  fullName: YShared.MathHelper
+  type: Namespace
+  assemblies:
+  - YShared.Runtime
+references:
+- uid: YShared.MathHelper.YMathHelper
+  commentId: T:YShared.MathHelper.YMathHelper
+  parent: YShared.MathHelper
+  isExternal: true
+  href: YShared.MathHelper.YMathHelper.html
+  name: YMathHelper
+  nameWithType: YMathHelper
+  fullName: YShared.MathHelper.YMathHelper
+- uid: YShared.MathHelper.TrackedVariable`1
+  commentId: T:YShared.MathHelper.TrackedVariable`1
+  isExternal: true
+  href: YShared.MathHelper.TrackedVariable-1.html
+  name: TrackedVariable<T>
+  nameWithType: TrackedVariable<T>
+  fullName: YShared.MathHelper.TrackedVariable<T>
+  nameWithType.vb: TrackedVariable(Of T)
+  fullName.vb: YShared.MathHelper.TrackedVariable(Of T)
+  name.vb: TrackedVariable(Of T)
+  spec.csharp:
+  - uid: YShared.MathHelper.TrackedVariable`1
+    name: TrackedVariable
+    isExternal: true
+    href: YShared.MathHelper.TrackedVariable-1.html
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: YShared.MathHelper.TrackedVariable`1
+    name: TrackedVariable
+    isExternal: true
+    href: YShared.MathHelper.TrackedVariable-1.html
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: YShared.MathHelper.ArrayFunctions
+  commentId: T:YShared.MathHelper.ArrayFunctions
+  isExternal: true
+  href: YShared.MathHelper.ArrayFunctions.html
+  name: ArrayFunctions
+  nameWithType: ArrayFunctions
+  fullName: YShared.MathHelper.ArrayFunctions
+- uid: YShared.MathHelper.SinValue
+  commentId: T:YShared.MathHelper.SinValue
+  isExternal: true
+  href: YShared.MathHelper.SinValue.html
+  name: SinValue
+  nameWithType: SinValue
+  fullName: YShared.MathHelper.SinValue
+- uid: YShared.MathHelper
+  commentId: N:YShared.MathHelper
+  isExternal: true
+  href: YShared.html
+  name: YShared.MathHelper
+  nameWithType: YShared.MathHelper
+  fullName: YShared.MathHelper
+  spec.csharp:
+  - uid: YShared
+    name: YShared
+    isExternal: true
+    href: YShared.html
+  - name: .
+  - uid: YShared.MathHelper
+    name: MathHelper
+    isExternal: true
+    href: YShared.MathHelper.html
+  spec.vb:
+  - uid: YShared
+    name: YShared
+    isExternal: true
+    href: YShared.html
+  - name: .
+  - uid: YShared.MathHelper
+    name: MathHelper
+    isExternal: true
+    href: YShared.MathHelper.html

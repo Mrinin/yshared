@@ -1,0 +1,140 @@
+### YamlMime:ManagedReference
+items:
+- uid: YShared.NamedTimers
+  commentId: N:YShared.NamedTimers
+  id: YShared.NamedTimers
+  children:
+  - YShared.NamedTimers.Extension
+  - YShared.NamedTimers.Extension.TimerBehaviour
+  - YShared.NamedTimers.GameObjectBinding
+  - YShared.NamedTimers.SetTimerResult
+  - YShared.NamedTimers.Timer
+  - YShared.NamedTimers.TimerHandler
+  - YShared.NamedTimers.TimerOptions
+  - YShared.NamedTimers.TimerState
+  - YShared.NamedTimers.TimerWindow
+  langs:
+  - csharp
+  - vb
+  name: YShared.NamedTimers
+  nameWithType: YShared.NamedTimers
+  fullName: YShared.NamedTimers
+  type: Namespace
+  assemblies:
+  - YShared.Runtime
+references:
+- uid: YShared.NamedTimers.Extension
+  commentId: T:YShared.NamedTimers.Extension
+  isExternal: true
+  href: YShared.NamedTimers.Extension.html
+  name: Extension
+  nameWithType: Extension
+  fullName: YShared.NamedTimers.Extension
+- uid: YShared.NamedTimers.Extension.TimerBehaviour
+  commentId: T:YShared.NamedTimers.Extension.TimerBehaviour
+  isExternal: true
+  href: YShared.NamedTimers.Extension.html
+  name: Extension.TimerBehaviour
+  nameWithType: Extension.TimerBehaviour
+  fullName: YShared.NamedTimers.Extension.TimerBehaviour
+  spec.csharp:
+  - uid: YShared.NamedTimers.Extension
+    name: Extension
+    isExternal: true
+    href: YShared.NamedTimers.Extension.html
+  - name: .
+  - uid: YShared.NamedTimers.Extension.TimerBehaviour
+    name: TimerBehaviour
+    isExternal: true
+    href: YShared.NamedTimers.Extension.TimerBehaviour.html
+  spec.vb:
+  - uid: YShared.NamedTimers.Extension
+    name: Extension
+    isExternal: true
+    href: YShared.NamedTimers.Extension.html
+  - name: .
+  - uid: YShared.NamedTimers.Extension.TimerBehaviour
+    name: TimerBehaviour
+    isExternal: true
+    href: YShared.NamedTimers.Extension.TimerBehaviour.html
+- uid: YShared.NamedTimers.GameObjectBinding
+  commentId: T:YShared.NamedTimers.GameObjectBinding
+  parent: YShared.NamedTimers
+  isExternal: true
+  href: YShared.NamedTimers.GameObjectBinding.html
+  name: GameObjectBinding
+  nameWithType: GameObjectBinding
+  fullName: YShared.NamedTimers.GameObjectBinding
+- uid: YShared.NamedTimers.SetTimerResult
+  commentId: T:YShared.NamedTimers.SetTimerResult
+  parent: YShared.NamedTimers
+  isExternal: true
+  href: YShared.NamedTimers.SetTimerResult.html
+  name: SetTimerResult
+  nameWithType: SetTimerResult
+  fullName: YShared.NamedTimers.SetTimerResult
+- uid: YShared.NamedTimers.TimerOptions
+  commentId: T:YShared.NamedTimers.TimerOptions
+  parent: YShared.NamedTimers
+  isExternal: true
+  href: YShared.NamedTimers.TimerOptions.html
+  name: TimerOptions
+  nameWithType: TimerOptions
+  fullName: YShared.NamedTimers.TimerOptions
+- uid: YShared.NamedTimers.TimerState
+  commentId: T:YShared.NamedTimers.TimerState
+  parent: YShared.NamedTimers
+  isExternal: true
+  href: YShared.NamedTimers.TimerState.html
+  name: TimerState
+  nameWithType: TimerState
+  fullName: YShared.NamedTimers.TimerState
+- uid: YShared.NamedTimers.TimerHandler
+  commentId: T:YShared.NamedTimers.TimerHandler
+  isExternal: true
+  href: YShared.NamedTimers.TimerHandler.html
+  name: TimerHandler
+  nameWithType: TimerHandler
+  fullName: YShared.NamedTimers.TimerHandler
+- uid: YShared.NamedTimers.Timer
+  commentId: T:YShared.NamedTimers.Timer
+  parent: YShared.NamedTimers
+  isExternal: true
+  href: YShared.NamedTimers.Timer.html
+  name: Timer
+  nameWithType: Timer
+  fullName: YShared.NamedTimers.Timer
+- uid: YShared.NamedTimers.TimerWindow
+  commentId: T:YShared.NamedTimers.TimerWindow
+  isExternal: true
+  href: YShared.NamedTimers.TimerWindow.html
+  name: TimerWindow
+  nameWithType: TimerWindow
+  fullName: YShared.NamedTimers.TimerWindow
+- uid: YShared.NamedTimers
+  commentId: N:YShared.NamedTimers
+  isExternal: true
+  href: YShared.html
+  name: YShared.NamedTimers
+  nameWithType: YShared.NamedTimers
+  fullName: YShared.NamedTimers
+  spec.csharp:
+  - uid: YShared
+    name: YShared
+    isExternal: true
+    href: YShared.html
+  - name: .
+  - uid: YShared.NamedTimers
+    name: NamedTimers
+    isExternal: true
+    href: YShared.NamedTimers.html
+  spec.vb:
+  - uid: YShared
+    name: YShared
+    isExternal: true
+    href: YShared.html
+  - name: .
+  - uid: YShared.NamedTimers
+    name: NamedTimers
+    isExternal: true
+    href: YShared.NamedTimers.html

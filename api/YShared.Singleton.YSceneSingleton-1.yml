@@ -1,0 +1,502 @@
+### YamlMime:ManagedReference
+items:
+- uid: YShared.Singleton.YSceneSingleton`1
+  commentId: T:YShared.Singleton.YSceneSingleton`1
+  id: YSceneSingleton`1
+  parent: YShared.Singleton
+  children:
+  - YShared.Singleton.YSceneSingleton`1.#ctor
+  - YShared.Singleton.YSceneSingleton`1.CallDontDestroyOnLoad
+  - YShared.Singleton.YSceneSingleton`1.Instance
+  langs:
+  - csharp
+  - vb
+  name: YSceneSingleton<T>
+  nameWithType: YSceneSingleton<T>
+  fullName: YShared.Singleton.YSceneSingleton<T>
+  type: Class
+  assemblies:
+  - YShared.Runtime
+  namespace: YShared.Singleton
+  syntax:
+    content: 'public abstract class YSceneSingleton<T> : YSingleton<T> where T : MonoBehaviour'
+    typeParameters:
+    - id: T
+    content.vb: Public MustInherit Class YSceneSingleton(Of T As MonoBehaviour) Inherits YSingleton(Of T)
+  inheritance:
+  - System.Object
+  - YShared.Singleton.YSingleton{{T}}
+  inheritedMembers:
+  - YShared.Singleton.YSingleton{{T}}.Awake
+  - YShared.Singleton.YSingleton{{T}}.OnDestroy
+  extensionMethods:
+  - System.Object.YShared.MathHelper.YMathHelper.TryAs``1({T}@)
+  nameWithType.vb: YSceneSingleton(Of T)
+  fullName.vb: YShared.Singleton.YSceneSingleton(Of T)
+  name.vb: YSceneSingleton(Of T)
+- uid: YShared.Singleton.YSceneSingleton`1.#ctor
+  commentId: M:YShared.Singleton.YSceneSingleton`1.#ctor
+  id: '#ctor'
+  parent: YShared.Singleton.YSceneSingleton`1
+  langs:
+  - csharp
+  - vb
+  name: YSceneSingleton()
+  nameWithType: YSceneSingleton<T>.YSceneSingleton()
+  fullName: YShared.Singleton.YSceneSingleton<T>.YSceneSingleton()
+  type: Constructor
+  assemblies:
+  - YShared.Runtime
+  namespace: YShared.Singleton
+  syntax:
+    content: protected YSceneSingleton()
+    content.vb: Protected Sub New()
+  overload: YShared.Singleton.YSceneSingleton`1.#ctor*
+  nameWithType.vb: YSceneSingleton(Of T).New()
+  fullName.vb: YShared.Singleton.YSceneSingleton(Of T).New()
+  name.vb: New()
+- uid: YShared.Singleton.YSceneSingleton`1.CallDontDestroyOnLoad
+  commentId: P:YShared.Singleton.YSceneSingleton`1.CallDontDestroyOnLoad
+  id: CallDontDestroyOnLoad
+  parent: YShared.Singleton.YSceneSingleton`1
+  langs:
+  - csharp
+  - vb
+  name: CallDontDestroyOnLoad
+  nameWithType: YSceneSingleton<T>.CallDontDestroyOnLoad
+  fullName: YShared.Singleton.YSceneSingleton<T>.CallDontDestroyOnLoad
+  type: Property
+  assemblies:
+  - YShared.Runtime
+  namespace: YShared.Singleton
+  example: []
+  syntax:
+    content: public override bool CallDontDestroyOnLoad { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Overrides ReadOnly Property CallDontDestroyOnLoad As Boolean
+  overridden: YShared.Singleton.YSingleton{{T}}.CallDontDestroyOnLoad
+  overload: YShared.Singleton.YSceneSingleton`1.CallDontDestroyOnLoad*
+  nameWithType.vb: YSceneSingleton(Of T).CallDontDestroyOnLoad
+  fullName.vb: YShared.Singleton.YSceneSingleton(Of T).CallDontDestroyOnLoad
+- uid: YShared.Singleton.YSceneSingleton`1.Instance
+  commentId: P:YShared.Singleton.YSceneSingleton`1.Instance
+  id: Instance
+  parent: YShared.Singleton.YSceneSingleton`1
+  langs:
+  - csharp
+  - vb
+  name: Instance
+  nameWithType: YSceneSingleton<T>.Instance
+  fullName: YShared.Singleton.YSceneSingleton<T>.Instance
+  type: Property
+  assemblies:
+  - YShared.Runtime
+  namespace: YShared.Singleton
+  syntax:
+    content: public static T Instance { get; }
+    parameters: []
+    return:
+      type: '{T}'
+    content.vb: Public Shared ReadOnly Property Instance As T
+  overload: YShared.Singleton.YSceneSingleton`1.Instance*
+  nameWithType.vb: YSceneSingleton(Of T).Instance
+  fullName.vb: YShared.Singleton.YSceneSingleton(Of T).Instance
+references:
+- uid: YShared.Singleton
+  commentId: N:YShared.Singleton
+  isExternal: true
+  href: YShared.html
+  name: YShared.Singleton
+  nameWithType: YShared.Singleton
+  fullName: YShared.Singleton
+  spec.csharp:
+  - uid: YShared
+    name: YShared
+    isExternal: true
+    href: YShared.html
+  - name: .
+  - uid: YShared.Singleton
+    name: Singleton
+    isExternal: true
+    href: YShared.Singleton.html
+  spec.vb:
+  - uid: YShared
+    name: YShared
+    isExternal: true
+    href: YShared.html
+  - name: .
+  - uid: YShared.Singleton
+    name: Singleton
+    isExternal: true
+    href: YShared.Singleton.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: YShared.Singleton.YSingleton{{T}}
+  commentId: T:YShared.Singleton.YSingleton{`0}
+  parent: YShared.Singleton
+  definition: YShared.Singleton.YSingleton`1
+  href: YShared.Singleton.YSingleton-1.html
+  name: YSingleton<T>
+  nameWithType: YSingleton<T>
+  fullName: YShared.Singleton.YSingleton<T>
+  nameWithType.vb: YSingleton(Of T)
+  fullName.vb: YShared.Singleton.YSingleton(Of T)
+  name.vb: YSingleton(Of T)
+  spec.csharp:
+  - uid: YShared.Singleton.YSingleton`1
+    name: YSingleton
+    isExternal: true
+    href: YShared.Singleton.YSingleton-1.html
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: YShared.Singleton.YSingleton`1
+    name: YSingleton
+    isExternal: true
+    href: YShared.Singleton.YSingleton-1.html
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: YShared.Singleton.YSingleton{{T}}.Awake
+  commentId: M:YShared.Singleton.YSingleton{`0}.Awake
+  parent: YShared.Singleton.YSingleton{{T}}
+  definition: YShared.Singleton.YSingleton`1.Awake
+  href: YShared.Singleton.YSingleton-1.html#YShared_Singleton_YSingleton_1_Awake
+  name: Awake()
+  nameWithType: YSingleton<T>.Awake()
+  fullName: YShared.Singleton.YSingleton<T>.Awake()
+  nameWithType.vb: YSingleton(Of T).Awake()
+  fullName.vb: YShared.Singleton.YSingleton(Of T).Awake()
+  spec.csharp:
+  - uid: YShared.Singleton.YSingleton{`0}.Awake
+    name: Awake
+    isExternal: true
+    href: YShared.Singleton.YSingleton-1.html#YShared_Singleton_YSingleton_1_Awake
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: YShared.Singleton.YSingleton{`0}.Awake
+    name: Awake
+    isExternal: true
+    href: YShared.Singleton.YSingleton-1.html#YShared_Singleton_YSingleton_1_Awake
+  - name: (
+  - name: )
+- uid: YShared.Singleton.YSingleton{{T}}.OnDestroy
+  commentId: M:YShared.Singleton.YSingleton{`0}.OnDestroy
+  parent: YShared.Singleton.YSingleton{{T}}
+  definition: YShared.Singleton.YSingleton`1.OnDestroy
+  href: YShared.Singleton.YSingleton-1.html#YShared_Singleton_YSingleton_1_OnDestroy
+  name: OnDestroy()
+  nameWithType: YSingleton<T>.OnDestroy()
+  fullName: YShared.Singleton.YSingleton<T>.OnDestroy()
+  nameWithType.vb: YSingleton(Of T).OnDestroy()
+  fullName.vb: YShared.Singleton.YSingleton(Of T).OnDestroy()
+  spec.csharp:
+  - uid: YShared.Singleton.YSingleton{`0}.OnDestroy
+    name: OnDestroy
+    isExternal: true
+    href: YShared.Singleton.YSingleton-1.html#YShared_Singleton_YSingleton_1_OnDestroy
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: YShared.Singleton.YSingleton{`0}.OnDestroy
+    name: OnDestroy
+    isExternal: true
+    href: YShared.Singleton.YSingleton-1.html#YShared_Singleton_YSingleton_1_OnDestroy
+  - name: (
+  - name: )
+- uid: System.Object.YShared.MathHelper.YMathHelper.TryAs``1({T}@)
+  commentId: M:YShared.MathHelper.YMathHelper.TryAs``1(System.Object,``0@)
+  parent: YShared.MathHelper.YMathHelper
+  definition: YShared.MathHelper.YMathHelper.TryAs``1(System.Object,``0@)
+  href: YShared.MathHelper.YMathHelper.html#YShared_MathHelper_YMathHelper_TryAs__1_System_Object___0__
+  name: TryAs<T>(object, out T)
+  nameWithType: YMathHelper.TryAs<T>(object, out T)
+  fullName: YShared.MathHelper.YMathHelper.TryAs<T>(object, out T)
+  nameWithType.vb: YMathHelper.TryAs(Of T)(Object, T)
+  fullName.vb: YShared.MathHelper.YMathHelper.TryAs(Of T)(Object, T)
+  name.vb: TryAs(Of T)(Object, T)
+  spec.csharp:
+  - uid: YShared.MathHelper.YMathHelper.TryAs``1(System.Object,``0@)
+    name: TryAs
+    isExternal: true
+    href: YShared.MathHelper.YMathHelper.html#YShared_MathHelper_YMathHelper_TryAs__1_System_Object___0__
+  - name: <
+  - name: T
+  - name: '>'
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - name: out
+  - name: " "
+  - name: T
+  - name: )
+  spec.vb:
+  - uid: YShared.MathHelper.YMathHelper.TryAs``1(System.Object,``0@)
+    name: TryAs
+    isExternal: true
+    href: YShared.MathHelper.YMathHelper.html#YShared_MathHelper_YMathHelper_TryAs__1_System_Object___0__
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - name: T
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: YShared.Singleton.YSingleton`1
+  commentId: T:YShared.Singleton.YSingleton`1
+  isExternal: true
+  href: YShared.Singleton.YSingleton-1.html
+  name: YSingleton<T>
+  nameWithType: YSingleton<T>
+  fullName: YShared.Singleton.YSingleton<T>
+  nameWithType.vb: YSingleton(Of T)
+  fullName.vb: YShared.Singleton.YSingleton(Of T)
+  name.vb: YSingleton(Of T)
+  spec.csharp:
+  - uid: YShared.Singleton.YSingleton`1
+    name: YSingleton
+    isExternal: true
+    href: YShared.Singleton.YSingleton-1.html
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: YShared.Singleton.YSingleton`1
+    name: YSingleton
+    isExternal: true
+    href: YShared.Singleton.YSingleton-1.html
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: YShared.Singleton.YSingleton`1.Awake
+  commentId: M:YShared.Singleton.YSingleton`1.Awake
+  isExternal: true
+  href: YShared.Singleton.YSingleton-1.html#YShared_Singleton_YSingleton_1_Awake
+  name: Awake()
+  nameWithType: YSingleton<T>.Awake()
+  fullName: YShared.Singleton.YSingleton<T>.Awake()
+  nameWithType.vb: YSingleton(Of T).Awake()
+  fullName.vb: YShared.Singleton.YSingleton(Of T).Awake()
+  spec.csharp:
+  - uid: YShared.Singleton.YSingleton`1.Awake
+    name: Awake
+    isExternal: true
+    href: YShared.Singleton.YSingleton-1.html#YShared_Singleton_YSingleton_1_Awake
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: YShared.Singleton.YSingleton`1.Awake
+    name: Awake
+    isExternal: true
+    href: YShared.Singleton.YSingleton-1.html#YShared_Singleton_YSingleton_1_Awake
+  - name: (
+  - name: )
+- uid: YShared.Singleton.YSingleton`1.OnDestroy
+  commentId: M:YShared.Singleton.YSingleton`1.OnDestroy
+  isExternal: true
+  href: YShared.Singleton.YSingleton-1.html#YShared_Singleton_YSingleton_1_OnDestroy
+  name: OnDestroy()
+  nameWithType: YSingleton<T>.OnDestroy()
+  fullName: YShared.Singleton.YSingleton<T>.OnDestroy()
+  nameWithType.vb: YSingleton(Of T).OnDestroy()
+  fullName.vb: YShared.Singleton.YSingleton(Of T).OnDestroy()
+  spec.csharp:
+  - uid: YShared.Singleton.YSingleton`1.OnDestroy
+    name: OnDestroy
+    isExternal: true
+    href: YShared.Singleton.YSingleton-1.html#YShared_Singleton_YSingleton_1_OnDestroy
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: YShared.Singleton.YSingleton`1.OnDestroy
+    name: OnDestroy
+    isExternal: true
+    href: YShared.Singleton.YSingleton-1.html#YShared_Singleton_YSingleton_1_OnDestroy
+  - name: (
+  - name: )
+- uid: YShared.MathHelper.YMathHelper.TryAs``1(System.Object,``0@)
+  commentId: M:YShared.MathHelper.YMathHelper.TryAs``1(System.Object,``0@)
+  isExternal: true
+  href: YShared.MathHelper.YMathHelper.html#YShared_MathHelper_YMathHelper_TryAs__1_System_Object___0__
+  name: TryAs<T>(object, out T)
+  nameWithType: YMathHelper.TryAs<T>(object, out T)
+  fullName: YShared.MathHelper.YMathHelper.TryAs<T>(object, out T)
+  nameWithType.vb: YMathHelper.TryAs(Of T)(Object, T)
+  fullName.vb: YShared.MathHelper.YMathHelper.TryAs(Of T)(Object, T)
+  name.vb: TryAs(Of T)(Object, T)
+  spec.csharp:
+  - uid: YShared.MathHelper.YMathHelper.TryAs``1(System.Object,``0@)
+    name: TryAs
+    isExternal: true
+    href: YShared.MathHelper.YMathHelper.html#YShared_MathHelper_YMathHelper_TryAs__1_System_Object___0__
+  - name: <
+  - name: T
+  - name: '>'
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - name: out
+  - name: " "
+  - name: T
+  - name: )
+  spec.vb:
+  - uid: YShared.MathHelper.YMathHelper.TryAs``1(System.Object,``0@)
+    name: TryAs
+    isExternal: true
+    href: YShared.MathHelper.YMathHelper.html#YShared_MathHelper_YMathHelper_TryAs__1_System_Object___0__
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - name: T
+  - name: )
+- uid: YShared.MathHelper.YMathHelper
+  commentId: T:YShared.MathHelper.YMathHelper
+  parent: YShared.MathHelper
+  isExternal: true
+  href: YShared.MathHelper.YMathHelper.html
+  name: YMathHelper
+  nameWithType: YMathHelper
+  fullName: YShared.MathHelper.YMathHelper
+- uid: YShared.MathHelper
+  commentId: N:YShared.MathHelper
+  isExternal: true
+  href: YShared.html
+  name: YShared.MathHelper
+  nameWithType: YShared.MathHelper
+  fullName: YShared.MathHelper
+  spec.csharp:
+  - uid: YShared
+    name: YShared
+    isExternal: true
+    href: YShared.html
+  - name: .
+  - uid: YShared.MathHelper
+    name: MathHelper
+    isExternal: true
+    href: YShared.MathHelper.html
+  spec.vb:
+  - uid: YShared
+    name: YShared
+    isExternal: true
+    href: YShared.html
+  - name: .
+  - uid: YShared.MathHelper
+    name: MathHelper
+    isExternal: true
+    href: YShared.MathHelper.html
+- uid: YShared.Singleton.YSceneSingleton`1.#ctor*
+  commentId: Overload:YShared.Singleton.YSceneSingleton`1.#ctor
+  isExternal: true
+  href: YShared.Singleton.YSceneSingleton-1.html#YShared_Singleton_YSceneSingleton_1__ctor
+  name: YSceneSingleton
+  nameWithType: YSceneSingleton<T>.YSceneSingleton
+  fullName: YShared.Singleton.YSceneSingleton<T>.YSceneSingleton
+  nameWithType.vb: YSceneSingleton(Of T).New
+  fullName.vb: YShared.Singleton.YSceneSingleton(Of T).New
+  name.vb: New
+- uid: YShared.Singleton.YSingleton{{T}}.CallDontDestroyOnLoad
+  commentId: P:YShared.Singleton.YSingleton{`0}.CallDontDestroyOnLoad
+  parent: YShared.Singleton.YSingleton{{T}}
+  definition: YShared.Singleton.YSingleton`1.CallDontDestroyOnLoad
+  href: YShared.Singleton.YSingleton-1.html#YShared_Singleton_YSingleton_1_CallDontDestroyOnLoad
+  name: CallDontDestroyOnLoad
+  nameWithType: YSingleton<T>.CallDontDestroyOnLoad
+  fullName: YShared.Singleton.YSingleton<T>.CallDontDestroyOnLoad
+  nameWithType.vb: YSingleton(Of T).CallDontDestroyOnLoad
+  fullName.vb: YShared.Singleton.YSingleton(Of T).CallDontDestroyOnLoad
+- uid: YShared.Singleton.YSceneSingleton`1.CallDontDestroyOnLoad*
+  commentId: Overload:YShared.Singleton.YSceneSingleton`1.CallDontDestroyOnLoad
+  isExternal: true
+  href: YShared.Singleton.YSceneSingleton-1.html#YShared_Singleton_YSceneSingleton_1_CallDontDestroyOnLoad
+  name: CallDontDestroyOnLoad
+  nameWithType: YSceneSingleton<T>.CallDontDestroyOnLoad
+  fullName: YShared.Singleton.YSceneSingleton<T>.CallDontDestroyOnLoad
+  nameWithType.vb: YSceneSingleton(Of T).CallDontDestroyOnLoad
+  fullName.vb: YShared.Singleton.YSceneSingleton(Of T).CallDontDestroyOnLoad
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: YShared.Singleton.YSingleton`1.CallDontDestroyOnLoad
+  commentId: P:YShared.Singleton.YSingleton`1.CallDontDestroyOnLoad
+  isExternal: true
+  href: YShared.Singleton.YSingleton-1.html#YShared_Singleton_YSingleton_1_CallDontDestroyOnLoad
+  name: CallDontDestroyOnLoad
+  nameWithType: YSingleton<T>.CallDontDestroyOnLoad
+  fullName: YShared.Singleton.YSingleton<T>.CallDontDestroyOnLoad
+  nameWithType.vb: YSingleton(Of T).CallDontDestroyOnLoad
+  fullName.vb: YShared.Singleton.YSingleton(Of T).CallDontDestroyOnLoad
+- uid: YShared.Singleton.YSceneSingleton`1.Instance*
+  commentId: Overload:YShared.Singleton.YSceneSingleton`1.Instance
+  isExternal: true
+  href: YShared.Singleton.YSceneSingleton-1.html#YShared_Singleton_YSceneSingleton_1_Instance
+  name: Instance
+  nameWithType: YSceneSingleton<T>.Instance
+  fullName: YShared.Singleton.YSceneSingleton<T>.Instance
+  nameWithType.vb: YSceneSingleton(Of T).Instance
+  fullName.vb: YShared.Singleton.YSceneSingleton(Of T).Instance
+- uid: '{T}'
+  commentId: '!:T'
+  definition: T
+  name: T
+  nameWithType: T
+  fullName: T
+- uid: T
+  name: T
+  nameWithType: T
+  fullName: T

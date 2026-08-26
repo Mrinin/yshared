@@ -1,0 +1,301 @@
+### YamlMime:ManagedReference
+items:
+- uid: YShared.Console.ObjectFindType
+  commentId: T:YShared.Console.ObjectFindType
+  id: ObjectFindType
+  parent: YShared.Console
+  children:
+  - YShared.Console.ObjectFindType.All
+  - YShared.Console.ObjectFindType.Any
+  - YShared.Console.ObjectFindType.Argument
+  - YShared.Console.ObjectFindType.ArgumentArray
+  - YShared.Console.ObjectFindType.First
+  langs:
+  - csharp
+  - vb
+  name: ObjectFindType
+  nameWithType: ObjectFindType
+  fullName: YShared.Console.ObjectFindType
+  type: Enum
+  assemblies:
+  - YShared.Runtime
+  namespace: YShared.Console
+  syntax:
+    content: public enum ObjectFindType
+    content.vb: Public Enum ObjectFindType
+  extensionMethods:
+  - System.Object.YShared.MathHelper.YMathHelper.TryAs``1({T}@)
+- uid: YShared.Console.ObjectFindType.All
+  commentId: F:YShared.Console.ObjectFindType.All
+  id: All
+  parent: YShared.Console.ObjectFindType
+  langs:
+  - csharp
+  - vb
+  name: All
+  nameWithType: ObjectFindType.All
+  fullName: YShared.Console.ObjectFindType.All
+  type: Field
+  assemblies:
+  - YShared.Runtime
+  namespace: YShared.Console
+  summary: Finds all objects with this class and calls this method on all of them. Internally uses <code>GameObject.FindObjectsByType</code>.
+  example: []
+  syntax:
+    content: All = 0
+    return:
+      type: YShared.Console.ObjectFindType
+- uid: YShared.Console.ObjectFindType.Any
+  commentId: F:YShared.Console.ObjectFindType.Any
+  id: Any
+  parent: YShared.Console.ObjectFindType
+  langs:
+  - csharp
+  - vb
+  name: Any
+  nameWithType: ObjectFindType.Any
+  fullName: YShared.Console.ObjectFindType.Any
+  type: Field
+  assemblies:
+  - YShared.Runtime
+  namespace: YShared.Console
+  summary: Finds any object with this class and calls this method on it. Internally uses <code>GameObject.FindAnyByType</code>.
+  example: []
+  syntax:
+    content: Any = 1
+    return:
+      type: YShared.Console.ObjectFindType
+- uid: YShared.Console.ObjectFindType.First
+  commentId: F:YShared.Console.ObjectFindType.First
+  id: First
+  parent: YShared.Console.ObjectFindType
+  langs:
+  - csharp
+  - vb
+  name: First
+  nameWithType: ObjectFindType.First
+  fullName: YShared.Console.ObjectFindType.First
+  type: Field
+  assemblies:
+  - YShared.Runtime
+  namespace: YShared.Console
+  summary: Finds the first object with this class and calls this method on it. Internally uses <code>GameObject.FindFirstByType</code>.
+  example: []
+  syntax:
+    content: First = 2
+    return:
+      type: YShared.Console.ObjectFindType
+- uid: YShared.Console.ObjectFindType.Argument
+  commentId: F:YShared.Console.ObjectFindType.Argument
+  id: Argument
+  parent: YShared.Console.ObjectFindType
+  langs:
+  - csharp
+  - vb
+  name: Argument
+  nameWithType: ObjectFindType.Argument
+  fullName: YShared.Console.ObjectFindType.Argument
+  type: Field
+  assemblies:
+  - YShared.Runtime
+  namespace: YShared.Console
+  summary: >-
+    <p> The first argument of this command will be the instance to run this command on. </p>
+
+    <p> Note: You do not need to make the first argument of this method this class, but if you do it will be automatically filled in. </p>
+  example: []
+  syntax:
+    content: Argument = 3
+    return:
+      type: YShared.Console.ObjectFindType
+- uid: YShared.Console.ObjectFindType.ArgumentArray
+  commentId: F:YShared.Console.ObjectFindType.ArgumentArray
+  id: ArgumentArray
+  parent: YShared.Console.ObjectFindType
+  langs:
+  - csharp
+  - vb
+  name: ArgumentArray
+  nameWithType: ObjectFindType.ArgumentArray
+  fullName: YShared.Console.ObjectFindType.ArgumentArray
+  type: Field
+  assemblies:
+  - YShared.Runtime
+  namespace: YShared.Console
+  summary: >-
+    <p> The first argument of this command will be the array of instances to run this command on. </p>
+
+    <p> Note: You do not need to make the first argument of this method an array of this class, but if you do it will be automatically filled in. </p>
+  example: []
+  syntax:
+    content: ArgumentArray = 4
+    return:
+      type: YShared.Console.ObjectFindType
+references:
+- uid: YShared.Console
+  commentId: N:YShared.Console
+  isExternal: true
+  href: YShared.html
+  name: YShared.Console
+  nameWithType: YShared.Console
+  fullName: YShared.Console
+  spec.csharp:
+  - uid: YShared
+    name: YShared
+    isExternal: true
+    href: YShared.html
+  - name: .
+  - uid: YShared.Console
+    name: Console
+    isExternal: true
+    href: YShared.Console.html
+  spec.vb:
+  - uid: YShared
+    name: YShared
+    isExternal: true
+    href: YShared.html
+  - name: .
+  - uid: YShared.Console
+    name: Console
+    isExternal: true
+    href: YShared.Console.html
+- uid: System.Object.YShared.MathHelper.YMathHelper.TryAs``1({T}@)
+  commentId: M:YShared.MathHelper.YMathHelper.TryAs``1(System.Object,``0@)
+  parent: YShared.MathHelper.YMathHelper
+  definition: YShared.MathHelper.YMathHelper.TryAs``1(System.Object,``0@)
+  href: YShared.MathHelper.YMathHelper.html#YShared_MathHelper_YMathHelper_TryAs__1_System_Object___0__
+  name: TryAs<T>(object, out T)
+  nameWithType: YMathHelper.TryAs<T>(object, out T)
+  fullName: YShared.MathHelper.YMathHelper.TryAs<T>(object, out T)
+  nameWithType.vb: YMathHelper.TryAs(Of T)(Object, T)
+  fullName.vb: YShared.MathHelper.YMathHelper.TryAs(Of T)(Object, T)
+  name.vb: TryAs(Of T)(Object, T)
+  spec.csharp:
+  - uid: YShared.MathHelper.YMathHelper.TryAs``1(System.Object,``0@)
+    name: TryAs
+    isExternal: true
+    href: YShared.MathHelper.YMathHelper.html#YShared_MathHelper_YMathHelper_TryAs__1_System_Object___0__
+  - name: <
+  - name: T
+  - name: '>'
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - name: out
+  - name: " "
+  - name: T
+  - name: )
+  spec.vb:
+  - uid: YShared.MathHelper.YMathHelper.TryAs``1(System.Object,``0@)
+    name: TryAs
+    isExternal: true
+    href: YShared.MathHelper.YMathHelper.html#YShared_MathHelper_YMathHelper_TryAs__1_System_Object___0__
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - name: T
+  - name: )
+- uid: YShared.MathHelper.YMathHelper.TryAs``1(System.Object,``0@)
+  commentId: M:YShared.MathHelper.YMathHelper.TryAs``1(System.Object,``0@)
+  isExternal: true
+  href: YShared.MathHelper.YMathHelper.html#YShared_MathHelper_YMathHelper_TryAs__1_System_Object___0__
+  name: TryAs<T>(object, out T)
+  nameWithType: YMathHelper.TryAs<T>(object, out T)
+  fullName: YShared.MathHelper.YMathHelper.TryAs<T>(object, out T)
+  nameWithType.vb: YMathHelper.TryAs(Of T)(Object, T)
+  fullName.vb: YShared.MathHelper.YMathHelper.TryAs(Of T)(Object, T)
+  name.vb: TryAs(Of T)(Object, T)
+  spec.csharp:
+  - uid: YShared.MathHelper.YMathHelper.TryAs``1(System.Object,``0@)
+    name: TryAs
+    isExternal: true
+    href: YShared.MathHelper.YMathHelper.html#YShared_MathHelper_YMathHelper_TryAs__1_System_Object___0__
+  - name: <
+  - name: T
+  - name: '>'
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - name: out
+  - name: " "
+  - name: T
+  - name: )
+  spec.vb:
+  - uid: YShared.MathHelper.YMathHelper.TryAs``1(System.Object,``0@)
+    name: TryAs
+    isExternal: true
+    href: YShared.MathHelper.YMathHelper.html#YShared_MathHelper_YMathHelper_TryAs__1_System_Object___0__
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - name: T
+  - name: )
+- uid: YShared.MathHelper.YMathHelper
+  commentId: T:YShared.MathHelper.YMathHelper
+  parent: YShared.MathHelper
+  isExternal: true
+  href: YShared.MathHelper.YMathHelper.html
+  name: YMathHelper
+  nameWithType: YMathHelper
+  fullName: YShared.MathHelper.YMathHelper
+- uid: YShared.MathHelper
+  commentId: N:YShared.MathHelper
+  isExternal: true
+  href: YShared.html
+  name: YShared.MathHelper
+  nameWithType: YShared.MathHelper
+  fullName: YShared.MathHelper
+  spec.csharp:
+  - uid: YShared
+    name: YShared
+    isExternal: true
+    href: YShared.html
+  - name: .
+  - uid: YShared.MathHelper
+    name: MathHelper
+    isExternal: true
+    href: YShared.MathHelper.html
+  spec.vb:
+  - uid: YShared
+    name: YShared
+    isExternal: true
+    href: YShared.html
+  - name: .
+  - uid: YShared.MathHelper
+    name: MathHelper
+    isExternal: true
+    href: YShared.MathHelper.html
+- uid: YShared.Console.ObjectFindType
+  commentId: T:YShared.Console.ObjectFindType
+  parent: YShared.Console
+  isExternal: true
+  href: YShared.Console.ObjectFindType.html
+  name: ObjectFindType
+  nameWithType: ObjectFindType
+  fullName: YShared.Console.ObjectFindType

@@ -1,0 +1,234 @@
+### YamlMime:ManagedReference
+items:
+- uid: YShared.NamedTimers.Extension.TimerBehaviour
+  commentId: T:YShared.NamedTimers.Extension.TimerBehaviour
+  id: Extension.TimerBehaviour
+  parent: YShared.NamedTimers
+  children:
+  - YShared.NamedTimers.Extension.TimerBehaviour.#ctor
+  langs:
+  - csharp
+  - vb
+  name: Extension.TimerBehaviour
+  nameWithType: Extension.TimerBehaviour
+  fullName: YShared.NamedTimers.Extension.TimerBehaviour
+  type: Class
+  assemblies:
+  - YShared.Runtime
+  namespace: YShared.NamedTimers
+  syntax:
+    content: 'public class Extension.TimerBehaviour : MonoBehaviour'
+    content.vb: Public Class Extension.TimerBehaviour Inherits MonoBehaviour
+  inheritance:
+  - System.Object
+  extensionMethods:
+  - System.Object.YShared.MathHelper.YMathHelper.TryAs``1({T}@)
+- uid: YShared.NamedTimers.Extension.TimerBehaviour.#ctor
+  commentId: M:YShared.NamedTimers.Extension.TimerBehaviour.#ctor
+  id: '#ctor'
+  parent: YShared.NamedTimers.Extension.TimerBehaviour
+  langs:
+  - csharp
+  - vb
+  name: TimerBehaviour()
+  nameWithType: Extension.TimerBehaviour.TimerBehaviour()
+  fullName: YShared.NamedTimers.Extension.TimerBehaviour.TimerBehaviour()
+  type: Constructor
+  assemblies:
+  - YShared.Runtime
+  namespace: YShared.NamedTimers
+  syntax:
+    content: public TimerBehaviour()
+    content.vb: Public Sub New()
+  overload: YShared.NamedTimers.Extension.TimerBehaviour.#ctor*
+  nameWithType.vb: Extension.TimerBehaviour.New()
+  fullName.vb: YShared.NamedTimers.Extension.TimerBehaviour.New()
+  name.vb: New()
+references:
+- uid: YShared.NamedTimers
+  commentId: N:YShared.NamedTimers
+  isExternal: true
+  href: YShared.html
+  name: YShared.NamedTimers
+  nameWithType: YShared.NamedTimers
+  fullName: YShared.NamedTimers
+  spec.csharp:
+  - uid: YShared
+    name: YShared
+    isExternal: true
+    href: YShared.html
+  - name: .
+  - uid: YShared.NamedTimers
+    name: NamedTimers
+    isExternal: true
+    href: YShared.NamedTimers.html
+  spec.vb:
+  - uid: YShared
+    name: YShared
+    isExternal: true
+    href: YShared.html
+  - name: .
+  - uid: YShared.NamedTimers
+    name: NamedTimers
+    isExternal: true
+    href: YShared.NamedTimers.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.YShared.MathHelper.YMathHelper.TryAs``1({T}@)
+  commentId: M:YShared.MathHelper.YMathHelper.TryAs``1(System.Object,``0@)
+  parent: YShared.MathHelper.YMathHelper
+  definition: YShared.MathHelper.YMathHelper.TryAs``1(System.Object,``0@)
+  href: YShared.MathHelper.YMathHelper.html#YShared_MathHelper_YMathHelper_TryAs__1_System_Object___0__
+  name: TryAs<T>(object, out T)
+  nameWithType: YMathHelper.TryAs<T>(object, out T)
+  fullName: YShared.MathHelper.YMathHelper.TryAs<T>(object, out T)
+  nameWithType.vb: YMathHelper.TryAs(Of T)(Object, T)
+  fullName.vb: YShared.MathHelper.YMathHelper.TryAs(Of T)(Object, T)
+  name.vb: TryAs(Of T)(Object, T)
+  spec.csharp:
+  - uid: YShared.MathHelper.YMathHelper.TryAs``1(System.Object,``0@)
+    name: TryAs
+    isExternal: true
+    href: YShared.MathHelper.YMathHelper.html#YShared_MathHelper_YMathHelper_TryAs__1_System_Object___0__
+  - name: <
+  - name: T
+  - name: '>'
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - name: out
+  - name: " "
+  - name: T
+  - name: )
+  spec.vb:
+  - uid: YShared.MathHelper.YMathHelper.TryAs``1(System.Object,``0@)
+    name: TryAs
+    isExternal: true
+    href: YShared.MathHelper.YMathHelper.html#YShared_MathHelper_YMathHelper_TryAs__1_System_Object___0__
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - name: T
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: YShared.MathHelper.YMathHelper.TryAs``1(System.Object,``0@)
+  commentId: M:YShared.MathHelper.YMathHelper.TryAs``1(System.Object,``0@)
+  isExternal: true
+  href: YShared.MathHelper.YMathHelper.html#YShared_MathHelper_YMathHelper_TryAs__1_System_Object___0__
+  name: TryAs<T>(object, out T)
+  nameWithType: YMathHelper.TryAs<T>(object, out T)
+  fullName: YShared.MathHelper.YMathHelper.TryAs<T>(object, out T)
+  nameWithType.vb: YMathHelper.TryAs(Of T)(Object, T)
+  fullName.vb: YShared.MathHelper.YMathHelper.TryAs(Of T)(Object, T)
+  name.vb: TryAs(Of T)(Object, T)
+  spec.csharp:
+  - uid: YShared.MathHelper.YMathHelper.TryAs``1(System.Object,``0@)
+    name: TryAs
+    isExternal: true
+    href: YShared.MathHelper.YMathHelper.html#YShared_MathHelper_YMathHelper_TryAs__1_System_Object___0__
+  - name: <
+  - name: T
+  - name: '>'
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - name: out
+  - name: " "
+  - name: T
+  - name: )
+  spec.vb:
+  - uid: YShared.MathHelper.YMathHelper.TryAs``1(System.Object,``0@)
+    name: TryAs
+    isExternal: true
+    href: YShared.MathHelper.YMathHelper.html#YShared_MathHelper_YMathHelper_TryAs__1_System_Object___0__
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - name: T
+  - name: )
+- uid: YShared.MathHelper.YMathHelper
+  commentId: T:YShared.MathHelper.YMathHelper
+  parent: YShared.MathHelper
+  isExternal: true
+  href: YShared.MathHelper.YMathHelper.html
+  name: YMathHelper
+  nameWithType: YMathHelper
+  fullName: YShared.MathHelper.YMathHelper
+- uid: YShared.MathHelper
+  commentId: N:YShared.MathHelper
+  isExternal: true
+  href: YShared.html
+  name: YShared.MathHelper
+  nameWithType: YShared.MathHelper
+  fullName: YShared.MathHelper
+  spec.csharp:
+  - uid: YShared
+    name: YShared
+    isExternal: true
+    href: YShared.html
+  - name: .
+  - uid: YShared.MathHelper
+    name: MathHelper
+    isExternal: true
+    href: YShared.MathHelper.html
+  spec.vb:
+  - uid: YShared
+    name: YShared
+    isExternal: true
+    href: YShared.html
+  - name: .
+  - uid: YShared.MathHelper
+    name: MathHelper
+    isExternal: true
+    href: YShared.MathHelper.html
+- uid: YShared.NamedTimers.Extension.TimerBehaviour.#ctor*
+  commentId: Overload:YShared.NamedTimers.Extension.TimerBehaviour.#ctor
+  isExternal: true
+  href: YShared.NamedTimers.Extension.TimerBehaviour.html#YShared_NamedTimers_Extension_TimerBehaviour__ctor
+  name: TimerBehaviour
+  nameWithType: Extension.TimerBehaviour.TimerBehaviour
+  fullName: YShared.NamedTimers.Extension.TimerBehaviour.TimerBehaviour
+  nameWithType.vb: Extension.TimerBehaviour.New
+  fullName.vb: YShared.NamedTimers.Extension.TimerBehaviour.New
+  name.vb: New

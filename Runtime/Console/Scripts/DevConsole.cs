@@ -247,11 +247,11 @@ namespace YShared.Console
             try
             {
                 object returnVal = null;
-                bool hasReturnValue = cmd.action.ReturnType != typeof(void);
+                bool hasReturnValue = cmd.hasReturnType;
 
-                if (cmd.action.IsStatic)
+                if (cmd.IsStatic)
                 {
-                    returnVal = cmd.action.Invoke(null, parameters);                
+                    returnVal = Invoke(cmd, null, parameters);
                 }
                 else
                 {
@@ -266,7 +266,7 @@ namespace YShared.Console
                                 $"Command \"{cmd.command}\" calls a non-static method on the first instance of type \"{t.ToString()}\", but there is currently no instance of \"{t.ToString()}\" in any scene!", FeedbackFlavor.Warning);
                             return false;
                         }
-                        returnVal = cmd.action.Invoke(obj, parameters);
+                        returnVal = Invoke(cmd, obj, parameters);
                     } 
                     else if (cmd.objectFindType == ObjectFindType.Any)
                     {
@@ -277,7 +277,7 @@ namespace YShared.Console
                                 $"Command \"{cmd.command}\" calls a non-static method on any instance of type \"{t.ToString()}\", but there is currently no instance of \"{t.ToString()}\" in any scene!", FeedbackFlavor.Warning);
                             return false;
                         }
-                        returnVal = cmd.action.Invoke(obj, parameters);
+                        returnVal = Invoke(cmd, obj, parameters);
                     } 
                     else if (cmd.objectFindType == ObjectFindType.All)
                     {
@@ -292,7 +292,7 @@ namespace YShared.Console
 
                         for (int i = 0; i < objs.Length; i++)
                         {
-                            cmd.action.Invoke(objs[i], parameters);                        
+                            Invoke(cmd, objs[i], parameters);
                         }
                         DevConsole.Feedback($"Ran on {objs.Length} instances.", FeedbackFlavor.Info);
                     } 
@@ -323,6 +323,28 @@ namespace YShared.Console
                 DevConsole.Feedback($"Called command threw an error: {result}", FeedbackFlavor.Error);
                 return false;
             }
+        }
+
+        static object Invoke(Command cmd, UnityEngine.Object targetObject, object[] parameters)
+        {
+            if (cmd.action is MethodInfo mi)
+            {
+                return mi.Invoke(targetObject, parameters);
+            }
+
+            if (cmd.action is FieldInfo fi)
+            {
+                if (cmd.functionParameters.Length == 1)
+                {
+                    fi.SetValue(targetObject, parameters);
+                    return null;   
+                }
+
+                if (cmd.functionParameters.Length == 0)
+                    return fi.GetValue(targetObject);
+            }
+
+            return null;
         }
 
         static bool GetParameters(Command cmd, string[] parts, int parameter_start_index, out object[] parameters, out string propagatedFailMessage)
@@ -420,6 +442,10 @@ namespace YShared.Console
         /// Red color. Should be used when a command fails entirely. Exceptions are automatically handled by the DevConsole and are shown in this flavor.
         /// </summary>
         Error, 
+
+        /// <summary>
+        /// Blue-ish color.  Should generally not be used - it is the flavor of the introductory text.
+        /// </summary>
         Misc
     }
 }

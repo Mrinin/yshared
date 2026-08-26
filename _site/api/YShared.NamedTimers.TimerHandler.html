@@ -1,0 +1,1032 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class TimerHandler | yshared </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class TimerHandler | yshared ">
+      
+      
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.svg" alt="yshared">
+            yshared
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="YShared.NamedTimers.TimerHandler">
+
+
+
+  <h1 id="YShared_NamedTimers_TimerHandler" data-uid="YShared.NamedTimers.TimerHandler" class="text-break">
+Class TimerHandler  
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="YShared.html">YShared</a>.<a class="xref" href="YShared.NamedTimers.html">NamedTimers</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>YShared.Runtime.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"></div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static class TimerHandler</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><span class="xref">TimerHandler</span></div>
+    </dd>
+  </dl>
+
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+  </dd></dl>
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="YShared_NamedTimers_TimerHandler_AddNamelessTimer_" data-uid="YShared.NamedTimers.TimerHandler.AddNamelessTimer*"></a>
+
+  <h3 id="YShared_NamedTimers_TimerHandler_AddNamelessTimer_System_Single_System_Action_" data-uid="YShared.NamedTimers.TimerHandler.AddNamelessTimer(System.Single,System.Action)">
+  AddNamelessTimer(float, Action)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Obsolete(&quot;Use SetTimeout instead&quot;)]
+public static void AddNamelessTimer(float a, Action callback)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>a</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+    <dt><code>callback</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.action">Action</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="YShared_NamedTimers_TimerHandler_BindObjectToTimer_" data-uid="YShared.NamedTimers.TimerHandler.BindObjectToTimer*"></a>
+
+  <h3 id="YShared_NamedTimers_TimerHandler_BindObjectToTimer_UnityEngine_GameObject_System_Int64_" data-uid="YShared.NamedTimers.TimerHandler.BindObjectToTimer(UnityEngine.GameObject,System.Int64)">
+  BindObjectToTimer(GameObject, long)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool BindObjectToTimer(GameObject go, long name)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>go</code> <span class="xref">GameObject</span></dt>
+    <dd></dd>
+    <dt><code>name</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int64">long</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="YShared_NamedTimers_TimerHandler_ClearAll_" data-uid="YShared.NamedTimers.TimerHandler.ClearAll*"></a>
+
+  <h3 id="YShared_NamedTimers_TimerHandler_ClearAll" data-uid="YShared.NamedTimers.TimerHandler.ClearAll">
+  ClearAll()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void ClearAll()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="YShared_NamedTimers_TimerHandler_ClearFromGameObject_" data-uid="YShared.NamedTimers.TimerHandler.ClearFromGameObject*"></a>
+
+  <h3 id="YShared_NamedTimers_TimerHandler_ClearFromGameObject_UnityEngine_GameObject_" data-uid="YShared.NamedTimers.TimerHandler.ClearFromGameObject(UnityEngine.GameObject)">
+  ClearFromGameObject(GameObject)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static int ClearFromGameObject(GameObject go)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>go</code> <span class="xref">GameObject</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="YShared_NamedTimers_TimerHandler_GetTimer_" data-uid="YShared.NamedTimers.TimerHandler.GetTimer*"></a>
+
+  <h3 id="YShared_NamedTimers_TimerHandler_GetTimer_System_Int64_" data-uid="YShared.NamedTimers.TimerHandler.GetTimer(System.Int64)">
+  GetTimer(long)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static float GetTimer(long name)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>name</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int64">long</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="YShared_NamedTimers_TimerHandler_GetTimerClass_" data-uid="YShared.NamedTimers.TimerHandler.GetTimerClass*"></a>
+
+  <h3 id="YShared_NamedTimers_TimerHandler_GetTimerClass_System_Int64_" data-uid="YShared.NamedTimers.TimerHandler.GetTimerClass(System.Int64)">
+  GetTimerClass(long)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Timer GetTimerClass(long name)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>name</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int64">long</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="YShared.NamedTimers.Timer.html">Timer</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="YShared_NamedTimers_TimerHandler_GetTimerClass_" data-uid="YShared.NamedTimers.TimerHandler.GetTimerClass*"></a>
+
+  <h3 id="YShared_NamedTimers_TimerHandler_GetTimerClass_System_String_" data-uid="YShared.NamedTimers.TimerHandler.GetTimerClass(System.String)">
+  GetTimerClass(string)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Timer GetTimerClass(string name)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>name</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="YShared.NamedTimers.Timer.html">Timer</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="YShared_NamedTimers_TimerHandler_GetTimers_" data-uid="YShared.NamedTimers.TimerHandler.GetTimers*"></a>
+
+  <h3 id="YShared_NamedTimers_TimerHandler_GetTimers" data-uid="YShared.NamedTimers.TimerHandler.GetTimers">
+  GetTimers()
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns all timers</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static List&lt;long&gt; GetTimers()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int64">long</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="YShared_NamedTimers_TimerHandler_GetTimers_" data-uid="YShared.NamedTimers.TimerHandler.GetTimers*"></a>
+
+  <h3 id="YShared_NamedTimers_TimerHandler_GetTimers_UnityEngine_GameObject_" data-uid="YShared.NamedTimers.TimerHandler.GetTimers(UnityEngine.GameObject)">
+  GetTimers(GameObject)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns all timers on a specific gameobject</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static List&lt;long&gt; GetTimers(GameObject go)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>go</code> <span class="xref">GameObject</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int64">long</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="YShared_NamedTimers_TimerHandler_Hash_" data-uid="YShared.NamedTimers.TimerHandler.Hash*"></a>
+
+  <h3 id="YShared_NamedTimers_TimerHandler_Hash_System_String_" data-uid="YShared.NamedTimers.TimerHandler.Hash(System.String)">
+  Hash(string)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static int Hash(string str)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>str</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="YShared_NamedTimers_TimerHandler_RegisterTimer_" data-uid="YShared.NamedTimers.TimerHandler.RegisterTimer*"></a>
+
+  <h3 id="YShared_NamedTimers_TimerHandler_RegisterTimer_System_String_System_Int64_YShared_NamedTimers_TimerOptions_" data-uid="YShared.NamedTimers.TimerHandler.RegisterTimer(System.String,System.Int64,YShared.NamedTimers.TimerOptions)">
+  RegisterTimer(string, long, TimerOptions)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void RegisterTimer(string name, long id, TimerOptions opts = default)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>name</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>id</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int64">long</a></dt>
+    <dd></dd>
+    <dt><code>opts</code> <a class="xref" href="YShared.NamedTimers.TimerOptions.html">TimerOptions</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="YShared_NamedTimers_TimerHandler_RegisterTimer_" data-uid="YShared.NamedTimers.TimerHandler.RegisterTimer*"></a>
+
+  <h3 id="YShared_NamedTimers_TimerHandler_RegisterTimer_System_String_YShared_NamedTimers_TimerOptions_" data-uid="YShared.NamedTimers.TimerHandler.RegisterTimer(System.String,YShared.NamedTimers.TimerOptions)">
+  RegisterTimer(string, TimerOptions)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void RegisterTimer(string name, TimerOptions opts = default)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>name</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>opts</code> <a class="xref" href="YShared.NamedTimers.TimerOptions.html">TimerOptions</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="YShared_NamedTimers_TimerHandler_RemoveTimer_" data-uid="YShared.NamedTimers.TimerHandler.RemoveTimer*"></a>
+
+  <h3 id="YShared_NamedTimers_TimerHandler_RemoveTimer_System_Int64_" data-uid="YShared.NamedTimers.TimerHandler.RemoveTimer(System.Int64)">
+  RemoveTimer(long)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool RemoveTimer(long name)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>name</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int64">long</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="YShared_NamedTimers_TimerHandler_RunNextFrame_" data-uid="YShared.NamedTimers.TimerHandler.RunNextFrame*"></a>
+
+  <h3 id="YShared_NamedTimers_TimerHandler_RunNextFrame_System_Action_" data-uid="YShared.NamedTimers.TimerHandler.RunNextFrame(System.Action)">
+  RunNextFrame(Action)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void RunNextFrame(Action callback)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>callback</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.action">Action</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="YShared_NamedTimers_TimerHandler_SetTimeout_" data-uid="YShared.NamedTimers.TimerHandler.SetTimeout*"></a>
+
+  <h3 id="YShared_NamedTimers_TimerHandler_SetTimeout_System_Single_System_Action_" data-uid="YShared.NamedTimers.TimerHandler.SetTimeout(System.Single,System.Action)">
+  SetTimeout(float, Action)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void SetTimeout(float a, Action callback)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>a</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+    <dt><code>callback</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.action">Action</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="YShared_NamedTimers_TimerHandler_SetTimer_" data-uid="YShared.NamedTimers.TimerHandler.SetTimer*"></a>
+
+  <h3 id="YShared_NamedTimers_TimerHandler_SetTimer_System_Int64_System_Single_" data-uid="YShared.NamedTimers.TimerHandler.SetTimer(System.Int64,System.Single)">
+  SetTimer(long, float)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static SetTimerResult SetTimer(long name, float time)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>name</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int64">long</a></dt>
+    <dd></dd>
+    <dt><code>time</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="YShared.NamedTimers.SetTimerResult.html">SetTimerResult</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="YShared_NamedTimers_TimerHandler_SetTimer_" data-uid="YShared.NamedTimers.TimerHandler.SetTimer*"></a>
+
+  <h3 id="YShared_NamedTimers_TimerHandler_SetTimer_System_Int64_System_Single_System_Action_" data-uid="YShared.NamedTimers.TimerHandler.SetTimer(System.Int64,System.Single,System.Action)">
+  SetTimer(long, float, Action)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static SetTimerResult SetTimer(long name, float a, Action callback)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>name</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int64">long</a></dt>
+    <dd></dd>
+    <dt><code>a</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+    <dt><code>callback</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.action">Action</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="YShared.NamedTimers.SetTimerResult.html">SetTimerResult</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="YShared_NamedTimers_TimerHandler_SetTimer_" data-uid="YShared.NamedTimers.TimerHandler.SetTimer*"></a>
+
+  <h3 id="YShared_NamedTimers_TimerHandler_SetTimer_System_Int64_System_Single_YShared_NamedTimers_TimerOptions_" data-uid="YShared.NamedTimers.TimerHandler.SetTimer(System.Int64,System.Single,YShared.NamedTimers.TimerOptions)">
+  SetTimer(long, float, TimerOptions)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static SetTimerResult SetTimer(long name, float a, TimerOptions opts)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>name</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int64">long</a></dt>
+    <dd></dd>
+    <dt><code>a</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+    <dt><code>opts</code> <a class="xref" href="YShared.NamedTimers.TimerOptions.html">TimerOptions</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="YShared.NamedTimers.SetTimerResult.html">SetTimerResult</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="YShared_NamedTimers_TimerHandler_SetTimer_" data-uid="YShared.NamedTimers.TimerHandler.SetTimer*"></a>
+
+  <h3 id="YShared_NamedTimers_TimerHandler_SetTimer_System_String_System_Single_" data-uid="YShared.NamedTimers.TimerHandler.SetTimer(System.String,System.Single)">
+  SetTimer(string, float)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static SetTimerResult SetTimer(string name, float time)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>name</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>time</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="YShared.NamedTimers.SetTimerResult.html">SetTimerResult</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="YShared_NamedTimers_TimerHandler_SetTimer_" data-uid="YShared.NamedTimers.TimerHandler.SetTimer*"></a>
+
+  <h3 id="YShared_NamedTimers_TimerHandler_SetTimer_System_String_System_Single_System_Action_" data-uid="YShared.NamedTimers.TimerHandler.SetTimer(System.String,System.Single,System.Action)">
+  SetTimer(string, float, Action)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static SetTimerResult SetTimer(string name, float a, Action callback)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>name</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>a</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+    <dt><code>callback</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.action">Action</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="YShared.NamedTimers.SetTimerResult.html">SetTimerResult</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="YShared_NamedTimers_TimerHandler_SetTimer_" data-uid="YShared.NamedTimers.TimerHandler.SetTimer*"></a>
+
+  <h3 id="YShared_NamedTimers_TimerHandler_SetTimer_System_String_System_Single_YShared_NamedTimers_TimerOptions_" data-uid="YShared.NamedTimers.TimerHandler.SetTimer(System.String,System.Single,YShared.NamedTimers.TimerOptions)">
+  SetTimer(string, float, TimerOptions)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static SetTimerResult SetTimer(string name, float a, TimerOptions opts)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>name</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>a</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+    <dt><code>opts</code> <a class="xref" href="YShared.NamedTimers.TimerOptions.html">TimerOptions</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="YShared.NamedTimers.SetTimerResult.html">SetTimerResult</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="YShared_NamedTimers_TimerHandler_Tick_" data-uid="YShared.NamedTimers.TimerHandler.Tick*"></a>
+
+  <h3 id="YShared_NamedTimers_TimerHandler_Tick" data-uid="YShared.NamedTimers.TimerHandler.Tick">
+  Tick()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void Tick()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="YShared_NamedTimers_TimerHandler_TimerCooldown_" data-uid="YShared.NamedTimers.TimerHandler.TimerCooldown*"></a>
+
+  <h3 id="YShared_NamedTimers_TimerHandler_TimerCooldown_System_Int64_System_Single_" data-uid="YShared.NamedTimers.TimerHandler.TimerCooldown(System.Int64,System.Single)">
+  TimerCooldown(long, float)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool TimerCooldown(long name, float timer)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>name</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int64">long</a></dt>
+    <dd></dd>
+    <dt><code>timer</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="YShared_NamedTimers_TimerHandler_TriggerChronometer_" data-uid="YShared.NamedTimers.TimerHandler.TriggerChronometer*"></a>
+
+  <h3 id="YShared_NamedTimers_TimerHandler_TriggerChronometer_System_Int64_System_Single_" data-uid="YShared.NamedTimers.TimerHandler.TriggerChronometer(System.Int64,System.Single)">
+  TriggerChronometer(long, float)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool TriggerChronometer(long name, float target)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>name</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int64">long</a></dt>
+    <dd></dd>
+    <dt><code>target</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+        </div>
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

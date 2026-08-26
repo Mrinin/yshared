@@ -1,0 +1,768 @@
+### YamlMime:ManagedReference
+items:
+- uid: YShared.RandomHelper.YRandom
+  commentId: T:YShared.RandomHelper.YRandom
+  id: YRandom
+  parent: YShared.RandomHelper
+  children:
+  - YShared.RandomHelper.YRandom.Array``1(``0[])
+  - YShared.RandomHelper.YRandom.Bool(System.Single)
+  - YShared.RandomHelper.YRandom.Enum``1
+  - YShared.RandomHelper.YRandom.GetWeightedRandom``1(System.Collections.Generic.List{System.ValueTuple{``0,System.Single}})
+  - YShared.RandomHelper.YRandom.NormalNumber(System.Single,System.Single,System.Int32,System.Int32)
+  - YShared.RandomHelper.YRandom.NormalNumber(System.Single,System.Single,System.Single,System.Single)
+  - YShared.RandomHelper.YRandom.OneOrZero(System.Single)
+  - YShared.RandomHelper.YRandom.Sign(System.Single)
+  langs:
+  - csharp
+  - vb
+  name: YRandom
+  nameWithType: YRandom
+  fullName: YShared.RandomHelper.YRandom
+  type: Class
+  assemblies:
+  - YShared.Runtime
+  namespace: YShared.RandomHelper
+  syntax:
+    content: public static class YRandom
+    content.vb: Public Module YRandom
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+- uid: YShared.RandomHelper.YRandom.NormalNumber(System.Single,System.Single,System.Single,System.Single)
+  commentId: M:YShared.RandomHelper.YRandom.NormalNumber(System.Single,System.Single,System.Single,System.Single)
+  id: NormalNumber(System.Single,System.Single,System.Single,System.Single)
+  parent: YShared.RandomHelper.YRandom
+  langs:
+  - csharp
+  - vb
+  name: NormalNumber(float, float, float, float)
+  nameWithType: YRandom.NormalNumber(float, float, float, float)
+  fullName: YShared.RandomHelper.YRandom.NormalNumber(float, float, float, float)
+  type: Method
+  assemblies:
+  - YShared.Runtime
+  namespace: YShared.RandomHelper
+  syntax:
+    content: public static float NormalNumber(float mean, float standardDeviation, float min = -3.4028235E+38, float max = 3.4028235E+38)
+    parameters:
+    - id: mean
+      type: System.Single
+    - id: standardDeviation
+      type: System.Single
+    - id: min
+      type: System.Single
+    - id: max
+      type: System.Single
+    return:
+      type: System.Single
+    content.vb: Public Shared Function NormalNumber(mean As Single, standardDeviation As Single, min As Single = -3.4028235E+38, max As Single = 3.4028235E+38) As Single
+  overload: YShared.RandomHelper.YRandom.NormalNumber*
+  nameWithType.vb: YRandom.NormalNumber(Single, Single, Single, Single)
+  fullName.vb: YShared.RandomHelper.YRandom.NormalNumber(Single, Single, Single, Single)
+  name.vb: NormalNumber(Single, Single, Single, Single)
+- uid: YShared.RandomHelper.YRandom.NormalNumber(System.Single,System.Single,System.Int32,System.Int32)
+  commentId: M:YShared.RandomHelper.YRandom.NormalNumber(System.Single,System.Single,System.Int32,System.Int32)
+  id: NormalNumber(System.Single,System.Single,System.Int32,System.Int32)
+  parent: YShared.RandomHelper.YRandom
+  langs:
+  - csharp
+  - vb
+  name: NormalNumber(float, float, int, int)
+  nameWithType: YRandom.NormalNumber(float, float, int, int)
+  fullName: YShared.RandomHelper.YRandom.NormalNumber(float, float, int, int)
+  type: Method
+  assemblies:
+  - YShared.Runtime
+  namespace: YShared.RandomHelper
+  syntax:
+    content: public static int NormalNumber(float mean, float standardDeviation, int min = -2147483648, int max = 2147483647)
+    parameters:
+    - id: mean
+      type: System.Single
+    - id: standardDeviation
+      type: System.Single
+    - id: min
+      type: System.Int32
+    - id: max
+      type: System.Int32
+    return:
+      type: System.Int32
+    content.vb: Public Shared Function NormalNumber(mean As Single, standardDeviation As Single, min As Integer = -2147483648, max As Integer = 2147483647) As Integer
+  overload: YShared.RandomHelper.YRandom.NormalNumber*
+  nameWithType.vb: YRandom.NormalNumber(Single, Single, Integer, Integer)
+  fullName.vb: YShared.RandomHelper.YRandom.NormalNumber(Single, Single, Integer, Integer)
+  name.vb: NormalNumber(Single, Single, Integer, Integer)
+- uid: YShared.RandomHelper.YRandom.GetWeightedRandom``1(System.Collections.Generic.List{System.ValueTuple{``0,System.Single}})
+  commentId: M:YShared.RandomHelper.YRandom.GetWeightedRandom``1(System.Collections.Generic.List{System.ValueTuple{``0,System.Single}})
+  id: GetWeightedRandom``1(System.Collections.Generic.List{System.ValueTuple{``0,System.Single}})
+  parent: YShared.RandomHelper.YRandom
+  langs:
+  - csharp
+  - vb
+  name: GetWeightedRandom<T>(List<(T item, float weight)>)
+  nameWithType: YRandom.GetWeightedRandom<T>(List<(T item, float weight)>)
+  fullName: YShared.RandomHelper.YRandom.GetWeightedRandom<T>(System.Collections.Generic.List<(T item, float weight)>)
+  type: Method
+  assemblies:
+  - YShared.Runtime
+  namespace: YShared.RandomHelper
+  syntax:
+    content: public static T GetWeightedRandom<T>(List<(T item, float weight)> items)
+    parameters:
+    - id: items
+      type: System.Collections.Generic.List{System.ValueTuple{{T},System.Single}}
+    typeParameters:
+    - id: T
+    return:
+      type: '{T}'
+    content.vb: Public Shared Function GetWeightedRandom(Of T)(items As List(Of (item As T, weight As Single))) As T
+  overload: YShared.RandomHelper.YRandom.GetWeightedRandom*
+  nameWithType.vb: YRandom.GetWeightedRandom(Of T)(List(Of (item As T, weight As Single)))
+  fullName.vb: YShared.RandomHelper.YRandom.GetWeightedRandom(Of T)(System.Collections.Generic.List(Of (item As T, weight As Single)))
+  name.vb: GetWeightedRandom(Of T)(List(Of (item As T, weight As Single)))
+- uid: YShared.RandomHelper.YRandom.Bool(System.Single)
+  commentId: M:YShared.RandomHelper.YRandom.Bool(System.Single)
+  id: Bool(System.Single)
+  parent: YShared.RandomHelper.YRandom
+  langs:
+  - csharp
+  - vb
+  name: Bool(float)
+  nameWithType: YRandom.Bool(float)
+  fullName: YShared.RandomHelper.YRandom.Bool(float)
+  type: Method
+  assemblies:
+  - YShared.Runtime
+  namespace: YShared.RandomHelper
+  syntax:
+    content: public static bool Bool(float true_chance)
+    parameters:
+    - id: true_chance
+      type: System.Single
+    return:
+      type: System.Boolean
+    content.vb: Public Shared Function Bool(true_chance As Single) As Boolean
+  overload: YShared.RandomHelper.YRandom.Bool*
+  nameWithType.vb: YRandom.Bool(Single)
+  fullName.vb: YShared.RandomHelper.YRandom.Bool(Single)
+  name.vb: Bool(Single)
+- uid: YShared.RandomHelper.YRandom.Sign(System.Single)
+  commentId: M:YShared.RandomHelper.YRandom.Sign(System.Single)
+  id: Sign(System.Single)
+  parent: YShared.RandomHelper.YRandom
+  langs:
+  - csharp
+  - vb
+  name: Sign(float)
+  nameWithType: YRandom.Sign(float)
+  fullName: YShared.RandomHelper.YRandom.Sign(float)
+  type: Method
+  assemblies:
+  - YShared.Runtime
+  namespace: YShared.RandomHelper
+  syntax:
+    content: public static int Sign(float plus_chance)
+    parameters:
+    - id: plus_chance
+      type: System.Single
+    return:
+      type: System.Int32
+    content.vb: Public Shared Function Sign(plus_chance As Single) As Integer
+  overload: YShared.RandomHelper.YRandom.Sign*
+  nameWithType.vb: YRandom.Sign(Single)
+  fullName.vb: YShared.RandomHelper.YRandom.Sign(Single)
+  name.vb: Sign(Single)
+- uid: YShared.RandomHelper.YRandom.OneOrZero(System.Single)
+  commentId: M:YShared.RandomHelper.YRandom.OneOrZero(System.Single)
+  id: OneOrZero(System.Single)
+  parent: YShared.RandomHelper.YRandom
+  langs:
+  - csharp
+  - vb
+  name: OneOrZero(float)
+  nameWithType: YRandom.OneOrZero(float)
+  fullName: YShared.RandomHelper.YRandom.OneOrZero(float)
+  type: Method
+  assemblies:
+  - YShared.Runtime
+  namespace: YShared.RandomHelper
+  syntax:
+    content: public static int OneOrZero(float one_chance)
+    parameters:
+    - id: one_chance
+      type: System.Single
+    return:
+      type: System.Int32
+    content.vb: Public Shared Function OneOrZero(one_chance As Single) As Integer
+  overload: YShared.RandomHelper.YRandom.OneOrZero*
+  nameWithType.vb: YRandom.OneOrZero(Single)
+  fullName.vb: YShared.RandomHelper.YRandom.OneOrZero(Single)
+  name.vb: OneOrZero(Single)
+- uid: YShared.RandomHelper.YRandom.Enum``1
+  commentId: M:YShared.RandomHelper.YRandom.Enum``1
+  id: Enum``1
+  parent: YShared.RandomHelper.YRandom
+  langs:
+  - csharp
+  - vb
+  name: Enum<T>()
+  nameWithType: YRandom.Enum<T>()
+  fullName: YShared.RandomHelper.YRandom.Enum<T>()
+  type: Method
+  assemblies:
+  - YShared.Runtime
+  namespace: YShared.RandomHelper
+  syntax:
+    content: 'public static T Enum<T>() where T : struct, Enum'
+    typeParameters:
+    - id: T
+    return:
+      type: '{T}'
+    content.vb: Public Shared Function [Enum](Of T As {Structure, [Enum]})() As T
+  overload: YShared.RandomHelper.YRandom.Enum*
+  nameWithType.vb: YRandom.Enum(Of T)()
+  fullName.vb: YShared.RandomHelper.YRandom.Enum(Of T)()
+  name.vb: Enum(Of T)()
+- uid: YShared.RandomHelper.YRandom.Array``1(``0[])
+  commentId: M:YShared.RandomHelper.YRandom.Array``1(``0[])
+  id: Array``1(``0[])
+  parent: YShared.RandomHelper.YRandom
+  langs:
+  - csharp
+  - vb
+  name: Array<T>(T[])
+  nameWithType: YRandom.Array<T>(T[])
+  fullName: YShared.RandomHelper.YRandom.Array<T>(T[])
+  type: Method
+  assemblies:
+  - YShared.Runtime
+  namespace: YShared.RandomHelper
+  syntax:
+    content: public static T Array<T>(T[] arr)
+    parameters:
+    - id: arr
+      type: '{T}[]'
+    typeParameters:
+    - id: T
+    return:
+      type: '{T}'
+    content.vb: Public Shared Function Array(Of T)(arr As T()) As T
+  overload: YShared.RandomHelper.YRandom.Array*
+  nameWithType.vb: YRandom.Array(Of T)(T())
+  fullName.vb: YShared.RandomHelper.YRandom.Array(Of T)(T())
+  name.vb: Array(Of T)(T())
+references:
+- uid: YShared.RandomHelper
+  commentId: N:YShared.RandomHelper
+  isExternal: true
+  href: YShared.html
+  name: YShared.RandomHelper
+  nameWithType: YShared.RandomHelper
+  fullName: YShared.RandomHelper
+  spec.csharp:
+  - uid: YShared
+    name: YShared
+    isExternal: true
+    href: YShared.html
+  - name: .
+  - uid: YShared.RandomHelper
+    name: RandomHelper
+    isExternal: true
+    href: YShared.RandomHelper.html
+  spec.vb:
+  - uid: YShared
+    name: YShared
+    isExternal: true
+    href: YShared.html
+  - name: .
+  - uid: YShared.RandomHelper
+    name: RandomHelper
+    isExternal: true
+    href: YShared.RandomHelper.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: YShared.RandomHelper.YRandom.NormalNumber*
+  commentId: Overload:YShared.RandomHelper.YRandom.NormalNumber
+  isExternal: true
+  href: YShared.RandomHelper.YRandom.html#YShared_RandomHelper_YRandom_NormalNumber_System_Single_System_Single_System_Single_System_Single_
+  name: NormalNumber
+  nameWithType: YRandom.NormalNumber
+  fullName: YShared.RandomHelper.YRandom.NormalNumber
+- uid: System.Single
+  commentId: T:System.Single
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.single
+  name: float
+  nameWithType: float
+  fullName: float
+  nameWithType.vb: Single
+  fullName.vb: Single
+  name.vb: Single
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: YShared.RandomHelper.YRandom.GetWeightedRandom*
+  commentId: Overload:YShared.RandomHelper.YRandom.GetWeightedRandom
+  isExternal: true
+  href: YShared.RandomHelper.YRandom.html#YShared_RandomHelper_YRandom_GetWeightedRandom__1_System_Collections_Generic_List_System_ValueTuple___0_System_Single___
+  name: GetWeightedRandom
+  nameWithType: YRandom.GetWeightedRandom
+  fullName: YShared.RandomHelper.YRandom.GetWeightedRandom
+- uid: System.Collections.Generic.List{System.ValueTuple{{T},System.Single}}
+  commentId: T:System.Collections.Generic.List{System.ValueTuple{``0,System.Single}}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.List`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<(T item, float weight)>
+  nameWithType: List<(T item, float weight)>
+  fullName: System.Collections.Generic.List<(T item, float weight)>
+  nameWithType.vb: List(Of (item As T, weight As Single))
+  fullName.vb: System.Collections.Generic.List(Of (item As T, weight As Single))
+  name.vb: List(Of (item As T, weight As Single))
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - name: (
+  - name: T
+  - name: " "
+  - uid: System.ValueTuple{``0,System.Single}.item
+    name: item
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetuple---0,system.single-.item
+  - name: ','
+  - name: " "
+  - uid: System.Single
+    name: float
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.single
+  - name: " "
+  - uid: System.ValueTuple{``0,System.Single}.weight
+    name: weight
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetuple---0,system.single-.weight
+  - name: )
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: (
+  - uid: System.ValueTuple{``0,System.Single}.item
+    name: item
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetuple---0,system.single-.item
+  - name: " "
+  - name: As
+  - name: " "
+  - name: T
+  - name: ','
+  - name: " "
+  - uid: System.ValueTuple{``0,System.Single}.weight
+    name: weight
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetuple---0,system.single-.weight
+  - name: " "
+  - name: As
+  - name: " "
+  - uid: System.Single
+    name: Single
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.single
+  - name: )
+  - name: )
+- uid: '{T}'
+  commentId: '!:T'
+  definition: T
+  name: T
+  nameWithType: T
+  fullName: T
+- uid: System.Collections.Generic.List`1
+  commentId: T:System.Collections.Generic.List`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<T>
+  nameWithType: List<T>
+  fullName: System.Collections.Generic.List<T>
+  nameWithType.vb: List(Of T)
+  fullName.vb: System.Collections.Generic.List(Of T)
+  name.vb: List(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+- uid: T
+  name: T
+  nameWithType: T
+  fullName: T
+- uid: YShared.RandomHelper.YRandom.Bool*
+  commentId: Overload:YShared.RandomHelper.YRandom.Bool
+  isExternal: true
+  href: YShared.RandomHelper.YRandom.html#YShared_RandomHelper_YRandom_Bool_System_Single_
+  name: Bool
+  nameWithType: YRandom.Bool
+  fullName: YShared.RandomHelper.YRandom.Bool
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: YShared.RandomHelper.YRandom.Sign*
+  commentId: Overload:YShared.RandomHelper.YRandom.Sign
+  isExternal: true
+  href: YShared.RandomHelper.YRandom.html#YShared_RandomHelper_YRandom_Sign_System_Single_
+  name: Sign
+  nameWithType: YRandom.Sign
+  fullName: YShared.RandomHelper.YRandom.Sign
+- uid: YShared.RandomHelper.YRandom.OneOrZero*
+  commentId: Overload:YShared.RandomHelper.YRandom.OneOrZero
+  isExternal: true
+  href: YShared.RandomHelper.YRandom.html#YShared_RandomHelper_YRandom_OneOrZero_System_Single_
+  name: OneOrZero
+  nameWithType: YRandom.OneOrZero
+  fullName: YShared.RandomHelper.YRandom.OneOrZero
+- uid: YShared.RandomHelper.YRandom.Enum*
+  commentId: Overload:YShared.RandomHelper.YRandom.Enum
+  isExternal: true
+  href: YShared.RandomHelper.YRandom.html#YShared_RandomHelper_YRandom_Enum__1
+  name: Enum
+  nameWithType: YRandom.Enum
+  fullName: YShared.RandomHelper.YRandom.Enum
+- uid: YShared.RandomHelper.YRandom.Array*
+  commentId: Overload:YShared.RandomHelper.YRandom.Array
+  isExternal: true
+  href: YShared.RandomHelper.YRandom.html#YShared_RandomHelper_YRandom_Array__1___0___
+  name: Array
+  nameWithType: YRandom.Array
+  fullName: YShared.RandomHelper.YRandom.Array
+- uid: '{T}[]'
+  isExternal: true
+  name: T[]
+  nameWithType: T[]
+  fullName: T[]
+  nameWithType.vb: T()
+  fullName.vb: T()
+  name.vb: T()
+  spec.csharp:
+  - name: T
+  - name: '['
+  - name: ']'
+  spec.vb:
+  - name: T
+  - name: (
+  - name: )

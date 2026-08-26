@@ -1,0 +1,149 @@
+### YamlMime:TableOfContent
+items:
+- uid: YShared.Console
+  name: YShared.Console
+  type: Namespace
+  items:
+  - uid: YShared.Console.AliasAttribute
+    name: AliasAttribute
+    type: Class
+  - uid: YShared.Console.AliasData
+    name: AliasData
+    type: Class
+  - uid: YShared.Console.Autocomplete
+    name: Autocomplete
+    type: Class
+  - uid: YShared.Console.Command
+    name: Command
+    type: Class
+  - uid: YShared.Console.CommandNode
+    name: CommandNode
+    type: Class
+  - uid: YShared.Console.CommandRegistry
+    name: CommandRegistry
+    type: Class
+  - uid: YShared.Console.CommandsHelper
+    name: CommandsHelper
+    type: Class
+  - uid: YShared.Console.Console
+    name: Console
+    type: Class
+  - uid: YShared.Console.DefaultCommands
+    name: DefaultCommands
+    type: Class
+  - uid: YShared.Console.DevConsole
+    name: DevConsole
+    type: Class
+  - uid: YShared.Console.DevConsoleException
+    name: DevConsoleException
+    type: Class
+  - uid: YShared.Console.DevConsoleUI
+    name: DevConsoleUI
+    type: Class
+  - uid: YShared.Console.FeedbackFlavor
+    name: FeedbackFlavor
+    type: Enum
+  - uid: YShared.Console.MethodSignature
+    name: MethodSignature
+    type: Struct
+  - uid: YShared.Console.ObjectFindType
+    name: ObjectFindType
+    type: Enum
+  - uid: YShared.Console.Parameter
+    name: Parameter
+    type: Struct
+  - uid: YShared.Console.ScreenshotClipboard
+    name: ScreenshotClipboard
+    type: Class
+  - uid: YShared.Console.YCBool
+    name: YCBool
+    type: Class
+  - uid: YShared.Console.YCCmdArg
+    name: YCCmdArg
+    type: Class
+  - uid: YShared.Console.YCEnum
+    name: YCEnum
+    type: Class
+  - uid: YShared.Console.YCFloat
+    name: YCFloat
+    type: Class
+  - uid: YShared.Console.YCInt
+    name: YCInt
+    type: Class
+  - uid: YShared.Console.YCString
+    name: YCString
+    type: Class
+  - uid: YShared.Console.YCmdArgumentAttribute
+    name: YCmdArgumentAttribute
+    type: Class
+  - uid: YShared.Console.YCommandAttribute
+    name: YCommandAttribute
+    type: Class
+- uid: YShared.MathHelper
+  name: YShared.MathHelper
+  type: Namespace
+  items:
+  - uid: YShared.MathHelper.ArrayFunctions
+    name: ArrayFunctions
+    type: Class
+  - uid: YShared.MathHelper.SinValue
+    name: SinValue
+    type: Class
+  - uid: YShared.MathHelper.TrackedVariable`1
+    name: TrackedVariable<T>
+    type: Class
+  - uid: YShared.MathHelper.YMathHelper
+    name: YMathHelper
+    type: Class
+- uid: YShared.NamedTimers
+  name: YShared.NamedTimers
+  type: Namespace
+  items:
+  - uid: YShared.NamedTimers.Extension
+    name: Extension
+    type: Class
+  - uid: YShared.NamedTimers.Extension.TimerBehaviour
+    name: Extension.TimerBehaviour
+    type: Class
+  - uid: YShared.NamedTimers.GameObjectBinding
+    name: GameObjectBinding
+    type: Struct
+  - uid: YShared.NamedTimers.SetTimerResult
+    name: SetTimerResult
+    type: Enum
+  - uid: YShared.NamedTimers.Timer
+    name: Timer
+    type: Class
+  - uid: YShared.NamedTimers.TimerHandler
+    name: TimerHandler
+    type: Class
+  - uid: YShared.NamedTimers.TimerOptions
+    name: TimerOptions
+    type: Struct
+  - uid: YShared.NamedTimers.TimerState
+    name: TimerState
+    type: Struct
+  - uid: YShared.NamedTimers.TimerWindow
+    name: TimerWindow
+    type: Class
+- uid: YShared.RandomHelper
+  name: YShared.RandomHelper
+  type: Namespace
+  items:
+  - uid: YShared.RandomHelper.YRandom
+    name: YRandom
+    type: Class
+- uid: YShared.Singleton
+  name: YShared.Singleton
+  type: Namespace
+  items:
+  - uid: YShared.Singleton.Singleton`1
+    name: Singleton<T>
+    type: Class
+  - uid: YShared.Singleton.YSceneSingleton`1
+    name: YSceneSingleton<T>
+    type: Class
+  - uid: YShared.Singleton.YSingleton`1
+    name: YSingleton<T>
+    type: Class
+memberLayout: SamePage

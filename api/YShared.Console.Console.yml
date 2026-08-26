@@ -1,0 +1,781 @@
+### YamlMime:ManagedReference
+items:
+- uid: YShared.Console.Console
+  commentId: T:YShared.Console.Console
+  id: Console
+  parent: YShared.Console
+  children:
+  - YShared.Console.Console.#ctor
+  - YShared.Console.Console.FPS_Limit
+  - YShared.Console.Console.OnGUI
+  - YShared.Console.Console.Write(System.Int32,System.String,System.Object)
+  - YShared.Console.Console.Write(System.Int32,System.String,System.Single,System.Int32)
+  - YShared.Console.Console.Write(System.Int32,System.String,UnityEngine.Vector2,System.Int32)
+  - YShared.Console.Console.Write(System.Int32,System.String,UnityEngine.Vector3,System.Int32)
+  - YShared.Console.Console.WriteFloat(System.Int32,System.String,System.Single,System.Int32)
+  - YShared.Console.Console.instance
+  - YShared.Console.Console.textStyle
+  langs:
+  - csharp
+  - vb
+  name: Console
+  nameWithType: Console
+  fullName: YShared.Console.Console
+  type: Class
+  assemblies:
+  - YShared.Runtime
+  namespace: YShared.Console
+  syntax:
+    content: 'public class Console : YSingleton<Console>'
+    content.vb: Public Class Console Inherits YSingleton(Of Console)
+  inheritance:
+  - System.Object
+  - YShared.Singleton.YSingleton{YShared.Console.Console}
+  inheritedMembers:
+  - YShared.Singleton.YSingleton{YShared.Console.Console}.Awake
+  - YShared.Singleton.YSingleton{YShared.Console.Console}.OnDestroy
+  - YShared.Singleton.YSingleton{YShared.Console.Console}.Instance
+  - YShared.Singleton.YSingleton{YShared.Console.Console}.CallDontDestroyOnLoad
+  extensionMethods:
+  - System.Object.YShared.MathHelper.YMathHelper.TryAs``1({T}@)
+- uid: YShared.Console.Console.textStyle
+  commentId: F:YShared.Console.Console.textStyle
+  id: textStyle
+  parent: YShared.Console.Console
+  langs:
+  - csharp
+  - vb
+  name: textStyle
+  nameWithType: Console.textStyle
+  fullName: YShared.Console.Console.textStyle
+  type: Field
+  assemblies:
+  - YShared.Runtime
+  namespace: YShared.Console
+  syntax:
+    content: public GUIStyle textStyle
+    return:
+      type: UnityEngine.GUIStyle
+    content.vb: Public textStyle As GUIStyle
+- uid: YShared.Console.Console.FPS_Limit
+  commentId: F:YShared.Console.Console.FPS_Limit
+  id: FPS_Limit
+  parent: YShared.Console.Console
+  langs:
+  - csharp
+  - vb
+  name: FPS_Limit
+  nameWithType: Console.FPS_Limit
+  fullName: YShared.Console.Console.FPS_Limit
+  type: Field
+  assemblies:
+  - YShared.Runtime
+  namespace: YShared.Console
+  syntax:
+    content: public int FPS_Limit
+    return:
+      type: System.Int32
+    content.vb: Public FPS_Limit As Integer
+- uid: YShared.Console.Console.OnGUI
+  commentId: M:YShared.Console.Console.OnGUI
+  id: OnGUI
+  parent: YShared.Console.Console
+  langs:
+  - csharp
+  - vb
+  name: OnGUI()
+  nameWithType: Console.OnGUI()
+  fullName: YShared.Console.Console.OnGUI()
+  type: Method
+  assemblies:
+  - YShared.Runtime
+  namespace: YShared.Console
+  syntax:
+    content: public void OnGUI()
+    content.vb: Public Sub OnGUI()
+  overload: YShared.Console.Console.OnGUI*
+- uid: YShared.Console.Console.Write(System.Int32,System.String,System.Object)
+  commentId: M:YShared.Console.Console.Write(System.Int32,System.String,System.Object)
+  id: Write(System.Int32,System.String,System.Object)
+  parent: YShared.Console.Console
+  langs:
+  - csharp
+  - vb
+  name: Write(int, string, object)
+  nameWithType: Console.Write(int, string, object)
+  fullName: YShared.Console.Console.Write(int, string, object)
+  type: Method
+  assemblies:
+  - YShared.Runtime
+  namespace: YShared.Console
+  syntax:
+    content: public static void Write(int id, string _key, object _value)
+    parameters:
+    - id: id
+      type: System.Int32
+    - id: _key
+      type: System.String
+    - id: _value
+      type: System.Object
+    content.vb: Public Shared Sub Write(id As Integer, _key As String, _value As Object)
+  overload: YShared.Console.Console.Write*
+  nameWithType.vb: Console.Write(Integer, String, Object)
+  fullName.vb: YShared.Console.Console.Write(Integer, String, Object)
+  name.vb: Write(Integer, String, Object)
+- uid: YShared.Console.Console.Write(System.Int32,System.String,System.Single,System.Int32)
+  commentId: M:YShared.Console.Console.Write(System.Int32,System.String,System.Single,System.Int32)
+  id: Write(System.Int32,System.String,System.Single,System.Int32)
+  parent: YShared.Console.Console
+  langs:
+  - csharp
+  - vb
+  name: Write(int, string, float, int)
+  nameWithType: Console.Write(int, string, float, int)
+  fullName: YShared.Console.Console.Write(int, string, float, int)
+  type: Method
+  assemblies:
+  - YShared.Runtime
+  namespace: YShared.Console
+  syntax:
+    content: public static void Write(int id, string _key, float _float_value, int decimals = 2)
+    parameters:
+    - id: id
+      type: System.Int32
+    - id: _key
+      type: System.String
+    - id: _float_value
+      type: System.Single
+    - id: decimals
+      type: System.Int32
+    content.vb: Public Shared Sub Write(id As Integer, _key As String, _float_value As Single, decimals As Integer = 2)
+  overload: YShared.Console.Console.Write*
+  nameWithType.vb: Console.Write(Integer, String, Single, Integer)
+  fullName.vb: YShared.Console.Console.Write(Integer, String, Single, Integer)
+  name.vb: Write(Integer, String, Single, Integer)
+- uid: YShared.Console.Console.Write(System.Int32,System.String,UnityEngine.Vector3,System.Int32)
+  commentId: M:YShared.Console.Console.Write(System.Int32,System.String,UnityEngine.Vector3,System.Int32)
+  id: Write(System.Int32,System.String,UnityEngine.Vector3,System.Int32)
+  parent: YShared.Console.Console
+  langs:
+  - csharp
+  - vb
+  name: Write(int, string, Vector3, int)
+  nameWithType: Console.Write(int, string, Vector3, int)
+  fullName: YShared.Console.Console.Write(int, string, UnityEngine.Vector3, int)
+  type: Method
+  assemblies:
+  - YShared.Runtime
+  namespace: YShared.Console
+  syntax:
+    content: public static void Write(int id, string _key, Vector3 _float_value, int decimals = 2)
+    parameters:
+    - id: id
+      type: System.Int32
+    - id: _key
+      type: System.String
+    - id: _float_value
+      type: UnityEngine.Vector3
+    - id: decimals
+      type: System.Int32
+    content.vb: Public Shared Sub Write(id As Integer, _key As String, _float_value As Vector3, decimals As Integer = 2)
+  overload: YShared.Console.Console.Write*
+  nameWithType.vb: Console.Write(Integer, String, Vector3, Integer)
+  fullName.vb: YShared.Console.Console.Write(Integer, String, UnityEngine.Vector3, Integer)
+  name.vb: Write(Integer, String, Vector3, Integer)
+- uid: YShared.Console.Console.Write(System.Int32,System.String,UnityEngine.Vector2,System.Int32)
+  commentId: M:YShared.Console.Console.Write(System.Int32,System.String,UnityEngine.Vector2,System.Int32)
+  id: Write(System.Int32,System.String,UnityEngine.Vector2,System.Int32)
+  parent: YShared.Console.Console
+  langs:
+  - csharp
+  - vb
+  name: Write(int, string, Vector2, int)
+  nameWithType: Console.Write(int, string, Vector2, int)
+  fullName: YShared.Console.Console.Write(int, string, UnityEngine.Vector2, int)
+  type: Method
+  assemblies:
+  - YShared.Runtime
+  namespace: YShared.Console
+  syntax:
+    content: public static void Write(int id, string _key, Vector2 _float_value, int decimals = 2)
+    parameters:
+    - id: id
+      type: System.Int32
+    - id: _key
+      type: System.String
+    - id: _float_value
+      type: UnityEngine.Vector2
+    - id: decimals
+      type: System.Int32
+    content.vb: Public Shared Sub Write(id As Integer, _key As String, _float_value As Vector2, decimals As Integer = 2)
+  overload: YShared.Console.Console.Write*
+  nameWithType.vb: Console.Write(Integer, String, Vector2, Integer)
+  fullName.vb: YShared.Console.Console.Write(Integer, String, UnityEngine.Vector2, Integer)
+  name.vb: Write(Integer, String, Vector2, Integer)
+- uid: YShared.Console.Console.WriteFloat(System.Int32,System.String,System.Single,System.Int32)
+  commentId: M:YShared.Console.Console.WriteFloat(System.Int32,System.String,System.Single,System.Int32)
+  id: WriteFloat(System.Int32,System.String,System.Single,System.Int32)
+  parent: YShared.Console.Console
+  langs:
+  - csharp
+  - vb
+  name: WriteFloat(int, string, float, int)
+  nameWithType: Console.WriteFloat(int, string, float, int)
+  fullName: YShared.Console.Console.WriteFloat(int, string, float, int)
+  type: Method
+  assemblies:
+  - YShared.Runtime
+  namespace: YShared.Console
+  syntax:
+    content: public static void WriteFloat(int id, string _key, float _float_value, int decimals = 2)
+    parameters:
+    - id: id
+      type: System.Int32
+    - id: _key
+      type: System.String
+    - id: _float_value
+      type: System.Single
+    - id: decimals
+      type: System.Int32
+    content.vb: Public Shared Sub WriteFloat(id As Integer, _key As String, _float_value As Single, decimals As Integer = 2)
+  overload: YShared.Console.Console.WriteFloat*
+  nameWithType.vb: Console.WriteFloat(Integer, String, Single, Integer)
+  fullName.vb: YShared.Console.Console.WriteFloat(Integer, String, Single, Integer)
+  name.vb: WriteFloat(Integer, String, Single, Integer)
+- uid: YShared.Console.Console.#ctor
+  commentId: M:YShared.Console.Console.#ctor
+  id: '#ctor'
+  parent: YShared.Console.Console
+  langs:
+  - csharp
+  - vb
+  name: Console()
+  nameWithType: Console.Console()
+  fullName: YShared.Console.Console.Console()
+  type: Constructor
+  assemblies:
+  - YShared.Runtime
+  namespace: YShared.Console
+  syntax:
+    content: public Console()
+    content.vb: Public Sub New()
+  overload: YShared.Console.Console.#ctor*
+  nameWithType.vb: Console.New()
+  fullName.vb: YShared.Console.Console.New()
+  name.vb: New()
+- uid: YShared.Console.Console.instance
+  commentId: P:YShared.Console.Console.instance
+  id: instance
+  parent: YShared.Console.Console
+  langs:
+  - csharp
+  - vb
+  name: instance
+  nameWithType: Console.instance
+  fullName: YShared.Console.Console.instance
+  type: Property
+  assemblies:
+  - YShared.Runtime
+  namespace: YShared.Console
+  syntax:
+    content: public static Console instance { get; }
+    parameters: []
+    return:
+      type: YShared.Console.Console
+    content.vb: Public Shared ReadOnly Property instance As Console
+  overload: YShared.Console.Console.instance*
+references:
+- uid: YShared.Console
+  commentId: N:YShared.Console
+  isExternal: true
+  href: YShared.html
+  name: YShared.Console
+  nameWithType: YShared.Console
+  fullName: YShared.Console
+  spec.csharp:
+  - uid: YShared
+    name: YShared
+    isExternal: true
+    href: YShared.html
+  - name: .
+  - uid: YShared.Console
+    name: Console
+    isExternal: true
+    href: YShared.Console.html
+  spec.vb:
+  - uid: YShared
+    name: YShared
+    isExternal: true
+    href: YShared.html
+  - name: .
+  - uid: YShared.Console
+    name: Console
+    isExternal: true
+    href: YShared.Console.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: YShared.Singleton.YSingleton{YShared.Console.Console}
+  commentId: T:YShared.Singleton.YSingleton{YShared.Console.Console}
+  parent: YShared.Singleton
+  definition: YShared.Singleton.YSingleton`1
+  href: YShared.Singleton.YSingleton-1.html
+  name: YSingleton<Console>
+  nameWithType: YSingleton<Console>
+  fullName: YShared.Singleton.YSingleton<YShared.Console.Console>
+  nameWithType.vb: YSingleton(Of Console)
+  fullName.vb: YShared.Singleton.YSingleton(Of YShared.Console.Console)
+  name.vb: YSingleton(Of Console)
+  spec.csharp:
+  - uid: YShared.Singleton.YSingleton`1
+    name: YSingleton
+    isExternal: true
+    href: YShared.Singleton.YSingleton-1.html
+  - name: <
+  - uid: YShared.Console.Console
+    name: Console
+    isExternal: true
+    href: YShared.Console.Console.html
+  - name: '>'
+  spec.vb:
+  - uid: YShared.Singleton.YSingleton`1
+    name: YSingleton
+    isExternal: true
+    href: YShared.Singleton.YSingleton-1.html
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: YShared.Console.Console
+    name: Console
+    isExternal: true
+    href: YShared.Console.Console.html
+  - name: )
+- uid: YShared.Singleton.YSingleton{YShared.Console.Console}.Awake
+  commentId: M:YShared.Singleton.YSingleton{YShared.Console.Console}.Awake
+  parent: YShared.Singleton.YSingleton{YShared.Console.Console}
+  definition: YShared.Singleton.YSingleton`1.Awake
+  href: YShared.Singleton.YSingleton-1.html#YShared_Singleton_YSingleton_1_Awake
+  name: Awake()
+  nameWithType: YSingleton<Console>.Awake()
+  fullName: YShared.Singleton.YSingleton<YShared.Console.Console>.Awake()
+  nameWithType.vb: YSingleton(Of Console).Awake()
+  fullName.vb: YShared.Singleton.YSingleton(Of YShared.Console.Console).Awake()
+  spec.csharp:
+  - uid: YShared.Singleton.YSingleton{YShared.Console.Console}.Awake
+    name: Awake
+    isExternal: true
+    href: YShared.Singleton.YSingleton-1.html#YShared_Singleton_YSingleton_1_Awake
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: YShared.Singleton.YSingleton{YShared.Console.Console}.Awake
+    name: Awake
+    isExternal: true
+    href: YShared.Singleton.YSingleton-1.html#YShared_Singleton_YSingleton_1_Awake
+  - name: (
+  - name: )
+- uid: YShared.Singleton.YSingleton{YShared.Console.Console}.OnDestroy
+  commentId: M:YShared.Singleton.YSingleton{YShared.Console.Console}.OnDestroy
+  parent: YShared.Singleton.YSingleton{YShared.Console.Console}
+  definition: YShared.Singleton.YSingleton`1.OnDestroy
+  href: YShared.Singleton.YSingleton-1.html#YShared_Singleton_YSingleton_1_OnDestroy
+  name: OnDestroy()
+  nameWithType: YSingleton<Console>.OnDestroy()
+  fullName: YShared.Singleton.YSingleton<YShared.Console.Console>.OnDestroy()
+  nameWithType.vb: YSingleton(Of Console).OnDestroy()
+  fullName.vb: YShared.Singleton.YSingleton(Of YShared.Console.Console).OnDestroy()
+  spec.csharp:
+  - uid: YShared.Singleton.YSingleton{YShared.Console.Console}.OnDestroy
+    name: OnDestroy
+    isExternal: true
+    href: YShared.Singleton.YSingleton-1.html#YShared_Singleton_YSingleton_1_OnDestroy
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: YShared.Singleton.YSingleton{YShared.Console.Console}.OnDestroy
+    name: OnDestroy
+    isExternal: true
+    href: YShared.Singleton.YSingleton-1.html#YShared_Singleton_YSingleton_1_OnDestroy
+  - name: (
+  - name: )
+- uid: YShared.Singleton.YSingleton{YShared.Console.Console}.Instance
+  commentId: P:YShared.Singleton.YSingleton{YShared.Console.Console}.Instance
+  parent: YShared.Singleton.YSingleton{YShared.Console.Console}
+  definition: YShared.Singleton.YSingleton`1.Instance
+  href: YShared.Singleton.YSingleton-1.html#YShared_Singleton_YSingleton_1_Instance
+  name: Instance
+  nameWithType: YSingleton<Console>.Instance
+  fullName: YShared.Singleton.YSingleton<YShared.Console.Console>.Instance
+  nameWithType.vb: YSingleton(Of Console).Instance
+  fullName.vb: YShared.Singleton.YSingleton(Of YShared.Console.Console).Instance
+- uid: YShared.Singleton.YSingleton{YShared.Console.Console}.CallDontDestroyOnLoad
+  commentId: P:YShared.Singleton.YSingleton{YShared.Console.Console}.CallDontDestroyOnLoad
+  parent: YShared.Singleton.YSingleton{YShared.Console.Console}
+  definition: YShared.Singleton.YSingleton`1.CallDontDestroyOnLoad
+  href: YShared.Singleton.YSingleton-1.html#YShared_Singleton_YSingleton_1_CallDontDestroyOnLoad
+  name: CallDontDestroyOnLoad
+  nameWithType: YSingleton<Console>.CallDontDestroyOnLoad
+  fullName: YShared.Singleton.YSingleton<YShared.Console.Console>.CallDontDestroyOnLoad
+  nameWithType.vb: YSingleton(Of Console).CallDontDestroyOnLoad
+  fullName.vb: YShared.Singleton.YSingleton(Of YShared.Console.Console).CallDontDestroyOnLoad
+- uid: System.Object.YShared.MathHelper.YMathHelper.TryAs``1({T}@)
+  commentId: M:YShared.MathHelper.YMathHelper.TryAs``1(System.Object,``0@)
+  parent: YShared.MathHelper.YMathHelper
+  definition: YShared.MathHelper.YMathHelper.TryAs``1(System.Object,``0@)
+  href: YShared.MathHelper.YMathHelper.html#YShared_MathHelper_YMathHelper_TryAs__1_System_Object___0__
+  name: TryAs<T>(object, out T)
+  nameWithType: YMathHelper.TryAs<T>(object, out T)
+  fullName: YShared.MathHelper.YMathHelper.TryAs<T>(object, out T)
+  nameWithType.vb: YMathHelper.TryAs(Of T)(Object, T)
+  fullName.vb: YShared.MathHelper.YMathHelper.TryAs(Of T)(Object, T)
+  name.vb: TryAs(Of T)(Object, T)
+  spec.csharp:
+  - uid: YShared.MathHelper.YMathHelper.TryAs``1(System.Object,``0@)
+    name: TryAs
+    isExternal: true
+    href: YShared.MathHelper.YMathHelper.html#YShared_MathHelper_YMathHelper_TryAs__1_System_Object___0__
+  - name: <
+  - name: T
+  - name: '>'
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - name: out
+  - name: " "
+  - name: T
+  - name: )
+  spec.vb:
+  - uid: YShared.MathHelper.YMathHelper.TryAs``1(System.Object,``0@)
+    name: TryAs
+    isExternal: true
+    href: YShared.MathHelper.YMathHelper.html#YShared_MathHelper_YMathHelper_TryAs__1_System_Object___0__
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - name: T
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: YShared.Singleton.YSingleton`1
+  commentId: T:YShared.Singleton.YSingleton`1
+  isExternal: true
+  href: YShared.Singleton.YSingleton-1.html
+  name: YSingleton<T>
+  nameWithType: YSingleton<T>
+  fullName: YShared.Singleton.YSingleton<T>
+  nameWithType.vb: YSingleton(Of T)
+  fullName.vb: YShared.Singleton.YSingleton(Of T)
+  name.vb: YSingleton(Of T)
+  spec.csharp:
+  - uid: YShared.Singleton.YSingleton`1
+    name: YSingleton
+    isExternal: true
+    href: YShared.Singleton.YSingleton-1.html
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: YShared.Singleton.YSingleton`1
+    name: YSingleton
+    isExternal: true
+    href: YShared.Singleton.YSingleton-1.html
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: YShared.Singleton
+  commentId: N:YShared.Singleton
+  isExternal: true
+  href: YShared.html
+  name: YShared.Singleton
+  nameWithType: YShared.Singleton
+  fullName: YShared.Singleton
+  spec.csharp:
+  - uid: YShared
+    name: YShared
+    isExternal: true
+    href: YShared.html
+  - name: .
+  - uid: YShared.Singleton
+    name: Singleton
+    isExternal: true
+    href: YShared.Singleton.html
+  spec.vb:
+  - uid: YShared
+    name: YShared
+    isExternal: true
+    href: YShared.html
+  - name: .
+  - uid: YShared.Singleton
+    name: Singleton
+    isExternal: true
+    href: YShared.Singleton.html
+- uid: YShared.Singleton.YSingleton`1.Awake
+  commentId: M:YShared.Singleton.YSingleton`1.Awake
+  isExternal: true
+  href: YShared.Singleton.YSingleton-1.html#YShared_Singleton_YSingleton_1_Awake
+  name: Awake()
+  nameWithType: YSingleton<T>.Awake()
+  fullName: YShared.Singleton.YSingleton<T>.Awake()
+  nameWithType.vb: YSingleton(Of T).Awake()
+  fullName.vb: YShared.Singleton.YSingleton(Of T).Awake()
+  spec.csharp:
+  - uid: YShared.Singleton.YSingleton`1.Awake
+    name: Awake
+    isExternal: true
+    href: YShared.Singleton.YSingleton-1.html#YShared_Singleton_YSingleton_1_Awake
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: YShared.Singleton.YSingleton`1.Awake
+    name: Awake
+    isExternal: true
+    href: YShared.Singleton.YSingleton-1.html#YShared_Singleton_YSingleton_1_Awake
+  - name: (
+  - name: )
+- uid: YShared.Singleton.YSingleton`1.OnDestroy
+  commentId: M:YShared.Singleton.YSingleton`1.OnDestroy
+  isExternal: true
+  href: YShared.Singleton.YSingleton-1.html#YShared_Singleton_YSingleton_1_OnDestroy
+  name: OnDestroy()
+  nameWithType: YSingleton<T>.OnDestroy()
+  fullName: YShared.Singleton.YSingleton<T>.OnDestroy()
+  nameWithType.vb: YSingleton(Of T).OnDestroy()
+  fullName.vb: YShared.Singleton.YSingleton(Of T).OnDestroy()
+  spec.csharp:
+  - uid: YShared.Singleton.YSingleton`1.OnDestroy
+    name: OnDestroy
+    isExternal: true
+    href: YShared.Singleton.YSingleton-1.html#YShared_Singleton_YSingleton_1_OnDestroy
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: YShared.Singleton.YSingleton`1.OnDestroy
+    name: OnDestroy
+    isExternal: true
+    href: YShared.Singleton.YSingleton-1.html#YShared_Singleton_YSingleton_1_OnDestroy
+  - name: (
+  - name: )
+- uid: YShared.Singleton.YSingleton`1.Instance
+  commentId: P:YShared.Singleton.YSingleton`1.Instance
+  isExternal: true
+  href: YShared.Singleton.YSingleton-1.html#YShared_Singleton_YSingleton_1_Instance
+  name: Instance
+  nameWithType: YSingleton<T>.Instance
+  fullName: YShared.Singleton.YSingleton<T>.Instance
+  nameWithType.vb: YSingleton(Of T).Instance
+  fullName.vb: YShared.Singleton.YSingleton(Of T).Instance
+- uid: YShared.Singleton.YSingleton`1.CallDontDestroyOnLoad
+  commentId: P:YShared.Singleton.YSingleton`1.CallDontDestroyOnLoad
+  isExternal: true
+  href: YShared.Singleton.YSingleton-1.html#YShared_Singleton_YSingleton_1_CallDontDestroyOnLoad
+  name: CallDontDestroyOnLoad
+  nameWithType: YSingleton<T>.CallDontDestroyOnLoad
+  fullName: YShared.Singleton.YSingleton<T>.CallDontDestroyOnLoad
+  nameWithType.vb: YSingleton(Of T).CallDontDestroyOnLoad
+  fullName.vb: YShared.Singleton.YSingleton(Of T).CallDontDestroyOnLoad
+- uid: YShared.MathHelper.YMathHelper.TryAs``1(System.Object,``0@)
+  commentId: M:YShared.MathHelper.YMathHelper.TryAs``1(System.Object,``0@)
+  isExternal: true
+  href: YShared.MathHelper.YMathHelper.html#YShared_MathHelper_YMathHelper_TryAs__1_System_Object___0__
+  name: TryAs<T>(object, out T)
+  nameWithType: YMathHelper.TryAs<T>(object, out T)
+  fullName: YShared.MathHelper.YMathHelper.TryAs<T>(object, out T)
+  nameWithType.vb: YMathHelper.TryAs(Of T)(Object, T)
+  fullName.vb: YShared.MathHelper.YMathHelper.TryAs(Of T)(Object, T)
+  name.vb: TryAs(Of T)(Object, T)
+  spec.csharp:
+  - uid: YShared.MathHelper.YMathHelper.TryAs``1(System.Object,``0@)
+    name: TryAs
+    isExternal: true
+    href: YShared.MathHelper.YMathHelper.html#YShared_MathHelper_YMathHelper_TryAs__1_System_Object___0__
+  - name: <
+  - name: T
+  - name: '>'
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - name: out
+  - name: " "
+  - name: T
+  - name: )
+  spec.vb:
+  - uid: YShared.MathHelper.YMathHelper.TryAs``1(System.Object,``0@)
+    name: TryAs
+    isExternal: true
+    href: YShared.MathHelper.YMathHelper.html#YShared_MathHelper_YMathHelper_TryAs__1_System_Object___0__
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - name: T
+  - name: )
+- uid: YShared.MathHelper.YMathHelper
+  commentId: T:YShared.MathHelper.YMathHelper
+  parent: YShared.MathHelper
+  isExternal: true
+  href: YShared.MathHelper.YMathHelper.html
+  name: YMathHelper
+  nameWithType: YMathHelper
+  fullName: YShared.MathHelper.YMathHelper
+- uid: YShared.MathHelper
+  commentId: N:YShared.MathHelper
+  isExternal: true
+  href: YShared.html
+  name: YShared.MathHelper
+  nameWithType: YShared.MathHelper
+  fullName: YShared.MathHelper
+  spec.csharp:
+  - uid: YShared
+    name: YShared
+    isExternal: true
+    href: YShared.html
+  - name: .
+  - uid: YShared.MathHelper
+    name: MathHelper
+    isExternal: true
+    href: YShared.MathHelper.html
+  spec.vb:
+  - uid: YShared
+    name: YShared
+    isExternal: true
+    href: YShared.html
+  - name: .
+  - uid: YShared.MathHelper
+    name: MathHelper
+    isExternal: true
+    href: YShared.MathHelper.html
+- uid: UnityEngine.GUIStyle
+  commentId: '!:UnityEngine.GUIStyle'
+  isExternal: true
+  name: GUIStyle
+  nameWithType: GUIStyle
+  fullName: UnityEngine.GUIStyle
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: YShared.Console.Console.OnGUI*
+  commentId: Overload:YShared.Console.Console.OnGUI
+  isExternal: true
+  href: YShared.Console.Console.html#YShared_Console_Console_OnGUI
+  name: OnGUI
+  nameWithType: Console.OnGUI
+  fullName: YShared.Console.Console.OnGUI
+- uid: YShared.Console.Console.Write*
+  commentId: Overload:YShared.Console.Console.Write
+  isExternal: true
+  href: YShared.Console.Console.html#YShared_Console_Console_Write_System_Int32_System_String_System_Object_
+  name: Write
+  nameWithType: Console.Write
+  fullName: YShared.Console.Console.Write
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: System.Single
+  commentId: T:System.Single
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.single
+  name: float
+  nameWithType: float
+  fullName: float
+  nameWithType.vb: Single
+  fullName.vb: Single
+  name.vb: Single
+- uid: UnityEngine.Vector3
+  isExternal: true
+  name: Vector3
+  nameWithType: Vector3
+  fullName: UnityEngine.Vector3
+- uid: UnityEngine.Vector2
+  isExternal: true
+  name: Vector2
+  nameWithType: Vector2
+  fullName: UnityEngine.Vector2
+- uid: YShared.Console.Console.WriteFloat*
+  commentId: Overload:YShared.Console.Console.WriteFloat
+  isExternal: true
+  href: YShared.Console.Console.html#YShared_Console_Console_WriteFloat_System_Int32_System_String_System_Single_System_Int32_
+  name: WriteFloat
+  nameWithType: Console.WriteFloat
+  fullName: YShared.Console.Console.WriteFloat
+- uid: YShared.Console.Console.#ctor*
+  commentId: Overload:YShared.Console.Console.#ctor
+  isExternal: true
+  href: YShared.Console.Console.html#YShared_Console_Console__ctor
+  name: Console
+  nameWithType: Console.Console
+  fullName: YShared.Console.Console.Console
+  nameWithType.vb: Console.New
+  fullName.vb: YShared.Console.Console.New
+  name.vb: New
+- uid: YShared.Console.Console.instance*
+  commentId: Overload:YShared.Console.Console.instance
+  isExternal: true
+  href: YShared.Console.Console.html#YShared_Console_Console_instance
+  name: instance
+  nameWithType: Console.instance
+  fullName: YShared.Console.Console.instance
+- uid: YShared.Console.Console
+  commentId: T:YShared.Console.Console
+  parent: YShared.Console
+  isExternal: true
+  href: YShared.Console.Console.html
+  name: Console
+  nameWithType: Console
+  fullName: YShared.Console.Console

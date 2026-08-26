@@ -26,7 +26,7 @@ namespace YShared.Console
     ///     </item>
     /// </list>
     /// </summary>
-    [AttributeUsage(AttributeTargets.Method)]
+    [AttributeUsage(AttributeTargets.Method | AttributeTargets.Field | AttributeTargets.Property, AllowMultiple = false)]
     public class YCommandAttribute : Attribute
     {
         public string Name { get; }
@@ -47,6 +47,14 @@ namespace YShared.Console
             this.Desc = Description;
             this.objectFindType = objectFindType;
             this.findObjectsInactive = findObjectsInactive;
+        }
+
+        public YCommandAttribute(string NameAddendum, YCommandAttribute @base)
+        {
+            this.Name = @base.Name + " " + NameAddendum;
+            this.Desc = @base.Desc;
+            this.objectFindType = @base.objectFindType;
+            this.findObjectsInactive = @base.findObjectsInactive;
         }
     }
 }

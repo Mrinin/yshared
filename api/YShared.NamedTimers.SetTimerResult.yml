@@ -1,0 +1,247 @@
+### YamlMime:ManagedReference
+items:
+- uid: YShared.NamedTimers.SetTimerResult
+  commentId: T:YShared.NamedTimers.SetTimerResult
+  id: SetTimerResult
+  parent: YShared.NamedTimers
+  children:
+  - YShared.NamedTimers.SetTimerResult.ChangedTimeLeft
+  - YShared.NamedTimers.SetTimerResult.NewTimer
+  - YShared.NamedTimers.SetTimerResult.ReplacedAction
+  langs:
+  - csharp
+  - vb
+  name: SetTimerResult
+  nameWithType: SetTimerResult
+  fullName: YShared.NamedTimers.SetTimerResult
+  type: Enum
+  assemblies:
+  - YShared.Runtime
+  namespace: YShared.NamedTimers
+  syntax:
+    content: public enum SetTimerResult
+    content.vb: Public Enum SetTimerResult
+  extensionMethods:
+  - System.Object.YShared.MathHelper.YMathHelper.TryAs``1({T}@)
+- uid: YShared.NamedTimers.SetTimerResult.NewTimer
+  commentId: F:YShared.NamedTimers.SetTimerResult.NewTimer
+  id: NewTimer
+  parent: YShared.NamedTimers.SetTimerResult
+  langs:
+  - csharp
+  - vb
+  name: NewTimer
+  nameWithType: SetTimerResult.NewTimer
+  fullName: YShared.NamedTimers.SetTimerResult.NewTimer
+  type: Field
+  assemblies:
+  - YShared.Runtime
+  namespace: YShared.NamedTimers
+  syntax:
+    content: NewTimer = 0
+    return:
+      type: YShared.NamedTimers.SetTimerResult
+- uid: YShared.NamedTimers.SetTimerResult.ChangedTimeLeft
+  commentId: F:YShared.NamedTimers.SetTimerResult.ChangedTimeLeft
+  id: ChangedTimeLeft
+  parent: YShared.NamedTimers.SetTimerResult
+  langs:
+  - csharp
+  - vb
+  name: ChangedTimeLeft
+  nameWithType: SetTimerResult.ChangedTimeLeft
+  fullName: YShared.NamedTimers.SetTimerResult.ChangedTimeLeft
+  type: Field
+  assemblies:
+  - YShared.Runtime
+  namespace: YShared.NamedTimers
+  syntax:
+    content: ChangedTimeLeft = 1
+    return:
+      type: YShared.NamedTimers.SetTimerResult
+- uid: YShared.NamedTimers.SetTimerResult.ReplacedAction
+  commentId: F:YShared.NamedTimers.SetTimerResult.ReplacedAction
+  id: ReplacedAction
+  parent: YShared.NamedTimers.SetTimerResult
+  langs:
+  - csharp
+  - vb
+  name: ReplacedAction
+  nameWithType: SetTimerResult.ReplacedAction
+  fullName: YShared.NamedTimers.SetTimerResult.ReplacedAction
+  type: Field
+  assemblies:
+  - YShared.Runtime
+  namespace: YShared.NamedTimers
+  syntax:
+    content: ReplacedAction = 2
+    return:
+      type: YShared.NamedTimers.SetTimerResult
+references:
+- uid: YShared.NamedTimers
+  commentId: N:YShared.NamedTimers
+  isExternal: true
+  href: YShared.html
+  name: YShared.NamedTimers
+  nameWithType: YShared.NamedTimers
+  fullName: YShared.NamedTimers
+  spec.csharp:
+  - uid: YShared
+    name: YShared
+    isExternal: true
+    href: YShared.html
+  - name: .
+  - uid: YShared.NamedTimers
+    name: NamedTimers
+    isExternal: true
+    href: YShared.NamedTimers.html
+  spec.vb:
+  - uid: YShared
+    name: YShared
+    isExternal: true
+    href: YShared.html
+  - name: .
+  - uid: YShared.NamedTimers
+    name: NamedTimers
+    isExternal: true
+    href: YShared.NamedTimers.html
+- uid: System.Object.YShared.MathHelper.YMathHelper.TryAs``1({T}@)
+  commentId: M:YShared.MathHelper.YMathHelper.TryAs``1(System.Object,``0@)
+  parent: YShared.MathHelper.YMathHelper
+  definition: YShared.MathHelper.YMathHelper.TryAs``1(System.Object,``0@)
+  href: YShared.MathHelper.YMathHelper.html#YShared_MathHelper_YMathHelper_TryAs__1_System_Object___0__
+  name: TryAs<T>(object, out T)
+  nameWithType: YMathHelper.TryAs<T>(object, out T)
+  fullName: YShared.MathHelper.YMathHelper.TryAs<T>(object, out T)
+  nameWithType.vb: YMathHelper.TryAs(Of T)(Object, T)
+  fullName.vb: YShared.MathHelper.YMathHelper.TryAs(Of T)(Object, T)
+  name.vb: TryAs(Of T)(Object, T)
+  spec.csharp:
+  - uid: YShared.MathHelper.YMathHelper.TryAs``1(System.Object,``0@)
+    name: TryAs
+    isExternal: true
+    href: YShared.MathHelper.YMathHelper.html#YShared_MathHelper_YMathHelper_TryAs__1_System_Object___0__
+  - name: <
+  - name: T
+  - name: '>'
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - name: out
+  - name: " "
+  - name: T
+  - name: )
+  spec.vb:
+  - uid: YShared.MathHelper.YMathHelper.TryAs``1(System.Object,``0@)
+    name: TryAs
+    isExternal: true
+    href: YShared.MathHelper.YMathHelper.html#YShared_MathHelper_YMathHelper_TryAs__1_System_Object___0__
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - name: T
+  - name: )
+- uid: YShared.MathHelper.YMathHelper.TryAs``1(System.Object,``0@)
+  commentId: M:YShared.MathHelper.YMathHelper.TryAs``1(System.Object,``0@)
+  isExternal: true
+  href: YShared.MathHelper.YMathHelper.html#YShared_MathHelper_YMathHelper_TryAs__1_System_Object___0__
+  name: TryAs<T>(object, out T)
+  nameWithType: YMathHelper.TryAs<T>(object, out T)
+  fullName: YShared.MathHelper.YMathHelper.TryAs<T>(object, out T)
+  nameWithType.vb: YMathHelper.TryAs(Of T)(Object, T)
+  fullName.vb: YShared.MathHelper.YMathHelper.TryAs(Of T)(Object, T)
+  name.vb: TryAs(Of T)(Object, T)
+  spec.csharp:
+  - uid: YShared.MathHelper.YMathHelper.TryAs``1(System.Object,``0@)
+    name: TryAs
+    isExternal: true
+    href: YShared.MathHelper.YMathHelper.html#YShared_MathHelper_YMathHelper_TryAs__1_System_Object___0__
+  - name: <
+  - name: T
+  - name: '>'
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - name: out
+  - name: " "
+  - name: T
+  - name: )
+  spec.vb:
+  - uid: YShared.MathHelper.YMathHelper.TryAs``1(System.Object,``0@)
+    name: TryAs
+    isExternal: true
+    href: YShared.MathHelper.YMathHelper.html#YShared_MathHelper_YMathHelper_TryAs__1_System_Object___0__
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - name: T
+  - name: )
+- uid: YShared.MathHelper.YMathHelper
+  commentId: T:YShared.MathHelper.YMathHelper
+  parent: YShared.MathHelper
+  isExternal: true
+  href: YShared.MathHelper.YMathHelper.html
+  name: YMathHelper
+  nameWithType: YMathHelper
+  fullName: YShared.MathHelper.YMathHelper
+- uid: YShared.MathHelper
+  commentId: N:YShared.MathHelper
+  isExternal: true
+  href: YShared.html
+  name: YShared.MathHelper
+  nameWithType: YShared.MathHelper
+  fullName: YShared.MathHelper
+  spec.csharp:
+  - uid: YShared
+    name: YShared
+    isExternal: true
+    href: YShared.html
+  - name: .
+  - uid: YShared.MathHelper
+    name: MathHelper
+    isExternal: true
+    href: YShared.MathHelper.html
+  spec.vb:
+  - uid: YShared
+    name: YShared
+    isExternal: true
+    href: YShared.html
+  - name: .
+  - uid: YShared.MathHelper
+    name: MathHelper
+    isExternal: true
+    href: YShared.MathHelper.html
+- uid: YShared.NamedTimers.SetTimerResult
+  commentId: T:YShared.NamedTimers.SetTimerResult
+  parent: YShared.NamedTimers
+  isExternal: true
+  href: YShared.NamedTimers.SetTimerResult.html
+  name: SetTimerResult
+  nameWithType: SetTimerResult
+  fullName: YShared.NamedTimers.SetTimerResult

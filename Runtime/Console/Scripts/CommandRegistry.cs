@@ -12,8 +12,6 @@ namespace YShared.Console
 {
     public static class CommandRegistry
     {
-
-        static readonly Dictionary<MethodSignature, Command> commandSignatures = new();
         //public static readonly Dictionary<string, List<Command>> commands = new();
         public static readonly CommandNode Root = new();
 
@@ -46,7 +44,63 @@ namespace YShared.Console
                         BindingFlags.DeclaredOnly
                         ))
                     {
-                        RegisterCommand(method);
+                        var attribute = method.GetCustomAttribute<YCommandAttribute>();
+
+                        if (attribute == null)
+                            continue;
+
+                        RegisterCommand(CreateMethodCommand(method, attribute));
+                    }
+
+                    foreach (PropertyInfo property in type.GetProperties(
+                        BindingFlags.Public |
+                        BindingFlags.NonPublic |
+                        BindingFlags.Instance |
+                        BindingFlags.Static |
+                        BindingFlags.DeclaredOnly))
+                    {
+                        var attribute = property.GetCustomAttribute<YCommandAttribute>();
+
+                        if (attribute == null)
+                            continue;
+
+                        if (property.GetMethod != null)
+                        {
+                            YCommandAttribute getterAttribute = new YCommandAttribute("get", attribute);
+
+                            RegisterCommand(CreateMethodCommand(property.GetMethod, getterAttribute));
+                        }
+
+                        if (property.SetMethod != null)
+                        {
+                            YCommandAttribute setterAttribute = new YCommandAttribute("set", attribute);
+
+                            RegisterCommand(CreateMethodCommand(property.SetMethod, setterAttribute));
+                        }
+                    }
+
+                    foreach (FieldInfo field in type.GetFields(
+                        BindingFlags.Public |
+                        BindingFlags.NonPublic |
+                        BindingFlags.Instance |
+                        BindingFlags.Static |
+                        BindingFlags.DeclaredOnly))
+                    {
+                        var attribute = field.GetCustomAttribute<YCommandAttribute>();
+
+                        if (attribute == null)
+                            continue;
+
+                        YCommandAttribute getterAttribute = new YCommandAttribute("get", attribute);
+
+                        RegisterCommand(CreateFieldCommand(field, getterAttribute, false));
+
+                        if (!field.IsInitOnly)
+                        {
+                            YCommandAttribute setterAttribute = new YCommandAttribute("set", attribute);
+
+                            RegisterCommand(CreateFieldCommand(field, setterAttribute, true));
+                        }
                     }
                 }
             }
@@ -57,6 +111,7 @@ namespace YShared.Console
 
             //Debug.Log($"Registered {alphabeticalCommands.Length}");
         }
+
 
         private static IEnumerable<Type> GetTypesSafe(Assembly assembly)
         {
@@ -70,51 +125,8 @@ namespace YShared.Console
             }
         }
 
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static void RegisterCommand(MethodInfo method)
+        public static void RegisterCommand(Command cmd)
         {
-            var attribute = method.GetCustomAttribute<YCommandAttribute>();
-
-            if (attribute == null)
-                return;
-
-            Command cmd = new Command();
-
-            var arguments = method.GetCustomAttributes<YCmdArgumentAttribute>().ToArray();
-
-            cmd.command = attribute.Name;
-            cmd.description = attribute.Desc;
-            cmd.objectFindType = attribute.objectFindType;
-
-            cmd.arguments = arguments;
-            cmd.action = method;
-
-            ParameterInfo[] pi = method.GetParameters();
-            cmd.functionParameters = new Parameter[pi.Length];
-            for (int i = 0; i < pi.Length; i++)
-            {
-                if (pi[i].HasDefaultValue)
-                {
-                    cmd.functionParameters[i].hasDefault = true;
-                    cmd.functionParameters[i].defaultval = pi[i].DefaultValue;
-                }
-            }
-            cmd.ProperUsageWordAmount = cmd.CommandWords.Length + pi.Length;
-
-            cmd.aliases = new();
-            var aliases = method.GetCustomAttributes<AliasAttribute>().ToArray();
-            foreach (AliasAttribute alias in aliases)
-            {
-                cmd.aliases.Add(alias.Shorthand, new(alias));
-            }
-
-            var signature = MethodSignature.Create(method);
-            if (commandSignatures.ContainsKey(signature))
-            {
-                throw new Exception($"Two methods with the same function signature was attempted to be registered to the CommandRegistry.\nKeeping: \"{commandSignatures[signature].action.Name}\", Not Registering: \"{method.Name}\"");
-            }
-
-            commandSignatures[signature] = cmd;
             Commands.Add(cmd);
 
             CommandNode node = Root;
@@ -131,6 +143,76 @@ namespace YShared.Console
             }
 
             node.commands.Add(cmd);
+        }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static Command CreateMethodCommand(MethodInfo method, YCommandAttribute attribute)
+        {
+            Command cmd = new Command();
+
+            var arguments = method.GetCustomAttributes<YCmdArgumentAttribute>().ToArray();
+
+            cmd.command = attribute.Name;
+            cmd.description = attribute.Desc;
+            cmd.objectFindType = attribute.objectFindType;
+
+            cmd.arguments = arguments;
+            cmd.action = method;
+
+            cmd.IsStatic = method.IsStatic;
+            cmd.hasReturnType = method.ReturnType != typeof(void);
+
+            ParameterInfo[] pi;
+            pi = method.GetParameters();
+
+            cmd.functionParameters = new Parameter[pi.Length];
+            for (int i = 0; i < pi.Length; i++)
+            {
+                if (pi[i].HasDefaultValue)
+                {
+                    cmd.functionParameters[i].hasDefault = true;
+                    cmd.functionParameters[i].defaultval = pi[i].DefaultValue;
+                }
+            }
+
+            cmd.ProperUsageWordAmount = cmd.CommandWords.Length + pi.Length;
+
+            cmd.aliases = new();
+            var aliases = method.GetCustomAttributes<AliasAttribute>().ToArray();
+            foreach (AliasAttribute alias in aliases)
+            {
+                cmd.aliases.Add(alias.Shorthand, new(alias));
+            }
+
+            return cmd;
+        }
+
+        public static Command CreateFieldCommand(FieldInfo field, YCommandAttribute attribute, bool isSet)
+        {
+            return null;
+            Command cmd = new Command();
+
+            string suffix = isSet ? "set" : "get";
+
+            cmd.command = $"{attribute.Name} {suffix}";
+            cmd.description = attribute.Desc;
+            cmd.objectFindType = attribute.objectFindType;
+
+            //cmd.arguments = arguments;
+            cmd.action = field;
+
+            cmd.IsStatic = field.IsStatic;
+
+            cmd.hasReturnType = !isSet;
+
+            if (isSet)
+                cmd.functionParameters = new Parameter[1];
+            else
+                cmd.functionParameters = new Parameter[0];
+
+            cmd.ProperUsageWordAmount = cmd.CommandWords.Length + cmd.functionParameters.Length;
+
+            return cmd;
         }
 
         public static bool GetCommands(string command_str, out List<Command> cmd)
@@ -167,6 +249,11 @@ namespace YShared.Console
             return false;
         }
 
+        /// <summary>
+        /// Find all the commands under this CommandNode. Pass in <c>CommandsRegistry.Root</c> to find all commands.
+        /// </summary>
+        /// <param name="node">Root node</param>
+        /// <param name="commands">Recursive Filled List</param>
         public static void GetRecursiveCommands(CommandNode node, List<Command> commands)
         {
             commands.AddRange(node.commands);

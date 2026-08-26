@@ -1,0 +1,1690 @@
+### YamlMime:ManagedReference
+items:
+- uid: YShared.MathHelper.YMathHelper
+  commentId: T:YShared.MathHelper.YMathHelper
+  id: YMathHelper
+  parent: YShared.MathHelper
+  children:
+  - YShared.MathHelper.YMathHelper.Abs(System.Int32)
+  - YShared.MathHelper.YMathHelper.Abs(System.Single)
+  - YShared.MathHelper.YMathHelper.AsInt0(System.Boolean)
+  - YShared.MathHelper.YMathHelper.AsIntN1(System.Boolean)
+  - YShared.MathHelper.YMathHelper.Ceil(System.Int32)
+  - YShared.MathHelper.YMathHelper.Ceil(System.Single)
+  - YShared.MathHelper.YMathHelper.Damp(System.Single,System.Single,System.Single,System.Single)
+  - YShared.MathHelper.YMathHelper.Damp(UnityEngine.Vector2,UnityEngine.Vector2,System.Single,System.Single)
+  - YShared.MathHelper.YMathHelper.Flip(System.Int32,System.Int32)
+  - YShared.MathHelper.YMathHelper.Flip(System.Single,System.Single)
+  - YShared.MathHelper.YMathHelper.Floor(System.Int32)
+  - YShared.MathHelper.YMathHelper.Floor(System.Single)
+  - YShared.MathHelper.YMathHelper.GetLookAngleAndDir(UnityEngine.Transform,UnityEngine.Vector3,System.Single)
+  - YShared.MathHelper.YMathHelper.GetRandomEnum``1
+  - YShared.MathHelper.YMathHelper.GetRandomPoint(UnityEngine.Vector2)
+  - YShared.MathHelper.YMathHelper.GetRandomPointInBounds(UnityEngine.Vector3,UnityEngine.Vector3)
+  - YShared.MathHelper.YMathHelper.IsColorCloseEnough(UnityEngine.Color,UnityEngine.Color,System.Single)
+  - YShared.MathHelper.YMathHelper.IsInBounds(System.Int32,System.Int32,System.Int32)
+  - YShared.MathHelper.YMathHelper.IsInBounds(System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32)
+  - YShared.MathHelper.YMathHelper.IsInBounds(System.Single,System.Single,System.Single)
+  - YShared.MathHelper.YMathHelper.IsInBounds(UnityEngine.Vector2Int,UnityEngine.Vector2Int,UnityEngine.Vector2Int)
+  - YShared.MathHelper.YMathHelper.IsInDistance(UnityEngine.Vector3,UnityEngine.Vector3,System.Single)
+  - YShared.MathHelper.YMathHelper.MakeLookAtLocation(UnityEngine.Transform,UnityEngine.Vector3,System.Single)
+  - YShared.MathHelper.YMathHelper.ResolveTimeForGivenAccelerationAndDistance(System.Single,System.Single)
+  - YShared.MathHelper.YMathHelper.RoundToNearestMultiple(System.Int32,System.Int32)
+  - YShared.MathHelper.YMathHelper.RoundToNearestMultiple(System.Single,System.Int32)
+  - YShared.MathHelper.YMathHelper.RoundToNearestMultiple(System.Single,System.Single)
+  - YShared.MathHelper.YMathHelper.RoundToXDecimals(System.Single,System.Int32)
+  - YShared.MathHelper.YMathHelper.RoundToXDecimalsButAsString(System.Single,System.Int32)
+  - YShared.MathHelper.YMathHelper.TryAs``1(System.Object,``0@)
+  - YShared.MathHelper.YMathHelper.V2IString(UnityEngine.Vector2Int)
+  - YShared.MathHelper.YMathHelper.V2I_to_V3(UnityEngine.Vector2Int,System.Single)
+  - YShared.MathHelper.YMathHelper.addBytes(System.Byte,System.Byte)
+  - YShared.MathHelper.YMathHelper.fmod(System.Single,System.Single)
+  - YShared.MathHelper.YMathHelper.imod(System.Int32,System.Int32)
+  - YShared.MathHelper.YMathHelper.indentLevel
+  langs:
+  - csharp
+  - vb
+  name: YMathHelper
+  nameWithType: YMathHelper
+  fullName: YShared.MathHelper.YMathHelper
+  type: Class
+  assemblies:
+  - YShared.Runtime
+  namespace: YShared.MathHelper
+  syntax:
+    content: public static class YMathHelper
+    content.vb: Public Module YMathHelper
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+- uid: YShared.MathHelper.YMathHelper.indentLevel
+  commentId: F:YShared.MathHelper.YMathHelper.indentLevel
+  id: indentLevel
+  parent: YShared.MathHelper.YMathHelper
+  langs:
+  - csharp
+  - vb
+  name: indentLevel
+  nameWithType: YMathHelper.indentLevel
+  fullName: YShared.MathHelper.YMathHelper.indentLevel
+  type: Field
+  assemblies:
+  - YShared.Runtime
+  namespace: YShared.MathHelper
+  syntax:
+    content: public static readonly string[] indentLevel
+    return:
+      type: System.String[]
+    content.vb: Public Shared ReadOnly indentLevel As String()
+- uid: YShared.MathHelper.YMathHelper.Damp(System.Single,System.Single,System.Single,System.Single)
+  commentId: M:YShared.MathHelper.YMathHelper.Damp(System.Single,System.Single,System.Single,System.Single)
+  id: Damp(System.Single,System.Single,System.Single,System.Single)
+  parent: YShared.MathHelper.YMathHelper
+  langs:
+  - csharp
+  - vb
+  name: Damp(float, float, float, float)
+  nameWithType: YMathHelper.Damp(float, float, float, float)
+  fullName: YShared.MathHelper.YMathHelper.Damp(float, float, float, float)
+  type: Method
+  assemblies:
+  - YShared.Runtime
+  namespace: YShared.MathHelper
+  syntax:
+    content: public static float Damp(float current, float target, float dampingFactor, float deltaTime)
+    parameters:
+    - id: current
+      type: System.Single
+    - id: target
+      type: System.Single
+    - id: dampingFactor
+      type: System.Single
+    - id: deltaTime
+      type: System.Single
+    return:
+      type: System.Single
+    content.vb: Public Shared Function Damp(current As Single, target As Single, dampingFactor As Single, deltaTime As Single) As Single
+  overload: YShared.MathHelper.YMathHelper.Damp*
+  nameWithType.vb: YMathHelper.Damp(Single, Single, Single, Single)
+  fullName.vb: YShared.MathHelper.YMathHelper.Damp(Single, Single, Single, Single)
+  name.vb: Damp(Single, Single, Single, Single)
+- uid: YShared.MathHelper.YMathHelper.Damp(UnityEngine.Vector2,UnityEngine.Vector2,System.Single,System.Single)
+  commentId: M:YShared.MathHelper.YMathHelper.Damp(UnityEngine.Vector2,UnityEngine.Vector2,System.Single,System.Single)
+  id: Damp(UnityEngine.Vector2,UnityEngine.Vector2,System.Single,System.Single)
+  parent: YShared.MathHelper.YMathHelper
+  langs:
+  - csharp
+  - vb
+  name: Damp(Vector2, Vector2, float, float)
+  nameWithType: YMathHelper.Damp(Vector2, Vector2, float, float)
+  fullName: YShared.MathHelper.YMathHelper.Damp(UnityEngine.Vector2, UnityEngine.Vector2, float, float)
+  type: Method
+  assemblies:
+  - YShared.Runtime
+  namespace: YShared.MathHelper
+  syntax:
+    content: public static Vector2 Damp(Vector2 current, Vector2 target, float dampingFactor, float deltaTime)
+    parameters:
+    - id: current
+      type: UnityEngine.Vector2
+    - id: target
+      type: UnityEngine.Vector2
+    - id: dampingFactor
+      type: System.Single
+    - id: deltaTime
+      type: System.Single
+    return:
+      type: UnityEngine.Vector2
+    content.vb: Public Shared Function Damp(current As Vector2, target As Vector2, dampingFactor As Single, deltaTime As Single) As Vector2
+  overload: YShared.MathHelper.YMathHelper.Damp*
+  nameWithType.vb: YMathHelper.Damp(Vector2, Vector2, Single, Single)
+  fullName.vb: YShared.MathHelper.YMathHelper.Damp(UnityEngine.Vector2, UnityEngine.Vector2, Single, Single)
+  name.vb: Damp(Vector2, Vector2, Single, Single)
+- uid: YShared.MathHelper.YMathHelper.IsInBounds(System.Int32,System.Int32,System.Int32)
+  commentId: M:YShared.MathHelper.YMathHelper.IsInBounds(System.Int32,System.Int32,System.Int32)
+  id: IsInBounds(System.Int32,System.Int32,System.Int32)
+  isExtensionMethod: true
+  parent: YShared.MathHelper.YMathHelper
+  langs:
+  - csharp
+  - vb
+  name: IsInBounds(int, int, int)
+  nameWithType: YMathHelper.IsInBounds(int, int, int)
+  fullName: YShared.MathHelper.YMathHelper.IsInBounds(int, int, int)
+  type: Method
+  assemblies:
+  - YShared.Runtime
+  namespace: YShared.MathHelper
+  syntax:
+    content: public static bool IsInBounds(this int i, int lower, int upper)
+    parameters:
+    - id: i
+      type: System.Int32
+    - id: lower
+      type: System.Int32
+    - id: upper
+      type: System.Int32
+    return:
+      type: System.Boolean
+    content.vb: Public Shared Function IsInBounds(i As Integer, lower As Integer, upper As Integer) As Boolean
+  overload: YShared.MathHelper.YMathHelper.IsInBounds*
+  nameWithType.vb: YMathHelper.IsInBounds(Integer, Integer, Integer)
+  fullName.vb: YShared.MathHelper.YMathHelper.IsInBounds(Integer, Integer, Integer)
+  name.vb: IsInBounds(Integer, Integer, Integer)
+- uid: YShared.MathHelper.YMathHelper.IsInBounds(System.Single,System.Single,System.Single)
+  commentId: M:YShared.MathHelper.YMathHelper.IsInBounds(System.Single,System.Single,System.Single)
+  id: IsInBounds(System.Single,System.Single,System.Single)
+  isExtensionMethod: true
+  parent: YShared.MathHelper.YMathHelper
+  langs:
+  - csharp
+  - vb
+  name: IsInBounds(float, float, float)
+  nameWithType: YMathHelper.IsInBounds(float, float, float)
+  fullName: YShared.MathHelper.YMathHelper.IsInBounds(float, float, float)
+  type: Method
+  assemblies:
+  - YShared.Runtime
+  namespace: YShared.MathHelper
+  syntax:
+    content: public static bool IsInBounds(this float i, float lower, float upper)
+    parameters:
+    - id: i
+      type: System.Single
+    - id: lower
+      type: System.Single
+    - id: upper
+      type: System.Single
+    return:
+      type: System.Boolean
+    content.vb: Public Shared Function IsInBounds(i As Single, lower As Single, upper As Single) As Boolean
+  overload: YShared.MathHelper.YMathHelper.IsInBounds*
+  nameWithType.vb: YMathHelper.IsInBounds(Single, Single, Single)
+  fullName.vb: YShared.MathHelper.YMathHelper.IsInBounds(Single, Single, Single)
+  name.vb: IsInBounds(Single, Single, Single)
+- uid: YShared.MathHelper.YMathHelper.IsInBounds(UnityEngine.Vector2Int,UnityEngine.Vector2Int,UnityEngine.Vector2Int)
+  commentId: M:YShared.MathHelper.YMathHelper.IsInBounds(UnityEngine.Vector2Int,UnityEngine.Vector2Int,UnityEngine.Vector2Int)
+  id: IsInBounds(UnityEngine.Vector2Int,UnityEngine.Vector2Int,UnityEngine.Vector2Int)
+  isExtensionMethod: true
+  parent: YShared.MathHelper.YMathHelper
+  langs:
+  - csharp
+  - vb
+  name: IsInBounds(Vector2Int, Vector2Int, Vector2Int)
+  nameWithType: YMathHelper.IsInBounds(Vector2Int, Vector2Int, Vector2Int)
+  fullName: YShared.MathHelper.YMathHelper.IsInBounds(UnityEngine.Vector2Int, UnityEngine.Vector2Int, UnityEngine.Vector2Int)
+  type: Method
+  assemblies:
+  - YShared.Runtime
+  namespace: YShared.MathHelper
+  syntax:
+    content: public static bool IsInBounds(this Vector2Int i, Vector2Int lower, Vector2Int upper)
+    parameters:
+    - id: i
+      type: UnityEngine.Vector2Int
+    - id: lower
+      type: UnityEngine.Vector2Int
+    - id: upper
+      type: UnityEngine.Vector2Int
+    return:
+      type: System.Boolean
+    content.vb: Public Shared Function IsInBounds(i As Vector2Int, lower As Vector2Int, upper As Vector2Int) As Boolean
+  overload: YShared.MathHelper.YMathHelper.IsInBounds*
+- uid: YShared.MathHelper.YMathHelper.IsInBounds(System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32)
+  commentId: M:YShared.MathHelper.YMathHelper.IsInBounds(System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32)
+  id: IsInBounds(System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32)
+  parent: YShared.MathHelper.YMathHelper
+  langs:
+  - csharp
+  - vb
+  name: IsInBounds(int, int, int, int, int, int)
+  nameWithType: YMathHelper.IsInBounds(int, int, int, int, int, int)
+  fullName: YShared.MathHelper.YMathHelper.IsInBounds(int, int, int, int, int, int)
+  type: Method
+  assemblies:
+  - YShared.Runtime
+  namespace: YShared.MathHelper
+  syntax:
+    content: public static bool IsInBounds(int x, int y, int low_x, int low_y, int high_x, int high_y)
+    parameters:
+    - id: x
+      type: System.Int32
+    - id: y
+      type: System.Int32
+    - id: low_x
+      type: System.Int32
+    - id: low_y
+      type: System.Int32
+    - id: high_x
+      type: System.Int32
+    - id: high_y
+      type: System.Int32
+    return:
+      type: System.Boolean
+    content.vb: Public Shared Function IsInBounds(x As Integer, y As Integer, low_x As Integer, low_y As Integer, high_x As Integer, high_y As Integer) As Boolean
+  overload: YShared.MathHelper.YMathHelper.IsInBounds*
+  nameWithType.vb: YMathHelper.IsInBounds(Integer, Integer, Integer, Integer, Integer, Integer)
+  fullName.vb: YShared.MathHelper.YMathHelper.IsInBounds(Integer, Integer, Integer, Integer, Integer, Integer)
+  name.vb: IsInBounds(Integer, Integer, Integer, Integer, Integer, Integer)
+- uid: YShared.MathHelper.YMathHelper.GetRandomPointInBounds(UnityEngine.Vector3,UnityEngine.Vector3)
+  commentId: M:YShared.MathHelper.YMathHelper.GetRandomPointInBounds(UnityEngine.Vector3,UnityEngine.Vector3)
+  id: GetRandomPointInBounds(UnityEngine.Vector3,UnityEngine.Vector3)
+  parent: YShared.MathHelper.YMathHelper
+  langs:
+  - csharp
+  - vb
+  name: GetRandomPointInBounds(Vector3, Vector3)
+  nameWithType: YMathHelper.GetRandomPointInBounds(Vector3, Vector3)
+  fullName: YShared.MathHelper.YMathHelper.GetRandomPointInBounds(UnityEngine.Vector3, UnityEngine.Vector3)
+  type: Method
+  assemblies:
+  - YShared.Runtime
+  namespace: YShared.MathHelper
+  syntax:
+    content: public static Vector3 GetRandomPointInBounds(Vector3 min, Vector3 max)
+    parameters:
+    - id: min
+      type: UnityEngine.Vector3
+    - id: max
+      type: UnityEngine.Vector3
+    return:
+      type: UnityEngine.Vector3
+    content.vb: Public Shared Function GetRandomPointInBounds(min As Vector3, max As Vector3) As Vector3
+  overload: YShared.MathHelper.YMathHelper.GetRandomPointInBounds*
+- uid: YShared.MathHelper.YMathHelper.GetRandomPoint(UnityEngine.Vector2)
+  commentId: M:YShared.MathHelper.YMathHelper.GetRandomPoint(UnityEngine.Vector2)
+  id: GetRandomPoint(UnityEngine.Vector2)
+  isExtensionMethod: true
+  parent: YShared.MathHelper.YMathHelper
+  langs:
+  - csharp
+  - vb
+  name: GetRandomPoint(Vector2)
+  nameWithType: YMathHelper.GetRandomPoint(Vector2)
+  fullName: YShared.MathHelper.YMathHelper.GetRandomPoint(UnityEngine.Vector2)
+  type: Method
+  assemblies:
+  - YShared.Runtime
+  namespace: YShared.MathHelper
+  syntax:
+    content: public static float GetRandomPoint(this Vector2 v)
+    parameters:
+    - id: v
+      type: UnityEngine.Vector2
+    return:
+      type: System.Single
+    content.vb: Public Shared Function GetRandomPoint(v As Vector2) As Single
+  overload: YShared.MathHelper.YMathHelper.GetRandomPoint*
+- uid: YShared.MathHelper.YMathHelper.V2IString(UnityEngine.Vector2Int)
+  commentId: M:YShared.MathHelper.YMathHelper.V2IString(UnityEngine.Vector2Int)
+  id: V2IString(UnityEngine.Vector2Int)
+  isExtensionMethod: true
+  parent: YShared.MathHelper.YMathHelper
+  langs:
+  - csharp
+  - vb
+  name: V2IString(Vector2Int)
+  nameWithType: YMathHelper.V2IString(Vector2Int)
+  fullName: YShared.MathHelper.YMathHelper.V2IString(UnityEngine.Vector2Int)
+  type: Method
+  assemblies:
+  - YShared.Runtime
+  namespace: YShared.MathHelper
+  syntax:
+    content: public static string V2IString(this Vector2Int a)
+    parameters:
+    - id: a
+      type: UnityEngine.Vector2Int
+    return:
+      type: System.String
+    content.vb: Public Shared Function V2IString(a As Vector2Int) As String
+  overload: YShared.MathHelper.YMathHelper.V2IString*
+- uid: YShared.MathHelper.YMathHelper.addBytes(System.Byte,System.Byte)
+  commentId: M:YShared.MathHelper.YMathHelper.addBytes(System.Byte,System.Byte)
+  id: addBytes(System.Byte,System.Byte)
+  parent: YShared.MathHelper.YMathHelper
+  langs:
+  - csharp
+  - vb
+  name: addBytes(byte, byte)
+  nameWithType: YMathHelper.addBytes(byte, byte)
+  fullName: YShared.MathHelper.YMathHelper.addBytes(byte, byte)
+  type: Method
+  assemblies:
+  - YShared.Runtime
+  namespace: YShared.MathHelper
+  syntax:
+    content: public static byte addBytes(byte a, byte b)
+    parameters:
+    - id: a
+      type: System.Byte
+    - id: b
+      type: System.Byte
+    return:
+      type: System.Byte
+    content.vb: Public Shared Function addBytes(a As Byte, b As Byte) As Byte
+  overload: YShared.MathHelper.YMathHelper.addBytes*
+  nameWithType.vb: YMathHelper.addBytes(Byte, Byte)
+  fullName.vb: YShared.MathHelper.YMathHelper.addBytes(Byte, Byte)
+  name.vb: addBytes(Byte, Byte)
+- uid: YShared.MathHelper.YMathHelper.V2I_to_V3(UnityEngine.Vector2Int,System.Single)
+  commentId: M:YShared.MathHelper.YMathHelper.V2I_to_V3(UnityEngine.Vector2Int,System.Single)
+  id: V2I_to_V3(UnityEngine.Vector2Int,System.Single)
+  isExtensionMethod: true
+  parent: YShared.MathHelper.YMathHelper
+  langs:
+  - csharp
+  - vb
+  name: V2I_to_V3(Vector2Int, float)
+  nameWithType: YMathHelper.V2I_to_V3(Vector2Int, float)
+  fullName: YShared.MathHelper.YMathHelper.V2I_to_V3(UnityEngine.Vector2Int, float)
+  type: Method
+  assemblies:
+  - YShared.Runtime
+  namespace: YShared.MathHelper
+  syntax:
+    content: public static Vector3 V2I_to_V3(this Vector2Int a, float b = 0)
+    parameters:
+    - id: a
+      type: UnityEngine.Vector2Int
+    - id: b
+      type: System.Single
+    return:
+      type: UnityEngine.Vector3
+    content.vb: Public Shared Function V2I_to_V3(a As Vector2Int, b As Single = 0) As Vector3
+  overload: YShared.MathHelper.YMathHelper.V2I_to_V3*
+  nameWithType.vb: YMathHelper.V2I_to_V3(Vector2Int, Single)
+  fullName.vb: YShared.MathHelper.YMathHelper.V2I_to_V3(UnityEngine.Vector2Int, Single)
+  name.vb: V2I_to_V3(Vector2Int, Single)
+- uid: YShared.MathHelper.YMathHelper.MakeLookAtLocation(UnityEngine.Transform,UnityEngine.Vector3,System.Single)
+  commentId: M:YShared.MathHelper.YMathHelper.MakeLookAtLocation(UnityEngine.Transform,UnityEngine.Vector3,System.Single)
+  id: MakeLookAtLocation(UnityEngine.Transform,UnityEngine.Vector3,System.Single)
+  parent: YShared.MathHelper.YMathHelper
+  langs:
+  - csharp
+  - vb
+  name: MakeLookAtLocation(Transform, Vector3, float)
+  nameWithType: YMathHelper.MakeLookAtLocation(Transform, Vector3, float)
+  fullName: YShared.MathHelper.YMathHelper.MakeLookAtLocation(UnityEngine.Transform, UnityEngine.Vector3, float)
+  type: Method
+  assemblies:
+  - YShared.Runtime
+  namespace: YShared.MathHelper
+  syntax:
+    content: public static (float, Vector3) MakeLookAtLocation(Transform t, Vector3 target, float offset = 0)
+    parameters:
+    - id: t
+      type: UnityEngine.Transform
+    - id: target
+      type: UnityEngine.Vector3
+    - id: offset
+      type: System.Single
+    return:
+      type: System.ValueTuple{System.Single,UnityEngine.Vector3}
+    content.vb: Public Shared Function MakeLookAtLocation(t As Transform, target As Vector3, offset As Single = 0) As (Single, Vector3)
+  overload: YShared.MathHelper.YMathHelper.MakeLookAtLocation*
+  nameWithType.vb: YMathHelper.MakeLookAtLocation(Transform, Vector3, Single)
+  fullName.vb: YShared.MathHelper.YMathHelper.MakeLookAtLocation(UnityEngine.Transform, UnityEngine.Vector3, Single)
+  name.vb: MakeLookAtLocation(Transform, Vector3, Single)
+- uid: YShared.MathHelper.YMathHelper.GetLookAngleAndDir(UnityEngine.Transform,UnityEngine.Vector3,System.Single)
+  commentId: M:YShared.MathHelper.YMathHelper.GetLookAngleAndDir(UnityEngine.Transform,UnityEngine.Vector3,System.Single)
+  id: GetLookAngleAndDir(UnityEngine.Transform,UnityEngine.Vector3,System.Single)
+  parent: YShared.MathHelper.YMathHelper
+  langs:
+  - csharp
+  - vb
+  name: GetLookAngleAndDir(Transform, Vector3, float)
+  nameWithType: YMathHelper.GetLookAngleAndDir(Transform, Vector3, float)
+  fullName: YShared.MathHelper.YMathHelper.GetLookAngleAndDir(UnityEngine.Transform, UnityEngine.Vector3, float)
+  type: Method
+  assemblies:
+  - YShared.Runtime
+  namespace: YShared.MathHelper
+  syntax:
+    content: public static (float, Vector3) GetLookAngleAndDir(Transform t, Vector3 target, float offset = 0)
+    parameters:
+    - id: t
+      type: UnityEngine.Transform
+    - id: target
+      type: UnityEngine.Vector3
+    - id: offset
+      type: System.Single
+    return:
+      type: System.ValueTuple{System.Single,UnityEngine.Vector3}
+    content.vb: Public Shared Function GetLookAngleAndDir(t As Transform, target As Vector3, offset As Single = 0) As (Single, Vector3)
+  overload: YShared.MathHelper.YMathHelper.GetLookAngleAndDir*
+  nameWithType.vb: YMathHelper.GetLookAngleAndDir(Transform, Vector3, Single)
+  fullName.vb: YShared.MathHelper.YMathHelper.GetLookAngleAndDir(UnityEngine.Transform, UnityEngine.Vector3, Single)
+  name.vb: GetLookAngleAndDir(Transform, Vector3, Single)
+- uid: YShared.MathHelper.YMathHelper.IsInDistance(UnityEngine.Vector3,UnityEngine.Vector3,System.Single)
+  commentId: M:YShared.MathHelper.YMathHelper.IsInDistance(UnityEngine.Vector3,UnityEngine.Vector3,System.Single)
+  id: IsInDistance(UnityEngine.Vector3,UnityEngine.Vector3,System.Single)
+  parent: YShared.MathHelper.YMathHelper
+  langs:
+  - csharp
+  - vb
+  name: IsInDistance(Vector3, Vector3, float)
+  nameWithType: YMathHelper.IsInDistance(Vector3, Vector3, float)
+  fullName: YShared.MathHelper.YMathHelper.IsInDistance(UnityEngine.Vector3, UnityEngine.Vector3, float)
+  type: Method
+  assemblies:
+  - YShared.Runtime
+  namespace: YShared.MathHelper
+  syntax:
+    content: public static bool IsInDistance(Vector3 a, Vector3 b, float dst)
+    parameters:
+    - id: a
+      type: UnityEngine.Vector3
+    - id: b
+      type: UnityEngine.Vector3
+    - id: dst
+      type: System.Single
+    return:
+      type: System.Boolean
+    content.vb: Public Shared Function IsInDistance(a As Vector3, b As Vector3, dst As Single) As Boolean
+  overload: YShared.MathHelper.YMathHelper.IsInDistance*
+  nameWithType.vb: YMathHelper.IsInDistance(Vector3, Vector3, Single)
+  fullName.vb: YShared.MathHelper.YMathHelper.IsInDistance(UnityEngine.Vector3, UnityEngine.Vector3, Single)
+  name.vb: IsInDistance(Vector3, Vector3, Single)
+- uid: YShared.MathHelper.YMathHelper.fmod(System.Single,System.Single)
+  commentId: M:YShared.MathHelper.YMathHelper.fmod(System.Single,System.Single)
+  id: fmod(System.Single,System.Single)
+  isExtensionMethod: true
+  parent: YShared.MathHelper.YMathHelper
+  langs:
+  - csharp
+  - vb
+  name: fmod(float, float)
+  nameWithType: YMathHelper.fmod(float, float)
+  fullName: YShared.MathHelper.YMathHelper.fmod(float, float)
+  type: Method
+  assemblies:
+  - YShared.Runtime
+  namespace: YShared.MathHelper
+  syntax:
+    content: public static float fmod(this float a, float modnum)
+    parameters:
+    - id: a
+      type: System.Single
+    - id: modnum
+      type: System.Single
+    return:
+      type: System.Single
+    content.vb: Public Shared Function fmod(a As Single, modnum As Single) As Single
+  overload: YShared.MathHelper.YMathHelper.fmod*
+  nameWithType.vb: YMathHelper.fmod(Single, Single)
+  fullName.vb: YShared.MathHelper.YMathHelper.fmod(Single, Single)
+  name.vb: fmod(Single, Single)
+- uid: YShared.MathHelper.YMathHelper.imod(System.Int32,System.Int32)
+  commentId: M:YShared.MathHelper.YMathHelper.imod(System.Int32,System.Int32)
+  id: imod(System.Int32,System.Int32)
+  isExtensionMethod: true
+  parent: YShared.MathHelper.YMathHelper
+  langs:
+  - csharp
+  - vb
+  name: imod(int, int)
+  nameWithType: YMathHelper.imod(int, int)
+  fullName: YShared.MathHelper.YMathHelper.imod(int, int)
+  type: Method
+  assemblies:
+  - YShared.Runtime
+  namespace: YShared.MathHelper
+  syntax:
+    content: public static int imod(this int x, int m)
+    parameters:
+    - id: x
+      type: System.Int32
+    - id: m
+      type: System.Int32
+    return:
+      type: System.Int32
+    content.vb: Public Shared Function imod(x As Integer, m As Integer) As Integer
+  overload: YShared.MathHelper.YMathHelper.imod*
+  nameWithType.vb: YMathHelper.imod(Integer, Integer)
+  fullName.vb: YShared.MathHelper.YMathHelper.imod(Integer, Integer)
+  name.vb: imod(Integer, Integer)
+- uid: YShared.MathHelper.YMathHelper.Floor(System.Single)
+  commentId: M:YShared.MathHelper.YMathHelper.Floor(System.Single)
+  id: Floor(System.Single)
+  isExtensionMethod: true
+  parent: YShared.MathHelper.YMathHelper
+  langs:
+  - csharp
+  - vb
+  name: Floor(float)
+  nameWithType: YMathHelper.Floor(float)
+  fullName: YShared.MathHelper.YMathHelper.Floor(float)
+  type: Method
+  assemblies:
+  - YShared.Runtime
+  namespace: YShared.MathHelper
+  syntax:
+    content: public static int Floor(this float number)
+    parameters:
+    - id: number
+      type: System.Single
+    return:
+      type: System.Int32
+    content.vb: Public Shared Function Floor(number As Single) As Integer
+  overload: YShared.MathHelper.YMathHelper.Floor*
+  nameWithType.vb: YMathHelper.Floor(Single)
+  fullName.vb: YShared.MathHelper.YMathHelper.Floor(Single)
+  name.vb: Floor(Single)
+- uid: YShared.MathHelper.YMathHelper.Ceil(System.Single)
+  commentId: M:YShared.MathHelper.YMathHelper.Ceil(System.Single)
+  id: Ceil(System.Single)
+  isExtensionMethod: true
+  parent: YShared.MathHelper.YMathHelper
+  langs:
+  - csharp
+  - vb
+  name: Ceil(float)
+  nameWithType: YMathHelper.Ceil(float)
+  fullName: YShared.MathHelper.YMathHelper.Ceil(float)
+  type: Method
+  assemblies:
+  - YShared.Runtime
+  namespace: YShared.MathHelper
+  syntax:
+    content: public static int Ceil(this float number)
+    parameters:
+    - id: number
+      type: System.Single
+    return:
+      type: System.Int32
+    content.vb: Public Shared Function Ceil(number As Single) As Integer
+  overload: YShared.MathHelper.YMathHelper.Ceil*
+  nameWithType.vb: YMathHelper.Ceil(Single)
+  fullName.vb: YShared.MathHelper.YMathHelper.Ceil(Single)
+  name.vb: Ceil(Single)
+- uid: YShared.MathHelper.YMathHelper.Abs(System.Single)
+  commentId: M:YShared.MathHelper.YMathHelper.Abs(System.Single)
+  id: Abs(System.Single)
+  isExtensionMethod: true
+  parent: YShared.MathHelper.YMathHelper
+  langs:
+  - csharp
+  - vb
+  name: Abs(float)
+  nameWithType: YMathHelper.Abs(float)
+  fullName: YShared.MathHelper.YMathHelper.Abs(float)
+  type: Method
+  assemblies:
+  - YShared.Runtime
+  namespace: YShared.MathHelper
+  syntax:
+    content: public static float Abs(this float number)
+    parameters:
+    - id: number
+      type: System.Single
+    return:
+      type: System.Single
+    content.vb: Public Shared Function Abs(number As Single) As Single
+  overload: YShared.MathHelper.YMathHelper.Abs*
+  nameWithType.vb: YMathHelper.Abs(Single)
+  fullName.vb: YShared.MathHelper.YMathHelper.Abs(Single)
+  name.vb: Abs(Single)
+- uid: YShared.MathHelper.YMathHelper.Floor(System.Int32)
+  commentId: M:YShared.MathHelper.YMathHelper.Floor(System.Int32)
+  id: Floor(System.Int32)
+  isExtensionMethod: true
+  parent: YShared.MathHelper.YMathHelper
+  langs:
+  - csharp
+  - vb
+  name: Floor(int)
+  nameWithType: YMathHelper.Floor(int)
+  fullName: YShared.MathHelper.YMathHelper.Floor(int)
+  type: Method
+  assemblies:
+  - YShared.Runtime
+  namespace: YShared.MathHelper
+  syntax:
+    content: public static int Floor(this int number)
+    parameters:
+    - id: number
+      type: System.Int32
+    return:
+      type: System.Int32
+    content.vb: Public Shared Function Floor(number As Integer) As Integer
+  overload: YShared.MathHelper.YMathHelper.Floor*
+  nameWithType.vb: YMathHelper.Floor(Integer)
+  fullName.vb: YShared.MathHelper.YMathHelper.Floor(Integer)
+  name.vb: Floor(Integer)
+- uid: YShared.MathHelper.YMathHelper.Ceil(System.Int32)
+  commentId: M:YShared.MathHelper.YMathHelper.Ceil(System.Int32)
+  id: Ceil(System.Int32)
+  isExtensionMethod: true
+  parent: YShared.MathHelper.YMathHelper
+  langs:
+  - csharp
+  - vb
+  name: Ceil(int)
+  nameWithType: YMathHelper.Ceil(int)
+  fullName: YShared.MathHelper.YMathHelper.Ceil(int)
+  type: Method
+  assemblies:
+  - YShared.Runtime
+  namespace: YShared.MathHelper
+  syntax:
+    content: public static int Ceil(this int number)
+    parameters:
+    - id: number
+      type: System.Int32
+    return:
+      type: System.Int32
+    content.vb: Public Shared Function Ceil(number As Integer) As Integer
+  overload: YShared.MathHelper.YMathHelper.Ceil*
+  nameWithType.vb: YMathHelper.Ceil(Integer)
+  fullName.vb: YShared.MathHelper.YMathHelper.Ceil(Integer)
+  name.vb: Ceil(Integer)
+- uid: YShared.MathHelper.YMathHelper.Abs(System.Int32)
+  commentId: M:YShared.MathHelper.YMathHelper.Abs(System.Int32)
+  id: Abs(System.Int32)
+  isExtensionMethod: true
+  parent: YShared.MathHelper.YMathHelper
+  langs:
+  - csharp
+  - vb
+  name: Abs(int)
+  nameWithType: YMathHelper.Abs(int)
+  fullName: YShared.MathHelper.YMathHelper.Abs(int)
+  type: Method
+  assemblies:
+  - YShared.Runtime
+  namespace: YShared.MathHelper
+  syntax:
+    content: public static int Abs(this int number)
+    parameters:
+    - id: number
+      type: System.Int32
+    return:
+      type: System.Int32
+    content.vb: Public Shared Function Abs(number As Integer) As Integer
+  overload: YShared.MathHelper.YMathHelper.Abs*
+  nameWithType.vb: YMathHelper.Abs(Integer)
+  fullName.vb: YShared.MathHelper.YMathHelper.Abs(Integer)
+  name.vb: Abs(Integer)
+- uid: YShared.MathHelper.YMathHelper.RoundToXDecimals(System.Single,System.Int32)
+  commentId: M:YShared.MathHelper.YMathHelper.RoundToXDecimals(System.Single,System.Int32)
+  id: RoundToXDecimals(System.Single,System.Int32)
+  isExtensionMethod: true
+  parent: YShared.MathHelper.YMathHelper
+  langs:
+  - csharp
+  - vb
+  name: RoundToXDecimals(float, int)
+  nameWithType: YMathHelper.RoundToXDecimals(float, int)
+  fullName: YShared.MathHelper.YMathHelper.RoundToXDecimals(float, int)
+  type: Method
+  assemblies:
+  - YShared.Runtime
+  namespace: YShared.MathHelper
+  syntax:
+    content: public static float RoundToXDecimals(this float number, int x)
+    parameters:
+    - id: number
+      type: System.Single
+    - id: x
+      type: System.Int32
+    return:
+      type: System.Single
+    content.vb: Public Shared Function RoundToXDecimals(number As Single, x As Integer) As Single
+  overload: YShared.MathHelper.YMathHelper.RoundToXDecimals*
+  nameWithType.vb: YMathHelper.RoundToXDecimals(Single, Integer)
+  fullName.vb: YShared.MathHelper.YMathHelper.RoundToXDecimals(Single, Integer)
+  name.vb: RoundToXDecimals(Single, Integer)
+- uid: YShared.MathHelper.YMathHelper.RoundToXDecimalsButAsString(System.Single,System.Int32)
+  commentId: M:YShared.MathHelper.YMathHelper.RoundToXDecimalsButAsString(System.Single,System.Int32)
+  id: RoundToXDecimalsButAsString(System.Single,System.Int32)
+  isExtensionMethod: true
+  parent: YShared.MathHelper.YMathHelper
+  langs:
+  - csharp
+  - vb
+  name: RoundToXDecimalsButAsString(float, int)
+  nameWithType: YMathHelper.RoundToXDecimalsButAsString(float, int)
+  fullName: YShared.MathHelper.YMathHelper.RoundToXDecimalsButAsString(float, int)
+  type: Method
+  assemblies:
+  - YShared.Runtime
+  namespace: YShared.MathHelper
+  syntax:
+    content: public static string RoundToXDecimalsButAsString(this float number, int x)
+    parameters:
+    - id: number
+      type: System.Single
+    - id: x
+      type: System.Int32
+    return:
+      type: System.String
+    content.vb: Public Shared Function RoundToXDecimalsButAsString(number As Single, x As Integer) As String
+  overload: YShared.MathHelper.YMathHelper.RoundToXDecimalsButAsString*
+  nameWithType.vb: YMathHelper.RoundToXDecimalsButAsString(Single, Integer)
+  fullName.vb: YShared.MathHelper.YMathHelper.RoundToXDecimalsButAsString(Single, Integer)
+  name.vb: RoundToXDecimalsButAsString(Single, Integer)
+- uid: YShared.MathHelper.YMathHelper.Flip(System.Int32,System.Int32)
+  commentId: M:YShared.MathHelper.YMathHelper.Flip(System.Int32,System.Int32)
+  id: Flip(System.Int32,System.Int32)
+  isExtensionMethod: true
+  parent: YShared.MathHelper.YMathHelper
+  langs:
+  - csharp
+  - vb
+  name: Flip(int, int)
+  nameWithType: YMathHelper.Flip(int, int)
+  fullName: YShared.MathHelper.YMathHelper.Flip(int, int)
+  type: Method
+  assemblies:
+  - YShared.Runtime
+  namespace: YShared.MathHelper
+  syntax:
+    content: public static int Flip(this int number, int origin = 0)
+    parameters:
+    - id: number
+      type: System.Int32
+    - id: origin
+      type: System.Int32
+    return:
+      type: System.Int32
+    content.vb: Public Shared Function Flip(number As Integer, origin As Integer = 0) As Integer
+  overload: YShared.MathHelper.YMathHelper.Flip*
+  nameWithType.vb: YMathHelper.Flip(Integer, Integer)
+  fullName.vb: YShared.MathHelper.YMathHelper.Flip(Integer, Integer)
+  name.vb: Flip(Integer, Integer)
+- uid: YShared.MathHelper.YMathHelper.Flip(System.Single,System.Single)
+  commentId: M:YShared.MathHelper.YMathHelper.Flip(System.Single,System.Single)
+  id: Flip(System.Single,System.Single)
+  isExtensionMethod: true
+  parent: YShared.MathHelper.YMathHelper
+  langs:
+  - csharp
+  - vb
+  name: Flip(float, float)
+  nameWithType: YMathHelper.Flip(float, float)
+  fullName: YShared.MathHelper.YMathHelper.Flip(float, float)
+  type: Method
+  assemblies:
+  - YShared.Runtime
+  namespace: YShared.MathHelper
+  syntax:
+    content: public static float Flip(this float number, float origin = 0)
+    parameters:
+    - id: number
+      type: System.Single
+    - id: origin
+      type: System.Single
+    return:
+      type: System.Single
+    content.vb: Public Shared Function Flip(number As Single, origin As Single = 0) As Single
+  overload: YShared.MathHelper.YMathHelper.Flip*
+  nameWithType.vb: YMathHelper.Flip(Single, Single)
+  fullName.vb: YShared.MathHelper.YMathHelper.Flip(Single, Single)
+  name.vb: Flip(Single, Single)
+- uid: YShared.MathHelper.YMathHelper.RoundToNearestMultiple(System.Single,System.Single)
+  commentId: M:YShared.MathHelper.YMathHelper.RoundToNearestMultiple(System.Single,System.Single)
+  id: RoundToNearestMultiple(System.Single,System.Single)
+  parent: YShared.MathHelper.YMathHelper
+  langs:
+  - csharp
+  - vb
+  name: RoundToNearestMultiple(float, float)
+  nameWithType: YMathHelper.RoundToNearestMultiple(float, float)
+  fullName: YShared.MathHelper.YMathHelper.RoundToNearestMultiple(float, float)
+  type: Method
+  assemblies:
+  - YShared.Runtime
+  namespace: YShared.MathHelper
+  syntax:
+    content: public static float RoundToNearestMultiple(float value, float multiple)
+    parameters:
+    - id: value
+      type: System.Single
+    - id: multiple
+      type: System.Single
+    return:
+      type: System.Single
+    content.vb: Public Shared Function RoundToNearestMultiple(value As Single, multiple As Single) As Single
+  overload: YShared.MathHelper.YMathHelper.RoundToNearestMultiple*
+  nameWithType.vb: YMathHelper.RoundToNearestMultiple(Single, Single)
+  fullName.vb: YShared.MathHelper.YMathHelper.RoundToNearestMultiple(Single, Single)
+  name.vb: RoundToNearestMultiple(Single, Single)
+- uid: YShared.MathHelper.YMathHelper.RoundToNearestMultiple(System.Single,System.Int32)
+  commentId: M:YShared.MathHelper.YMathHelper.RoundToNearestMultiple(System.Single,System.Int32)
+  id: RoundToNearestMultiple(System.Single,System.Int32)
+  parent: YShared.MathHelper.YMathHelper
+  langs:
+  - csharp
+  - vb
+  name: RoundToNearestMultiple(float, int)
+  nameWithType: YMathHelper.RoundToNearestMultiple(float, int)
+  fullName: YShared.MathHelper.YMathHelper.RoundToNearestMultiple(float, int)
+  type: Method
+  assemblies:
+  - YShared.Runtime
+  namespace: YShared.MathHelper
+  syntax:
+    content: public static int RoundToNearestMultiple(float value, int multiple)
+    parameters:
+    - id: value
+      type: System.Single
+    - id: multiple
+      type: System.Int32
+    return:
+      type: System.Int32
+    content.vb: Public Shared Function RoundToNearestMultiple(value As Single, multiple As Integer) As Integer
+  overload: YShared.MathHelper.YMathHelper.RoundToNearestMultiple*
+  nameWithType.vb: YMathHelper.RoundToNearestMultiple(Single, Integer)
+  fullName.vb: YShared.MathHelper.YMathHelper.RoundToNearestMultiple(Single, Integer)
+  name.vb: RoundToNearestMultiple(Single, Integer)
+- uid: YShared.MathHelper.YMathHelper.RoundToNearestMultiple(System.Int32,System.Int32)
+  commentId: M:YShared.MathHelper.YMathHelper.RoundToNearestMultiple(System.Int32,System.Int32)
+  id: RoundToNearestMultiple(System.Int32,System.Int32)
+  parent: YShared.MathHelper.YMathHelper
+  langs:
+  - csharp
+  - vb
+  name: RoundToNearestMultiple(int, int)
+  nameWithType: YMathHelper.RoundToNearestMultiple(int, int)
+  fullName: YShared.MathHelper.YMathHelper.RoundToNearestMultiple(int, int)
+  type: Method
+  assemblies:
+  - YShared.Runtime
+  namespace: YShared.MathHelper
+  syntax:
+    content: public static int RoundToNearestMultiple(int value, int multiple)
+    parameters:
+    - id: value
+      type: System.Int32
+    - id: multiple
+      type: System.Int32
+    return:
+      type: System.Int32
+    content.vb: Public Shared Function RoundToNearestMultiple(value As Integer, multiple As Integer) As Integer
+  overload: YShared.MathHelper.YMathHelper.RoundToNearestMultiple*
+  nameWithType.vb: YMathHelper.RoundToNearestMultiple(Integer, Integer)
+  fullName.vb: YShared.MathHelper.YMathHelper.RoundToNearestMultiple(Integer, Integer)
+  name.vb: RoundToNearestMultiple(Integer, Integer)
+- uid: YShared.MathHelper.YMathHelper.ResolveTimeForGivenAccelerationAndDistance(System.Single,System.Single)
+  commentId: M:YShared.MathHelper.YMathHelper.ResolveTimeForGivenAccelerationAndDistance(System.Single,System.Single)
+  id: ResolveTimeForGivenAccelerationAndDistance(System.Single,System.Single)
+  parent: YShared.MathHelper.YMathHelper
+  langs:
+  - csharp
+  - vb
+  name: ResolveTimeForGivenAccelerationAndDistance(float, float)
+  nameWithType: YMathHelper.ResolveTimeForGivenAccelerationAndDistance(float, float)
+  fullName: YShared.MathHelper.YMathHelper.ResolveTimeForGivenAccelerationAndDistance(float, float)
+  type: Method
+  assemblies:
+  - YShared.Runtime
+  namespace: YShared.MathHelper
+  syntax:
+    content: public static float ResolveTimeForGivenAccelerationAndDistance(float distance, float acceleration)
+    parameters:
+    - id: distance
+      type: System.Single
+    - id: acceleration
+      type: System.Single
+    return:
+      type: System.Single
+    content.vb: Public Shared Function ResolveTimeForGivenAccelerationAndDistance(distance As Single, acceleration As Single) As Single
+  overload: YShared.MathHelper.YMathHelper.ResolveTimeForGivenAccelerationAndDistance*
+  nameWithType.vb: YMathHelper.ResolveTimeForGivenAccelerationAndDistance(Single, Single)
+  fullName.vb: YShared.MathHelper.YMathHelper.ResolveTimeForGivenAccelerationAndDistance(Single, Single)
+  name.vb: ResolveTimeForGivenAccelerationAndDistance(Single, Single)
+- uid: YShared.MathHelper.YMathHelper.TryAs``1(System.Object,``0@)
+  commentId: M:YShared.MathHelper.YMathHelper.TryAs``1(System.Object,``0@)
+  id: TryAs``1(System.Object,``0@)
+  isExtensionMethod: true
+  parent: YShared.MathHelper.YMathHelper
+  langs:
+  - csharp
+  - vb
+  name: TryAs<T>(object, out T)
+  nameWithType: YMathHelper.TryAs<T>(object, out T)
+  fullName: YShared.MathHelper.YMathHelper.TryAs<T>(object, out T)
+  type: Method
+  assemblies:
+  - YShared.Runtime
+  namespace: YShared.MathHelper
+  syntax:
+    content: 'public static bool TryAs<T>(this object value, out T casted) where T : class'
+    parameters:
+    - id: value
+      type: System.Object
+    - id: casted
+      type: '{T}'
+    typeParameters:
+    - id: T
+    return:
+      type: System.Boolean
+    content.vb: Public Shared Function TryAs(Of T As Class)(value As Object, casted As T) As Boolean
+  overload: YShared.MathHelper.YMathHelper.TryAs*
+  nameWithType.vb: YMathHelper.TryAs(Of T)(Object, T)
+  fullName.vb: YShared.MathHelper.YMathHelper.TryAs(Of T)(Object, T)
+  name.vb: TryAs(Of T)(Object, T)
+- uid: YShared.MathHelper.YMathHelper.AsInt0(System.Boolean)
+  commentId: M:YShared.MathHelper.YMathHelper.AsInt0(System.Boolean)
+  id: AsInt0(System.Boolean)
+  isExtensionMethod: true
+  parent: YShared.MathHelper.YMathHelper
+  langs:
+  - csharp
+  - vb
+  name: AsInt0(bool)
+  nameWithType: YMathHelper.AsInt0(bool)
+  fullName: YShared.MathHelper.YMathHelper.AsInt0(bool)
+  type: Method
+  assemblies:
+  - YShared.Runtime
+  namespace: YShared.MathHelper
+  syntax:
+    content: public static int AsInt0(this bool b)
+    parameters:
+    - id: b
+      type: System.Boolean
+    return:
+      type: System.Int32
+    content.vb: Public Shared Function AsInt0(b As Boolean) As Integer
+  overload: YShared.MathHelper.YMathHelper.AsInt0*
+  nameWithType.vb: YMathHelper.AsInt0(Boolean)
+  fullName.vb: YShared.MathHelper.YMathHelper.AsInt0(Boolean)
+  name.vb: AsInt0(Boolean)
+- uid: YShared.MathHelper.YMathHelper.AsIntN1(System.Boolean)
+  commentId: M:YShared.MathHelper.YMathHelper.AsIntN1(System.Boolean)
+  id: AsIntN1(System.Boolean)
+  isExtensionMethod: true
+  parent: YShared.MathHelper.YMathHelper
+  langs:
+  - csharp
+  - vb
+  name: AsIntN1(bool)
+  nameWithType: YMathHelper.AsIntN1(bool)
+  fullName: YShared.MathHelper.YMathHelper.AsIntN1(bool)
+  type: Method
+  assemblies:
+  - YShared.Runtime
+  namespace: YShared.MathHelper
+  syntax:
+    content: public static int AsIntN1(this bool b)
+    parameters:
+    - id: b
+      type: System.Boolean
+    return:
+      type: System.Int32
+    content.vb: Public Shared Function AsIntN1(b As Boolean) As Integer
+  overload: YShared.MathHelper.YMathHelper.AsIntN1*
+  nameWithType.vb: YMathHelper.AsIntN1(Boolean)
+  fullName.vb: YShared.MathHelper.YMathHelper.AsIntN1(Boolean)
+  name.vb: AsIntN1(Boolean)
+- uid: YShared.MathHelper.YMathHelper.GetRandomEnum``1
+  commentId: M:YShared.MathHelper.YMathHelper.GetRandomEnum``1
+  id: GetRandomEnum``1
+  parent: YShared.MathHelper.YMathHelper
+  langs:
+  - csharp
+  - vb
+  name: GetRandomEnum<T>()
+  nameWithType: YMathHelper.GetRandomEnum<T>()
+  fullName: YShared.MathHelper.YMathHelper.GetRandomEnum<T>()
+  type: Method
+  assemblies:
+  - YShared.Runtime
+  namespace: YShared.MathHelper
+  syntax:
+    content: 'public static T GetRandomEnum<T>() where T : struct, Enum'
+    typeParameters:
+    - id: T
+    return:
+      type: '{T}'
+    content.vb: Public Shared Function GetRandomEnum(Of T As {Structure, [Enum]})() As T
+  overload: YShared.MathHelper.YMathHelper.GetRandomEnum*
+  nameWithType.vb: YMathHelper.GetRandomEnum(Of T)()
+  fullName.vb: YShared.MathHelper.YMathHelper.GetRandomEnum(Of T)()
+  name.vb: GetRandomEnum(Of T)()
+- uid: YShared.MathHelper.YMathHelper.IsColorCloseEnough(UnityEngine.Color,UnityEngine.Color,System.Single)
+  commentId: M:YShared.MathHelper.YMathHelper.IsColorCloseEnough(UnityEngine.Color,UnityEngine.Color,System.Single)
+  id: IsColorCloseEnough(UnityEngine.Color,UnityEngine.Color,System.Single)
+  parent: YShared.MathHelper.YMathHelper
+  langs:
+  - csharp
+  - vb
+  name: IsColorCloseEnough(Color, Color, float)
+  nameWithType: YMathHelper.IsColorCloseEnough(Color, Color, float)
+  fullName: YShared.MathHelper.YMathHelper.IsColorCloseEnough(UnityEngine.Color, UnityEngine.Color, float)
+  type: Method
+  assemblies:
+  - YShared.Runtime
+  namespace: YShared.MathHelper
+  syntax:
+    content: public static bool IsColorCloseEnough(Color a, Color b, float threshold = 0.1)
+    parameters:
+    - id: a
+      type: UnityEngine.Color
+    - id: b
+      type: UnityEngine.Color
+    - id: threshold
+      type: System.Single
+    return:
+      type: System.Boolean
+    content.vb: Public Shared Function IsColorCloseEnough(a As Color, b As Color, threshold As Single = 0.1) As Boolean
+  overload: YShared.MathHelper.YMathHelper.IsColorCloseEnough*
+  nameWithType.vb: YMathHelper.IsColorCloseEnough(Color, Color, Single)
+  fullName.vb: YShared.MathHelper.YMathHelper.IsColorCloseEnough(UnityEngine.Color, UnityEngine.Color, Single)
+  name.vb: IsColorCloseEnough(Color, Color, Single)
+references:
+- uid: YShared.MathHelper
+  commentId: N:YShared.MathHelper
+  isExternal: true
+  href: YShared.html
+  name: YShared.MathHelper
+  nameWithType: YShared.MathHelper
+  fullName: YShared.MathHelper
+  spec.csharp:
+  - uid: YShared
+    name: YShared
+    isExternal: true
+    href: YShared.html
+  - name: .
+  - uid: YShared.MathHelper
+    name: MathHelper
+    isExternal: true
+    href: YShared.MathHelper.html
+  spec.vb:
+  - uid: YShared
+    name: YShared
+    isExternal: true
+    href: YShared.html
+  - name: .
+  - uid: YShared.MathHelper
+    name: MathHelper
+    isExternal: true
+    href: YShared.MathHelper.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: System.String[]
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string[]
+  nameWithType: string[]
+  fullName: string[]
+  nameWithType.vb: String()
+  fullName.vb: String()
+  name.vb: String()
+  spec.csharp:
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: '['
+  - name: ']'
+  spec.vb:
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: (
+  - name: )
+- uid: YShared.MathHelper.YMathHelper.Damp*
+  commentId: Overload:YShared.MathHelper.YMathHelper.Damp
+  isExternal: true
+  href: YShared.MathHelper.YMathHelper.html#YShared_MathHelper_YMathHelper_Damp_System_Single_System_Single_System_Single_System_Single_
+  name: Damp
+  nameWithType: YMathHelper.Damp
+  fullName: YShared.MathHelper.YMathHelper.Damp
+- uid: System.Single
+  commentId: T:System.Single
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.single
+  name: float
+  nameWithType: float
+  fullName: float
+  nameWithType.vb: Single
+  fullName.vb: Single
+  name.vb: Single
+- uid: UnityEngine.Vector2
+  isExternal: true
+  name: Vector2
+  nameWithType: Vector2
+  fullName: UnityEngine.Vector2
+- uid: YShared.MathHelper.YMathHelper.IsInBounds*
+  commentId: Overload:YShared.MathHelper.YMathHelper.IsInBounds
+  isExternal: true
+  href: YShared.MathHelper.YMathHelper.html#YShared_MathHelper_YMathHelper_IsInBounds_System_Int32_System_Int32_System_Int32_
+  name: IsInBounds
+  nameWithType: YMathHelper.IsInBounds
+  fullName: YShared.MathHelper.YMathHelper.IsInBounds
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: UnityEngine.Vector2Int
+  isExternal: true
+  name: Vector2Int
+  nameWithType: Vector2Int
+  fullName: UnityEngine.Vector2Int
+- uid: YShared.MathHelper.YMathHelper.GetRandomPointInBounds*
+  commentId: Overload:YShared.MathHelper.YMathHelper.GetRandomPointInBounds
+  isExternal: true
+  href: YShared.MathHelper.YMathHelper.html#YShared_MathHelper_YMathHelper_GetRandomPointInBounds_UnityEngine_Vector3_UnityEngine_Vector3_
+  name: GetRandomPointInBounds
+  nameWithType: YMathHelper.GetRandomPointInBounds
+  fullName: YShared.MathHelper.YMathHelper.GetRandomPointInBounds
+- uid: UnityEngine.Vector3
+  isExternal: true
+  name: Vector3
+  nameWithType: Vector3
+  fullName: UnityEngine.Vector3
+- uid: YShared.MathHelper.YMathHelper.GetRandomPoint*
+  commentId: Overload:YShared.MathHelper.YMathHelper.GetRandomPoint
+  isExternal: true
+  href: YShared.MathHelper.YMathHelper.html#YShared_MathHelper_YMathHelper_GetRandomPoint_UnityEngine_Vector2_
+  name: GetRandomPoint
+  nameWithType: YMathHelper.GetRandomPoint
+  fullName: YShared.MathHelper.YMathHelper.GetRandomPoint
+- uid: YShared.MathHelper.YMathHelper.V2IString*
+  commentId: Overload:YShared.MathHelper.YMathHelper.V2IString
+  isExternal: true
+  href: YShared.MathHelper.YMathHelper.html#YShared_MathHelper_YMathHelper_V2IString_UnityEngine_Vector2Int_
+  name: V2IString
+  nameWithType: YMathHelper.V2IString
+  fullName: YShared.MathHelper.YMathHelper.V2IString
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: YShared.MathHelper.YMathHelper.addBytes*
+  commentId: Overload:YShared.MathHelper.YMathHelper.addBytes
+  isExternal: true
+  href: YShared.MathHelper.YMathHelper.html#YShared_MathHelper_YMathHelper_addBytes_System_Byte_System_Byte_
+  name: addBytes
+  nameWithType: YMathHelper.addBytes
+  fullName: YShared.MathHelper.YMathHelper.addBytes
+- uid: System.Byte
+  commentId: T:System.Byte
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.byte
+  name: byte
+  nameWithType: byte
+  fullName: byte
+  nameWithType.vb: Byte
+  fullName.vb: Byte
+  name.vb: Byte
+- uid: YShared.MathHelper.YMathHelper.V2I_to_V3*
+  commentId: Overload:YShared.MathHelper.YMathHelper.V2I_to_V3
+  isExternal: true
+  href: YShared.MathHelper.YMathHelper.html#YShared_MathHelper_YMathHelper_V2I_to_V3_UnityEngine_Vector2Int_System_Single_
+  name: V2I_to_V3
+  nameWithType: YMathHelper.V2I_to_V3
+  fullName: YShared.MathHelper.YMathHelper.V2I_to_V3
+- uid: YShared.MathHelper.YMathHelper.MakeLookAtLocation*
+  commentId: Overload:YShared.MathHelper.YMathHelper.MakeLookAtLocation
+  isExternal: true
+  href: YShared.MathHelper.YMathHelper.html#YShared_MathHelper_YMathHelper_MakeLookAtLocation_UnityEngine_Transform_UnityEngine_Vector3_System_Single_
+  name: MakeLookAtLocation
+  nameWithType: YMathHelper.MakeLookAtLocation
+  fullName: YShared.MathHelper.YMathHelper.MakeLookAtLocation
+- uid: UnityEngine.Transform
+  isExternal: true
+  name: Transform
+  nameWithType: Transform
+  fullName: UnityEngine.Transform
+- uid: System.ValueTuple{System.Single,UnityEngine.Vector3}
+  commentId: T:System.ValueTuple{System.Single,UnityEngine.Vector3}
+  parent: System
+  definition: System.ValueTuple`2
+  href: https://learn.microsoft.com/dotnet/api/system.single
+  name: (float, Vector3)
+  nameWithType: (float, Vector3)
+  fullName: (float, UnityEngine.Vector3)
+  nameWithType.vb: (Single, Vector3)
+  fullName.vb: (Single, UnityEngine.Vector3)
+  name.vb: (Single, Vector3)
+  spec.csharp:
+  - name: (
+  - uid: System.Single
+    name: float
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.single
+  - name: ','
+  - name: " "
+  - uid: UnityEngine.Vector3
+    name: Vector3
+    isExternal: true
+  - name: )
+  spec.vb:
+  - name: (
+  - uid: System.Single
+    name: Single
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.single
+  - name: ','
+  - name: " "
+  - uid: UnityEngine.Vector3
+    name: Vector3
+    isExternal: true
+  - name: )
+- uid: System.ValueTuple`2
+  commentId: T:System.ValueTuple`2
+  name: (T1, T2)
+  nameWithType: (T1, T2)
+  fullName: (T1, T2)
+  spec.csharp:
+  - name: (
+  - name: T1
+  - name: ','
+  - name: " "
+  - name: T2
+  - name: )
+  spec.vb:
+  - name: (
+  - name: T1
+  - name: ','
+  - name: " "
+  - name: T2
+  - name: )
+- uid: YShared.MathHelper.YMathHelper.GetLookAngleAndDir*
+  commentId: Overload:YShared.MathHelper.YMathHelper.GetLookAngleAndDir
+  isExternal: true
+  href: YShared.MathHelper.YMathHelper.html#YShared_MathHelper_YMathHelper_GetLookAngleAndDir_UnityEngine_Transform_UnityEngine_Vector3_System_Single_
+  name: GetLookAngleAndDir
+  nameWithType: YMathHelper.GetLookAngleAndDir
+  fullName: YShared.MathHelper.YMathHelper.GetLookAngleAndDir
+- uid: YShared.MathHelper.YMathHelper.IsInDistance*
+  commentId: Overload:YShared.MathHelper.YMathHelper.IsInDistance
+  isExternal: true
+  href: YShared.MathHelper.YMathHelper.html#YShared_MathHelper_YMathHelper_IsInDistance_UnityEngine_Vector3_UnityEngine_Vector3_System_Single_
+  name: IsInDistance
+  nameWithType: YMathHelper.IsInDistance
+  fullName: YShared.MathHelper.YMathHelper.IsInDistance
+- uid: YShared.MathHelper.YMathHelper.fmod*
+  commentId: Overload:YShared.MathHelper.YMathHelper.fmod
+  isExternal: true
+  href: YShared.MathHelper.YMathHelper.html#YShared_MathHelper_YMathHelper_fmod_System_Single_System_Single_
+  name: fmod
+  nameWithType: YMathHelper.fmod
+  fullName: YShared.MathHelper.YMathHelper.fmod
+- uid: YShared.MathHelper.YMathHelper.imod*
+  commentId: Overload:YShared.MathHelper.YMathHelper.imod
+  isExternal: true
+  href: YShared.MathHelper.YMathHelper.html#YShared_MathHelper_YMathHelper_imod_System_Int32_System_Int32_
+  name: imod
+  nameWithType: YMathHelper.imod
+  fullName: YShared.MathHelper.YMathHelper.imod
+- uid: YShared.MathHelper.YMathHelper.Floor*
+  commentId: Overload:YShared.MathHelper.YMathHelper.Floor
+  isExternal: true
+  href: YShared.MathHelper.YMathHelper.html#YShared_MathHelper_YMathHelper_Floor_System_Single_
+  name: Floor
+  nameWithType: YMathHelper.Floor
+  fullName: YShared.MathHelper.YMathHelper.Floor
+- uid: YShared.MathHelper.YMathHelper.Ceil*
+  commentId: Overload:YShared.MathHelper.YMathHelper.Ceil
+  isExternal: true
+  href: YShared.MathHelper.YMathHelper.html#YShared_MathHelper_YMathHelper_Ceil_System_Single_
+  name: Ceil
+  nameWithType: YMathHelper.Ceil
+  fullName: YShared.MathHelper.YMathHelper.Ceil
+- uid: YShared.MathHelper.YMathHelper.Abs*
+  commentId: Overload:YShared.MathHelper.YMathHelper.Abs
+  isExternal: true
+  href: YShared.MathHelper.YMathHelper.html#YShared_MathHelper_YMathHelper_Abs_System_Single_
+  name: Abs
+  nameWithType: YMathHelper.Abs
+  fullName: YShared.MathHelper.YMathHelper.Abs
+- uid: YShared.MathHelper.YMathHelper.RoundToXDecimals*
+  commentId: Overload:YShared.MathHelper.YMathHelper.RoundToXDecimals
+  isExternal: true
+  href: YShared.MathHelper.YMathHelper.html#YShared_MathHelper_YMathHelper_RoundToXDecimals_System_Single_System_Int32_
+  name: RoundToXDecimals
+  nameWithType: YMathHelper.RoundToXDecimals
+  fullName: YShared.MathHelper.YMathHelper.RoundToXDecimals
+- uid: YShared.MathHelper.YMathHelper.RoundToXDecimalsButAsString*
+  commentId: Overload:YShared.MathHelper.YMathHelper.RoundToXDecimalsButAsString
+  isExternal: true
+  href: YShared.MathHelper.YMathHelper.html#YShared_MathHelper_YMathHelper_RoundToXDecimalsButAsString_System_Single_System_Int32_
+  name: RoundToXDecimalsButAsString
+  nameWithType: YMathHelper.RoundToXDecimalsButAsString
+  fullName: YShared.MathHelper.YMathHelper.RoundToXDecimalsButAsString
+- uid: YShared.MathHelper.YMathHelper.Flip*
+  commentId: Overload:YShared.MathHelper.YMathHelper.Flip
+  isExternal: true
+  href: YShared.MathHelper.YMathHelper.html#YShared_MathHelper_YMathHelper_Flip_System_Int32_System_Int32_
+  name: Flip
+  nameWithType: YMathHelper.Flip
+  fullName: YShared.MathHelper.YMathHelper.Flip
+- uid: YShared.MathHelper.YMathHelper.RoundToNearestMultiple*
+  commentId: Overload:YShared.MathHelper.YMathHelper.RoundToNearestMultiple
+  isExternal: true
+  href: YShared.MathHelper.YMathHelper.html#YShared_MathHelper_YMathHelper_RoundToNearestMultiple_System_Single_System_Single_
+  name: RoundToNearestMultiple
+  nameWithType: YMathHelper.RoundToNearestMultiple
+  fullName: YShared.MathHelper.YMathHelper.RoundToNearestMultiple
+- uid: YShared.MathHelper.YMathHelper.ResolveTimeForGivenAccelerationAndDistance*
+  commentId: Overload:YShared.MathHelper.YMathHelper.ResolveTimeForGivenAccelerationAndDistance
+  isExternal: true
+  href: YShared.MathHelper.YMathHelper.html#YShared_MathHelper_YMathHelper_ResolveTimeForGivenAccelerationAndDistance_System_Single_System_Single_
+  name: ResolveTimeForGivenAccelerationAndDistance
+  nameWithType: YMathHelper.ResolveTimeForGivenAccelerationAndDistance
+  fullName: YShared.MathHelper.YMathHelper.ResolveTimeForGivenAccelerationAndDistance
+- uid: YShared.MathHelper.YMathHelper.TryAs*
+  commentId: Overload:YShared.MathHelper.YMathHelper.TryAs
+  isExternal: true
+  href: YShared.MathHelper.YMathHelper.html#YShared_MathHelper_YMathHelper_TryAs__1_System_Object___0__
+  name: TryAs
+  nameWithType: YMathHelper.TryAs
+  fullName: YShared.MathHelper.YMathHelper.TryAs
+- uid: '{T}'
+  commentId: '!:T'
+  definition: T
+  name: T
+  nameWithType: T
+  fullName: T
+- uid: T
+  name: T
+  nameWithType: T
+  fullName: T
+- uid: YShared.MathHelper.YMathHelper.AsInt0*
+  commentId: Overload:YShared.MathHelper.YMathHelper.AsInt0
+  isExternal: true
+  href: YShared.MathHelper.YMathHelper.html#YShared_MathHelper_YMathHelper_AsInt0_System_Boolean_
+  name: AsInt0
+  nameWithType: YMathHelper.AsInt0
+  fullName: YShared.MathHelper.YMathHelper.AsInt0
+- uid: YShared.MathHelper.YMathHelper.AsIntN1*
+  commentId: Overload:YShared.MathHelper.YMathHelper.AsIntN1
+  isExternal: true
+  href: YShared.MathHelper.YMathHelper.html#YShared_MathHelper_YMathHelper_AsIntN1_System_Boolean_
+  name: AsIntN1
+  nameWithType: YMathHelper.AsIntN1
+  fullName: YShared.MathHelper.YMathHelper.AsIntN1
+- uid: YShared.MathHelper.YMathHelper.GetRandomEnum*
+  commentId: Overload:YShared.MathHelper.YMathHelper.GetRandomEnum
+  isExternal: true
+  href: YShared.MathHelper.YMathHelper.html#YShared_MathHelper_YMathHelper_GetRandomEnum__1
+  name: GetRandomEnum
+  nameWithType: YMathHelper.GetRandomEnum
+  fullName: YShared.MathHelper.YMathHelper.GetRandomEnum
+- uid: YShared.MathHelper.YMathHelper.IsColorCloseEnough*
+  commentId: Overload:YShared.MathHelper.YMathHelper.IsColorCloseEnough
+  isExternal: true
+  href: YShared.MathHelper.YMathHelper.html#YShared_MathHelper_YMathHelper_IsColorCloseEnough_UnityEngine_Color_UnityEngine_Color_System_Single_
+  name: IsColorCloseEnough
+  nameWithType: YMathHelper.IsColorCloseEnough
+  fullName: YShared.MathHelper.YMathHelper.IsColorCloseEnough
+- uid: UnityEngine.Color
+  isExternal: true
+  name: Color
+  nameWithType: Color
+  fullName: UnityEngine.Color

@@ -1,0 +1,103 @@
+### YamlMime:ManagedReference
+items:
+- uid: YShared.Singleton
+  commentId: N:YShared.Singleton
+  id: YShared.Singleton
+  children:
+  - YShared.Singleton.Singleton`1
+  - YShared.Singleton.YSceneSingleton`1
+  - YShared.Singleton.YSingleton`1
+  langs:
+  - csharp
+  - vb
+  name: YShared.Singleton
+  nameWithType: YShared.Singleton
+  fullName: YShared.Singleton
+  type: Namespace
+  assemblies:
+  - YShared.Runtime
+references:
+- uid: YShared.Singleton.Singleton`1
+  commentId: T:YShared.Singleton.Singleton`1
+  isExternal: true
+  href: YShared.Singleton.Singleton-1.html
+  name: Singleton<T>
+  nameWithType: Singleton<T>
+  fullName: YShared.Singleton.Singleton<T>
+  nameWithType.vb: Singleton(Of T)
+  fullName.vb: YShared.Singleton.Singleton(Of T)
+  name.vb: Singleton(Of T)
+  spec.csharp:
+  - uid: YShared.Singleton.Singleton`1
+    name: Singleton
+    isExternal: true
+    href: YShared.Singleton.Singleton-1.html
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: YShared.Singleton.Singleton`1
+    name: Singleton
+    isExternal: true
+    href: YShared.Singleton.Singleton-1.html
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: YShared.Singleton.YSingleton`1
+  commentId: T:YShared.Singleton.YSingleton`1
+  isExternal: true
+  href: YShared.Singleton.YSingleton-1.html
+  name: YSingleton<T>
+  nameWithType: YSingleton<T>
+  fullName: YShared.Singleton.YSingleton<T>
+  nameWithType.vb: YSingleton(Of T)
+  fullName.vb: YShared.Singleton.YSingleton(Of T)
+  name.vb: YSingleton(Of T)
+  spec.csharp:
+  - uid: YShared.Singleton.YSingleton`1
+    name: YSingleton
+    isExternal: true
+    href: YShared.Singleton.YSingleton-1.html
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: YShared.Singleton.YSingleton`1
+    name: YSingleton
+    isExternal: true
+    href: YShared.Singleton.YSingleton-1.html
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: YShared.Singleton.YSceneSingleton`1
+  commentId: T:YShared.Singleton.YSceneSingleton`1
+  isExternal: true
+  href: YShared.Singleton.YSceneSingleton-1.html
+  name: YSceneSingleton<T>
+  nameWithType: YSceneSingleton<T>
+  fullName: YShared.Singleton.YSceneSingleton<T>
+  nameWithType.vb: YSceneSingleton(Of T)
+  fullName.vb: YShared.Singleton.YSceneSingleton(Of T)
+  name.vb: YSceneSingleton(Of T)
+  spec.csharp:
+  - uid: YShared.Singleton.YSceneSingleton`1
+    name: YSceneSingleton
+    isExternal: true
+    href: YShared.Singleton.YSceneSingleton-1.html
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: YShared.Singleton.YSceneSingleton`1
+    name: YSceneSingleton
+    isExternal: true
+    href: YShared.Singleton.YSceneSingleton-1.html
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )

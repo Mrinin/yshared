@@ -1,0 +1,776 @@
+{
+  "source_base_path": "E:/Projects/Unity/YShared/Assets/yshared",
+  "xrefmap": "xrefmap.yml",
+  "files": [
+    {
+      "type": "Resource",
+      "output": {
+        "resource": {
+          "relative_path": "index.json"
+        }
+      }
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "Docs/console-alias.md",
+      "output": {
+        ".html": {
+          "relative_path": "Docs/console-alias.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "Docs/console-getting-started.md",
+      "output": {
+        ".html": {
+          "relative_path": "Docs/console-getting-started.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "Docs/getting-started.md",
+      "output": {
+        ".html": {
+          "relative_path": "Docs/getting-started.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "Docs/introduction.md",
+      "output": {
+        ".html": {
+          "relative_path": "Docs/introduction.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "Docs/toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "Docs/toc.html"
+        },
+        ".json": {
+          "relative_path": "Docs/toc.json"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "README.md",
+      "output": {
+        ".html": {
+          "relative_path": "README.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/YShared.Console.AliasAttribute.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/YShared.Console.AliasAttribute.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "YShared.Console.AliasAttribute",
+      "Summary": "<p sourcefile=\"api/YShared.Console.AliasAttribute.yml\" sourcestartlinenumber=\"1\">Define an alias / shortcut for the command. You may also optionally provide arguments.</p>\n<ul><li>\n        Shorthand - Shorthand for the command. (ie, Shortcut: \"gm\", for the command \"gamemode\")\n    </li><li>\n        Arguments - If provided, the shortcut will be ran with those arguments. (ie, Shorthand: \"gmc\" and Arguments: \"creative\" to run \"gamemode creative\")\n    </li></ul>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/YShared.Console.AliasData.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/YShared.Console.AliasData.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "YShared.Console.AliasData",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/YShared.Console.Autocomplete.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/YShared.Console.Autocomplete.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "YShared.Console.Autocomplete",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/YShared.Console.Command.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/YShared.Console.Command.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "YShared.Console.Command",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/YShared.Console.CommandNode.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/YShared.Console.CommandNode.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "YShared.Console.CommandNode",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/YShared.Console.CommandRegistry.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/YShared.Console.CommandRegistry.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "YShared.Console.CommandRegistry",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/YShared.Console.CommandsHelper.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/YShared.Console.CommandsHelper.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "YShared.Console.CommandsHelper",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/YShared.Console.Console.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/YShared.Console.Console.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "YShared.Console.Console",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/YShared.Console.DefaultCommands.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/YShared.Console.DefaultCommands.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "YShared.Console.DefaultCommands",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/YShared.Console.DevConsole.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/YShared.Console.DevConsole.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "YShared.Console.DevConsole",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/YShared.Console.DevConsoleException.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/YShared.Console.DevConsoleException.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "YShared.Console.DevConsoleException",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/YShared.Console.DevConsoleUI.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/YShared.Console.DevConsoleUI.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "YShared.Console.DevConsoleUI",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/YShared.Console.FeedbackFlavor.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/YShared.Console.FeedbackFlavor.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "YShared.Console.FeedbackFlavor",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/YShared.Console.MethodSignature.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/YShared.Console.MethodSignature.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "YShared.Console.MethodSignature",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/YShared.Console.ObjectFindType.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/YShared.Console.ObjectFindType.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "YShared.Console.ObjectFindType",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/YShared.Console.Parameter.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/YShared.Console.Parameter.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "YShared.Console.Parameter",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/YShared.Console.ScreenshotClipboard.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/YShared.Console.ScreenshotClipboard.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "YShared.Console.ScreenshotClipboard",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/YShared.Console.YCBool.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/YShared.Console.YCBool.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "YShared.Console.YCBool",
+      "Summary": "<p sourcefile=\"api/YShared.Console.YCBool.yml\" sourcestartlinenumber=\"1\">Use <code>YCBool</code> for boolean arguments.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/YShared.Console.YCCmdArg.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/YShared.Console.YCCmdArg.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "YShared.Console.YCCmdArg",
+      "Summary": "<p sourcefile=\"api/YShared.Console.YCCmdArg.yml\" sourcestartlinenumber=\"1\">Use <code>YCCmdArg</code> to get registered commands as an input. (Use Command[])</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/YShared.Console.YCEnum.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/YShared.Console.YCEnum.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "YShared.Console.YCEnum",
+      "Summary": "<p sourcefile=\"api/YShared.Console.YCEnum.yml\" sourcestartlinenumber=\"1\">Use <code>YCEnum(typeof(Enum))</code> for enum arguments.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/YShared.Console.YCFloat.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/YShared.Console.YCFloat.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "YShared.Console.YCFloat",
+      "Summary": "<p sourcefile=\"api/YShared.Console.YCFloat.yml\" sourcestartlinenumber=\"1\">Use <code>YCFloat(min, max)</code> for float arguments. (min / max optional)</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/YShared.Console.YCInt.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/YShared.Console.YCInt.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "YShared.Console.YCInt",
+      "Summary": "<p sourcefile=\"api/YShared.Console.YCInt.yml\" sourcestartlinenumber=\"1\">Use <code>YCInt(min, max)</code> for integer arguments. (min / max optional)</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/YShared.Console.YCString.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/YShared.Console.YCString.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "YShared.Console.YCString",
+      "Summary": "<p sourcefile=\"api/YShared.Console.YCString.yml\" sourcestartlinenumber=\"1\">Use <code>YCString</code> for string arguments.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/YShared.Console.YCmdArgumentAttribute.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/YShared.Console.YCmdArgumentAttribute.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "YShared.Console.YCmdArgumentAttribute",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/YShared.Console.YCommandAttribute.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/YShared.Console.YCommandAttribute.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "YShared.Console.YCommandAttribute",
+      "Summary": "<p sourcefile=\"api/YShared.Console.YCommandAttribute.yml\" sourcestartlinenumber=\"1\"><b>Define a new command.</b></p>\n<ul><li>\n        Use <code>YCInt(min, max)</code> for integer arguments. (min / max optional)\n    </li><li>\n        Use <code>YCFloat(min, max)</code> for float arguments. (min / max optional)\n    </li><li>\n        Use <code>YCEnum(typeof(Enum))</code> for enum arguments.\n    </li><li>\n        Use <code>YCBool</code> for boolean arguments.\n    </li><li>\n        Use <code>YCString</code> for string arguments.\n    </li><li>\n        Use <code>YCCmdArg</code> to get registered commands as an input. (Use Command[])\n    </li></ul>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/YShared.Console.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/YShared.Console.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "YShared.Console",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/YShared.MathHelper.ArrayFunctions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/YShared.MathHelper.ArrayFunctions.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "YShared.MathHelper.ArrayFunctions",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/YShared.MathHelper.SinValue.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/YShared.MathHelper.SinValue.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "YShared.MathHelper.SinValue",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/YShared.MathHelper.TrackedVariable-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/YShared.MathHelper.TrackedVariable-1.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "YShared.MathHelper.TrackedVariable<T>",
+      "Summary": "<p sourcefile=\"api/YShared.MathHelper.TrackedVariable-1.yml\" sourcestartlinenumber=\"1\">Wrapper for a value type to track the changes to it.\nT[] values array - index 0 stores the latest version, while history_to_record - 1 stores the oldest stored version.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/YShared.MathHelper.YMathHelper.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/YShared.MathHelper.YMathHelper.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "YShared.MathHelper.YMathHelper",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/YShared.MathHelper.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/YShared.MathHelper.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "YShared.MathHelper",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/YShared.NamedTimers.Extension.TimerBehaviour.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/YShared.NamedTimers.Extension.TimerBehaviour.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "YShared.NamedTimers.Extension.TimerBehaviour",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/YShared.NamedTimers.Extension.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/YShared.NamedTimers.Extension.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "YShared.NamedTimers.Extension",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/YShared.NamedTimers.GameObjectBinding.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/YShared.NamedTimers.GameObjectBinding.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "YShared.NamedTimers.GameObjectBinding",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/YShared.NamedTimers.SetTimerResult.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/YShared.NamedTimers.SetTimerResult.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "YShared.NamedTimers.SetTimerResult",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/YShared.NamedTimers.Timer.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/YShared.NamedTimers.Timer.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "YShared.NamedTimers.Timer",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/YShared.NamedTimers.TimerHandler.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/YShared.NamedTimers.TimerHandler.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "YShared.NamedTimers.TimerHandler",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/YShared.NamedTimers.TimerOptions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/YShared.NamedTimers.TimerOptions.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "YShared.NamedTimers.TimerOptions",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/YShared.NamedTimers.TimerState.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/YShared.NamedTimers.TimerState.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "YShared.NamedTimers.TimerState",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/YShared.NamedTimers.TimerWindow.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/YShared.NamedTimers.TimerWindow.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "YShared.NamedTimers.TimerWindow",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/YShared.NamedTimers.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/YShared.NamedTimers.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "YShared.NamedTimers",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/YShared.RandomHelper.YRandom.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/YShared.RandomHelper.YRandom.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "YShared.RandomHelper.YRandom",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/YShared.RandomHelper.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/YShared.RandomHelper.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "YShared.RandomHelper",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/YShared.Singleton.Singleton-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/YShared.Singleton.Singleton-1.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "YShared.Singleton.Singleton<T>",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/YShared.Singleton.YSceneSingleton-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/YShared.Singleton.YSceneSingleton-1.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "YShared.Singleton.YSceneSingleton<T>",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/YShared.Singleton.YSingleton-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/YShared.Singleton.YSingleton-1.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "YShared.Singleton.YSingleton<T>",
+      "Summary": "<p sourcefile=\"api/YShared.Singleton.YSingleton-1.yml\" sourcestartlinenumber=\"1\">Singeton.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/YShared.Singleton.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/YShared.Singleton.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "YShared.Singleton",
+      "Summary": null
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "api/toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/toc.html"
+        },
+        ".json": {
+          "relative_path": "api/toc.json"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "index.md",
+      "output": {
+        ".html": {
+          "relative_path": "index.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "toc.html"
+        },
+        ".json": {
+          "relative_path": "toc.json"
+        }
+      },
+      "version": ""
+    }
+  ],
+  "groups": [
+    {
+      "xrefmap": "xrefmap.yml"
+    }
+  ]
+}
