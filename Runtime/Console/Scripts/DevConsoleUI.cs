@@ -62,6 +62,7 @@ namespace YShared.Console
             SetFontSize(fontSize);
 
             DevConsole.CommandFeedback += RecievedFeedback;
+            DevConsole.CommandLog += RecievedFeedback;
 
             AppendLogLine("UberYagiz+ Console - \"help\" for list of commands.", FeedbackFlavor.Misc);
 
@@ -72,7 +73,9 @@ namespace YShared.Console
         protected override void OnDestroy()
         {
             base.OnDestroy();
+
             DevConsole.CommandFeedback -= RecievedFeedback;
+            DevConsole.CommandLog -= RecievedFeedback;
         }
 
         private void Update()
@@ -211,6 +214,7 @@ namespace YShared.Console
                 case FeedbackFlavor.Warning: hex = "#FFD100"; break;
                 case FeedbackFlavor.Error: hex = "#FF4C4C"; break;
                 case FeedbackFlavor.Misc: hex = "#1980ff"; break;
+                case FeedbackFlavor.Return: hex = "#8cbccf"; break;
                 case FeedbackFlavor.Command: hex = "#4C9CFF"; break;
                 case FeedbackFlavor.Info: hex = "#adadad"; break;
                 case FeedbackFlavor.Feedback:
@@ -296,7 +300,7 @@ namespace YShared.Console
         void ShowSuggestions(string beginning, int location)
         {
             currentSuggestions = autocompleteCommands
-                .Where(c => c.StartsWith(beginning, StringComparison.OrdinalIgnoreCase))
+                .Where(c => c.Contains(beginning, StringComparison.OrdinalIgnoreCase))
                 .OrderBy(c => c.Length)
                 .ToList();
 

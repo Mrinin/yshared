@@ -1,6 +1,8 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using Codice.Client.Common.TreeGrouper;
+using Codice.CM.Client.Differences;
 using UnityEngine;
 
 namespace YShared.Console
@@ -14,7 +16,10 @@ namespace YShared.Console
             if (commandAsAnArgumentAutocompleteArray != null)
                 return commandAsAnArgumentAutocompleteArray;
 
-            commandAsAnArgumentAutocompleteArray = CommandRegistry.alphabeticalCommands.Select(str => $"\"{str.command}\"").ToArray();
+            commandAsAnArgumentAutocompleteArray = CommandRegistry.alphabeticalCommands
+                .Select(str => $"\"{str.command}\"")
+                .Distinct()
+                .ToArray();
             return commandAsAnArgumentAutocompleteArray;
         }
         
@@ -22,7 +27,10 @@ namespace YShared.Console
         {
             if (RootCommandArray == null)
             {
-                RootCommandArray = CommandRegistry.Root.children.Keys.ToArray();
+                RootCommandArray = CommandRegistry.Root.children.Keys
+                    .Distinct()
+                    .OrderBy(str => str, StringComparer.InvariantCultureIgnoreCase)
+                    .ToArray();
             }
 
             if (string.IsNullOrEmpty(line))
@@ -32,6 +40,7 @@ namespace YShared.Console
             string[] parts = CommandsHelper.SplitCommand(line);
 
             int wordCount = parts.Length;
+            int parameter_start = 0;
 
             CommandNode node = CommandRegistry.Root;
 
@@ -41,6 +50,11 @@ namespace YShared.Console
                 if (node.children.ContainsKey(parts[i]))
                 {
                     node = node.children[parts[i]];
+                    parameter_start++;
+                }
+                else
+                {
+                    break;
                 }
             }
 
@@ -54,13 +68,20 @@ namespace YShared.Console
             // Found the command, this is the end.
             if (node.children.Count == 0 && node.commands.Count == 0)
                 return null;
+            
+            /*if (!trailingSpace)
+                return null;*/
 
             // node.Commands.Count > 0
             List<string> autocompleteList = new List<string>(50);
 
+            int wordIndexCurrentlyWriting = wordCount;
+            if (trailingSpace)
+                wordIndexCurrentlyWriting++;
+
             for (int i = 0; i < node.commands.Count; i++)
             {
-                int par_index = wordCount - node.commands[i].CommandWords.Length;
+                int par_index = wordIndexCurrentlyWriting -1 - node.commands[i].CommandWords.Length;
                 //Debug.Log($"par_index: {par_index} Command Word Length: {node.commands[i].CommandWordLength}, Line Length: {wordCount}");
                 AddToAutocompleteList(node.commands[i], par_index, ref autocompleteList);
             }
@@ -73,7 +94,7 @@ namespace YShared.Console
 
         public static void AddToAutocompleteList(Command cmd,int word_at, ref List<string> list)
         {
-            if (word_at < cmd.arguments.Length)
+            if (word_at >= 0 && word_at < cmd.arguments.Length)
             {    
                 if (cmd.arguments[word_at].hasAutocompleteArray)
                 {

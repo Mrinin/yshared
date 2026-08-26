@@ -18,6 +18,7 @@ namespace YShared.Console
 
         public static Dictionary<string, string[]> commandAutocompleteLists { get; private set; }
         public static Action<string, FeedbackFlavor> CommandFeedback;
+        public static Action<string, FeedbackFlavor> CommandLog;
         static bool feedbackActive;
 
         static bool ignoreExceedingParameters = true;
@@ -245,9 +246,12 @@ namespace YShared.Console
         {
             try
             {
+                object returnVal = null;
+                bool hasReturnValue = cmd.action.ReturnType != typeof(void);
+
                 if (cmd.action.IsStatic)
                 {
-                    cmd.action.Invoke(null, parameters);                
+                    returnVal = cmd.action.Invoke(null, parameters);                
                 }
                 else
                 {
@@ -262,7 +266,7 @@ namespace YShared.Console
                                 $"Command \"{cmd.command}\" calls a non-static method on the first instance of type \"{t.ToString()}\", but there is currently no instance of \"{t.ToString()}\" in any scene!", FeedbackFlavor.Warning);
                             return false;
                         }
-                        cmd.action.Invoke(obj, parameters);
+                        returnVal = cmd.action.Invoke(obj, parameters);
                     } 
                     else if (cmd.objectFindType == ObjectFindType.Any)
                     {
@@ -273,10 +277,11 @@ namespace YShared.Console
                                 $"Command \"{cmd.command}\" calls a non-static method on any instance of type \"{t.ToString()}\", but there is currently no instance of \"{t.ToString()}\" in any scene!", FeedbackFlavor.Warning);
                             return false;
                         }
-                        cmd.action.Invoke(obj, parameters);
+                        returnVal = cmd.action.Invoke(obj, parameters);
                     } 
                     else if (cmd.objectFindType == ObjectFindType.All)
                     {
+                        hasReturnValue = false;
                         UnityEngine.Object[] objs = GameObject.FindObjectsByType(t, cmd.findObjectsInactive, FindObjectsSortMode.None);
                         if (objs.Length == 0)
                         {
@@ -289,6 +294,7 @@ namespace YShared.Console
                         {
                             cmd.action.Invoke(objs[i], parameters);                        
                         }
+                        DevConsole.Feedback($"Ran on {objs.Length} instances.", FeedbackFlavor.Info);
                     } 
                     else
                     {
@@ -296,6 +302,15 @@ namespace YShared.Console
                         return false;
                     }
                 }
+
+                if (hasReturnValue)
+                {
+                    if (returnVal != null)
+                        DevConsole.Feedback(returnVal.ToString(), FeedbackFlavor.Return);
+                    else
+                        DevConsole.Feedback("null", FeedbackFlavor.Return);
+                }
+
                 return true;
             } 
             catch (Exception e)
@@ -366,7 +381,7 @@ namespace YShared.Console
 
         public static void Log(string text, FeedbackFlavor flavor = FeedbackFlavor.Feedback)
         {
-            CommandFeedback?.Invoke(text, flavor);
+            CommandLog?.Invoke(text, flavor);
         }
     }
     
@@ -381,6 +396,30 @@ namespace YShared.Console
 
     public enum FeedbackFlavor
     {
-        Info, Feedback, Command, Warning, Error, Misc
+        /// <summary>
+        /// Gray color. Should be used when a command simply gives back info without doing anything.
+        /// </summary>
+        Info, 
+        /// <summary>
+        /// White color, and the default feedback flavor. Should be used when a command completes succesfuly, giving details on how the operation was handled.
+        /// </summary>
+        Feedback, 
+        /// <summary>
+        /// Blue-ish color. Should generally not be used - it is the flavor of the return values shown in the console history.
+        /// </summary>
+        Return, 
+        /// <summary>
+        /// Blue color. Should generally not be used - it is the flavor of the submitted commands shown in the console history.
+        /// </summary>
+        Command, 
+        /// <summary>
+        /// Yellow color. Should be used when a command completes with warnings.
+        /// </summary>
+        Warning, 
+        /// <summary>
+        /// Red color. Should be used when a command fails entirely. Exceptions are automatically handled by the DevConsole and are shown in this flavor.
+        /// </summary>
+        Error, 
+        Misc
     }
 }

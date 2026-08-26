@@ -19,12 +19,16 @@ namespace YShared.Console
 
             parts.Add("-");
 
+            bool has_desc = !string.IsNullOrEmpty(cmd.description);
+            if (cmd.arguments.Length == 0)
+                padding -= 1;
+
             string padded = cmd.command.PadRight(padding);
             parts.Add(padded);
 
             parts.Add(cmd.FormattedArguments);
 
-            if (!string.IsNullOrEmpty(cmd.description))
+            if (has_desc)
                 parts.Add(cmd.description);
 
             return string.Join(" ", parts);
