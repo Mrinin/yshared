@@ -44,7 +44,7 @@ namespace YShared.Console.Suggestion
 
         public override void modifyAutocompleteList(List<string> strings)
         {
-            strings.Except(exclude_list);
+            strings.RemoveAll(x => exclude_list.Contains(x));
         }
 
         public ExcludeAttribute(params string[] exclude_list)
@@ -63,7 +63,8 @@ namespace YShared.Console.Suggestion
 
         public override void modifyAutocompleteList(List<string> strings)
         {
-            strings = override_list.ToList();
+            strings.Clear();
+            strings.AddRange(override_list);
         }
 
         public OverrideAttribute(params string[] override_list)
@@ -120,6 +121,7 @@ namespace YShared.Console.Suggestion
             {
                 strings.Add(i.ToString());
             }
+            include_list = strings.ToArray();
         }
     }
 }
