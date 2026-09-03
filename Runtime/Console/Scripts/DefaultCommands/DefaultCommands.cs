@@ -8,7 +8,6 @@ namespace YShared.Console
     public static class DefaultCommands
     {
         [YCommand("help", "Show this text.")]
-        [YCInt("page", 0)]
         static void Help(int page = 0)
         {
             const int PAGE_SIZE = 10;
@@ -64,7 +63,6 @@ namespace YShared.Console
         }
 
         [YCommand("help", "Show the usage of a specific command")]
-        [YCCmdArg("command")]
         static void Help2(Command[] cmds)
         {
             List<string> parts = new(10);
@@ -76,6 +74,11 @@ namespace YShared.Console
             {
                 DevConsole.Feedback($"Found {cmds.Length} commands registered to \"{cmds[0].command}\".");
                 newline_level++;
+            }
+
+            if (cmds.Length == 0)
+            {
+                DevConsole.Feedback($"No command with that name was found.", FeedbackFlavor.Warning);
             }
 
             for (int j = 0; j < cmds.Length; j++)
@@ -92,20 +95,23 @@ namespace YShared.Console
                     parts.Add(cmd.description);
 
                 newline_level++;
-                for (int i = 0; i < cmd.arguments.Length; i++)
+                for (int i = 0; i < cmd.parameters.Length; i++)
                 {
+                    YCmdParser parser = cmd.parser(i);
+
                     string defaulttext = "";
-                    if (cmd.functionParameters[i].hasDefault)
-                        defaulttext = $" = {cmd.functionParameters[i].defaultval}";
+                    if (cmd.parameters[i].hasDefault)
+                        defaulttext = $" = {cmd.parameters[i].defaultval}";
 
-                    string nextline = $"{cmd.arguments[i].getDescriptorText()}{defaulttext}";
+                    string nextline = $"{parser.getDescriptorText()}{defaulttext}";
+                    List<string> autocompleteList = cmd.parameters[i].getAutocomplete();
 
-                    if (cmd.arguments[i].hasAutocompleteArray)
+                    if (autocompleteList != null)
                     {
                         string autocompletePreview = "Options: (";
                         List<string> autocompleteParts = new();
 
-                        foreach (string s in cmd.arguments[i].getAutocompleteArray())
+                        foreach (string s in cmd.parameters[i].getAutocomplete())
                         {
                             autocompleteParts.Add(s);
                         }
@@ -134,8 +140,6 @@ namespace YShared.Console
         }
 
         [YCommand("echo", "Echo feedback")]
-        [YCString("string")]
-        [YCEnum("flavor", typeof(FeedbackFlavor))]
         static void Echo(string str, FeedbackFlavor flavor)
         {
             DevConsole.Feedback(str, flavor);

@@ -4,9 +4,10 @@ namespace YShared.Console
     /// <summary>
     /// Use <c>YCInt(min, max)</c> for integer arguments. (min / max optional)
     /// </summary>
-    public sealed class YCInt: YCmdArgumentAttribute
+    public sealed class YCInt: YCmdParser<int>
     {
-        int min, max;
+        int min = int.MinValue;
+        int max = int.MaxValue;
 
         public override string getDescriptorText()
         {
@@ -22,22 +23,22 @@ namespace YShared.Console
             return $"{variableName}:int";
         }
         public override string getTypeName => "int";
-        public override bool hasAutocompleteArray => false;
+        public override bool hasDefaultAutocompleteArray => false;
 
-        protected override bool Validate<T>(T s) 
+        protected override bool Validate(int s) 
         {
             int a = (int)(object)(s);
 
             return a >= min && a <= max;
         }
 
-        public override bool Parse<T>(string s, out T val)
+        public override bool Parse(string s, out int val)
         {
             val = default;
             
             if (int.TryParse(s, out int result))
             {
-                val = (T)(object)result;
+                val = (int)(object)result;
 
                 if (Validate(result))
                 {
@@ -46,13 +47,6 @@ namespace YShared.Console
             }
 
             return false;
-        }
-
-        public YCInt(string varname, int min = int.MinValue, int max = int.MaxValue)
-        {
-            variableName = varname;
-            this.min = min;
-            this.max = max;
         }
     }
 }

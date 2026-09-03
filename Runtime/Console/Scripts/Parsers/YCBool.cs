@@ -5,43 +5,38 @@ namespace YShared.Console
     /// <summary>
     ///         Use <c>YCBool</c> for boolean arguments.
     /// </summary>
-    public sealed class YCBool: YCmdArgumentAttribute
+    public sealed class YCBool: YCmdParser<bool>
     {
         public override string getDescriptorText()
         {
             return $"{variableName}:bool";
         }
 
-        protected override bool Validate<T>(T s) => true;
+        protected override bool Validate(bool s) => true;
         public override string getTypeName => "bool";
-        public override bool hasAutocompleteArray => true;
-        public override string[] getAutocompleteArray()
+        public override bool hasDefaultAutocompleteArray => true;
+        public override string[] defaultAutocompleteArray()
         {
             return new [] { "true", "false" };
         }
 
-        public override bool Parse<T>(string s, out T val)
+        public override bool Parse(string s, out bool val)
         {
             val = default;
             
             if (s.ToLower() == "true" || s == "1")
             {
-                val = (T)(object)true;
+                val = true;
                 return true;
             }
 
             if (s.ToLower() == "false" || s == "0")
             {
-                val = (T)(object)false;
+                val = false;
                 return true;
             }
 
             return false;
-        }
-
-        public YCBool(string varname)
-        {
-            variableName = varname;
         }
     }
 }

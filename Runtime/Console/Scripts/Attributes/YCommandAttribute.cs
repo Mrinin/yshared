@@ -4,25 +4,19 @@ using UnityEngine;
 namespace YShared.Console
 {
     /// <summary>
-    /// <b>Define a new command.</b>
+    /// <b>Define a new command.</b> Supported parameter types:
     /// <list type="bullet">
     ///     <item>
-    ///         Use <c>YCInt(min, max)</c> for integer arguments. (min / max optional)
+    ///         Integer types: int
     ///     </item>
     ///     <item>
-    ///         Use <c>YCFloat(min, max)</c> for float arguments. (min / max optional)
+    ///         Floating types: float
     ///     </item>
     ///     <item>
-    ///         Use <c>YCEnum(typeof(Enum))</c> for enum arguments.
+    ///         bool, string, and All Enums
     ///     </item>
     ///     <item>
-    ///         Use <c>YCBool</c> for boolean arguments.
-    ///     </item>
-    ///     <item>
-    ///         Use <c>YCString</c> for string arguments.
-    ///     </item>
-    ///     <item>
-    ///         Use <c>YCCmdArg</c> to get registered commands as an input. (Use Command[])
+    ///         Other Commands
     ///     </item>
     /// </list>
     /// </summary>

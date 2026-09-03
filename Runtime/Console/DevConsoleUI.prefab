@@ -1430,8 +1430,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: YShared.Runtime::YShared.Console.DevConsoleUI
   fontSize: 16
-  slideDuration: 0.15
-  autocompleteAmount: 7
+  slideDuration: 0.3
+  autocompleteAmount: 9
   canvas: {fileID: 3481226902013819720}
   panelRect: {fileID: 3562035449288863050}
   scrollRect: {fileID: 4315521071407812944}
@@ -1440,3 +1440,6 @@ MonoBehaviour:
   inputRect: {fileID: 5978527999683048891}
   autocompleteRoot: {fileID: 2738703341068347987}
   autocompleteRow: {fileID: 5271406323353837136}
+  ShowErrors: 0
+  ShowWarnings: 0
+  ShowInfo: 0

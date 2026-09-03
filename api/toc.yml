@@ -43,6 +43,9 @@ items:
   - uid: YShared.Console.FeedbackFlavor
     name: FeedbackFlavor
     type: Enum
+  - uid: YShared.Console.FieldValueCommandType
+    name: FieldValueCommandType
+    type: Enum
   - uid: YShared.Console.MethodSignature
     name: MethodSignature
     type: Struct
@@ -54,6 +57,12 @@ items:
     type: Struct
   - uid: YShared.Console.ScreenshotClipboard
     name: ScreenshotClipboard
+    type: Class
+  - uid: YShared.Console.YArgumentAttribute
+    name: YArgumentAttribute
+    type: Class
+  - uid: YShared.Console.YAutocompleteListAttribute
+    name: YAutocompleteListAttribute
     type: Class
   - uid: YShared.Console.YCBool
     name: YCBool
@@ -73,11 +82,51 @@ items:
   - uid: YShared.Console.YCString
     name: YCString
     type: Class
-  - uid: YShared.Console.YCmdArgumentAttribute
-    name: YCmdArgumentAttribute
+  - uid: YShared.Console.YCmdParser
+    name: YCmdParser
+    type: Class
+  - uid: YShared.Console.YCmdParser`1
+    name: YCmdParser<T>
     type: Class
   - uid: YShared.Console.YCommandAttribute
     name: YCommandAttribute
+    type: Class
+  - uid: YShared.Console.YDynamicAutocompleteAttribute
+    name: YDynamicAutocompleteAttribute
+    type: Class
+  - uid: YShared.Console.YRangeAttribute
+    name: YRangeAttribute
+    type: Class
+  - uid: YShared.Console.YToggleAttribute
+    name: YToggleAttribute
+    type: Class
+- uid: YShared.Console.Suggestion
+  name: YShared.Console.Suggestion
+  type: Namespace
+  items:
+  - uid: YShared.Console.Suggestion.DynamicSuggestionModifierAttribute
+    name: DynamicSuggestionModifierAttribute
+    type: Class
+  - uid: YShared.Console.Suggestion.ExcludeAttribute
+    name: ExcludeAttribute
+    type: Class
+  - uid: YShared.Console.Suggestion.IncludeAttribute
+    name: IncludeAttribute
+    type: Class
+  - uid: YShared.Console.Suggestion.IncludeDynamicAttribute
+    name: IncludeDynamicAttribute
+    type: Class
+  - uid: YShared.Console.Suggestion.NoSuggestionsAttribute
+    name: NoSuggestionsAttribute
+    type: Class
+  - uid: YShared.Console.Suggestion.OverrideAttribute
+    name: OverrideAttribute
+    type: Class
+  - uid: YShared.Console.Suggestion.SuggestionModifierAttribute
+    name: SuggestionModifierAttribute
+    type: Class
+  - uid: YShared.Console.Suggestion.SuggestionRangeAttribute
+    name: SuggestionRangeAttribute
     type: Class
 - uid: YShared.MathHelper
   name: YShared.MathHelper

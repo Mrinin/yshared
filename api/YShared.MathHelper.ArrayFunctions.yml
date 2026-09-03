@@ -18,6 +18,8 @@ items:
   - YShared.MathHelper.ArrayFunctions.RepeatToArray``1(``0,System.Int32)
   - YShared.MathHelper.ArrayFunctions.ShiftArray``1(``0[0:,0:],System.Int32,System.Int32)
   - YShared.MathHelper.ArrayFunctions.SpiralLoop``1(``0[0:,0:])
+  - YShared.MathHelper.ArrayFunctions.StringifyArray``1(``0[])
+  - YShared.MathHelper.ArrayFunctions.StringifyList``1(System.Collections.Generic.IEnumerable{``0})
   - YShared.MathHelper.ArrayFunctions.SumArray(System.Int32[])
   - YShared.MathHelper.ArrayFunctions.SumArray(System.Single[])
   langs:
@@ -281,6 +283,63 @@ items:
   nameWithType.vb: ArrayFunctions.PrintList(Of T)(IEnumerable(Of T))
   fullName.vb: YShared.MathHelper.ArrayFunctions.PrintList(Of T)(System.Collections.Generic.IEnumerable(Of T))
   name.vb: PrintList(Of T)(IEnumerable(Of T))
+- uid: YShared.MathHelper.ArrayFunctions.StringifyArray``1(``0[])
+  commentId: M:YShared.MathHelper.ArrayFunctions.StringifyArray``1(``0[])
+  id: StringifyArray``1(``0[])
+  isExtensionMethod: true
+  parent: YShared.MathHelper.ArrayFunctions
+  langs:
+  - csharp
+  - vb
+  name: StringifyArray<T>(T[])
+  nameWithType: ArrayFunctions.StringifyArray<T>(T[])
+  fullName: YShared.MathHelper.ArrayFunctions.StringifyArray<T>(T[])
+  type: Method
+  assemblies:
+  - YShared.Runtime
+  namespace: YShared.MathHelper
+  syntax:
+    content: public static string StringifyArray<T>(this T[] arr)
+    parameters:
+    - id: arr
+      type: '{T}[]'
+    typeParameters:
+    - id: T
+    return:
+      type: System.String
+    content.vb: Public Shared Function StringifyArray(Of T)(arr As T()) As String
+  overload: YShared.MathHelper.ArrayFunctions.StringifyArray*
+  nameWithType.vb: ArrayFunctions.StringifyArray(Of T)(T())
+  fullName.vb: YShared.MathHelper.ArrayFunctions.StringifyArray(Of T)(T())
+  name.vb: StringifyArray(Of T)(T())
+- uid: YShared.MathHelper.ArrayFunctions.StringifyList``1(System.Collections.Generic.IEnumerable{``0})
+  commentId: M:YShared.MathHelper.ArrayFunctions.StringifyList``1(System.Collections.Generic.IEnumerable{``0})
+  id: StringifyList``1(System.Collections.Generic.IEnumerable{``0})
+  parent: YShared.MathHelper.ArrayFunctions
+  langs:
+  - csharp
+  - vb
+  name: StringifyList<T>(IEnumerable<T>)
+  nameWithType: ArrayFunctions.StringifyList<T>(IEnumerable<T>)
+  fullName: YShared.MathHelper.ArrayFunctions.StringifyList<T>(System.Collections.Generic.IEnumerable<T>)
+  type: Method
+  assemblies:
+  - YShared.Runtime
+  namespace: YShared.MathHelper
+  syntax:
+    content: public static string StringifyList<T>(IEnumerable<T> arr)
+    parameters:
+    - id: arr
+      type: System.Collections.Generic.IEnumerable{{T}}
+    typeParameters:
+    - id: T
+    return:
+      type: System.String
+    content.vb: Public Shared Function StringifyList(Of T)(arr As IEnumerable(Of T)) As String
+  overload: YShared.MathHelper.ArrayFunctions.StringifyList*
+  nameWithType.vb: ArrayFunctions.StringifyList(Of T)(IEnumerable(Of T))
+  fullName.vb: YShared.MathHelper.ArrayFunctions.StringifyList(Of T)(System.Collections.Generic.IEnumerable(Of T))
+  name.vb: StringifyList(Of T)(IEnumerable(Of T))
 - uid: YShared.MathHelper.ArrayFunctions.SpiralLoop``1(``0[0:,0:])
   commentId: M:YShared.MathHelper.ArrayFunctions.SpiralLoop``1(``0[0:,0:])
   id: SpiralLoop``1(``0[0:,0:])
@@ -1248,6 +1307,31 @@ references:
   - name: " "
   - name: T
   - name: )
+- uid: YShared.MathHelper.ArrayFunctions.StringifyArray*
+  commentId: Overload:YShared.MathHelper.ArrayFunctions.StringifyArray
+  isExternal: true
+  href: YShared.MathHelper.ArrayFunctions.html#YShared_MathHelper_ArrayFunctions_StringifyArray__1___0___
+  name: StringifyArray
+  nameWithType: ArrayFunctions.StringifyArray
+  fullName: YShared.MathHelper.ArrayFunctions.StringifyArray
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: YShared.MathHelper.ArrayFunctions.StringifyList*
+  commentId: Overload:YShared.MathHelper.ArrayFunctions.StringifyList
+  isExternal: true
+  href: YShared.MathHelper.ArrayFunctions.html#YShared_MathHelper_ArrayFunctions_StringifyList__1_System_Collections_Generic_IEnumerable___0__
+  name: StringifyList
+  nameWithType: ArrayFunctions.StringifyList
+  fullName: YShared.MathHelper.ArrayFunctions.StringifyList
 - uid: YShared.MathHelper.ArrayFunctions.SpiralLoop*
   commentId: Overload:YShared.MathHelper.ArrayFunctions.SpiralLoop
   isExternal: true

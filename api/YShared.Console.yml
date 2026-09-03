@@ -17,18 +17,25 @@ items:
   - YShared.Console.DevConsoleException
   - YShared.Console.DevConsoleUI
   - YShared.Console.FeedbackFlavor
+  - YShared.Console.FieldValueCommandType
   - YShared.Console.MethodSignature
   - YShared.Console.ObjectFindType
   - YShared.Console.Parameter
   - YShared.Console.ScreenshotClipboard
+  - YShared.Console.YArgumentAttribute
+  - YShared.Console.YAutocompleteListAttribute
   - YShared.Console.YCBool
   - YShared.Console.YCCmdArg
   - YShared.Console.YCEnum
   - YShared.Console.YCFloat
   - YShared.Console.YCInt
   - YShared.Console.YCString
-  - YShared.Console.YCmdArgumentAttribute
+  - YShared.Console.YCmdParser
+  - YShared.Console.YCmdParser`1
   - YShared.Console.YCommandAttribute
+  - YShared.Console.YDynamicAutocompleteAttribute
+  - YShared.Console.YRangeAttribute
+  - YShared.Console.YToggleAttribute
   langs:
   - csharp
   - vb
@@ -39,65 +46,34 @@ items:
   assemblies:
   - YShared.Runtime
 references:
-- uid: YShared.Console.AliasAttribute
-  commentId: T:YShared.Console.AliasAttribute
-  parent: YShared.Console
+- uid: YShared.Console.YArgumentAttribute
+  commentId: T:YShared.Console.YArgumentAttribute
   isExternal: true
-  href: YShared.Console.AliasAttribute.html
-  name: AliasAttribute
-  nameWithType: AliasAttribute
-  fullName: YShared.Console.AliasAttribute
-- uid: YShared.Console.YCBool
-  commentId: T:YShared.Console.YCBool
+  href: YShared.Console.YArgumentAttribute.html
+  name: YArgumentAttribute
+  nameWithType: YArgumentAttribute
+  fullName: YShared.Console.YArgumentAttribute
+- uid: YShared.Console.YRangeAttribute
+  commentId: T:YShared.Console.YRangeAttribute
   isExternal: true
-  href: YShared.Console.YCBool.html
-  name: YCBool
-  nameWithType: YCBool
-  fullName: YShared.Console.YCBool
-- uid: YShared.Console.YCCmdArg
-  commentId: T:YShared.Console.YCCmdArg
+  href: YShared.Console.YRangeAttribute.html
+  name: YRangeAttribute
+  nameWithType: YRangeAttribute
+  fullName: YShared.Console.YRangeAttribute
+- uid: YShared.Console.YAutocompleteListAttribute
+  commentId: T:YShared.Console.YAutocompleteListAttribute
   isExternal: true
-  href: YShared.Console.YCCmdArg.html
-  name: YCCmdArg
-  nameWithType: YCCmdArg
-  fullName: YShared.Console.YCCmdArg
-- uid: YShared.Console.YCEnum
-  commentId: T:YShared.Console.YCEnum
+  href: YShared.Console.YAutocompleteListAttribute.html
+  name: YAutocompleteListAttribute
+  nameWithType: YAutocompleteListAttribute
+  fullName: YShared.Console.YAutocompleteListAttribute
+- uid: YShared.Console.YDynamicAutocompleteAttribute
+  commentId: T:YShared.Console.YDynamicAutocompleteAttribute
   isExternal: true
-  href: YShared.Console.YCEnum.html
-  name: YCEnum
-  nameWithType: YCEnum
-  fullName: YShared.Console.YCEnum
-- uid: YShared.Console.YCFloat
-  commentId: T:YShared.Console.YCFloat
-  isExternal: true
-  href: YShared.Console.YCFloat.html
-  name: YCFloat
-  nameWithType: YCFloat
-  fullName: YShared.Console.YCFloat
-- uid: YShared.Console.YCInt
-  commentId: T:YShared.Console.YCInt
-  parent: YShared.Console
-  isExternal: true
-  href: YShared.Console.YCInt.html
-  name: YCInt
-  nameWithType: YCInt
-  fullName: YShared.Console.YCInt
-- uid: YShared.Console.YCString
-  commentId: T:YShared.Console.YCString
-  isExternal: true
-  href: YShared.Console.YCString.html
-  name: YCString
-  nameWithType: YCString
-  fullName: YShared.Console.YCString
-- uid: YShared.Console.YCmdArgumentAttribute
-  commentId: T:YShared.Console.YCmdArgumentAttribute
-  parent: YShared.Console
-  isExternal: true
-  href: YShared.Console.YCmdArgumentAttribute.html
-  name: YCmdArgumentAttribute
-  nameWithType: YCmdArgumentAttribute
-  fullName: YShared.Console.YCmdArgumentAttribute
+  href: YShared.Console.YDynamicAutocompleteAttribute.html
+  name: YDynamicAutocompleteAttribute
+  nameWithType: YDynamicAutocompleteAttribute
+  fullName: YShared.Console.YDynamicAutocompleteAttribute
 - uid: YShared.Console.YCommandAttribute
   commentId: T:YShared.Console.YCommandAttribute
   parent: YShared.Console
@@ -106,6 +82,14 @@ references:
   name: YCommandAttribute
   nameWithType: YCommandAttribute
   fullName: YShared.Console.YCommandAttribute
+- uid: YShared.Console.YToggleAttribute
+  commentId: T:YShared.Console.YToggleAttribute
+  parent: YShared.Console
+  isExternal: true
+  href: YShared.Console.YToggleAttribute.html
+  name: YToggleAttribute
+  nameWithType: YToggleAttribute
+  fullName: YShared.Console.YToggleAttribute
 - uid: YShared.Console.Autocomplete
   commentId: T:YShared.Console.Autocomplete
   isExternal: true
@@ -120,6 +104,14 @@ references:
   name: CommandRegistry
   nameWithType: CommandRegistry
   fullName: YShared.Console.CommandRegistry
+- uid: YShared.Console.FieldValueCommandType
+  commentId: T:YShared.Console.FieldValueCommandType
+  parent: YShared.Console
+  isExternal: true
+  href: YShared.Console.FieldValueCommandType.html
+  name: FieldValueCommandType
+  nameWithType: FieldValueCommandType
+  fullName: YShared.Console.FieldValueCommandType
 - uid: YShared.Console.CommandsHelper
   commentId: T:YShared.Console.CommandsHelper
   parent: YShared.Console
@@ -187,6 +179,92 @@ references:
   name: MethodSignature
   nameWithType: MethodSignature
   fullName: YShared.Console.MethodSignature
+- uid: YShared.Console.AliasAttribute
+  commentId: T:YShared.Console.AliasAttribute
+  parent: YShared.Console
+  isExternal: true
+  href: YShared.Console.AliasAttribute.html
+  name: AliasAttribute
+  nameWithType: AliasAttribute
+  fullName: YShared.Console.AliasAttribute
+- uid: YShared.Console.YCBool
+  commentId: T:YShared.Console.YCBool
+  isExternal: true
+  href: YShared.Console.YCBool.html
+  name: YCBool
+  nameWithType: YCBool
+  fullName: YShared.Console.YCBool
+- uid: YShared.Console.YCCmdArg
+  commentId: T:YShared.Console.YCCmdArg
+  isExternal: true
+  href: YShared.Console.YCCmdArg.html
+  name: YCCmdArg
+  nameWithType: YCCmdArg
+  fullName: YShared.Console.YCCmdArg
+- uid: YShared.Console.YCEnum
+  commentId: T:YShared.Console.YCEnum
+  isExternal: true
+  href: YShared.Console.YCEnum.html
+  name: YCEnum
+  nameWithType: YCEnum
+  fullName: YShared.Console.YCEnum
+- uid: YShared.Console.YCFloat
+  commentId: T:YShared.Console.YCFloat
+  isExternal: true
+  href: YShared.Console.YCFloat.html
+  name: YCFloat
+  nameWithType: YCFloat
+  fullName: YShared.Console.YCFloat
+- uid: YShared.Console.YCInt
+  commentId: T:YShared.Console.YCInt
+  isExternal: true
+  href: YShared.Console.YCInt.html
+  name: YCInt
+  nameWithType: YCInt
+  fullName: YShared.Console.YCInt
+- uid: YShared.Console.YCString
+  commentId: T:YShared.Console.YCString
+  isExternal: true
+  href: YShared.Console.YCString.html
+  name: YCString
+  nameWithType: YCString
+  fullName: YShared.Console.YCString
+- uid: YShared.Console.YCmdParser
+  commentId: T:YShared.Console.YCmdParser
+  parent: YShared.Console
+  isExternal: true
+  href: YShared.Console.YCmdParser.html
+  name: YCmdParser
+  nameWithType: YCmdParser
+  fullName: YShared.Console.YCmdParser
+- uid: YShared.Console.YCmdParser`1
+  commentId: T:YShared.Console.YCmdParser`1
+  isExternal: true
+  href: YShared.Console.YCmdParser-1.html
+  name: YCmdParser<T>
+  nameWithType: YCmdParser<T>
+  fullName: YShared.Console.YCmdParser<T>
+  nameWithType.vb: YCmdParser(Of T)
+  fullName.vb: YShared.Console.YCmdParser(Of T)
+  name.vb: YCmdParser(Of T)
+  spec.csharp:
+  - uid: YShared.Console.YCmdParser`1
+    name: YCmdParser
+    isExternal: true
+    href: YShared.Console.YCmdParser-1.html
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: YShared.Console.YCmdParser`1
+    name: YCmdParser
+    isExternal: true
+    href: YShared.Console.YCmdParser-1.html
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
 - uid: YShared.Console.Parameter
   commentId: T:YShared.Console.Parameter
   isExternal: true

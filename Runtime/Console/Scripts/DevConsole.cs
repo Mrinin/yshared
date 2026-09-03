@@ -28,17 +28,17 @@ namespace YShared.Console
         {
             // arguments[0] is the command itself
 
-            object[] result = new object[cmd.arguments.Length];
+            object[] result = new object[cmd.parameters.Length];
             int succesful_parses = 0;
 
-            if (!ignoreExceedingParameters && parameters.Length - parameter_start_index > cmd.arguments.Length)
+            if (!ignoreExceedingParameters && parameters.Length - parameter_start_index > cmd.parameters.Length)
             {
                 throw new DevConsoleException($"Got more arguments than expected: {result.Length}, Got: {parameters.Length - 1}");
             }
 
-            for (int i = 0; i < cmd.arguments.Length; i++)
+            for (int i = 0; i < cmd.parameters.Length; i++)
             {
-                YCmdArgumentAttribute arg = cmd.arguments[i];
+                YCmdParser arg = cmd.parser(i);
 
                 bool par_successfully_acquired = false;
                 bool parsing_attempted = false;
@@ -50,46 +50,12 @@ namespace YShared.Console
                 {
                     parsing_attempted = true;
 
-                    if (arg is YCInt yc)
+                    if (arg.ParseUnsafe(parameters[ind], out object val))
                     {
-                        if (yc.Parse<int>(parameters[ind], out int val))
-                        {
-                            parsed_arg = val;
-                            par_successfully_acquired = true;
-                        }
+                        parsed_arg = val;
+                        par_successfully_acquired = true;
                     }
-                    else if (arg is YCBool yb)
-                    {
-                        if (yb.Parse<bool>(parameters[ind], out bool val))
-                        {
-                            parsed_arg = val;
-                            par_successfully_acquired = true;
-                        }
-                    }
-                    else if (arg is YCString ys)
-                    {
-                        if (ys.Parse<string>(parameters[ind], out string val))
-                        {
-                            parsed_arg = val;
-                            par_successfully_acquired = true;
-                        }
-                    }
-                    else if (arg is YCEnum ye)
-                    {
-                        if (ye.Parse<Enum>(parameters[ind], out Enum val))
-                        {
-                            parsed_arg = val;
-                            par_successfully_acquired = true;
-                        }
-                    }
-                    else if (arg is YCCmdArg ycmdarg)
-                    {
-                        if (ycmdarg.Parse<List<Command>>(parameters[ind], out List<Command> val))
-                        {
-                            parsed_arg = val.ToArray();
-                            par_successfully_acquired = true;
-                        }
-                    }
+
                 }
 
                 if (par_successfully_acquired)
@@ -98,11 +64,11 @@ namespace YShared.Console
                 }
                 else
                 {
-                    if (cmd.functionParameters[i].hasDefault)
+                    if (cmd.parameters[i].hasDefault)
                     {                
                         if (!parsing_attempted || (parsing_attempted && correctIncorrectParametersIfDefaultExists))
                         {
-                            result[i] = cmd.functionParameters[i].defaultval;
+                            result[i] = cmd.parameters[i].defaultval;
                             par_successfully_acquired = true;
                         }
                     }
@@ -114,7 +80,7 @@ namespace YShared.Console
                 }
                 else
                 {
-                    string s = $"Expected \"{cmd.arguments[i].variableName}\" of type {cmd.arguments[i].getTypeName}.\nProper usage: {cmd.ProperUsage}";
+                    string s = $"Expected \"{cmd.parser(i).variableName}\" of type {cmd.parser(i).getTypeName}.\nProper usage: {cmd.ProperUsage}";
                     throw new DevConsoleException("Failed to parse or invalid input. " + s);
                 }
             }
@@ -132,7 +98,7 @@ namespace YShared.Console
             string[] parts = CommandsHelper.SplitCommand(line);
             if (parts.Length == 0)
             {
-                Debug.Log("Early exit?");
+                //Debug.Log("Early exit?");
                 return false;
             }
 
@@ -249,6 +215,9 @@ namespace YShared.Console
                 object returnVal = null;
                 bool hasReturnValue = cmd.hasReturnType;
 
+                object[] returnValues = null;
+                bool hasArrayOfReturnValues = false;
+
                 if (cmd.IsStatic)
                 {
                     returnVal = Invoke(cmd, null, parameters);
@@ -281,7 +250,6 @@ namespace YShared.Console
                     } 
                     else if (cmd.objectFindType == ObjectFindType.All)
                     {
-                        hasReturnValue = false;
                         UnityEngine.Object[] objs = GameObject.FindObjectsByType(t, cmd.findObjectsInactive, FindObjectsSortMode.None);
                         if (objs.Length == 0)
                         {
@@ -290,10 +258,15 @@ namespace YShared.Console
                             return false;
                         }
 
+                        returnValues = new object[objs.Length];
+
                         for (int i = 0; i < objs.Length; i++)
                         {
-                            Invoke(cmd, objs[i], parameters);
+                            returnValues[i] = Invoke(cmd, objs[i], parameters);
                         }
+
+                        hasArrayOfReturnValues = hasReturnValue;
+
                         DevConsole.Feedback($"Ran on {objs.Length} instances.", FeedbackFlavor.Info);
                     } 
                     else
@@ -305,10 +278,23 @@ namespace YShared.Console
 
                 if (hasReturnValue)
                 {
-                    if (returnVal != null)
-                        DevConsole.Feedback(returnVal.ToString(), FeedbackFlavor.Return);
+                    if (hasArrayOfReturnValues)
+                    {
+                        for (int i = 0; i < returnValues.Length; i++)
+                        {
+                            if (returnValues[i] != null)
+                                DevConsole.Feedback(returnValues[i].ToString(), FeedbackFlavor.Return);
+                            else
+                                DevConsole.Feedback("null", FeedbackFlavor.Return);
+                        }
+                    }
                     else
-                        DevConsole.Feedback("null", FeedbackFlavor.Return);
+                    {        
+                        if (returnVal != null)
+                            DevConsole.Feedback(returnVal.ToString(), FeedbackFlavor.Return);
+                        else
+                            DevConsole.Feedback("null", FeedbackFlavor.Return);
+                    }
                 }
 
                 return true;
@@ -334,14 +320,26 @@ namespace YShared.Console
 
             if (cmd.action is FieldInfo fi)
             {
-                if (cmd.functionParameters.Length == 1)
+                if (cmd.fieldValueCommandType == FieldValueCommandType.set || cmd.fieldValueCommandType == FieldValueCommandType.toggleSet)
                 {
-                    fi.SetValue(targetObject, parameters);
-                    return null;   
+                    fi.SetValue(targetObject, parameters[0]);
+                    return $"Set to: \"{parameters[0]}\""; 
                 }
 
-                if (cmd.functionParameters.Length == 0)
+                if (cmd.fieldValueCommandType == FieldValueCommandType.get)
+                {
                     return fi.GetValue(targetObject);
+                }
+
+                if (cmd.fieldValueCommandType == FieldValueCommandType.toggle)
+                {
+                    object ob = fi.GetValue(targetObject);
+                    if (ob is bool b)
+                    {
+                        fi.SetValue(targetObject, !b);
+                        return $"Toggled to: \"{!b}\""; 
+                    }
+                }
             }
 
             return null;
@@ -393,17 +391,17 @@ namespace YShared.Console
             feedbackActive = false;
         }
 
-        public static void Feedback(string text, FeedbackFlavor flavor = FeedbackFlavor.Feedback)
+        public static void Feedback(object text, FeedbackFlavor flavor = FeedbackFlavor.Feedback)
         {
             if (feedbackActive)
             {
-                CommandFeedback?.Invoke(text, flavor);
+                CommandFeedback?.Invoke(text.ToString(), flavor);
             }
         }
 
-        public static void Log(string text, FeedbackFlavor flavor = FeedbackFlavor.Feedback)
+        public static void Log(object text, FeedbackFlavor flavor = FeedbackFlavor.Feedback)
         {
-            CommandLog?.Invoke(text, flavor);
+            CommandLog?.Invoke(text.ToString(), flavor);
         }
     }
     

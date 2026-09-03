@@ -8,8 +8,8 @@ items:
   - YShared.Console.DevConsole.CommandFeedback
   - YShared.Console.DevConsole.CommandLog
   - YShared.Console.DevConsole.Execute(System.String)
-  - YShared.Console.DevConsole.Feedback(System.String,YShared.Console.FeedbackFlavor)
-  - YShared.Console.DevConsole.Log(System.String,YShared.Console.FeedbackFlavor)
+  - YShared.Console.DevConsole.Feedback(System.Object,YShared.Console.FeedbackFlavor)
+  - YShared.Console.DevConsole.Log(System.Object,YShared.Console.FeedbackFlavor)
   - YShared.Console.DevConsole.commandAutocompleteLists
   langs:
   - csharp
@@ -98,58 +98,58 @@ items:
   nameWithType.vb: DevConsole.Execute(String)
   fullName.vb: YShared.Console.DevConsole.Execute(String)
   name.vb: Execute(String)
-- uid: YShared.Console.DevConsole.Feedback(System.String,YShared.Console.FeedbackFlavor)
-  commentId: M:YShared.Console.DevConsole.Feedback(System.String,YShared.Console.FeedbackFlavor)
-  id: Feedback(System.String,YShared.Console.FeedbackFlavor)
+- uid: YShared.Console.DevConsole.Feedback(System.Object,YShared.Console.FeedbackFlavor)
+  commentId: M:YShared.Console.DevConsole.Feedback(System.Object,YShared.Console.FeedbackFlavor)
+  id: Feedback(System.Object,YShared.Console.FeedbackFlavor)
   parent: YShared.Console.DevConsole
   langs:
   - csharp
   - vb
-  name: Feedback(string, FeedbackFlavor)
-  nameWithType: DevConsole.Feedback(string, FeedbackFlavor)
-  fullName: YShared.Console.DevConsole.Feedback(string, YShared.Console.FeedbackFlavor)
+  name: Feedback(object, FeedbackFlavor)
+  nameWithType: DevConsole.Feedback(object, FeedbackFlavor)
+  fullName: YShared.Console.DevConsole.Feedback(object, YShared.Console.FeedbackFlavor)
   type: Method
   assemblies:
   - YShared.Runtime
   namespace: YShared.Console
   syntax:
-    content: public static void Feedback(string text, FeedbackFlavor flavor = FeedbackFlavor.Feedback)
+    content: public static void Feedback(object text, FeedbackFlavor flavor = FeedbackFlavor.Feedback)
     parameters:
     - id: text
-      type: System.String
+      type: System.Object
     - id: flavor
       type: YShared.Console.FeedbackFlavor
-    content.vb: Public Shared Sub Feedback(text As String, flavor As FeedbackFlavor = FeedbackFlavor.Feedback)
+    content.vb: Public Shared Sub Feedback(text As Object, flavor As FeedbackFlavor = FeedbackFlavor.Feedback)
   overload: YShared.Console.DevConsole.Feedback*
-  nameWithType.vb: DevConsole.Feedback(String, FeedbackFlavor)
-  fullName.vb: YShared.Console.DevConsole.Feedback(String, YShared.Console.FeedbackFlavor)
-  name.vb: Feedback(String, FeedbackFlavor)
-- uid: YShared.Console.DevConsole.Log(System.String,YShared.Console.FeedbackFlavor)
-  commentId: M:YShared.Console.DevConsole.Log(System.String,YShared.Console.FeedbackFlavor)
-  id: Log(System.String,YShared.Console.FeedbackFlavor)
+  nameWithType.vb: DevConsole.Feedback(Object, FeedbackFlavor)
+  fullName.vb: YShared.Console.DevConsole.Feedback(Object, YShared.Console.FeedbackFlavor)
+  name.vb: Feedback(Object, FeedbackFlavor)
+- uid: YShared.Console.DevConsole.Log(System.Object,YShared.Console.FeedbackFlavor)
+  commentId: M:YShared.Console.DevConsole.Log(System.Object,YShared.Console.FeedbackFlavor)
+  id: Log(System.Object,YShared.Console.FeedbackFlavor)
   parent: YShared.Console.DevConsole
   langs:
   - csharp
   - vb
-  name: Log(string, FeedbackFlavor)
-  nameWithType: DevConsole.Log(string, FeedbackFlavor)
-  fullName: YShared.Console.DevConsole.Log(string, YShared.Console.FeedbackFlavor)
+  name: Log(object, FeedbackFlavor)
+  nameWithType: DevConsole.Log(object, FeedbackFlavor)
+  fullName: YShared.Console.DevConsole.Log(object, YShared.Console.FeedbackFlavor)
   type: Method
   assemblies:
   - YShared.Runtime
   namespace: YShared.Console
   syntax:
-    content: public static void Log(string text, FeedbackFlavor flavor = FeedbackFlavor.Feedback)
+    content: public static void Log(object text, FeedbackFlavor flavor = FeedbackFlavor.Feedback)
     parameters:
     - id: text
-      type: System.String
+      type: System.Object
     - id: flavor
       type: YShared.Console.FeedbackFlavor
-    content.vb: Public Shared Sub Log(text As String, flavor As FeedbackFlavor = FeedbackFlavor.Feedback)
+    content.vb: Public Shared Sub Log(text As Object, flavor As FeedbackFlavor = FeedbackFlavor.Feedback)
   overload: YShared.Console.DevConsole.Log*
-  nameWithType.vb: DevConsole.Log(String, FeedbackFlavor)
-  fullName.vb: YShared.Console.DevConsole.Log(String, YShared.Console.FeedbackFlavor)
-  name.vb: Log(String, FeedbackFlavor)
+  nameWithType.vb: DevConsole.Log(Object, FeedbackFlavor)
+  fullName.vb: YShared.Console.DevConsole.Log(Object, YShared.Console.FeedbackFlavor)
+  name.vb: Log(Object, FeedbackFlavor)
 - uid: YShared.Console.DevConsole.commandAutocompleteLists
   commentId: P:YShared.Console.DevConsole.commandAutocompleteLists
   id: commandAutocompleteLists
@@ -549,7 +549,7 @@ references:
 - uid: YShared.Console.DevConsole.Feedback*
   commentId: Overload:YShared.Console.DevConsole.Feedback
   isExternal: true
-  href: YShared.Console.DevConsole.html#YShared_Console_DevConsole_Feedback_System_String_YShared_Console_FeedbackFlavor_
+  href: YShared.Console.DevConsole.html#YShared_Console_DevConsole_Feedback_System_Object_YShared_Console_FeedbackFlavor_
   name: Feedback
   nameWithType: DevConsole.Feedback
   fullName: YShared.Console.DevConsole.Feedback
@@ -564,7 +564,7 @@ references:
 - uid: YShared.Console.DevConsole.Log*
   commentId: Overload:YShared.Console.DevConsole.Log
   isExternal: true
-  href: YShared.Console.DevConsole.html#YShared_Console_DevConsole_Log_System_String_YShared_Console_FeedbackFlavor_
+  href: YShared.Console.DevConsole.html#YShared_Console_DevConsole_Log_System_Object_YShared_Console_FeedbackFlavor_
   name: Log
   nameWithType: DevConsole.Log
   fullName: YShared.Console.DevConsole.Log

@@ -383,6 +383,35 @@ namespace YShared.MathHelper
 			Debug.Log(arr.Aggregate("", (acc, x) => acc += x.ToString() + "\n"));
 		}
 
+		public static string StringifyArray<T>(this T[] arr)
+		{
+			string txt = "[ ";
+			for (int i = 0; i < arr.Length; i++)
+			{
+				txt += arr[i];
+				if (i + 1 != arr.Length)
+					txt += ",";
+			}
+			txt += " ]";
+
+			return txt;
+		}
+
+		public static string StringifyList<T>(IEnumerable<T> arr)
+		{
+			string txt = "[ ";
+			int max = arr.Count();
+			for (int i = 0; i < max; i++)
+			{
+				txt += arr.ElementAt(i);
+				if (i + 1 != max)
+					txt += ",";
+			}
+			txt += " ]";
+
+			return txt;
+		}
+
 		public static List<T> SpiralLoop<T>(this T[,] arr)
 		{
 			int rows = arr.GetLength(0);

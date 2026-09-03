@@ -17,6 +17,9 @@ items:
   - YShared.Console.DevConsoleUI.SetAutocompleteList(System.String[])
   - YShared.Console.DevConsoleUI.SetFontSize(System.Int32)
   - YShared.Console.DevConsoleUI.SetFontSizeCmd(System.Int32)
+  - YShared.Console.DevConsoleUI.ShowErrors
+  - YShared.Console.DevConsoleUI.ShowInfo
+  - YShared.Console.DevConsoleUI.ShowWarnings
   langs:
   - csharp
   - vb
@@ -38,6 +41,114 @@ items:
   - YShared.Singleton.YSingleton{YShared.Console.DevConsoleUI}.Instance
   extensionMethods:
   - System.Object.YShared.MathHelper.YMathHelper.TryAs``1({T}@)
+- uid: YShared.Console.DevConsoleUI.ShowErrors
+  commentId: F:YShared.Console.DevConsoleUI.ShowErrors
+  id: ShowErrors
+  parent: YShared.Console.DevConsoleUI
+  langs:
+  - csharp
+  - vb
+  name: ShowErrors
+  nameWithType: DevConsoleUI.ShowErrors
+  fullName: YShared.Console.DevConsoleUI.ShowErrors
+  type: Field
+  assemblies:
+  - YShared.Runtime
+  namespace: YShared.Console
+  syntax:
+    content: >-
+      [YCommand]
+
+      [YToggle]
+
+      public bool ShowErrors
+    return:
+      type: System.Boolean
+    content.vb: >-
+      <YCommand>
+
+      <YToggle>
+
+      Public ShowErrors As Boolean
+  attributes:
+  - type: YShared.Console.YCommandAttribute
+    ctor: YShared.Console.YCommandAttribute.#ctor(System.String,System.String,YShared.Console.ObjectFindType,UnityEngine.FindObjectsInactive)
+    arguments: []
+  - type: YShared.Console.YToggleAttribute
+    ctor: YShared.Console.YToggleAttribute.#ctor
+    arguments: []
+- uid: YShared.Console.DevConsoleUI.ShowWarnings
+  commentId: F:YShared.Console.DevConsoleUI.ShowWarnings
+  id: ShowWarnings
+  parent: YShared.Console.DevConsoleUI
+  langs:
+  - csharp
+  - vb
+  name: ShowWarnings
+  nameWithType: DevConsoleUI.ShowWarnings
+  fullName: YShared.Console.DevConsoleUI.ShowWarnings
+  type: Field
+  assemblies:
+  - YShared.Runtime
+  namespace: YShared.Console
+  syntax:
+    content: >-
+      [YCommand]
+
+      [YToggle]
+
+      public bool ShowWarnings
+    return:
+      type: System.Boolean
+    content.vb: >-
+      <YCommand>
+
+      <YToggle>
+
+      Public ShowWarnings As Boolean
+  attributes:
+  - type: YShared.Console.YCommandAttribute
+    ctor: YShared.Console.YCommandAttribute.#ctor(System.String,System.String,YShared.Console.ObjectFindType,UnityEngine.FindObjectsInactive)
+    arguments: []
+  - type: YShared.Console.YToggleAttribute
+    ctor: YShared.Console.YToggleAttribute.#ctor
+    arguments: []
+- uid: YShared.Console.DevConsoleUI.ShowInfo
+  commentId: F:YShared.Console.DevConsoleUI.ShowInfo
+  id: ShowInfo
+  parent: YShared.Console.DevConsoleUI
+  langs:
+  - csharp
+  - vb
+  name: ShowInfo
+  nameWithType: DevConsoleUI.ShowInfo
+  fullName: YShared.Console.DevConsoleUI.ShowInfo
+  type: Field
+  assemblies:
+  - YShared.Runtime
+  namespace: YShared.Console
+  syntax:
+    content: >-
+      [YCommand]
+
+      [YToggle]
+
+      public bool ShowInfo
+    return:
+      type: System.Boolean
+    content.vb: >-
+      <YCommand>
+
+      <YToggle>
+
+      Public ShowInfo As Boolean
+  attributes:
+  - type: YShared.Console.YCommandAttribute
+    ctor: YShared.Console.YCommandAttribute.#ctor(System.String,System.String,YShared.Console.ObjectFindType,UnityEngine.FindObjectsInactive)
+    arguments: []
+  - type: YShared.Console.YToggleAttribute
+    ctor: YShared.Console.YToggleAttribute.#ctor
+    arguments: []
 - uid: YShared.Console.DevConsoleUI.OnDestroy
   commentId: M:YShared.Console.DevConsoleUI.OnDestroy
   id: OnDestroy
@@ -149,8 +260,6 @@ items:
     content: >-
       [YCommand]
 
-      [YCInt("font_size", -2147483648, 2147483647)]
-
       public static void SetFontSizeCmd(int val = 0)
     parameters:
     - id: val
@@ -158,23 +267,12 @@ items:
     content.vb: >-
       <YCommand>
 
-      <YCInt("font_size", -2147483648, 2147483647)>
-
       Public Shared Sub SetFontSizeCmd(val As Integer = 0)
   overload: YShared.Console.DevConsoleUI.SetFontSizeCmd*
   attributes:
   - type: YShared.Console.YCommandAttribute
     ctor: YShared.Console.YCommandAttribute.#ctor(System.String,System.String,YShared.Console.ObjectFindType,UnityEngine.FindObjectsInactive)
     arguments: []
-  - type: YShared.Console.YCInt
-    ctor: YShared.Console.YCInt.#ctor(System.String,System.Int32,System.Int32)
-    arguments:
-    - type: System.String
-      value: font_size
-    - type: System.Int32
-      value: -2147483648
-    - type: System.Int32
-      value: 2147483647
   nameWithType.vb: DevConsoleUI.SetFontSizeCmd(Integer)
   fullName.vb: YShared.Console.DevConsoleUI.SetFontSizeCmd(Integer)
   name.vb: SetFontSizeCmd(Integer)
@@ -663,6 +761,17 @@ references:
     name: MathHelper
     isExternal: true
     href: YShared.MathHelper.html
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
 - uid: YShared.Singleton.YSingleton{YShared.Console.DevConsoleUI}.OnDestroy
   commentId: M:YShared.Singleton.YSingleton{YShared.Console.DevConsoleUI}.OnDestroy
   parent: YShared.Singleton.YSingleton{YShared.Console.DevConsoleUI}
@@ -804,17 +913,6 @@ references:
   name: IsDownArrow
   nameWithType: DevConsoleUI.IsDownArrow
   fullName: YShared.Console.DevConsoleUI.IsDownArrow
-- uid: System.Boolean
-  commentId: T:System.Boolean
-  parent: System
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.boolean
-  name: bool
-  nameWithType: bool
-  fullName: bool
-  nameWithType.vb: Boolean
-  fullName.vb: Boolean
-  name.vb: Boolean
 - uid: YShared.Console.DevConsoleUI.IsUpArrow*
   commentId: Overload:YShared.Console.DevConsoleUI.IsUpArrow
   isExternal: true

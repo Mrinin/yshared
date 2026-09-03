@@ -38,7 +38,7 @@ public class MyConsoleCommands : MonoBehaviour
 
 If the function is a static method, the command will simply run without an instance.
 
-If the function is an instance method, an [`ObjectFindType`](xref:YShared.Console.ObjectFindType) can be given to tell YConsole how to find the object to run this command on. By default, `ObjectFindType.All` is used.
+If the function is an instance method, an [`ObjectFindType`](xref:YShared.Console.ObjectFindType) value can be given to tell YConsole how to find the object to run this command on. By default, `ObjectFindType.All` is used.
 
 | Value | Description |
 | --- | --- |

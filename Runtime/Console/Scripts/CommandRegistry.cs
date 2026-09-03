@@ -6,7 +6,10 @@ using System.Reflection;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices.WindowsRuntime;
 using System.Xml.Schema;
+using Codice.CM.SEIDInfo;
 using UnityEngine;
+using YShared.Console.Suggestion;
+using YShared.MathHelper;
 
 namespace YShared.Console
 {
@@ -14,6 +17,9 @@ namespace YShared.Console
     {
         //public static readonly Dictionary<string, List<Command>> commands = new();
         public static readonly CommandNode Root = new();
+
+        public static readonly Dictionary<Type, Type> parserRegistry = new();
+        static Type EnumParserType;
 
         /// <summary>
         /// The list of all top-level commands active, sorted alphabetically.
@@ -31,6 +37,36 @@ namespace YShared.Console
         {
             Root.Clear();
             Commands.Clear();
+            parserRegistry.Clear();
+            
+            foreach (Assembly assembly in AppDomain.CurrentDomain.GetAssemblies())
+            {
+                foreach (Type type in assembly.GetTypes())
+                {
+                    Type? current = type;
+
+                    while (current != null)
+                    {
+                        if (current.IsGenericType &&
+                            current.GetGenericTypeDefinition() == typeof(YCmdParser<>))
+                        {
+                            Type parsedType = current.GetGenericArguments()[0];
+
+                            //Debug.Log($"Registered {parsedType} -> {type}");
+
+                            if (parsedType == typeof(Enum))
+                            {
+                                EnumParserType = type;
+                            }
+
+                            parserRegistry[parsedType] = type;
+                            break;
+                        }
+
+                        current = current.BaseType;
+                    }
+                }
+            }
 
             foreach (Assembly assembly in AppDomain.CurrentDomain.GetAssemblies())
             {
@@ -91,16 +127,30 @@ namespace YShared.Console
                         if (attribute == null)
                             continue;
 
-                        YCommandAttribute getterAttribute = new YCommandAttribute("get", attribute);
+                        bool isToggle = field.GetCustomAttribute<YToggleAttribute>() != null;
 
-                        RegisterCommand(CreateFieldCommand(field, getterAttribute, false));
-
-                        if (!field.IsInitOnly)
+                        if (isToggle)
                         {
-                            YCommandAttribute setterAttribute = new YCommandAttribute("set", attribute);
+                            if (!field.IsInitOnly)
+                            {
+                                YCommandAttribute toggleAttribute = new YCommandAttribute("", attribute);
+                                YCommandAttribute setterToggleAttribute = new YCommandAttribute("", attribute);
 
-                            RegisterCommand(CreateFieldCommand(field, setterAttribute, true));
+                                RegisterCommand(CreateFieldCommand(field, toggleAttribute, FieldValueCommandType.toggle));
+                                RegisterCommand(CreateFieldCommand(field, setterToggleAttribute, FieldValueCommandType.toggleSet));
+                            }
                         }
+                        else
+                        {
+                            if (!field.IsInitOnly)
+                            {
+                                YCommandAttribute setterAttribute = new YCommandAttribute("set", attribute);
+                                RegisterCommand(CreateFieldCommand(field, setterAttribute, FieldValueCommandType.set));
+                            }
+                        }
+
+                        YCommandAttribute getterAttribute = new YCommandAttribute("get", attribute);
+                        RegisterCommand(CreateFieldCommand(field, getterAttribute, FieldValueCommandType.get));
                     }
                 }
             }
@@ -150,30 +200,45 @@ namespace YShared.Console
         {
             Command cmd = new Command();
 
-            var arguments = method.GetCustomAttributes<YCmdArgumentAttribute>().ToArray();
+            ParameterInfo[] pi;
+            pi = method.GetParameters();
+
+            cmd.parameters = new Parameter[pi.Length];
+            for (int i = 0; i < pi.Length; i++)
+            {
+                ParameterInfo p = pi[i];
+                if (pi[i].HasDefaultValue)
+                {
+                    cmd.parameters[i].hasDefault = true;
+                    cmd.parameters[i].defaultval = pi[i].DefaultValue;
+                }
+
+                YCmdParser parser = GetParserUninitalized(p.ParameterType);
+                YArgumentAttribute yaarg = p.GetCustomAttribute<YArgumentAttribute>();
+
+                if (yaarg == null)
+                {
+                    parser.Initialize(p.Name, "<empty desc>");
+                }
+                else
+                {
+                    parser.Initialize(yaarg.Name, yaarg.Description);
+                }
+
+
+                SetSuggestionModifiers(ref cmd.parameters[i], p.Member, p.GetCustomAttributes<SuggestionModifierAttribute>().ToArray());
+
+                cmd.parameters[i].Parser = parser;
+            }
 
             cmd.command = attribute.Name;
             cmd.description = attribute.Desc;
             cmd.objectFindType = attribute.objectFindType;
 
-            cmd.arguments = arguments;
             cmd.action = method;
 
             cmd.IsStatic = method.IsStatic;
             cmd.hasReturnType = method.ReturnType != typeof(void);
-
-            ParameterInfo[] pi;
-            pi = method.GetParameters();
-
-            cmd.functionParameters = new Parameter[pi.Length];
-            for (int i = 0; i < pi.Length; i++)
-            {
-                if (pi[i].HasDefaultValue)
-                {
-                    cmd.functionParameters[i].hasDefault = true;
-                    cmd.functionParameters[i].defaultval = pi[i].DefaultValue;
-                }
-            }
 
             cmd.ProperUsageWordAmount = cmd.CommandWords.Length + pi.Length;
 
@@ -187,32 +252,108 @@ namespace YShared.Console
             return cmd;
         }
 
-        public static Command CreateFieldCommand(FieldInfo field, YCommandAttribute attribute, bool isSet)
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static Command CreateFieldCommand(FieldInfo field, YCommandAttribute attribute, FieldValueCommandType fct)
         {
-            return null;
             Command cmd = new Command();
 
-            string suffix = isSet ? "set" : "get";
+            /*string suffix = "";
+            if (fct == FieldValueCommandType.get) suffix = "get";
+            if (fct == FieldValueCommandType.set) suffix = "set";
+            if (fct == FieldValueCommandType.toggleSet) suffix = "";
+            if (fct == FieldValueCommandType.toggle) suffix = "";*/
 
-            cmd.command = $"{attribute.Name} {suffix}";
+            cmd.command = $"{attribute.Name}";
             cmd.description = attribute.Desc;
             cmd.objectFindType = attribute.objectFindType;
+
+            var modifiers = field.GetCustomAttributes<SuggestionModifierAttribute>();
 
             //cmd.arguments = arguments;
             cmd.action = field;
 
             cmd.IsStatic = field.IsStatic;
 
-            cmd.hasReturnType = !isSet;
+            cmd.hasReturnType = true;;
+            cmd.fieldValueCommandType = fct;
 
-            if (isSet)
-                cmd.functionParameters = new Parameter[1];
-            else
-                cmd.functionParameters = new Parameter[0];
+            if (fct == FieldValueCommandType.set || fct == FieldValueCommandType.toggleSet)
+            {
+                cmd.parameters = new Parameter[1];
+                YCmdParser parser = GetParserUninitalized(field.FieldType);
+                parser.Initialize("value", "");
 
-            cmd.ProperUsageWordAmount = cmd.CommandWords.Length + cmd.functionParameters.Length;
+                SetSuggestionModifiers(ref cmd.parameters[0], field, modifiers.ToArray());
+
+                cmd.parameters[0].Parser = parser;
+            }
+            if (fct == FieldValueCommandType.toggle)
+            {   
+                cmd.parameters = new Parameter[0];
+            }
+            if (fct == FieldValueCommandType.get)
+            {   
+                cmd.parameters = new Parameter[0];
+            }
+
+            cmd.ProperUsageWordAmount = cmd.CommandWords.Length + cmd.parameters.Length;
 
             return cmd;
+        }
+
+        static YCmdParser GetParserUninitalized(Type type)
+        {
+            Type t = type;
+            bool isEnum = false;
+            if (t.IsEnum)
+            {
+                isEnum = true;
+            }
+            //Debug.Log(t);
+
+            Type parsertype = null;
+            if (isEnum || parserRegistry.TryGetValue(t, out parsertype))
+            {
+                if (isEnum)
+                    parsertype = EnumParserType;
+
+                YCmdParser parser = (YCmdParser)Activator.CreateInstance(parsertype);
+
+                if (isEnum)
+                    ((YCEnum)parser).SetEnumType(t);
+
+                return parser;
+            }
+            else
+            {
+                Debug.LogError($"Parser of type {t} is not implemented!");
+            }
+
+            return null;
+        }
+
+        static void SetSuggestionModifiers(ref Parameter param, MemberInfo paramInfo, SuggestionModifierAttribute[] modifiers)
+        {
+            if (modifiers == null || modifiers.Length == 0)
+            {
+                param.suggestionModifiers = null;
+                param.cacheAutocompleteList = true;
+                return;
+            }
+
+            param.suggestionModifiers = modifiers;
+
+            bool cacheCompatible = true;
+            foreach (var sm in param.suggestionModifiers)
+            {
+                sm.thisMethodOrField = paramInfo;
+                if (!sm.cacheCompatible)
+                {
+                    cacheCompatible = false;
+                    break;
+                }
+            }
+            param.cacheAutocompleteList = cacheCompatible;
         }
 
         public static bool GetCommands(string command_str, out List<Command> cmd)
@@ -264,4 +405,6 @@ namespace YShared.Console
             }
         }
     }
+
+    public enum FieldValueCommandType { get, set, toggle, toggleSet}
 }

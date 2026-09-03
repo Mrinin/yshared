@@ -161,6 +161,8 @@ items:
   assemblies:
   - YShared.Runtime
   namespace: YShared.Console
+  summary: Blue-ish color.  Should generally not be used - it is the flavor of the introductory text.
+  example: []
   syntax:
     content: Misc = 6
     return:

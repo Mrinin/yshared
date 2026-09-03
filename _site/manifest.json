@@ -22,6 +22,26 @@
     },
     {
       "type": "Conceptual",
+      "source_relative_path": "Docs/console-autosuggestions.md",
+      "output": {
+        ".html": {
+          "relative_path": "Docs/console-autosuggestions.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "Docs/console-builtin-commands.md",
+      "output": {
+        ".html": {
+          "relative_path": "Docs/console-builtin-commands.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
       "source_relative_path": "Docs/console-getting-started.md",
       "output": {
         ".html": {
@@ -257,6 +277,20 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "api/YShared.Console.FieldValueCommandType.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/YShared.Console.FieldValueCommandType.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "YShared.Console.FieldValueCommandType",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "api/YShared.Console.MethodSignature.yml",
       "output": {
         ".html": {
@@ -309,6 +343,160 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "YShared.Console.ScreenshotClipboard",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/YShared.Console.Suggestion.DynamicSuggestionModifierAttribute.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/YShared.Console.Suggestion.DynamicSuggestionModifierAttribute.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "YShared.Console.Suggestion.DynamicSuggestionModifierAttribute",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/YShared.Console.Suggestion.ExcludeAttribute.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/YShared.Console.Suggestion.ExcludeAttribute.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "YShared.Console.Suggestion.ExcludeAttribute",
+      "Summary": "<p sourcefile=\"api/YShared.Console.Suggestion.ExcludeAttribute.yml\" sourcestartlinenumber=\"1\">Removes the <code>exclude_list</code> to the list of possible suggestions.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/YShared.Console.Suggestion.IncludeAttribute.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/YShared.Console.Suggestion.IncludeAttribute.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "YShared.Console.Suggestion.IncludeAttribute",
+      "Summary": "<p sourcefile=\"api/YShared.Console.Suggestion.IncludeAttribute.yml\" sourcestartlinenumber=\"1\">Adds the <code>include_list</code> to the list of possible suggestions.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/YShared.Console.Suggestion.IncludeDynamicAttribute.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/YShared.Console.Suggestion.IncludeDynamicAttribute.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "YShared.Console.Suggestion.IncludeDynamicAttribute",
+      "Summary": "<p sourcefile=\"api/YShared.Console.Suggestion.IncludeDynamicAttribute.yml\" sourcestartlinenumber=\"1\">Adds the <code>include_list</code> to the list of possible suggestions.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/YShared.Console.Suggestion.NoSuggestionsAttribute.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/YShared.Console.Suggestion.NoSuggestionsAttribute.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "YShared.Console.Suggestion.NoSuggestionsAttribute",
+      "Summary": "<p sourcefile=\"api/YShared.Console.Suggestion.NoSuggestionsAttribute.yml\" sourcestartlinenumber=\"1\">Removes the suggestion list.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/YShared.Console.Suggestion.OverrideAttribute.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/YShared.Console.Suggestion.OverrideAttribute.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "YShared.Console.Suggestion.OverrideAttribute",
+      "Summary": "<p sourcefile=\"api/YShared.Console.Suggestion.OverrideAttribute.yml\" sourcestartlinenumber=\"1\">Replaces the existing list of possible suggestions with <code>override_list</code>.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/YShared.Console.Suggestion.SuggestionModifierAttribute.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/YShared.Console.Suggestion.SuggestionModifierAttribute.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "YShared.Console.Suggestion.SuggestionModifierAttribute",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/YShared.Console.Suggestion.SuggestionRangeAttribute.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/YShared.Console.Suggestion.SuggestionRangeAttribute.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "YShared.Console.Suggestion.SuggestionRangeAttribute",
+      "Summary": "<p> Adds the values in the given range to the suggestion list. The start is inclusive, the end is exclusive.</p> \n<p> Example Usage: <code>[SuggestionRangeAttribute(1, 13, 2)]</code></p> \n<p> The values, <code>\"1\", \"3\", \"5\", \"7\", \"9\", \"11\"</code> </p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/YShared.Console.Suggestion.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/YShared.Console.Suggestion.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "YShared.Console.Suggestion",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/YShared.Console.YArgumentAttribute.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/YShared.Console.YArgumentAttribute.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "YShared.Console.YArgumentAttribute",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/YShared.Console.YAutocompleteListAttribute.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/YShared.Console.YAutocompleteListAttribute.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "YShared.Console.YAutocompleteListAttribute",
       "Summary": null
     },
     {
@@ -411,6 +599,34 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "api/YShared.Console.YCmdParser-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/YShared.Console.YCmdParser-1.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "YShared.Console.YCmdParser<T>",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/YShared.Console.YCmdParser.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/YShared.Console.YCmdParser.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "YShared.Console.YCmdParser",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "api/YShared.Console.YCommandAttribute.yml",
       "output": {
         ".html": {
@@ -422,6 +638,48 @@
       "IsMRef": true,
       "Title": "YShared.Console.YCommandAttribute",
       "Summary": "<p sourcefile=\"api/YShared.Console.YCommandAttribute.yml\" sourcestartlinenumber=\"1\"><b>Define a new command.</b></p>\n<ul><li>\n        Use <code>YCInt(min, max)</code> for integer arguments. (min / max optional)\n    </li><li>\n        Use <code>YCFloat(min, max)</code> for float arguments. (min / max optional)\n    </li><li>\n        Use <code>YCEnum(typeof(Enum))</code> for enum arguments.\n    </li><li>\n        Use <code>YCBool</code> for boolean arguments.\n    </li><li>\n        Use <code>YCString</code> for string arguments.\n    </li><li>\n        Use <code>YCCmdArg</code> to get registered commands as an input. (Use Command[])\n    </li></ul>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/YShared.Console.YDynamicAutocompleteAttribute.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/YShared.Console.YDynamicAutocompleteAttribute.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "YShared.Console.YDynamicAutocompleteAttribute",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/YShared.Console.YRangeAttribute.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/YShared.Console.YRangeAttribute.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "YShared.Console.YRangeAttribute",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/YShared.Console.YToggleAttribute.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/YShared.Console.YToggleAttribute.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "YShared.Console.YToggleAttribute",
+      "Summary": null
     },
     {
       "type": "ManagedReference",

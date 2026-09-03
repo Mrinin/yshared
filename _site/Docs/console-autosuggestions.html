@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Suggestion Modifiers | yshared </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Suggestion Modifiers | yshared ">
+      
+      
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/Mrinin/yshared/blob/main/Docs/console-autosuggestions.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.svg" alt="yshared">
+            yshared
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="suggestion-modifiers">Suggestion Modifiers</h1>
+
+<p>Suggestion modifiers are a list of attributes that modify how the autocompletion list (the suggestions) are generated when entering commands through YConsole.</p>
+<h2 id="exclude">Exclude</h2>
+<p>By default, most value types automatically autocomplete to a list of suggestions that make sense for that value type. For example, the following enum,</p>
+<pre><code class="lang-csharp">public enum Gamemode
+{
+    Unset,
+    Survival,
+    Adventure,
+    Creative,
+    Spectator   
+}
+</code></pre>
+<p>automatically knows that it can autocomplete to those 5 values. So if you have a command such as,</p>
+<pre><code class="lang-csharp">public class MyPlayer : MonoBehaviour
+{
+    [YCommand(&quot;gamemode&quot;, &quot;Change the current player's gamemode.&quot;)]
+    public int SuperComplicatedMathematicalOperation(Gamemode gm)
+    {
+        // Complicated Gamemode change logic here
+    }
+}
+</code></pre>
+<p>YConsole will conveniently suggest the possible, easy to read string values of that enum to you. You could also use the numerical values of the enum to use this command if you want, but YConsole makes it easy by providing you with the list and convenience of autocompletion.</p>
+<p>But there is something missing here! Or rather, there is something extra. In our game, <code>Gamemode.Unset</code> is the &quot;unassigned&quot; gamemode. Let's say it's used when the player first loads in to our server, but it's not a gamemode we are ever meant to be in to play the actual game. How can we prevent <code>Unset</code> from being selectable in this command?</p>
+<p>By simply using <code>[Exclude(nameof(Gamemode.Unset))]</code> as a parameter attribute.</p>
+<pre><code class="lang-csharp">public class MyPlayer : MonoBehaviour
+{
+    [YCommand(&quot;gamemode&quot;, &quot;Change the current player's gamemode.&quot;)]
+    public int SuperComplicatedMathematicalOperation([Exclude(nameof(Gamemode.Unset))] Gamemode gm)
+    {
+        // Complicated Gamemode change logic here... but now without the possibility of Unset
+    }
+}
+</code></pre>
+<p>&quot;Unset&quot; is no longer suggested when trying to use the command &quot;gamemode&quot;. (Of course, <code>[Exclude(&quot;Unset&quot;)]</code> would have also worked.)</p>
+<p>Exclude accepts a <code>param string[] exclude_list</code>, so you can put as many excluded strings in there as you want.</p>
+<h2 id="include">Include</h2>
+<pre><code class="lang-csharp">public class MyPlayer : MonoBehaviour
+{
+    [YCommand(&quot;set_name&quot;, &quot;Change the current player's current name&quot;)]
+    public string SetName([Include(&quot;Player A&quot;, &quot;Player B&quot;, &quot;Player C&quot;)] string new_name)
+    {
+        // Complicated Gamemode change logic here
+    }
+}
+</code></pre>
+<p>If the function is a static method, the command will simply run without an instance.</p>
+<p>If the function is an instance method, an <a class="xref" href="../api/YShared.Console.ObjectFindType.html"><code>ObjectFindType</code></a> value can be given to tell YConsole how to find the object to run this command on. By default, <code>ObjectFindType.All</code> is used.</p>
+<table>
+<thead>
+<tr>
+<th>Value</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>[Include(include_list: string[])]</code></td>
+<td>Adds the list of strings to suggestions.</td>
+</tr>
+<tr>
+<td><code>[Exclude(exclude_list: string[])]</code></td>
+<td>Removes the list of strings from the suggestions.</td>
+</tr>
+<tr>
+<td><code>[Override(override_list: string[])]</code></td>
+<td>Overrides the list of suggestions with the given list.</td>
+</tr>
+<tr>
+<td><code>[NoSuggestions]</code></td>
+<td>Removes all suggestions.</td>
+</tr>
+<tr>
+<td><code>[SuggestionRange(int start_inclusive, int end_exclusive, int step = 1)]</code></td>
+<td>Generates and adds a suggestions list of all integers from <code>start_inclusive</code> to <code>end_exclusive</code> in increments of <code>step</code>.</td>
+</tr>
+<tr>
+<td><code>[IncludeDynamic(functionName: string, bool cacheCompatible = false)]</code></td>
+<td>Takes the name of a static function that takes no parameters and returns a string array or IEnumerable<string>. At runtime this function is called to generate a suggestion list and is added to existing suggestions. If <code>cacheCompatible</code> is false, this function is called every time this command is typed, if true, this function is called once and the suggestion list is cached.</string></td>
+</tr>
+</tbody>
+</table>
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/Mrinin/yshared/blob/main/Docs/console-autosuggestions.md/#L1" class="edit-link">Edit this page</a>
+        </div>
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

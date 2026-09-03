@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using TMPro;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
@@ -62,9 +63,16 @@ namespace YShared.Console
             SetFontSize(fontSize);
 
             DevConsole.CommandFeedback += RecievedFeedback;
-            DevConsole.CommandLog += RecievedFeedback;
+            DevConsole.CommandLog += RecievedLog;
+            Application.logMessageReceived += HandleUnityLog;
 
-            AppendLogLine("UberYagiz+ Console - \"help\" for list of commands.", FeedbackFlavor.Misc);
+#if UNITY_EDITOR
+            ShowErrors = UnityEditor.EditorPrefs.GetBool($"yconsole_{nameof(ShowErrors)}", true);
+            ShowWarnings = UnityEditor.EditorPrefs.GetBool($"yconsole_{nameof(ShowWarnings)}", false);
+            ShowInfo = UnityEditor.EditorPrefs.GetBool($"yconsole_{nameof(ShowInfo)}", true);
+#endif
+
+            AppendLogLine("UberYagiz++ Console - \"help\" for list of commands.", FeedbackFlavor.Misc);
 
             //SetAutocompleteList(CommandRegistry.RootCommandArray);
             UpdateAutocompleteListFromText("");
@@ -75,7 +83,14 @@ namespace YShared.Console
             base.OnDestroy();
 
             DevConsole.CommandFeedback -= RecievedFeedback;
-            DevConsole.CommandLog -= RecievedFeedback;
+            DevConsole.CommandLog -= RecievedLog;
+            Application.logMessageReceived -= HandleUnityLog;
+
+#if UNITY_EDITOR
+            UnityEditor.EditorPrefs.SetBool($"yconsole_{nameof(ShowErrors)}", ShowErrors);
+            UnityEditor.EditorPrefs.SetBool($"yconsole_{nameof(ShowWarnings)}", ShowWarnings);
+            UnityEditor.EditorPrefs.SetBool($"yconsole_{nameof(ShowInfo)}", ShowInfo);
+#endif
         }
 
         private void Update()
@@ -91,7 +106,7 @@ namespace YShared.Console
             if (!isOpen) 
                 return;
 
-            if (kb.downArrowKey.wasPressedThisFrame || kb.upArrowKey.wasPressedThisFrame)
+            if (kb.downArrowKey.isPressed || kb.upArrowKey.isPressed)
             {
                 inputField.caretPosition = caretPosition;
             }
@@ -105,7 +120,7 @@ namespace YShared.Console
                 if (IsUpArrow()) { MoveAutocomplete(-1); return; }
                 if (IsDownArrow()) { MoveAutocomplete(1); return; }
 
-                if (kb.tabKey.wasPressedThisFrame) { AcceptAutocomplete(); return; }
+                if (IsForwardTab()) { AcceptAutocomplete(); return; }
                 if (kb.escapeKey.wasPressedThisFrame) { HideAutocomplete(); return; }
             }
             else
@@ -119,7 +134,7 @@ namespace YShared.Console
                 OnSubmit(inputField.text);
             }
 
-            if (IsMegaOmegaDelete())
+            if (IsBackwardTab())
             {
                 DeleteCtrlBacksapce();
             }
@@ -196,16 +211,45 @@ namespace YShared.Console
 
         private void RecievedFeedback(string message, FeedbackFlavor flavor)
         {
+            if (!isOpen)
+                return;
+
+            AppendLogLine(message, flavor);
+        }
+
+        private void RecievedLog(string message, FeedbackFlavor flavor)
+        {
+            AppendLogLine(message, flavor);
+        }
+
+        private void HandleUnityLog(string condition, string stackTrace, LogType type)
+        {
+            FeedbackFlavor flavor = FeedbackFlavor.Info;
+            switch (type)
+            {
+                case LogType.Error:
+                case LogType.Assert:
+                case LogType.Exception:
+                    flavor = FeedbackFlavor.Error;
+                    break;
+                case LogType.Warning:
+                    flavor = FeedbackFlavor.Warning;
+                    break;
+                case LogType.Log:
+                    flavor = FeedbackFlavor.Info;
+                    break;
+            }
+
+            AppendLogLine(condition, flavor);
+        }
+
+        private void AppendLogLine(string message, FeedbackFlavor flavor)
+        {
             logEntries.Add((message, flavor));
 
             if (logEntries.Count > MAX_LOG_ENTRIES) 
                 logEntries.RemoveAt(0);
 
-            AppendLogLine(message, flavor);
-        }
-
-        private void AppendLogLine(string message, FeedbackFlavor flavor)
-        {
             if (logText == null) return; // UI not built yet, entry is still stored above and shown once it is
 
             string hex;
@@ -277,6 +321,7 @@ namespace YShared.Console
             historyCursor = Mathf.Clamp(historyCursor + dir, 0, commandHistory.Count - 1);
             inputField.text = commandHistory[historyCursor];
             inputField.caretPosition = inputField.text.Length;
+            caretPosition = inputField.text.Length;
         }
 
         // ---------------------------------------------------------------
@@ -301,7 +346,6 @@ namespace YShared.Console
         {
             currentSuggestions = autocompleteCommands
                 .Where(c => c.Contains(beginning, StringComparison.OrdinalIgnoreCase))
-                .OrderBy(c => c.Length)
                 .ToList();
 
             if (currentSuggestions.Count == 0)
@@ -405,14 +449,14 @@ namespace YShared.Console
             int relativeIndex = selectedSuggestionIndex - autocompleteScrollOffset;
 
             // Moving down past the halfway point.
-            if (dir > 0 && (relativeIndex - 1) >= halfway)
+            if (dir > 0 && (relativeIndex - 0.5f) >= halfway)
             {
                 if (autocompleteScrollOffset < maxScroll)
                     autocompleteScrollOffset++;
             }
 
             // Moving up past the halfway point.
-            else if (dir < 0 && (relativeIndex + 1) <= halfway)
+            else if (dir < 0 && (relativeIndex + 0.5f) <= halfway)
             {
                 if (autocompleteScrollOffset > 0)
                     autocompleteScrollOffset--;
@@ -531,8 +575,7 @@ namespace YShared.Console
         /// /// COMMANDS
 
 
-        [YCommand("fontsize", "Change the font size used in this console. Leave empty to check the current value.")]
-        [YCInt("font_size")]
+        [YCommand("yconsole fontsize", "Change the font size used in this console. Leave empty to check the current value.")]
         public static void SetFontSizeCmd(int val = 0)
         {
             if (val <= 0)
@@ -550,6 +593,14 @@ namespace YShared.Console
         {
             Instance.ClearLogs();
         }
+
+        
+        [YCommand("yconsole unity_console show_errors", "Toggle whether the Unity Console errors should be showed in the YConsole or not.")] [YToggle] 
+        public bool ShowErrors;
+        [YCommand("yconsole unity_console show_warnings", "Toggle whether the Unity Console warnings should be showed in the YConsole or not.")] [YToggle] 
+        public bool ShowWarnings;
+        [YCommand("yconsole unity_console show_info", "Toggle whether the Unity Console info logs should be the YConsole or not.")] [YToggle] 
+        public bool ShowInfo;
 
         // Delayed Auto Key
 
@@ -589,10 +640,16 @@ namespace YShared.Console
             return false;
         }
 
-        bool IsMegaOmegaDelete()
+        bool IsForwardTab()
         {
-            /*Debug.Log("lsb" + Keyboard.current.leftShiftKey.isPressed);
-            Debug.Log("bsk" + Keyboard.current.backspaceKey.wasPressedThisFrame);*/
+            if (!Keyboard.current.leftShiftKey.isPressed && Keyboard.current.tabKey.wasPressedThisFrame)
+                return true;
+
+            return false;
+        }
+
+        bool IsBackwardTab()
+        {
             if (Keyboard.current.leftShiftKey.isPressed && Keyboard.current.backspaceKey.wasPressedThisFrame)
                 return true;
 

@@ -1,11 +1,12 @@
 using System;
+using System.Linq;
 namespace YShared.Console
 {
     /// <summary>
     /// Use <c>YCEnum(typeof(Enum))</c> for enum arguments.
     /// </summary>
 
-   public sealed class YCEnum: YCmdArgumentAttribute
+   public sealed class YCEnum: YCmdParser<Enum>
     {
         public Type enumType { get; private set; }
         int enumTypeValueAmount;
@@ -16,10 +17,10 @@ namespace YShared.Console
             return $"{variableName}:enum({enumType.ToString()})";
         }
         public override string getTypeName => $"enum({enumType.ToString()})";
-        public override bool hasAutocompleteArray => enumTypeValueAmount <= 50;
-        public override string[] getAutocompleteArray() { return enumValues; }
+        public override bool hasDefaultAutocompleteArray => enumTypeValueAmount <= 50;
+        public override string[] defaultAutocompleteArray() { return enumValues; }
 
-        protected override bool Validate<T>(T s) 
+        protected override bool Validate(Enum s) 
         {
             if (s.GetType() == enumType)
             {
@@ -29,7 +30,7 @@ namespace YShared.Console
             return false;
         }
 
-        public override bool Parse<T>(string s, out T val)
+        public override bool Parse(string s, out Enum val)
         {
             val = default;
 
@@ -37,9 +38,9 @@ namespace YShared.Console
             if (Enum.TryParse(enumType, s, true, out object result))
             {
                 Enum enumresult = (Enum)result;
-                val = (T)result;
+                val = enumresult;
 
-                if (Validate<Enum>(enumresult))
+                if (Validate(enumresult))
                 {
                     return true;
                 }
@@ -48,16 +49,15 @@ namespace YShared.Console
             return false;
         }
 
-        public YCEnum(string varname, Type enumtype)
+        public void SetEnumType(Type enumtype)
         {
-            variableName = varname;
-
-            enumType = enumtype;
+            this.enumType = enumtype;
 
             string[] arr = enumtype.GetEnumNames();
+            arr = arr.OrderBy(key => key.ToString(), StringComparer.CurrentCultureIgnoreCase).ToArray();
 
             enumTypeValueAmount = arr.Length;
-            if (hasAutocompleteArray)
+            if (hasDefaultAutocompleteArray)
             {
                 enumValues = arr;
             }

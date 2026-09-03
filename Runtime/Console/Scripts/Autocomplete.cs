@@ -4,6 +4,7 @@ using System.Linq;
 using Codice.Client.Common.TreeGrouper;
 using Codice.CM.Client.Differences;
 using UnityEngine;
+using YShared.MathHelper;
 
 namespace YShared.Console
 {
@@ -34,10 +35,15 @@ namespace YShared.Console
             }
 
             if (string.IsNullOrEmpty(line))
-                return RootCommandArray;
+                return null;
 
-            bool trailingSpace = line[^1] == ' ';
-            string[] parts = CommandsHelper.SplitCommand(line);
+            string trimmedVersion = line.TrimEnd(' ');
+            int trailingSpaceCount = line.Length - trimmedVersion.Length;
+            /*DevConsole.Log(trailingSpaceCount);
+            if (trailingSpaceCount > 3)
+                return null;*/
+            
+            string[] parts = CommandsHelper.SplitCommand(trimmedVersion);
 
             int wordCount = parts.Length;
             int parameter_start = 0;
@@ -76,8 +82,11 @@ namespace YShared.Console
             List<string> autocompleteList = new List<string>(50);
 
             int wordIndexCurrentlyWriting = wordCount;
-            if (trailingSpace)
+            if (trailingSpaceCount > 0)
                 wordIndexCurrentlyWriting++;
+
+            if (node.children.Count > 0)
+                autocompleteList.AddRange(node.children.Keys.ToArray());
 
             for (int i = 0; i < node.commands.Count; i++)
             {
@@ -86,19 +95,17 @@ namespace YShared.Console
                 AddToAutocompleteList(node.commands[i], par_index, ref autocompleteList);
             }
 
-            if (node.children.Count > 0)
-                autocompleteList.AddRange(node.children.Keys.ToArray());
-
             return autocompleteList.ToArray();
         }
 
         public static void AddToAutocompleteList(Command cmd,int word_at, ref List<string> list)
         {
-            if (word_at >= 0 && word_at < cmd.arguments.Length)
+            if (word_at >= 0 && word_at < cmd.parameters.Length)
             {    
-                if (cmd.arguments[word_at].hasAutocompleteArray)
+                List<string> strings = cmd.parameters[word_at].getAutocomplete();
+                if (strings != null)
                 {
-                    list.AddRange(cmd.arguments[word_at].getAutocompleteArray());
+                    list.AddRange(strings);
                 }
             }
         }

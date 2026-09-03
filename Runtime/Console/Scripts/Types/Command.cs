@@ -1,6 +1,10 @@
+using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Reflection;
+using System.Runtime.CompilerServices;
+using YShared.Console.Suggestion;
 
 namespace YShared.Console
 {
@@ -8,6 +12,57 @@ namespace YShared.Console
     {
         public bool hasDefault;
         public object defaultval;
+
+        public YCmdParser Parser;
+        public SuggestionModifierAttribute[] suggestionModifiers;
+
+        public bool cacheAutocompleteList;
+
+        List<string> cachedAutocompleteList;
+        bool isAutocompleteListCached;
+
+        public List<string> getAutocomplete()
+        {
+            if (isAutocompleteListCached && cachedAutocompleteList != null)
+            {
+                return cachedAutocompleteList;
+            }
+
+            List<string> strings;
+            if (!Parser.hasDefaultAutocompleteArray)
+                strings = new List<string>();
+            else
+                strings = Parser.defaultAutocompleteArray().ToList();
+
+            //UnityEngine.Debug.Log(suggestionModifiers == null);
+            
+            if (suggestionModifiers != null)
+            {
+                for (int i = 0; i < suggestionModifiers.Length; i++)
+                {
+                    suggestionModifiers[i].modifyAutocompleteList(strings);
+                }
+            }
+
+            for (int i = 0; i < strings.Count; i++)
+            {
+                if (strings[i].Contains(" ") && !(strings[i].StartsWith('"') && strings[i].EndsWith('"')))
+                {
+                    strings[i] = $"\"{strings[i]}\"";
+                }
+            }
+
+            if (strings.Count == 0)
+                strings = null;
+
+            if (cacheAutocompleteList)
+            {
+                cachedAutocompleteList = strings;
+                isAutocompleteListCached = true;
+            }
+
+            return strings;
+        }
     }
 
     public sealed class Command
@@ -26,8 +81,9 @@ namespace YShared.Console
         public bool IsStatic { get; set; }
         public bool hasReturnType { get; set; }
 
-        public YCmdArgumentAttribute[] arguments;
-        public Parameter[] functionParameters;
+        public Parameter[] parameters;
+        public YCmdParser parser(int ind) => parameters[ind].Parser;
+        public FieldValueCommandType fieldValueCommandType;
 
 
         string formattedArguments;
@@ -40,13 +96,13 @@ namespace YShared.Console
                     return formattedArguments;
 
                 List<string> parts = new();
-                for (int i = 0; i < arguments.Length; i++)
+                for (int i = 0; i < parameters.Length; i++)
                 {
                     string defaulttext = "";
-                    if (functionParameters[i].hasDefault)
-                        defaulttext = $"={functionParameters[i].defaultval}";
+                    if (parameters[i].hasDefault)
+                        defaulttext = $"={parameters[i].defaultval}";
 
-                    parts.Add($"[{arguments[i].getDescriptorText()}{defaulttext}]");
+                    parts.Add($"[{parser(i).getDescriptorText()}{defaulttext}]");
                 }
 
                 string r = string.Join(" ", parts);

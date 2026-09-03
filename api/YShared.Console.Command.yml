@@ -8,16 +8,19 @@ items:
   - YShared.Console.Command.#ctor
   - YShared.Console.Command.CommandWords
   - YShared.Console.Command.FormattedArguments
+  - YShared.Console.Command.IsStatic
   - YShared.Console.Command.ProperUsage
   - YShared.Console.Command.ProperUsageWordAmount
   - YShared.Console.Command.action
   - YShared.Console.Command.aliases
-  - YShared.Console.Command.arguments
   - YShared.Console.Command.command
   - YShared.Console.Command.description
+  - YShared.Console.Command.fieldValueCommandType
   - YShared.Console.Command.findObjectsInactive
-  - YShared.Console.Command.functionParameters
+  - YShared.Console.Command.hasReturnType
   - YShared.Console.Command.objectFindType
+  - YShared.Console.Command.parameters
+  - YShared.Console.Command.parser(System.Int32)
   langs:
   - csharp
   - vb
@@ -29,13 +32,12 @@ items:
   - YShared.Runtime
   namespace: YShared.Console
   syntax:
-    content: public class Command
-    content.vb: Public Class Command
+    content: public sealed class Command
+    content.vb: Public NotInheritable Class Command
   inheritance:
   - System.Object
   inheritedMembers:
   - System.Object.GetType
-  - System.Object.MemberwiseClone
   - System.Object.ToString
   - System.Object.Equals(System.Object)
   - System.Object.Equals(System.Object,System.Object)
@@ -120,25 +122,6 @@ items:
     return:
       type: UnityEngine.FindObjectsInactive
     content.vb: Public findObjectsInactive As FindObjectsInactive
-- uid: YShared.Console.Command.arguments
-  commentId: F:YShared.Console.Command.arguments
-  id: arguments
-  parent: YShared.Console.Command
-  langs:
-  - csharp
-  - vb
-  name: arguments
-  nameWithType: Command.arguments
-  fullName: YShared.Console.Command.arguments
-  type: Field
-  assemblies:
-  - YShared.Runtime
-  namespace: YShared.Console
-  syntax:
-    content: public YCmdArgumentAttribute[] arguments
-    return:
-      type: YShared.Console.YCmdArgumentAttribute[]
-    content.vb: Public arguments As YCmdArgumentAttribute()
 - uid: YShared.Console.Command.action
   commentId: F:YShared.Console.Command.action
   id: action
@@ -154,29 +137,48 @@ items:
   - YShared.Runtime
   namespace: YShared.Console
   syntax:
-    content: public MethodInfo action
+    content: public MemberInfo action
     return:
-      type: System.Reflection.MethodInfo
-    content.vb: Public action As MethodInfo
-- uid: YShared.Console.Command.functionParameters
-  commentId: F:YShared.Console.Command.functionParameters
-  id: functionParameters
+      type: System.Reflection.MemberInfo
+    content.vb: Public action As MemberInfo
+- uid: YShared.Console.Command.parameters
+  commentId: F:YShared.Console.Command.parameters
+  id: parameters
   parent: YShared.Console.Command
   langs:
   - csharp
   - vb
-  name: functionParameters
-  nameWithType: Command.functionParameters
-  fullName: YShared.Console.Command.functionParameters
+  name: parameters
+  nameWithType: Command.parameters
+  fullName: YShared.Console.Command.parameters
   type: Field
   assemblies:
   - YShared.Runtime
   namespace: YShared.Console
   syntax:
-    content: public Parameter[] functionParameters
+    content: public Parameter[] parameters
     return:
       type: YShared.Console.Parameter[]
-    content.vb: Public functionParameters As Parameter()
+    content.vb: Public parameters As Parameter()
+- uid: YShared.Console.Command.fieldValueCommandType
+  commentId: F:YShared.Console.Command.fieldValueCommandType
+  id: fieldValueCommandType
+  parent: YShared.Console.Command
+  langs:
+  - csharp
+  - vb
+  name: fieldValueCommandType
+  nameWithType: Command.fieldValueCommandType
+  fullName: YShared.Console.Command.fieldValueCommandType
+  type: Field
+  assemblies:
+  - YShared.Runtime
+  namespace: YShared.Console
+  syntax:
+    content: public FieldValueCommandType fieldValueCommandType
+    return:
+      type: YShared.Console.FieldValueCommandType
+    content.vb: Public fieldValueCommandType As FieldValueCommandType
 - uid: YShared.Console.Command.ProperUsageWordAmount
   commentId: F:YShared.Console.Command.ProperUsageWordAmount
   id: ProperUsageWordAmount
@@ -215,6 +217,32 @@ items:
     return:
       type: System.Collections.Generic.Dictionary{System.String,YShared.Console.AliasData}
     content.vb: Public aliases As Dictionary(Of String, AliasData)
+- uid: YShared.Console.Command.parser(System.Int32)
+  commentId: M:YShared.Console.Command.parser(System.Int32)
+  id: parser(System.Int32)
+  parent: YShared.Console.Command
+  langs:
+  - csharp
+  - vb
+  name: parser(int)
+  nameWithType: Command.parser(int)
+  fullName: YShared.Console.Command.parser(int)
+  type: Method
+  assemblies:
+  - YShared.Runtime
+  namespace: YShared.Console
+  syntax:
+    content: public YCmdParser parser(int ind)
+    parameters:
+    - id: ind
+      type: System.Int32
+    return:
+      type: YShared.Console.YCmdParser
+    content.vb: Public Function parser(ind As Integer) As YCmdParser
+  overload: YShared.Console.Command.parser*
+  nameWithType.vb: Command.parser(Integer)
+  fullName.vb: YShared.Console.Command.parser(Integer)
+  name.vb: parser(Integer)
 - uid: YShared.Console.Command.#ctor
   commentId: M:YShared.Console.Command.#ctor
   id: '#ctor'
@@ -236,6 +264,48 @@ items:
   nameWithType.vb: Command.New()
   fullName.vb: YShared.Console.Command.New()
   name.vb: New()
+- uid: YShared.Console.Command.IsStatic
+  commentId: P:YShared.Console.Command.IsStatic
+  id: IsStatic
+  parent: YShared.Console.Command
+  langs:
+  - csharp
+  - vb
+  name: IsStatic
+  nameWithType: Command.IsStatic
+  fullName: YShared.Console.Command.IsStatic
+  type: Property
+  assemblies:
+  - YShared.Runtime
+  namespace: YShared.Console
+  syntax:
+    content: public bool IsStatic { get; set; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Property IsStatic As Boolean
+  overload: YShared.Console.Command.IsStatic*
+- uid: YShared.Console.Command.hasReturnType
+  commentId: P:YShared.Console.Command.hasReturnType
+  id: hasReturnType
+  parent: YShared.Console.Command
+  langs:
+  - csharp
+  - vb
+  name: hasReturnType
+  nameWithType: Command.hasReturnType
+  fullName: YShared.Console.Command.hasReturnType
+  type: Property
+  assemblies:
+  - YShared.Runtime
+  namespace: YShared.Console
+  syntax:
+    content: public bool hasReturnType { get; set; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Property hasReturnType As Boolean
+  overload: YShared.Console.Command.hasReturnType*
 - uid: YShared.Console.Command.FormattedArguments
   commentId: P:YShared.Console.Command.FormattedArguments
   id: FormattedArguments
@@ -360,30 +430,6 @@ references:
     name: GetType
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.object.gettype
-  - name: (
-  - name: )
-- uid: System.Object.MemberwiseClone
-  commentId: M:System.Object.MemberwiseClone
-  parent: System.Object
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
-  name: MemberwiseClone()
-  nameWithType: object.MemberwiseClone()
-  fullName: object.MemberwiseClone()
-  nameWithType.vb: Object.MemberwiseClone()
-  fullName.vb: Object.MemberwiseClone()
-  spec.csharp:
-  - uid: System.Object.MemberwiseClone
-    name: MemberwiseClone
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
-  - name: (
-  - name: )
-  spec.vb:
-  - uid: System.Object.MemberwiseClone
-    name: MemberwiseClone
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
   - name: (
   - name: )
 - uid: System.Object.ToString
@@ -817,37 +863,14 @@ references:
   name: FindObjectsInactive
   nameWithType: FindObjectsInactive
   fullName: UnityEngine.FindObjectsInactive
-- uid: YShared.Console.YCmdArgumentAttribute[]
-  isExternal: true
-  href: YShared.Console.YCmdArgumentAttribute.html
-  name: YCmdArgumentAttribute[]
-  nameWithType: YCmdArgumentAttribute[]
-  fullName: YShared.Console.YCmdArgumentAttribute[]
-  nameWithType.vb: YCmdArgumentAttribute()
-  fullName.vb: YShared.Console.YCmdArgumentAttribute()
-  name.vb: YCmdArgumentAttribute()
-  spec.csharp:
-  - uid: YShared.Console.YCmdArgumentAttribute
-    name: YCmdArgumentAttribute
-    isExternal: true
-    href: YShared.Console.YCmdArgumentAttribute.html
-  - name: '['
-  - name: ']'
-  spec.vb:
-  - uid: YShared.Console.YCmdArgumentAttribute
-    name: YCmdArgumentAttribute
-    isExternal: true
-    href: YShared.Console.YCmdArgumentAttribute.html
-  - name: (
-  - name: )
-- uid: System.Reflection.MethodInfo
-  commentId: T:System.Reflection.MethodInfo
+- uid: System.Reflection.MemberInfo
+  commentId: T:System.Reflection.MemberInfo
   parent: System.Reflection
   isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.reflection.methodinfo
-  name: MethodInfo
-  nameWithType: MethodInfo
-  fullName: System.Reflection.MethodInfo
+  href: https://learn.microsoft.com/dotnet/api/system.reflection.memberinfo
+  name: MemberInfo
+  nameWithType: MemberInfo
+  fullName: System.Reflection.MemberInfo
 - uid: System.Reflection
   commentId: N:System.Reflection
   isExternal: true
@@ -898,6 +921,14 @@ references:
     href: YShared.Console.Parameter.html
   - name: (
   - name: )
+- uid: YShared.Console.FieldValueCommandType
+  commentId: T:YShared.Console.FieldValueCommandType
+  parent: YShared.Console
+  isExternal: true
+  href: YShared.Console.FieldValueCommandType.html
+  name: FieldValueCommandType
+  nameWithType: FieldValueCommandType
+  fullName: YShared.Console.FieldValueCommandType
 - uid: System.Int32
   commentId: T:System.Int32
   parent: System
@@ -1027,6 +1058,21 @@ references:
     name: Generic
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+- uid: YShared.Console.Command.parser*
+  commentId: Overload:YShared.Console.Command.parser
+  isExternal: true
+  href: YShared.Console.Command.html#YShared_Console_Command_parser_System_Int32_
+  name: parser
+  nameWithType: Command.parser
+  fullName: YShared.Console.Command.parser
+- uid: YShared.Console.YCmdParser
+  commentId: T:YShared.Console.YCmdParser
+  parent: YShared.Console
+  isExternal: true
+  href: YShared.Console.YCmdParser.html
+  name: YCmdParser
+  nameWithType: YCmdParser
+  fullName: YShared.Console.YCmdParser
 - uid: YShared.Console.Command.#ctor*
   commentId: Overload:YShared.Console.Command.#ctor
   isExternal: true
@@ -1037,6 +1083,31 @@ references:
   nameWithType.vb: Command.New
   fullName.vb: YShared.Console.Command.New
   name.vb: New
+- uid: YShared.Console.Command.IsStatic*
+  commentId: Overload:YShared.Console.Command.IsStatic
+  isExternal: true
+  href: YShared.Console.Command.html#YShared_Console_Command_IsStatic
+  name: IsStatic
+  nameWithType: Command.IsStatic
+  fullName: YShared.Console.Command.IsStatic
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: YShared.Console.Command.hasReturnType*
+  commentId: Overload:YShared.Console.Command.hasReturnType
+  isExternal: true
+  href: YShared.Console.Command.html#YShared_Console_Command_hasReturnType
+  name: hasReturnType
+  nameWithType: Command.hasReturnType
+  fullName: YShared.Console.Command.hasReturnType
 - uid: YShared.Console.Command.FormattedArguments*
   commentId: Overload:YShared.Console.Command.FormattedArguments
   isExternal: true

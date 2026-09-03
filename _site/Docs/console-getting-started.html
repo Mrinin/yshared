@@ -98,12 +98,18 @@
     }
 }
 </code></pre>
-<p>and that's it! The command <code>add a:int b:int</code> is now added to the console.</p>
+<p>and that's it! The command <code>&quot;add a:int b:int&quot;</code> is now added to the console.</p>
 <h2 id="ycommand-arguments">YCommand Arguments</h2>
-<p>If you want the name of the console command to be different than the name of the function, you may change the name. You can also add a command description, which will be shown with the <code>help</code> command, when disambiguating between commands with the same name but different signature, when listing the usage of multiple subcommands, and when the user is informed there is an error in their input.</p>
+<p>If you want the name of the console command to be different than the name of the function, you may change the name. You can also add a command description, which will be shown when:</p>
+<ul>
+<li>Using the <code>help</code> command</li>
+<li>Disambiguating between commands with the same name but different signature</li>
+<li>Listing the usage of multiple subcommands</li>
+<li>The user is informed there is an error in their input.</li>
+</ul>
 <pre><code class="lang-csharp">public class MyConsoleCommands : MonoBehaviour
 {
-    [YCommand(&quot;multiply&quot;)]
+    [YCommand(&quot;multiply&quot;, &quot;Multiply two numbers together and return the output.&quot;)]
     public int SuperComplicatedMathematicalOperation(int a, int b)
     {
         return a * b;
@@ -111,7 +117,7 @@
 }
 </code></pre>
 <p>If the function is a static method, the command will simply run without an instance.</p>
-<p>If the function is an instance method, an <a class="xref" href="../api/YShared.Console.ObjectFindType.html"><code>ObjectFindType</code></a> can be given to tell YConsole how to find the object to run this command on. By default, <code>ObjectFindType.All</code> is used.</p>
+<p>If the function is an instance method, an <a class="xref" href="../api/YShared.Console.ObjectFindType.html"><code>ObjectFindType</code></a> value can be given to tell YConsole how to find the object to run this command on. By default, <code>ObjectFindType.All</code> is used.</p>
 <table>
 <thead>
 <tr>

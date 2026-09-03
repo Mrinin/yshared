@@ -193,6 +193,18 @@ references:
   commentId: Overload:YShared.Console.Command.FormattedArguments
   fullName: YShared.Console.Command.FormattedArguments
   nameWithType: Command.FormattedArguments
+- uid: YShared.Console.Command.IsStatic
+  name: IsStatic
+  href: api/YShared.Console.Command.html#YShared_Console_Command_IsStatic
+  commentId: P:YShared.Console.Command.IsStatic
+  fullName: YShared.Console.Command.IsStatic
+  nameWithType: Command.IsStatic
+- uid: YShared.Console.Command.IsStatic*
+  name: IsStatic
+  href: api/YShared.Console.Command.html#YShared_Console_Command_IsStatic_
+  commentId: Overload:YShared.Console.Command.IsStatic
+  fullName: YShared.Console.Command.IsStatic
+  nameWithType: Command.IsStatic
 - uid: YShared.Console.Command.ProperUsage
   name: ProperUsage
   href: api/YShared.Console.Command.html#YShared_Console_Command_ProperUsage
@@ -223,12 +235,6 @@ references:
   commentId: F:YShared.Console.Command.aliases
   fullName: YShared.Console.Command.aliases
   nameWithType: Command.aliases
-- uid: YShared.Console.Command.arguments
-  name: arguments
-  href: api/YShared.Console.Command.html#YShared_Console_Command_arguments
-  commentId: F:YShared.Console.Command.arguments
-  fullName: YShared.Console.Command.arguments
-  nameWithType: Command.arguments
 - uid: YShared.Console.Command.command
   name: command
   href: api/YShared.Console.Command.html#YShared_Console_Command_command
@@ -241,24 +247,57 @@ references:
   commentId: F:YShared.Console.Command.description
   fullName: YShared.Console.Command.description
   nameWithType: Command.description
+- uid: YShared.Console.Command.fieldValueCommandType
+  name: fieldValueCommandType
+  href: api/YShared.Console.Command.html#YShared_Console_Command_fieldValueCommandType
+  commentId: F:YShared.Console.Command.fieldValueCommandType
+  fullName: YShared.Console.Command.fieldValueCommandType
+  nameWithType: Command.fieldValueCommandType
 - uid: YShared.Console.Command.findObjectsInactive
   name: findObjectsInactive
   href: api/YShared.Console.Command.html#YShared_Console_Command_findObjectsInactive
   commentId: F:YShared.Console.Command.findObjectsInactive
   fullName: YShared.Console.Command.findObjectsInactive
   nameWithType: Command.findObjectsInactive
-- uid: YShared.Console.Command.functionParameters
-  name: functionParameters
-  href: api/YShared.Console.Command.html#YShared_Console_Command_functionParameters
-  commentId: F:YShared.Console.Command.functionParameters
-  fullName: YShared.Console.Command.functionParameters
-  nameWithType: Command.functionParameters
+- uid: YShared.Console.Command.hasReturnType
+  name: hasReturnType
+  href: api/YShared.Console.Command.html#YShared_Console_Command_hasReturnType
+  commentId: P:YShared.Console.Command.hasReturnType
+  fullName: YShared.Console.Command.hasReturnType
+  nameWithType: Command.hasReturnType
+- uid: YShared.Console.Command.hasReturnType*
+  name: hasReturnType
+  href: api/YShared.Console.Command.html#YShared_Console_Command_hasReturnType_
+  commentId: Overload:YShared.Console.Command.hasReturnType
+  fullName: YShared.Console.Command.hasReturnType
+  nameWithType: Command.hasReturnType
 - uid: YShared.Console.Command.objectFindType
   name: objectFindType
   href: api/YShared.Console.Command.html#YShared_Console_Command_objectFindType
   commentId: F:YShared.Console.Command.objectFindType
   fullName: YShared.Console.Command.objectFindType
   nameWithType: Command.objectFindType
+- uid: YShared.Console.Command.parameters
+  name: parameters
+  href: api/YShared.Console.Command.html#YShared_Console_Command_parameters
+  commentId: F:YShared.Console.Command.parameters
+  fullName: YShared.Console.Command.parameters
+  nameWithType: Command.parameters
+- uid: YShared.Console.Command.parser(System.Int32)
+  name: parser(int)
+  href: api/YShared.Console.Command.html#YShared_Console_Command_parser_System_Int32_
+  commentId: M:YShared.Console.Command.parser(System.Int32)
+  name.vb: parser(Integer)
+  fullName: YShared.Console.Command.parser(int)
+  fullName.vb: YShared.Console.Command.parser(Integer)
+  nameWithType: Command.parser(int)
+  nameWithType.vb: Command.parser(Integer)
+- uid: YShared.Console.Command.parser*
+  name: parser
+  href: api/YShared.Console.Command.html#YShared_Console_Command_parser_
+  commentId: Overload:YShared.Console.Command.parser
+  fullName: YShared.Console.Command.parser
+  nameWithType: Command.parser
 - uid: YShared.Console.CommandNode
   name: CommandNode
   href: api/YShared.Console.CommandNode.html
@@ -313,6 +352,30 @@ references:
   commentId: T:YShared.Console.CommandRegistry
   fullName: YShared.Console.CommandRegistry
   nameWithType: CommandRegistry
+- uid: YShared.Console.CommandRegistry.CreateFieldCommand(System.Reflection.FieldInfo,YShared.Console.YCommandAttribute,YShared.Console.FieldValueCommandType)
+  name: CreateFieldCommand(FieldInfo, YCommandAttribute, FieldValueCommandType)
+  href: api/YShared.Console.CommandRegistry.html#YShared_Console_CommandRegistry_CreateFieldCommand_System_Reflection_FieldInfo_YShared_Console_YCommandAttribute_YShared_Console_FieldValueCommandType_
+  commentId: M:YShared.Console.CommandRegistry.CreateFieldCommand(System.Reflection.FieldInfo,YShared.Console.YCommandAttribute,YShared.Console.FieldValueCommandType)
+  fullName: YShared.Console.CommandRegistry.CreateFieldCommand(System.Reflection.FieldInfo, YShared.Console.YCommandAttribute, YShared.Console.FieldValueCommandType)
+  nameWithType: CommandRegistry.CreateFieldCommand(FieldInfo, YCommandAttribute, FieldValueCommandType)
+- uid: YShared.Console.CommandRegistry.CreateFieldCommand*
+  name: CreateFieldCommand
+  href: api/YShared.Console.CommandRegistry.html#YShared_Console_CommandRegistry_CreateFieldCommand_
+  commentId: Overload:YShared.Console.CommandRegistry.CreateFieldCommand
+  fullName: YShared.Console.CommandRegistry.CreateFieldCommand
+  nameWithType: CommandRegistry.CreateFieldCommand
+- uid: YShared.Console.CommandRegistry.CreateMethodCommand(System.Reflection.MethodInfo,YShared.Console.YCommandAttribute)
+  name: CreateMethodCommand(MethodInfo, YCommandAttribute)
+  href: api/YShared.Console.CommandRegistry.html#YShared_Console_CommandRegistry_CreateMethodCommand_System_Reflection_MethodInfo_YShared_Console_YCommandAttribute_
+  commentId: M:YShared.Console.CommandRegistry.CreateMethodCommand(System.Reflection.MethodInfo,YShared.Console.YCommandAttribute)
+  fullName: YShared.Console.CommandRegistry.CreateMethodCommand(System.Reflection.MethodInfo, YShared.Console.YCommandAttribute)
+  nameWithType: CommandRegistry.CreateMethodCommand(MethodInfo, YCommandAttribute)
+- uid: YShared.Console.CommandRegistry.CreateMethodCommand*
+  name: CreateMethodCommand
+  href: api/YShared.Console.CommandRegistry.html#YShared_Console_CommandRegistry_CreateMethodCommand_
+  commentId: Overload:YShared.Console.CommandRegistry.CreateMethodCommand
+  fullName: YShared.Console.CommandRegistry.CreateMethodCommand
+  nameWithType: CommandRegistry.CreateMethodCommand
 - uid: YShared.Console.CommandRegistry.GetCommands(System.String,System.Collections.Generic.List{YShared.Console.Command}@)
   name: GetCommands(string, out List<Command>)
   href: api/YShared.Console.CommandRegistry.html#YShared_Console_CommandRegistry_GetCommands_System_String_System_Collections_Generic_List_YShared_Console_Command___
@@ -355,12 +418,12 @@ references:
   commentId: F:YShared.Console.CommandRegistry.HighestDuplicateCommandName
   fullName: YShared.Console.CommandRegistry.HighestDuplicateCommandName
   nameWithType: CommandRegistry.HighestDuplicateCommandName
-- uid: YShared.Console.CommandRegistry.RegisterCommand(System.Reflection.MethodInfo)
-  name: RegisterCommand(MethodInfo)
-  href: api/YShared.Console.CommandRegistry.html#YShared_Console_CommandRegistry_RegisterCommand_System_Reflection_MethodInfo_
-  commentId: M:YShared.Console.CommandRegistry.RegisterCommand(System.Reflection.MethodInfo)
-  fullName: YShared.Console.CommandRegistry.RegisterCommand(System.Reflection.MethodInfo)
-  nameWithType: CommandRegistry.RegisterCommand(MethodInfo)
+- uid: YShared.Console.CommandRegistry.RegisterCommand(YShared.Console.Command)
+  name: RegisterCommand(Command)
+  href: api/YShared.Console.CommandRegistry.html#YShared_Console_CommandRegistry_RegisterCommand_YShared_Console_Command_
+  commentId: M:YShared.Console.CommandRegistry.RegisterCommand(YShared.Console.Command)
+  fullName: YShared.Console.CommandRegistry.RegisterCommand(YShared.Console.Command)
+  nameWithType: CommandRegistry.RegisterCommand(Command)
 - uid: YShared.Console.CommandRegistry.RegisterCommand*
   name: RegisterCommand
   href: api/YShared.Console.CommandRegistry.html#YShared_Console_CommandRegistry_RegisterCommand_
@@ -379,6 +442,12 @@ references:
   commentId: F:YShared.Console.CommandRegistry.alphabeticalCommands
   fullName: YShared.Console.CommandRegistry.alphabeticalCommands
   nameWithType: CommandRegistry.alphabeticalCommands
+- uid: YShared.Console.CommandRegistry.parserRegistry
+  name: parserRegistry
+  href: api/YShared.Console.CommandRegistry.html#YShared_Console_CommandRegistry_parserRegistry
+  commentId: F:YShared.Console.CommandRegistry.parserRegistry
+  fullName: YShared.Console.CommandRegistry.parserRegistry
+  nameWithType: CommandRegistry.parserRegistry
 - uid: YShared.Console.CommandsHelper
   name: CommandsHelper
   href: api/YShared.Console.CommandsHelper.html
@@ -586,30 +655,30 @@ references:
   commentId: Overload:YShared.Console.DevConsole.Execute
   fullName: YShared.Console.DevConsole.Execute
   nameWithType: DevConsole.Execute
-- uid: YShared.Console.DevConsole.Feedback(System.String,YShared.Console.FeedbackFlavor)
-  name: Feedback(string, FeedbackFlavor)
-  href: api/YShared.Console.DevConsole.html#YShared_Console_DevConsole_Feedback_System_String_YShared_Console_FeedbackFlavor_
-  commentId: M:YShared.Console.DevConsole.Feedback(System.String,YShared.Console.FeedbackFlavor)
-  name.vb: Feedback(String, FeedbackFlavor)
-  fullName: YShared.Console.DevConsole.Feedback(string, YShared.Console.FeedbackFlavor)
-  fullName.vb: YShared.Console.DevConsole.Feedback(String, YShared.Console.FeedbackFlavor)
-  nameWithType: DevConsole.Feedback(string, FeedbackFlavor)
-  nameWithType.vb: DevConsole.Feedback(String, FeedbackFlavor)
+- uid: YShared.Console.DevConsole.Feedback(System.Object,YShared.Console.FeedbackFlavor)
+  name: Feedback(object, FeedbackFlavor)
+  href: api/YShared.Console.DevConsole.html#YShared_Console_DevConsole_Feedback_System_Object_YShared_Console_FeedbackFlavor_
+  commentId: M:YShared.Console.DevConsole.Feedback(System.Object,YShared.Console.FeedbackFlavor)
+  name.vb: Feedback(Object, FeedbackFlavor)
+  fullName: YShared.Console.DevConsole.Feedback(object, YShared.Console.FeedbackFlavor)
+  fullName.vb: YShared.Console.DevConsole.Feedback(Object, YShared.Console.FeedbackFlavor)
+  nameWithType: DevConsole.Feedback(object, FeedbackFlavor)
+  nameWithType.vb: DevConsole.Feedback(Object, FeedbackFlavor)
 - uid: YShared.Console.DevConsole.Feedback*
   name: Feedback
   href: api/YShared.Console.DevConsole.html#YShared_Console_DevConsole_Feedback_
   commentId: Overload:YShared.Console.DevConsole.Feedback
   fullName: YShared.Console.DevConsole.Feedback
   nameWithType: DevConsole.Feedback
-- uid: YShared.Console.DevConsole.Log(System.String,YShared.Console.FeedbackFlavor)
-  name: Log(string, FeedbackFlavor)
-  href: api/YShared.Console.DevConsole.html#YShared_Console_DevConsole_Log_System_String_YShared_Console_FeedbackFlavor_
-  commentId: M:YShared.Console.DevConsole.Log(System.String,YShared.Console.FeedbackFlavor)
-  name.vb: Log(String, FeedbackFlavor)
-  fullName: YShared.Console.DevConsole.Log(string, YShared.Console.FeedbackFlavor)
-  fullName.vb: YShared.Console.DevConsole.Log(String, YShared.Console.FeedbackFlavor)
-  nameWithType: DevConsole.Log(string, FeedbackFlavor)
-  nameWithType.vb: DevConsole.Log(String, FeedbackFlavor)
+- uid: YShared.Console.DevConsole.Log(System.Object,YShared.Console.FeedbackFlavor)
+  name: Log(object, FeedbackFlavor)
+  href: api/YShared.Console.DevConsole.html#YShared_Console_DevConsole_Log_System_Object_YShared_Console_FeedbackFlavor_
+  commentId: M:YShared.Console.DevConsole.Log(System.Object,YShared.Console.FeedbackFlavor)
+  name.vb: Log(Object, FeedbackFlavor)
+  fullName: YShared.Console.DevConsole.Log(object, YShared.Console.FeedbackFlavor)
+  fullName.vb: YShared.Console.DevConsole.Log(Object, YShared.Console.FeedbackFlavor)
+  nameWithType: DevConsole.Log(object, FeedbackFlavor)
+  nameWithType.vb: DevConsole.Log(Object, FeedbackFlavor)
 - uid: YShared.Console.DevConsole.Log*
   name: Log
   href: api/YShared.Console.DevConsole.html#YShared_Console_DevConsole_Log_
@@ -820,6 +889,24 @@ references:
   commentId: Overload:YShared.Console.DevConsoleUI.SetFontSizeCmd
   fullName: YShared.Console.DevConsoleUI.SetFontSizeCmd
   nameWithType: DevConsoleUI.SetFontSizeCmd
+- uid: YShared.Console.DevConsoleUI.ShowErrors
+  name: ShowErrors
+  href: api/YShared.Console.DevConsoleUI.html#YShared_Console_DevConsoleUI_ShowErrors
+  commentId: F:YShared.Console.DevConsoleUI.ShowErrors
+  fullName: YShared.Console.DevConsoleUI.ShowErrors
+  nameWithType: DevConsoleUI.ShowErrors
+- uid: YShared.Console.DevConsoleUI.ShowInfo
+  name: ShowInfo
+  href: api/YShared.Console.DevConsoleUI.html#YShared_Console_DevConsoleUI_ShowInfo
+  commentId: F:YShared.Console.DevConsoleUI.ShowInfo
+  fullName: YShared.Console.DevConsoleUI.ShowInfo
+  nameWithType: DevConsoleUI.ShowInfo
+- uid: YShared.Console.DevConsoleUI.ShowWarnings
+  name: ShowWarnings
+  href: api/YShared.Console.DevConsoleUI.html#YShared_Console_DevConsoleUI_ShowWarnings
+  commentId: F:YShared.Console.DevConsoleUI.ShowWarnings
+  fullName: YShared.Console.DevConsoleUI.ShowWarnings
+  nameWithType: DevConsoleUI.ShowWarnings
 - uid: YShared.Console.FeedbackFlavor
   name: FeedbackFlavor
   href: api/YShared.Console.FeedbackFlavor.html
@@ -868,6 +955,36 @@ references:
   commentId: F:YShared.Console.FeedbackFlavor.Warning
   fullName: YShared.Console.FeedbackFlavor.Warning
   nameWithType: FeedbackFlavor.Warning
+- uid: YShared.Console.FieldValueCommandType
+  name: FieldValueCommandType
+  href: api/YShared.Console.FieldValueCommandType.html
+  commentId: T:YShared.Console.FieldValueCommandType
+  fullName: YShared.Console.FieldValueCommandType
+  nameWithType: FieldValueCommandType
+- uid: YShared.Console.FieldValueCommandType.get
+  name: get
+  href: api/YShared.Console.FieldValueCommandType.html#YShared_Console_FieldValueCommandType_get
+  commentId: F:YShared.Console.FieldValueCommandType.get
+  fullName: YShared.Console.FieldValueCommandType.get
+  nameWithType: FieldValueCommandType.get
+- uid: YShared.Console.FieldValueCommandType.set
+  name: set
+  href: api/YShared.Console.FieldValueCommandType.html#YShared_Console_FieldValueCommandType_set
+  commentId: F:YShared.Console.FieldValueCommandType.set
+  fullName: YShared.Console.FieldValueCommandType.set
+  nameWithType: FieldValueCommandType.set
+- uid: YShared.Console.FieldValueCommandType.toggle
+  name: toggle
+  href: api/YShared.Console.FieldValueCommandType.html#YShared_Console_FieldValueCommandType_toggle
+  commentId: F:YShared.Console.FieldValueCommandType.toggle
+  fullName: YShared.Console.FieldValueCommandType.toggle
+  nameWithType: FieldValueCommandType.toggle
+- uid: YShared.Console.FieldValueCommandType.toggleSet
+  name: toggleSet
+  href: api/YShared.Console.FieldValueCommandType.html#YShared_Console_FieldValueCommandType_toggleSet
+  commentId: F:YShared.Console.FieldValueCommandType.toggleSet
+  fullName: YShared.Console.FieldValueCommandType.toggleSet
+  nameWithType: FieldValueCommandType.toggleSet
 - uid: YShared.Console.MethodSignature
   name: MethodSignature
   href: api/YShared.Console.MethodSignature.html
@@ -991,18 +1108,48 @@ references:
   commentId: T:YShared.Console.Parameter
   fullName: YShared.Console.Parameter
   nameWithType: Parameter
+- uid: YShared.Console.Parameter.Parser
+  name: Parser
+  href: api/YShared.Console.Parameter.html#YShared_Console_Parameter_Parser
+  commentId: F:YShared.Console.Parameter.Parser
+  fullName: YShared.Console.Parameter.Parser
+  nameWithType: Parameter.Parser
+- uid: YShared.Console.Parameter.cacheAutocompleteList
+  name: cacheAutocompleteList
+  href: api/YShared.Console.Parameter.html#YShared_Console_Parameter_cacheAutocompleteList
+  commentId: F:YShared.Console.Parameter.cacheAutocompleteList
+  fullName: YShared.Console.Parameter.cacheAutocompleteList
+  nameWithType: Parameter.cacheAutocompleteList
 - uid: YShared.Console.Parameter.defaultval
   name: defaultval
   href: api/YShared.Console.Parameter.html#YShared_Console_Parameter_defaultval
   commentId: F:YShared.Console.Parameter.defaultval
   fullName: YShared.Console.Parameter.defaultval
   nameWithType: Parameter.defaultval
+- uid: YShared.Console.Parameter.getAutocomplete
+  name: getAutocomplete()
+  href: api/YShared.Console.Parameter.html#YShared_Console_Parameter_getAutocomplete
+  commentId: M:YShared.Console.Parameter.getAutocomplete
+  fullName: YShared.Console.Parameter.getAutocomplete()
+  nameWithType: Parameter.getAutocomplete()
+- uid: YShared.Console.Parameter.getAutocomplete*
+  name: getAutocomplete
+  href: api/YShared.Console.Parameter.html#YShared_Console_Parameter_getAutocomplete_
+  commentId: Overload:YShared.Console.Parameter.getAutocomplete
+  fullName: YShared.Console.Parameter.getAutocomplete
+  nameWithType: Parameter.getAutocomplete
 - uid: YShared.Console.Parameter.hasDefault
   name: hasDefault
   href: api/YShared.Console.Parameter.html#YShared_Console_Parameter_hasDefault
   commentId: F:YShared.Console.Parameter.hasDefault
   fullName: YShared.Console.Parameter.hasDefault
   nameWithType: Parameter.hasDefault
+- uid: YShared.Console.Parameter.suggestionModifiers
+  name: suggestionModifiers
+  href: api/YShared.Console.Parameter.html#YShared_Console_Parameter_suggestionModifiers
+  commentId: F:YShared.Console.Parameter.suggestionModifiers
+  fullName: YShared.Console.Parameter.suggestionModifiers
+  nameWithType: Parameter.suggestionModifiers
 - uid: YShared.Console.ScreenshotClipboard
   name: ScreenshotClipboard
   href: api/YShared.Console.ScreenshotClipboard.html
@@ -1033,21 +1180,444 @@ references:
   commentId: Overload:YShared.Console.ScreenshotClipboard.TakeScreenshot
   fullName: YShared.Console.ScreenshotClipboard.TakeScreenshot
   nameWithType: ScreenshotClipboard.TakeScreenshot
+- uid: YShared.Console.Suggestion
+  name: YShared.Console.Suggestion
+  href: api/YShared.Console.Suggestion.html
+  commentId: N:YShared.Console.Suggestion
+  fullName: YShared.Console.Suggestion
+  nameWithType: YShared.Console.Suggestion
+- uid: YShared.Console.Suggestion.DynamicSuggestionModifierAttribute
+  name: DynamicSuggestionModifierAttribute
+  href: api/YShared.Console.Suggestion.DynamicSuggestionModifierAttribute.html
+  commentId: T:YShared.Console.Suggestion.DynamicSuggestionModifierAttribute
+  fullName: YShared.Console.Suggestion.DynamicSuggestionModifierAttribute
+  nameWithType: DynamicSuggestionModifierAttribute
+- uid: YShared.Console.Suggestion.DynamicSuggestionModifierAttribute.#ctor
+  name: DynamicSuggestionModifierAttribute()
+  href: api/YShared.Console.Suggestion.DynamicSuggestionModifierAttribute.html#YShared_Console_Suggestion_DynamicSuggestionModifierAttribute__ctor
+  commentId: M:YShared.Console.Suggestion.DynamicSuggestionModifierAttribute.#ctor
+  name.vb: New()
+  fullName: YShared.Console.Suggestion.DynamicSuggestionModifierAttribute.DynamicSuggestionModifierAttribute()
+  fullName.vb: YShared.Console.Suggestion.DynamicSuggestionModifierAttribute.New()
+  nameWithType: DynamicSuggestionModifierAttribute.DynamicSuggestionModifierAttribute()
+  nameWithType.vb: DynamicSuggestionModifierAttribute.New()
+- uid: YShared.Console.Suggestion.DynamicSuggestionModifierAttribute.#ctor*
+  name: DynamicSuggestionModifierAttribute
+  href: api/YShared.Console.Suggestion.DynamicSuggestionModifierAttribute.html#YShared_Console_Suggestion_DynamicSuggestionModifierAttribute__ctor_
+  commentId: Overload:YShared.Console.Suggestion.DynamicSuggestionModifierAttribute.#ctor
+  name.vb: New
+  fullName: YShared.Console.Suggestion.DynamicSuggestionModifierAttribute.DynamicSuggestionModifierAttribute
+  fullName.vb: YShared.Console.Suggestion.DynamicSuggestionModifierAttribute.New
+  nameWithType: DynamicSuggestionModifierAttribute.DynamicSuggestionModifierAttribute
+  nameWithType.vb: DynamicSuggestionModifierAttribute.New
+- uid: YShared.Console.Suggestion.DynamicSuggestionModifierAttribute.cacheCompatible
+  name: cacheCompatible
+  href: api/YShared.Console.Suggestion.DynamicSuggestionModifierAttribute.html#YShared_Console_Suggestion_DynamicSuggestionModifierAttribute_cacheCompatible
+  commentId: P:YShared.Console.Suggestion.DynamicSuggestionModifierAttribute.cacheCompatible
+  fullName: YShared.Console.Suggestion.DynamicSuggestionModifierAttribute.cacheCompatible
+  nameWithType: DynamicSuggestionModifierAttribute.cacheCompatible
+- uid: YShared.Console.Suggestion.DynamicSuggestionModifierAttribute.cacheCompatible*
+  name: cacheCompatible
+  href: api/YShared.Console.Suggestion.DynamicSuggestionModifierAttribute.html#YShared_Console_Suggestion_DynamicSuggestionModifierAttribute_cacheCompatible_
+  commentId: Overload:YShared.Console.Suggestion.DynamicSuggestionModifierAttribute.cacheCompatible
+  fullName: YShared.Console.Suggestion.DynamicSuggestionModifierAttribute.cacheCompatible
+  nameWithType: DynamicSuggestionModifierAttribute.cacheCompatible
+- uid: YShared.Console.Suggestion.DynamicSuggestionModifierAttribute.isCacheCompatible
+  name: isCacheCompatible
+  href: api/YShared.Console.Suggestion.DynamicSuggestionModifierAttribute.html#YShared_Console_Suggestion_DynamicSuggestionModifierAttribute_isCacheCompatible
+  commentId: F:YShared.Console.Suggestion.DynamicSuggestionModifierAttribute.isCacheCompatible
+  fullName: YShared.Console.Suggestion.DynamicSuggestionModifierAttribute.isCacheCompatible
+  nameWithType: DynamicSuggestionModifierAttribute.isCacheCompatible
+- uid: YShared.Console.Suggestion.ExcludeAttribute
+  name: ExcludeAttribute
+  href: api/YShared.Console.Suggestion.ExcludeAttribute.html
+  commentId: T:YShared.Console.Suggestion.ExcludeAttribute
+  fullName: YShared.Console.Suggestion.ExcludeAttribute
+  nameWithType: ExcludeAttribute
+- uid: YShared.Console.Suggestion.ExcludeAttribute.#ctor(System.String[])
+  name: ExcludeAttribute(params string[])
+  href: api/YShared.Console.Suggestion.ExcludeAttribute.html#YShared_Console_Suggestion_ExcludeAttribute__ctor_System_String___
+  commentId: M:YShared.Console.Suggestion.ExcludeAttribute.#ctor(System.String[])
+  name.vb: New(ParamArray String())
+  fullName: YShared.Console.Suggestion.ExcludeAttribute.ExcludeAttribute(params string[])
+  fullName.vb: YShared.Console.Suggestion.ExcludeAttribute.New(ParamArray String())
+  nameWithType: ExcludeAttribute.ExcludeAttribute(params string[])
+  nameWithType.vb: ExcludeAttribute.New(ParamArray String())
+- uid: YShared.Console.Suggestion.ExcludeAttribute.#ctor*
+  name: ExcludeAttribute
+  href: api/YShared.Console.Suggestion.ExcludeAttribute.html#YShared_Console_Suggestion_ExcludeAttribute__ctor_
+  commentId: Overload:YShared.Console.Suggestion.ExcludeAttribute.#ctor
+  name.vb: New
+  fullName: YShared.Console.Suggestion.ExcludeAttribute.ExcludeAttribute
+  fullName.vb: YShared.Console.Suggestion.ExcludeAttribute.New
+  nameWithType: ExcludeAttribute.ExcludeAttribute
+  nameWithType.vb: ExcludeAttribute.New
+- uid: YShared.Console.Suggestion.ExcludeAttribute.modifyAutocompleteList(System.Collections.Generic.List{System.String})
+  name: modifyAutocompleteList(List<string>)
+  href: api/YShared.Console.Suggestion.ExcludeAttribute.html#YShared_Console_Suggestion_ExcludeAttribute_modifyAutocompleteList_System_Collections_Generic_List_System_String__
+  commentId: M:YShared.Console.Suggestion.ExcludeAttribute.modifyAutocompleteList(System.Collections.Generic.List{System.String})
+  name.vb: modifyAutocompleteList(List(Of String))
+  fullName: YShared.Console.Suggestion.ExcludeAttribute.modifyAutocompleteList(System.Collections.Generic.List<string>)
+  fullName.vb: YShared.Console.Suggestion.ExcludeAttribute.modifyAutocompleteList(System.Collections.Generic.List(Of String))
+  nameWithType: ExcludeAttribute.modifyAutocompleteList(List<string>)
+  nameWithType.vb: ExcludeAttribute.modifyAutocompleteList(List(Of String))
+- uid: YShared.Console.Suggestion.ExcludeAttribute.modifyAutocompleteList*
+  name: modifyAutocompleteList
+  href: api/YShared.Console.Suggestion.ExcludeAttribute.html#YShared_Console_Suggestion_ExcludeAttribute_modifyAutocompleteList_
+  commentId: Overload:YShared.Console.Suggestion.ExcludeAttribute.modifyAutocompleteList
+  fullName: YShared.Console.Suggestion.ExcludeAttribute.modifyAutocompleteList
+  nameWithType: ExcludeAttribute.modifyAutocompleteList
+- uid: YShared.Console.Suggestion.IncludeAttribute
+  name: IncludeAttribute
+  href: api/YShared.Console.Suggestion.IncludeAttribute.html
+  commentId: T:YShared.Console.Suggestion.IncludeAttribute
+  fullName: YShared.Console.Suggestion.IncludeAttribute
+  nameWithType: IncludeAttribute
+- uid: YShared.Console.Suggestion.IncludeAttribute.#ctor(System.String[])
+  name: IncludeAttribute(params string[])
+  href: api/YShared.Console.Suggestion.IncludeAttribute.html#YShared_Console_Suggestion_IncludeAttribute__ctor_System_String___
+  commentId: M:YShared.Console.Suggestion.IncludeAttribute.#ctor(System.String[])
+  name.vb: New(ParamArray String())
+  fullName: YShared.Console.Suggestion.IncludeAttribute.IncludeAttribute(params string[])
+  fullName.vb: YShared.Console.Suggestion.IncludeAttribute.New(ParamArray String())
+  nameWithType: IncludeAttribute.IncludeAttribute(params string[])
+  nameWithType.vb: IncludeAttribute.New(ParamArray String())
+- uid: YShared.Console.Suggestion.IncludeAttribute.#ctor*
+  name: IncludeAttribute
+  href: api/YShared.Console.Suggestion.IncludeAttribute.html#YShared_Console_Suggestion_IncludeAttribute__ctor_
+  commentId: Overload:YShared.Console.Suggestion.IncludeAttribute.#ctor
+  name.vb: New
+  fullName: YShared.Console.Suggestion.IncludeAttribute.IncludeAttribute
+  fullName.vb: YShared.Console.Suggestion.IncludeAttribute.New
+  nameWithType: IncludeAttribute.IncludeAttribute
+  nameWithType.vb: IncludeAttribute.New
+- uid: YShared.Console.Suggestion.IncludeAttribute.modifyAutocompleteList(System.Collections.Generic.List{System.String})
+  name: modifyAutocompleteList(List<string>)
+  href: api/YShared.Console.Suggestion.IncludeAttribute.html#YShared_Console_Suggestion_IncludeAttribute_modifyAutocompleteList_System_Collections_Generic_List_System_String__
+  commentId: M:YShared.Console.Suggestion.IncludeAttribute.modifyAutocompleteList(System.Collections.Generic.List{System.String})
+  name.vb: modifyAutocompleteList(List(Of String))
+  fullName: YShared.Console.Suggestion.IncludeAttribute.modifyAutocompleteList(System.Collections.Generic.List<string>)
+  fullName.vb: YShared.Console.Suggestion.IncludeAttribute.modifyAutocompleteList(System.Collections.Generic.List(Of String))
+  nameWithType: IncludeAttribute.modifyAutocompleteList(List<string>)
+  nameWithType.vb: IncludeAttribute.modifyAutocompleteList(List(Of String))
+- uid: YShared.Console.Suggestion.IncludeAttribute.modifyAutocompleteList*
+  name: modifyAutocompleteList
+  href: api/YShared.Console.Suggestion.IncludeAttribute.html#YShared_Console_Suggestion_IncludeAttribute_modifyAutocompleteList_
+  commentId: Overload:YShared.Console.Suggestion.IncludeAttribute.modifyAutocompleteList
+  fullName: YShared.Console.Suggestion.IncludeAttribute.modifyAutocompleteList
+  nameWithType: IncludeAttribute.modifyAutocompleteList
+- uid: YShared.Console.Suggestion.IncludeDynamicAttribute
+  name: IncludeDynamicAttribute
+  href: api/YShared.Console.Suggestion.IncludeDynamicAttribute.html
+  commentId: T:YShared.Console.Suggestion.IncludeDynamicAttribute
+  fullName: YShared.Console.Suggestion.IncludeDynamicAttribute
+  nameWithType: IncludeDynamicAttribute
+- uid: YShared.Console.Suggestion.IncludeDynamicAttribute.#ctor(System.String,System.Boolean)
+  name: IncludeDynamicAttribute(string, bool)
+  href: api/YShared.Console.Suggestion.IncludeDynamicAttribute.html#YShared_Console_Suggestion_IncludeDynamicAttribute__ctor_System_String_System_Boolean_
+  commentId: M:YShared.Console.Suggestion.IncludeDynamicAttribute.#ctor(System.String,System.Boolean)
+  name.vb: New(String, Boolean)
+  fullName: YShared.Console.Suggestion.IncludeDynamicAttribute.IncludeDynamicAttribute(string, bool)
+  fullName.vb: YShared.Console.Suggestion.IncludeDynamicAttribute.New(String, Boolean)
+  nameWithType: IncludeDynamicAttribute.IncludeDynamicAttribute(string, bool)
+  nameWithType.vb: IncludeDynamicAttribute.New(String, Boolean)
+- uid: YShared.Console.Suggestion.IncludeDynamicAttribute.#ctor*
+  name: IncludeDynamicAttribute
+  href: api/YShared.Console.Suggestion.IncludeDynamicAttribute.html#YShared_Console_Suggestion_IncludeDynamicAttribute__ctor_
+  commentId: Overload:YShared.Console.Suggestion.IncludeDynamicAttribute.#ctor
+  name.vb: New
+  fullName: YShared.Console.Suggestion.IncludeDynamicAttribute.IncludeDynamicAttribute
+  fullName.vb: YShared.Console.Suggestion.IncludeDynamicAttribute.New
+  nameWithType: IncludeDynamicAttribute.IncludeDynamicAttribute
+  nameWithType.vb: IncludeDynamicAttribute.New
+- uid: YShared.Console.Suggestion.IncludeDynamicAttribute.cacheCompatible
+  name: cacheCompatible
+  href: api/YShared.Console.Suggestion.IncludeDynamicAttribute.html#YShared_Console_Suggestion_IncludeDynamicAttribute_cacheCompatible
+  commentId: P:YShared.Console.Suggestion.IncludeDynamicAttribute.cacheCompatible
+  fullName: YShared.Console.Suggestion.IncludeDynamicAttribute.cacheCompatible
+  nameWithType: IncludeDynamicAttribute.cacheCompatible
+- uid: YShared.Console.Suggestion.IncludeDynamicAttribute.cacheCompatible*
+  name: cacheCompatible
+  href: api/YShared.Console.Suggestion.IncludeDynamicAttribute.html#YShared_Console_Suggestion_IncludeDynamicAttribute_cacheCompatible_
+  commentId: Overload:YShared.Console.Suggestion.IncludeDynamicAttribute.cacheCompatible
+  fullName: YShared.Console.Suggestion.IncludeDynamicAttribute.cacheCompatible
+  nameWithType: IncludeDynamicAttribute.cacheCompatible
+- uid: YShared.Console.Suggestion.IncludeDynamicAttribute.modifyAutocompleteList(System.Collections.Generic.List{System.String})
+  name: modifyAutocompleteList(List<string>)
+  href: api/YShared.Console.Suggestion.IncludeDynamicAttribute.html#YShared_Console_Suggestion_IncludeDynamicAttribute_modifyAutocompleteList_System_Collections_Generic_List_System_String__
+  commentId: M:YShared.Console.Suggestion.IncludeDynamicAttribute.modifyAutocompleteList(System.Collections.Generic.List{System.String})
+  name.vb: modifyAutocompleteList(List(Of String))
+  fullName: YShared.Console.Suggestion.IncludeDynamicAttribute.modifyAutocompleteList(System.Collections.Generic.List<string>)
+  fullName.vb: YShared.Console.Suggestion.IncludeDynamicAttribute.modifyAutocompleteList(System.Collections.Generic.List(Of String))
+  nameWithType: IncludeDynamicAttribute.modifyAutocompleteList(List<string>)
+  nameWithType.vb: IncludeDynamicAttribute.modifyAutocompleteList(List(Of String))
+- uid: YShared.Console.Suggestion.IncludeDynamicAttribute.modifyAutocompleteList*
+  name: modifyAutocompleteList
+  href: api/YShared.Console.Suggestion.IncludeDynamicAttribute.html#YShared_Console_Suggestion_IncludeDynamicAttribute_modifyAutocompleteList_
+  commentId: Overload:YShared.Console.Suggestion.IncludeDynamicAttribute.modifyAutocompleteList
+  fullName: YShared.Console.Suggestion.IncludeDynamicAttribute.modifyAutocompleteList
+  nameWithType: IncludeDynamicAttribute.modifyAutocompleteList
+- uid: YShared.Console.Suggestion.NoSuggestionsAttribute
+  name: NoSuggestionsAttribute
+  href: api/YShared.Console.Suggestion.NoSuggestionsAttribute.html
+  commentId: T:YShared.Console.Suggestion.NoSuggestionsAttribute
+  fullName: YShared.Console.Suggestion.NoSuggestionsAttribute
+  nameWithType: NoSuggestionsAttribute
+- uid: YShared.Console.Suggestion.NoSuggestionsAttribute.#ctor
+  name: NoSuggestionsAttribute()
+  href: api/YShared.Console.Suggestion.NoSuggestionsAttribute.html#YShared_Console_Suggestion_NoSuggestionsAttribute__ctor
+  commentId: M:YShared.Console.Suggestion.NoSuggestionsAttribute.#ctor
+  name.vb: New()
+  fullName: YShared.Console.Suggestion.NoSuggestionsAttribute.NoSuggestionsAttribute()
+  fullName.vb: YShared.Console.Suggestion.NoSuggestionsAttribute.New()
+  nameWithType: NoSuggestionsAttribute.NoSuggestionsAttribute()
+  nameWithType.vb: NoSuggestionsAttribute.New()
+- uid: YShared.Console.Suggestion.NoSuggestionsAttribute.#ctor*
+  name: NoSuggestionsAttribute
+  href: api/YShared.Console.Suggestion.NoSuggestionsAttribute.html#YShared_Console_Suggestion_NoSuggestionsAttribute__ctor_
+  commentId: Overload:YShared.Console.Suggestion.NoSuggestionsAttribute.#ctor
+  name.vb: New
+  fullName: YShared.Console.Suggestion.NoSuggestionsAttribute.NoSuggestionsAttribute
+  fullName.vb: YShared.Console.Suggestion.NoSuggestionsAttribute.New
+  nameWithType: NoSuggestionsAttribute.NoSuggestionsAttribute
+  nameWithType.vb: NoSuggestionsAttribute.New
+- uid: YShared.Console.Suggestion.NoSuggestionsAttribute.modifyAutocompleteList(System.Collections.Generic.List{System.String})
+  name: modifyAutocompleteList(List<string>)
+  href: api/YShared.Console.Suggestion.NoSuggestionsAttribute.html#YShared_Console_Suggestion_NoSuggestionsAttribute_modifyAutocompleteList_System_Collections_Generic_List_System_String__
+  commentId: M:YShared.Console.Suggestion.NoSuggestionsAttribute.modifyAutocompleteList(System.Collections.Generic.List{System.String})
+  name.vb: modifyAutocompleteList(List(Of String))
+  fullName: YShared.Console.Suggestion.NoSuggestionsAttribute.modifyAutocompleteList(System.Collections.Generic.List<string>)
+  fullName.vb: YShared.Console.Suggestion.NoSuggestionsAttribute.modifyAutocompleteList(System.Collections.Generic.List(Of String))
+  nameWithType: NoSuggestionsAttribute.modifyAutocompleteList(List<string>)
+  nameWithType.vb: NoSuggestionsAttribute.modifyAutocompleteList(List(Of String))
+- uid: YShared.Console.Suggestion.NoSuggestionsAttribute.modifyAutocompleteList*
+  name: modifyAutocompleteList
+  href: api/YShared.Console.Suggestion.NoSuggestionsAttribute.html#YShared_Console_Suggestion_NoSuggestionsAttribute_modifyAutocompleteList_
+  commentId: Overload:YShared.Console.Suggestion.NoSuggestionsAttribute.modifyAutocompleteList
+  fullName: YShared.Console.Suggestion.NoSuggestionsAttribute.modifyAutocompleteList
+  nameWithType: NoSuggestionsAttribute.modifyAutocompleteList
+- uid: YShared.Console.Suggestion.OverrideAttribute
+  name: OverrideAttribute
+  href: api/YShared.Console.Suggestion.OverrideAttribute.html
+  commentId: T:YShared.Console.Suggestion.OverrideAttribute
+  fullName: YShared.Console.Suggestion.OverrideAttribute
+  nameWithType: OverrideAttribute
+- uid: YShared.Console.Suggestion.OverrideAttribute.#ctor(System.String[])
+  name: OverrideAttribute(params string[])
+  href: api/YShared.Console.Suggestion.OverrideAttribute.html#YShared_Console_Suggestion_OverrideAttribute__ctor_System_String___
+  commentId: M:YShared.Console.Suggestion.OverrideAttribute.#ctor(System.String[])
+  name.vb: New(ParamArray String())
+  fullName: YShared.Console.Suggestion.OverrideAttribute.OverrideAttribute(params string[])
+  fullName.vb: YShared.Console.Suggestion.OverrideAttribute.New(ParamArray String())
+  nameWithType: OverrideAttribute.OverrideAttribute(params string[])
+  nameWithType.vb: OverrideAttribute.New(ParamArray String())
+- uid: YShared.Console.Suggestion.OverrideAttribute.#ctor*
+  name: OverrideAttribute
+  href: api/YShared.Console.Suggestion.OverrideAttribute.html#YShared_Console_Suggestion_OverrideAttribute__ctor_
+  commentId: Overload:YShared.Console.Suggestion.OverrideAttribute.#ctor
+  name.vb: New
+  fullName: YShared.Console.Suggestion.OverrideAttribute.OverrideAttribute
+  fullName.vb: YShared.Console.Suggestion.OverrideAttribute.New
+  nameWithType: OverrideAttribute.OverrideAttribute
+  nameWithType.vb: OverrideAttribute.New
+- uid: YShared.Console.Suggestion.OverrideAttribute.modifyAutocompleteList(System.Collections.Generic.List{System.String})
+  name: modifyAutocompleteList(List<string>)
+  href: api/YShared.Console.Suggestion.OverrideAttribute.html#YShared_Console_Suggestion_OverrideAttribute_modifyAutocompleteList_System_Collections_Generic_List_System_String__
+  commentId: M:YShared.Console.Suggestion.OverrideAttribute.modifyAutocompleteList(System.Collections.Generic.List{System.String})
+  name.vb: modifyAutocompleteList(List(Of String))
+  fullName: YShared.Console.Suggestion.OverrideAttribute.modifyAutocompleteList(System.Collections.Generic.List<string>)
+  fullName.vb: YShared.Console.Suggestion.OverrideAttribute.modifyAutocompleteList(System.Collections.Generic.List(Of String))
+  nameWithType: OverrideAttribute.modifyAutocompleteList(List<string>)
+  nameWithType.vb: OverrideAttribute.modifyAutocompleteList(List(Of String))
+- uid: YShared.Console.Suggestion.OverrideAttribute.modifyAutocompleteList*
+  name: modifyAutocompleteList
+  href: api/YShared.Console.Suggestion.OverrideAttribute.html#YShared_Console_Suggestion_OverrideAttribute_modifyAutocompleteList_
+  commentId: Overload:YShared.Console.Suggestion.OverrideAttribute.modifyAutocompleteList
+  fullName: YShared.Console.Suggestion.OverrideAttribute.modifyAutocompleteList
+  nameWithType: OverrideAttribute.modifyAutocompleteList
+- uid: YShared.Console.Suggestion.SuggestionModifierAttribute
+  name: SuggestionModifierAttribute
+  href: api/YShared.Console.Suggestion.SuggestionModifierAttribute.html
+  commentId: T:YShared.Console.Suggestion.SuggestionModifierAttribute
+  fullName: YShared.Console.Suggestion.SuggestionModifierAttribute
+  nameWithType: SuggestionModifierAttribute
+- uid: YShared.Console.Suggestion.SuggestionModifierAttribute.#ctor
+  name: SuggestionModifierAttribute()
+  href: api/YShared.Console.Suggestion.SuggestionModifierAttribute.html#YShared_Console_Suggestion_SuggestionModifierAttribute__ctor
+  commentId: M:YShared.Console.Suggestion.SuggestionModifierAttribute.#ctor
+  name.vb: New()
+  fullName: YShared.Console.Suggestion.SuggestionModifierAttribute.SuggestionModifierAttribute()
+  fullName.vb: YShared.Console.Suggestion.SuggestionModifierAttribute.New()
+  nameWithType: SuggestionModifierAttribute.SuggestionModifierAttribute()
+  nameWithType.vb: SuggestionModifierAttribute.New()
+- uid: YShared.Console.Suggestion.SuggestionModifierAttribute.#ctor*
+  name: SuggestionModifierAttribute
+  href: api/YShared.Console.Suggestion.SuggestionModifierAttribute.html#YShared_Console_Suggestion_SuggestionModifierAttribute__ctor_
+  commentId: Overload:YShared.Console.Suggestion.SuggestionModifierAttribute.#ctor
+  name.vb: New
+  fullName: YShared.Console.Suggestion.SuggestionModifierAttribute.SuggestionModifierAttribute
+  fullName.vb: YShared.Console.Suggestion.SuggestionModifierAttribute.New
+  nameWithType: SuggestionModifierAttribute.SuggestionModifierAttribute
+  nameWithType.vb: SuggestionModifierAttribute.New
+- uid: YShared.Console.Suggestion.SuggestionModifierAttribute.cacheCompatible
+  name: cacheCompatible
+  href: api/YShared.Console.Suggestion.SuggestionModifierAttribute.html#YShared_Console_Suggestion_SuggestionModifierAttribute_cacheCompatible
+  commentId: P:YShared.Console.Suggestion.SuggestionModifierAttribute.cacheCompatible
+  fullName: YShared.Console.Suggestion.SuggestionModifierAttribute.cacheCompatible
+  nameWithType: SuggestionModifierAttribute.cacheCompatible
+- uid: YShared.Console.Suggestion.SuggestionModifierAttribute.cacheCompatible*
+  name: cacheCompatible
+  href: api/YShared.Console.Suggestion.SuggestionModifierAttribute.html#YShared_Console_Suggestion_SuggestionModifierAttribute_cacheCompatible_
+  commentId: Overload:YShared.Console.Suggestion.SuggestionModifierAttribute.cacheCompatible
+  fullName: YShared.Console.Suggestion.SuggestionModifierAttribute.cacheCompatible
+  nameWithType: SuggestionModifierAttribute.cacheCompatible
+- uid: YShared.Console.Suggestion.SuggestionModifierAttribute.modifyAutocompleteList(System.Collections.Generic.List{System.String})
+  name: modifyAutocompleteList(List<string>)
+  href: api/YShared.Console.Suggestion.SuggestionModifierAttribute.html#YShared_Console_Suggestion_SuggestionModifierAttribute_modifyAutocompleteList_System_Collections_Generic_List_System_String__
+  commentId: M:YShared.Console.Suggestion.SuggestionModifierAttribute.modifyAutocompleteList(System.Collections.Generic.List{System.String})
+  name.vb: modifyAutocompleteList(List(Of String))
+  fullName: YShared.Console.Suggestion.SuggestionModifierAttribute.modifyAutocompleteList(System.Collections.Generic.List<string>)
+  fullName.vb: YShared.Console.Suggestion.SuggestionModifierAttribute.modifyAutocompleteList(System.Collections.Generic.List(Of String))
+  nameWithType: SuggestionModifierAttribute.modifyAutocompleteList(List<string>)
+  nameWithType.vb: SuggestionModifierAttribute.modifyAutocompleteList(List(Of String))
+- uid: YShared.Console.Suggestion.SuggestionModifierAttribute.modifyAutocompleteList*
+  name: modifyAutocompleteList
+  href: api/YShared.Console.Suggestion.SuggestionModifierAttribute.html#YShared_Console_Suggestion_SuggestionModifierAttribute_modifyAutocompleteList_
+  commentId: Overload:YShared.Console.Suggestion.SuggestionModifierAttribute.modifyAutocompleteList
+  fullName: YShared.Console.Suggestion.SuggestionModifierAttribute.modifyAutocompleteList
+  nameWithType: SuggestionModifierAttribute.modifyAutocompleteList
+- uid: YShared.Console.Suggestion.SuggestionModifierAttribute.thisMethodOrField
+  name: thisMethodOrField
+  href: api/YShared.Console.Suggestion.SuggestionModifierAttribute.html#YShared_Console_Suggestion_SuggestionModifierAttribute_thisMethodOrField
+  commentId: P:YShared.Console.Suggestion.SuggestionModifierAttribute.thisMethodOrField
+  fullName: YShared.Console.Suggestion.SuggestionModifierAttribute.thisMethodOrField
+  nameWithType: SuggestionModifierAttribute.thisMethodOrField
+- uid: YShared.Console.Suggestion.SuggestionModifierAttribute.thisMethodOrField*
+  name: thisMethodOrField
+  href: api/YShared.Console.Suggestion.SuggestionModifierAttribute.html#YShared_Console_Suggestion_SuggestionModifierAttribute_thisMethodOrField_
+  commentId: Overload:YShared.Console.Suggestion.SuggestionModifierAttribute.thisMethodOrField
+  fullName: YShared.Console.Suggestion.SuggestionModifierAttribute.thisMethodOrField
+  nameWithType: SuggestionModifierAttribute.thisMethodOrField
+- uid: YShared.Console.Suggestion.SuggestionRangeAttribute
+  name: SuggestionRangeAttribute
+  href: api/YShared.Console.Suggestion.SuggestionRangeAttribute.html
+  commentId: T:YShared.Console.Suggestion.SuggestionRangeAttribute
+  fullName: YShared.Console.Suggestion.SuggestionRangeAttribute
+  nameWithType: SuggestionRangeAttribute
+- uid: YShared.Console.Suggestion.SuggestionRangeAttribute.#ctor(System.Int32,System.Int32,System.Int32)
+  name: SuggestionRangeAttribute(int, int, int)
+  href: api/YShared.Console.Suggestion.SuggestionRangeAttribute.html#YShared_Console_Suggestion_SuggestionRangeAttribute__ctor_System_Int32_System_Int32_System_Int32_
+  commentId: M:YShared.Console.Suggestion.SuggestionRangeAttribute.#ctor(System.Int32,System.Int32,System.Int32)
+  name.vb: New(Integer, Integer, Integer)
+  fullName: YShared.Console.Suggestion.SuggestionRangeAttribute.SuggestionRangeAttribute(int, int, int)
+  fullName.vb: YShared.Console.Suggestion.SuggestionRangeAttribute.New(Integer, Integer, Integer)
+  nameWithType: SuggestionRangeAttribute.SuggestionRangeAttribute(int, int, int)
+  nameWithType.vb: SuggestionRangeAttribute.New(Integer, Integer, Integer)
+- uid: YShared.Console.Suggestion.SuggestionRangeAttribute.#ctor*
+  name: SuggestionRangeAttribute
+  href: api/YShared.Console.Suggestion.SuggestionRangeAttribute.html#YShared_Console_Suggestion_SuggestionRangeAttribute__ctor_
+  commentId: Overload:YShared.Console.Suggestion.SuggestionRangeAttribute.#ctor
+  name.vb: New
+  fullName: YShared.Console.Suggestion.SuggestionRangeAttribute.SuggestionRangeAttribute
+  fullName.vb: YShared.Console.Suggestion.SuggestionRangeAttribute.New
+  nameWithType: SuggestionRangeAttribute.SuggestionRangeAttribute
+  nameWithType.vb: SuggestionRangeAttribute.New
+- uid: YShared.Console.Suggestion.SuggestionRangeAttribute.modifyAutocompleteList(System.Collections.Generic.List{System.String})
+  name: modifyAutocompleteList(List<string>)
+  href: api/YShared.Console.Suggestion.SuggestionRangeAttribute.html#YShared_Console_Suggestion_SuggestionRangeAttribute_modifyAutocompleteList_System_Collections_Generic_List_System_String__
+  commentId: M:YShared.Console.Suggestion.SuggestionRangeAttribute.modifyAutocompleteList(System.Collections.Generic.List{System.String})
+  name.vb: modifyAutocompleteList(List(Of String))
+  fullName: YShared.Console.Suggestion.SuggestionRangeAttribute.modifyAutocompleteList(System.Collections.Generic.List<string>)
+  fullName.vb: YShared.Console.Suggestion.SuggestionRangeAttribute.modifyAutocompleteList(System.Collections.Generic.List(Of String))
+  nameWithType: SuggestionRangeAttribute.modifyAutocompleteList(List<string>)
+  nameWithType.vb: SuggestionRangeAttribute.modifyAutocompleteList(List(Of String))
+- uid: YShared.Console.Suggestion.SuggestionRangeAttribute.modifyAutocompleteList*
+  name: modifyAutocompleteList
+  href: api/YShared.Console.Suggestion.SuggestionRangeAttribute.html#YShared_Console_Suggestion_SuggestionRangeAttribute_modifyAutocompleteList_
+  commentId: Overload:YShared.Console.Suggestion.SuggestionRangeAttribute.modifyAutocompleteList
+  fullName: YShared.Console.Suggestion.SuggestionRangeAttribute.modifyAutocompleteList
+  nameWithType: SuggestionRangeAttribute.modifyAutocompleteList
+- uid: YShared.Console.YArgumentAttribute
+  name: YArgumentAttribute
+  href: api/YShared.Console.YArgumentAttribute.html
+  commentId: T:YShared.Console.YArgumentAttribute
+  fullName: YShared.Console.YArgumentAttribute
+  nameWithType: YArgumentAttribute
+- uid: YShared.Console.YArgumentAttribute.#ctor(System.String,System.String)
+  name: YArgumentAttribute(string, string)
+  href: api/YShared.Console.YArgumentAttribute.html#YShared_Console_YArgumentAttribute__ctor_System_String_System_String_
+  commentId: M:YShared.Console.YArgumentAttribute.#ctor(System.String,System.String)
+  name.vb: New(String, String)
+  fullName: YShared.Console.YArgumentAttribute.YArgumentAttribute(string, string)
+  fullName.vb: YShared.Console.YArgumentAttribute.New(String, String)
+  nameWithType: YArgumentAttribute.YArgumentAttribute(string, string)
+  nameWithType.vb: YArgumentAttribute.New(String, String)
+- uid: YShared.Console.YArgumentAttribute.#ctor*
+  name: YArgumentAttribute
+  href: api/YShared.Console.YArgumentAttribute.html#YShared_Console_YArgumentAttribute__ctor_
+  commentId: Overload:YShared.Console.YArgumentAttribute.#ctor
+  name.vb: New
+  fullName: YShared.Console.YArgumentAttribute.YArgumentAttribute
+  fullName.vb: YShared.Console.YArgumentAttribute.New
+  nameWithType: YArgumentAttribute.YArgumentAttribute
+  nameWithType.vb: YArgumentAttribute.New
+- uid: YShared.Console.YArgumentAttribute.Description
+  name: Description
+  href: api/YShared.Console.YArgumentAttribute.html#YShared_Console_YArgumentAttribute_Description
+  commentId: F:YShared.Console.YArgumentAttribute.Description
+  fullName: YShared.Console.YArgumentAttribute.Description
+  nameWithType: YArgumentAttribute.Description
+- uid: YShared.Console.YArgumentAttribute.Name
+  name: Name
+  href: api/YShared.Console.YArgumentAttribute.html#YShared_Console_YArgumentAttribute_Name
+  commentId: F:YShared.Console.YArgumentAttribute.Name
+  fullName: YShared.Console.YArgumentAttribute.Name
+  nameWithType: YArgumentAttribute.Name
+- uid: YShared.Console.YAutocompleteListAttribute
+  name: YAutocompleteListAttribute
+  href: api/YShared.Console.YAutocompleteListAttribute.html
+  commentId: T:YShared.Console.YAutocompleteListAttribute
+  fullName: YShared.Console.YAutocompleteListAttribute
+  nameWithType: YAutocompleteListAttribute
+- uid: YShared.Console.YAutocompleteListAttribute.#ctor(System.String[])
+  name: YAutocompleteListAttribute(params string[])
+  href: api/YShared.Console.YAutocompleteListAttribute.html#YShared_Console_YAutocompleteListAttribute__ctor_System_String___
+  commentId: M:YShared.Console.YAutocompleteListAttribute.#ctor(System.String[])
+  name.vb: New(ParamArray String())
+  fullName: YShared.Console.YAutocompleteListAttribute.YAutocompleteListAttribute(params string[])
+  fullName.vb: YShared.Console.YAutocompleteListAttribute.New(ParamArray String())
+  nameWithType: YAutocompleteListAttribute.YAutocompleteListAttribute(params string[])
+  nameWithType.vb: YAutocompleteListAttribute.New(ParamArray String())
+- uid: YShared.Console.YAutocompleteListAttribute.#ctor*
+  name: YAutocompleteListAttribute
+  href: api/YShared.Console.YAutocompleteListAttribute.html#YShared_Console_YAutocompleteListAttribute__ctor_
+  commentId: Overload:YShared.Console.YAutocompleteListAttribute.#ctor
+  name.vb: New
+  fullName: YShared.Console.YAutocompleteListAttribute.YAutocompleteListAttribute
+  fullName.vb: YShared.Console.YAutocompleteListAttribute.New
+  nameWithType: YAutocompleteListAttribute.YAutocompleteListAttribute
+  nameWithType.vb: YAutocompleteListAttribute.New
+- uid: YShared.Console.YAutocompleteListAttribute.autocompleteList
+  name: autocompleteList
+  href: api/YShared.Console.YAutocompleteListAttribute.html#YShared_Console_YAutocompleteListAttribute_autocompleteList
+  commentId: F:YShared.Console.YAutocompleteListAttribute.autocompleteList
+  fullName: YShared.Console.YAutocompleteListAttribute.autocompleteList
+  nameWithType: YAutocompleteListAttribute.autocompleteList
 - uid: YShared.Console.YCBool
   name: YCBool
   href: api/YShared.Console.YCBool.html
   commentId: T:YShared.Console.YCBool
   fullName: YShared.Console.YCBool
   nameWithType: YCBool
-- uid: YShared.Console.YCBool.#ctor(System.String)
-  name: YCBool(string)
-  href: api/YShared.Console.YCBool.html#YShared_Console_YCBool__ctor_System_String_
-  commentId: M:YShared.Console.YCBool.#ctor(System.String)
-  name.vb: New(String)
-  fullName: YShared.Console.YCBool.YCBool(string)
-  fullName.vb: YShared.Console.YCBool.New(String)
-  nameWithType: YCBool.YCBool(string)
-  nameWithType.vb: YCBool.New(String)
+- uid: YShared.Console.YCBool.#ctor
+  name: YCBool()
+  href: api/YShared.Console.YCBool.html#YShared_Console_YCBool__ctor
+  commentId: M:YShared.Console.YCBool.#ctor
+  name.vb: New()
+  fullName: YShared.Console.YCBool.YCBool()
+  fullName.vb: YShared.Console.YCBool.New()
+  nameWithType: YCBool.YCBool()
+  nameWithType.vb: YCBool.New()
 - uid: YShared.Console.YCBool.#ctor*
   name: YCBool
   href: api/YShared.Console.YCBool.html#YShared_Console_YCBool__ctor_
@@ -1057,48 +1627,48 @@ references:
   fullName.vb: YShared.Console.YCBool.New
   nameWithType: YCBool.YCBool
   nameWithType.vb: YCBool.New
+- uid: YShared.Console.YCBool.Parse(System.String,System.Boolean@)
+  name: Parse(string, out bool)
+  href: api/YShared.Console.YCBool.html#YShared_Console_YCBool_Parse_System_String_System_Boolean__
+  commentId: M:YShared.Console.YCBool.Parse(System.String,System.Boolean@)
+  name.vb: Parse(String, Boolean)
+  fullName: YShared.Console.YCBool.Parse(string, out bool)
+  fullName.vb: YShared.Console.YCBool.Parse(String, Boolean)
+  nameWithType: YCBool.Parse(string, out bool)
+  nameWithType.vb: YCBool.Parse(String, Boolean)
 - uid: YShared.Console.YCBool.Parse*
   name: Parse
   href: api/YShared.Console.YCBool.html#YShared_Console_YCBool_Parse_
   commentId: Overload:YShared.Console.YCBool.Parse
   fullName: YShared.Console.YCBool.Parse
   nameWithType: YCBool.Parse
-- uid: YShared.Console.YCBool.Parse``1(System.String,``0@)
-  name: Parse<T>(string, out T)
-  href: api/YShared.Console.YCBool.html#YShared_Console_YCBool_Parse__1_System_String___0__
-  commentId: M:YShared.Console.YCBool.Parse``1(System.String,``0@)
-  name.vb: Parse(Of T)(String, T)
-  fullName: YShared.Console.YCBool.Parse<T>(string, out T)
-  fullName.vb: YShared.Console.YCBool.Parse(Of T)(String, T)
-  nameWithType: YCBool.Parse<T>(string, out T)
-  nameWithType.vb: YCBool.Parse(Of T)(String, T)
+- uid: YShared.Console.YCBool.Validate(System.Boolean)
+  name: Validate(bool)
+  href: api/YShared.Console.YCBool.html#YShared_Console_YCBool_Validate_System_Boolean_
+  commentId: M:YShared.Console.YCBool.Validate(System.Boolean)
+  name.vb: Validate(Boolean)
+  fullName: YShared.Console.YCBool.Validate(bool)
+  fullName.vb: YShared.Console.YCBool.Validate(Boolean)
+  nameWithType: YCBool.Validate(bool)
+  nameWithType.vb: YCBool.Validate(Boolean)
 - uid: YShared.Console.YCBool.Validate*
   name: Validate
   href: api/YShared.Console.YCBool.html#YShared_Console_YCBool_Validate_
   commentId: Overload:YShared.Console.YCBool.Validate
   fullName: YShared.Console.YCBool.Validate
   nameWithType: YCBool.Validate
-- uid: YShared.Console.YCBool.Validate``1(``0)
-  name: Validate<T>(T)
-  href: api/YShared.Console.YCBool.html#YShared_Console_YCBool_Validate__1___0_
-  commentId: M:YShared.Console.YCBool.Validate``1(``0)
-  name.vb: Validate(Of T)(T)
-  fullName: YShared.Console.YCBool.Validate<T>(T)
-  fullName.vb: YShared.Console.YCBool.Validate(Of T)(T)
-  nameWithType: YCBool.Validate<T>(T)
-  nameWithType.vb: YCBool.Validate(Of T)(T)
-- uid: YShared.Console.YCBool.getAutocompleteArray
-  name: getAutocompleteArray()
-  href: api/YShared.Console.YCBool.html#YShared_Console_YCBool_getAutocompleteArray
-  commentId: M:YShared.Console.YCBool.getAutocompleteArray
-  fullName: YShared.Console.YCBool.getAutocompleteArray()
-  nameWithType: YCBool.getAutocompleteArray()
-- uid: YShared.Console.YCBool.getAutocompleteArray*
-  name: getAutocompleteArray
-  href: api/YShared.Console.YCBool.html#YShared_Console_YCBool_getAutocompleteArray_
-  commentId: Overload:YShared.Console.YCBool.getAutocompleteArray
-  fullName: YShared.Console.YCBool.getAutocompleteArray
-  nameWithType: YCBool.getAutocompleteArray
+- uid: YShared.Console.YCBool.defaultAutocompleteArray
+  name: defaultAutocompleteArray()
+  href: api/YShared.Console.YCBool.html#YShared_Console_YCBool_defaultAutocompleteArray
+  commentId: M:YShared.Console.YCBool.defaultAutocompleteArray
+  fullName: YShared.Console.YCBool.defaultAutocompleteArray()
+  nameWithType: YCBool.defaultAutocompleteArray()
+- uid: YShared.Console.YCBool.defaultAutocompleteArray*
+  name: defaultAutocompleteArray
+  href: api/YShared.Console.YCBool.html#YShared_Console_YCBool_defaultAutocompleteArray_
+  commentId: Overload:YShared.Console.YCBool.defaultAutocompleteArray
+  fullName: YShared.Console.YCBool.defaultAutocompleteArray
+  nameWithType: YCBool.defaultAutocompleteArray
 - uid: YShared.Console.YCBool.getDescriptorText
   name: getDescriptorText()
   href: api/YShared.Console.YCBool.html#YShared_Console_YCBool_getDescriptorText
@@ -1123,33 +1693,33 @@ references:
   commentId: Overload:YShared.Console.YCBool.getTypeName
   fullName: YShared.Console.YCBool.getTypeName
   nameWithType: YCBool.getTypeName
-- uid: YShared.Console.YCBool.hasAutocompleteArray
-  name: hasAutocompleteArray
-  href: api/YShared.Console.YCBool.html#YShared_Console_YCBool_hasAutocompleteArray
-  commentId: P:YShared.Console.YCBool.hasAutocompleteArray
-  fullName: YShared.Console.YCBool.hasAutocompleteArray
-  nameWithType: YCBool.hasAutocompleteArray
-- uid: YShared.Console.YCBool.hasAutocompleteArray*
-  name: hasAutocompleteArray
-  href: api/YShared.Console.YCBool.html#YShared_Console_YCBool_hasAutocompleteArray_
-  commentId: Overload:YShared.Console.YCBool.hasAutocompleteArray
-  fullName: YShared.Console.YCBool.hasAutocompleteArray
-  nameWithType: YCBool.hasAutocompleteArray
+- uid: YShared.Console.YCBool.hasDefaultAutocompleteArray
+  name: hasDefaultAutocompleteArray
+  href: api/YShared.Console.YCBool.html#YShared_Console_YCBool_hasDefaultAutocompleteArray
+  commentId: P:YShared.Console.YCBool.hasDefaultAutocompleteArray
+  fullName: YShared.Console.YCBool.hasDefaultAutocompleteArray
+  nameWithType: YCBool.hasDefaultAutocompleteArray
+- uid: YShared.Console.YCBool.hasDefaultAutocompleteArray*
+  name: hasDefaultAutocompleteArray
+  href: api/YShared.Console.YCBool.html#YShared_Console_YCBool_hasDefaultAutocompleteArray_
+  commentId: Overload:YShared.Console.YCBool.hasDefaultAutocompleteArray
+  fullName: YShared.Console.YCBool.hasDefaultAutocompleteArray
+  nameWithType: YCBool.hasDefaultAutocompleteArray
 - uid: YShared.Console.YCCmdArg
   name: YCCmdArg
   href: api/YShared.Console.YCCmdArg.html
   commentId: T:YShared.Console.YCCmdArg
   fullName: YShared.Console.YCCmdArg
   nameWithType: YCCmdArg
-- uid: YShared.Console.YCCmdArg.#ctor(System.String)
-  name: YCCmdArg(string)
-  href: api/YShared.Console.YCCmdArg.html#YShared_Console_YCCmdArg__ctor_System_String_
-  commentId: M:YShared.Console.YCCmdArg.#ctor(System.String)
-  name.vb: New(String)
-  fullName: YShared.Console.YCCmdArg.YCCmdArg(string)
-  fullName.vb: YShared.Console.YCCmdArg.New(String)
-  nameWithType: YCCmdArg.YCCmdArg(string)
-  nameWithType.vb: YCCmdArg.New(String)
+- uid: YShared.Console.YCCmdArg.#ctor
+  name: YCCmdArg()
+  href: api/YShared.Console.YCCmdArg.html#YShared_Console_YCCmdArg__ctor
+  commentId: M:YShared.Console.YCCmdArg.#ctor
+  name.vb: New()
+  fullName: YShared.Console.YCCmdArg.YCCmdArg()
+  fullName.vb: YShared.Console.YCCmdArg.New()
+  nameWithType: YCCmdArg.YCCmdArg()
+  nameWithType.vb: YCCmdArg.New()
 - uid: YShared.Console.YCCmdArg.#ctor*
   name: YCCmdArg
   href: api/YShared.Console.YCCmdArg.html#YShared_Console_YCCmdArg__ctor_
@@ -1159,48 +1729,48 @@ references:
   fullName.vb: YShared.Console.YCCmdArg.New
   nameWithType: YCCmdArg.YCCmdArg
   nameWithType.vb: YCCmdArg.New
+- uid: YShared.Console.YCCmdArg.Parse(System.String,YShared.Console.Command[]@)
+  name: Parse(string, out Command[])
+  href: api/YShared.Console.YCCmdArg.html#YShared_Console_YCCmdArg_Parse_System_String_YShared_Console_Command____
+  commentId: M:YShared.Console.YCCmdArg.Parse(System.String,YShared.Console.Command[]@)
+  name.vb: Parse(String, Command())
+  fullName: YShared.Console.YCCmdArg.Parse(string, out YShared.Console.Command[])
+  fullName.vb: YShared.Console.YCCmdArg.Parse(String, YShared.Console.Command())
+  nameWithType: YCCmdArg.Parse(string, out Command[])
+  nameWithType.vb: YCCmdArg.Parse(String, Command())
 - uid: YShared.Console.YCCmdArg.Parse*
   name: Parse
   href: api/YShared.Console.YCCmdArg.html#YShared_Console_YCCmdArg_Parse_
   commentId: Overload:YShared.Console.YCCmdArg.Parse
   fullName: YShared.Console.YCCmdArg.Parse
   nameWithType: YCCmdArg.Parse
-- uid: YShared.Console.YCCmdArg.Parse``1(System.String,``0@)
-  name: Parse<T>(string, out T)
-  href: api/YShared.Console.YCCmdArg.html#YShared_Console_YCCmdArg_Parse__1_System_String___0__
-  commentId: M:YShared.Console.YCCmdArg.Parse``1(System.String,``0@)
-  name.vb: Parse(Of T)(String, T)
-  fullName: YShared.Console.YCCmdArg.Parse<T>(string, out T)
-  fullName.vb: YShared.Console.YCCmdArg.Parse(Of T)(String, T)
-  nameWithType: YCCmdArg.Parse<T>(string, out T)
-  nameWithType.vb: YCCmdArg.Parse(Of T)(String, T)
+- uid: YShared.Console.YCCmdArg.Validate(YShared.Console.Command[])
+  name: Validate(Command[])
+  href: api/YShared.Console.YCCmdArg.html#YShared_Console_YCCmdArg_Validate_YShared_Console_Command___
+  commentId: M:YShared.Console.YCCmdArg.Validate(YShared.Console.Command[])
+  name.vb: Validate(Command())
+  fullName: YShared.Console.YCCmdArg.Validate(YShared.Console.Command[])
+  fullName.vb: YShared.Console.YCCmdArg.Validate(YShared.Console.Command())
+  nameWithType: YCCmdArg.Validate(Command[])
+  nameWithType.vb: YCCmdArg.Validate(Command())
 - uid: YShared.Console.YCCmdArg.Validate*
   name: Validate
   href: api/YShared.Console.YCCmdArg.html#YShared_Console_YCCmdArg_Validate_
   commentId: Overload:YShared.Console.YCCmdArg.Validate
   fullName: YShared.Console.YCCmdArg.Validate
   nameWithType: YCCmdArg.Validate
-- uid: YShared.Console.YCCmdArg.Validate``1(``0)
-  name: Validate<T>(T)
-  href: api/YShared.Console.YCCmdArg.html#YShared_Console_YCCmdArg_Validate__1___0_
-  commentId: M:YShared.Console.YCCmdArg.Validate``1(``0)
-  name.vb: Validate(Of T)(T)
-  fullName: YShared.Console.YCCmdArg.Validate<T>(T)
-  fullName.vb: YShared.Console.YCCmdArg.Validate(Of T)(T)
-  nameWithType: YCCmdArg.Validate<T>(T)
-  nameWithType.vb: YCCmdArg.Validate(Of T)(T)
-- uid: YShared.Console.YCCmdArg.getAutocompleteArray
-  name: getAutocompleteArray()
-  href: api/YShared.Console.YCCmdArg.html#YShared_Console_YCCmdArg_getAutocompleteArray
-  commentId: M:YShared.Console.YCCmdArg.getAutocompleteArray
-  fullName: YShared.Console.YCCmdArg.getAutocompleteArray()
-  nameWithType: YCCmdArg.getAutocompleteArray()
-- uid: YShared.Console.YCCmdArg.getAutocompleteArray*
-  name: getAutocompleteArray
-  href: api/YShared.Console.YCCmdArg.html#YShared_Console_YCCmdArg_getAutocompleteArray_
-  commentId: Overload:YShared.Console.YCCmdArg.getAutocompleteArray
-  fullName: YShared.Console.YCCmdArg.getAutocompleteArray
-  nameWithType: YCCmdArg.getAutocompleteArray
+- uid: YShared.Console.YCCmdArg.defaultAutocompleteArray
+  name: defaultAutocompleteArray()
+  href: api/YShared.Console.YCCmdArg.html#YShared_Console_YCCmdArg_defaultAutocompleteArray
+  commentId: M:YShared.Console.YCCmdArg.defaultAutocompleteArray
+  fullName: YShared.Console.YCCmdArg.defaultAutocompleteArray()
+  nameWithType: YCCmdArg.defaultAutocompleteArray()
+- uid: YShared.Console.YCCmdArg.defaultAutocompleteArray*
+  name: defaultAutocompleteArray
+  href: api/YShared.Console.YCCmdArg.html#YShared_Console_YCCmdArg_defaultAutocompleteArray_
+  commentId: Overload:YShared.Console.YCCmdArg.defaultAutocompleteArray
+  fullName: YShared.Console.YCCmdArg.defaultAutocompleteArray
+  nameWithType: YCCmdArg.defaultAutocompleteArray
 - uid: YShared.Console.YCCmdArg.getDescriptorText
   name: getDescriptorText()
   href: api/YShared.Console.YCCmdArg.html#YShared_Console_YCCmdArg_getDescriptorText
@@ -1225,33 +1795,33 @@ references:
   commentId: Overload:YShared.Console.YCCmdArg.getTypeName
   fullName: YShared.Console.YCCmdArg.getTypeName
   nameWithType: YCCmdArg.getTypeName
-- uid: YShared.Console.YCCmdArg.hasAutocompleteArray
-  name: hasAutocompleteArray
-  href: api/YShared.Console.YCCmdArg.html#YShared_Console_YCCmdArg_hasAutocompleteArray
-  commentId: P:YShared.Console.YCCmdArg.hasAutocompleteArray
-  fullName: YShared.Console.YCCmdArg.hasAutocompleteArray
-  nameWithType: YCCmdArg.hasAutocompleteArray
-- uid: YShared.Console.YCCmdArg.hasAutocompleteArray*
-  name: hasAutocompleteArray
-  href: api/YShared.Console.YCCmdArg.html#YShared_Console_YCCmdArg_hasAutocompleteArray_
-  commentId: Overload:YShared.Console.YCCmdArg.hasAutocompleteArray
-  fullName: YShared.Console.YCCmdArg.hasAutocompleteArray
-  nameWithType: YCCmdArg.hasAutocompleteArray
+- uid: YShared.Console.YCCmdArg.hasDefaultAutocompleteArray
+  name: hasDefaultAutocompleteArray
+  href: api/YShared.Console.YCCmdArg.html#YShared_Console_YCCmdArg_hasDefaultAutocompleteArray
+  commentId: P:YShared.Console.YCCmdArg.hasDefaultAutocompleteArray
+  fullName: YShared.Console.YCCmdArg.hasDefaultAutocompleteArray
+  nameWithType: YCCmdArg.hasDefaultAutocompleteArray
+- uid: YShared.Console.YCCmdArg.hasDefaultAutocompleteArray*
+  name: hasDefaultAutocompleteArray
+  href: api/YShared.Console.YCCmdArg.html#YShared_Console_YCCmdArg_hasDefaultAutocompleteArray_
+  commentId: Overload:YShared.Console.YCCmdArg.hasDefaultAutocompleteArray
+  fullName: YShared.Console.YCCmdArg.hasDefaultAutocompleteArray
+  nameWithType: YCCmdArg.hasDefaultAutocompleteArray
 - uid: YShared.Console.YCEnum
   name: YCEnum
   href: api/YShared.Console.YCEnum.html
   commentId: T:YShared.Console.YCEnum
   fullName: YShared.Console.YCEnum
   nameWithType: YCEnum
-- uid: YShared.Console.YCEnum.#ctor(System.String,System.Type)
-  name: YCEnum(string, Type)
-  href: api/YShared.Console.YCEnum.html#YShared_Console_YCEnum__ctor_System_String_System_Type_
-  commentId: M:YShared.Console.YCEnum.#ctor(System.String,System.Type)
-  name.vb: New(String, Type)
-  fullName: YShared.Console.YCEnum.YCEnum(string, System.Type)
-  fullName.vb: YShared.Console.YCEnum.New(String, System.Type)
-  nameWithType: YCEnum.YCEnum(string, Type)
-  nameWithType.vb: YCEnum.New(String, Type)
+- uid: YShared.Console.YCEnum.#ctor
+  name: YCEnum()
+  href: api/YShared.Console.YCEnum.html#YShared_Console_YCEnum__ctor
+  commentId: M:YShared.Console.YCEnum.#ctor
+  name.vb: New()
+  fullName: YShared.Console.YCEnum.YCEnum()
+  fullName.vb: YShared.Console.YCEnum.New()
+  nameWithType: YCEnum.YCEnum()
+  nameWithType.vb: YCEnum.New()
 - uid: YShared.Console.YCEnum.#ctor*
   name: YCEnum
   href: api/YShared.Console.YCEnum.html#YShared_Console_YCEnum__ctor_
@@ -1261,36 +1831,57 @@ references:
   fullName.vb: YShared.Console.YCEnum.New
   nameWithType: YCEnum.YCEnum
   nameWithType.vb: YCEnum.New
+- uid: YShared.Console.YCEnum.Parse(System.String,System.Enum@)
+  name: Parse(string, out Enum)
+  href: api/YShared.Console.YCEnum.html#YShared_Console_YCEnum_Parse_System_String_System_Enum__
+  commentId: M:YShared.Console.YCEnum.Parse(System.String,System.Enum@)
+  name.vb: Parse(String, Enum)
+  fullName: YShared.Console.YCEnum.Parse(string, out System.Enum)
+  fullName.vb: YShared.Console.YCEnum.Parse(String, System.Enum)
+  nameWithType: YCEnum.Parse(string, out Enum)
+  nameWithType.vb: YCEnum.Parse(String, Enum)
 - uid: YShared.Console.YCEnum.Parse*
   name: Parse
   href: api/YShared.Console.YCEnum.html#YShared_Console_YCEnum_Parse_
   commentId: Overload:YShared.Console.YCEnum.Parse
   fullName: YShared.Console.YCEnum.Parse
   nameWithType: YCEnum.Parse
-- uid: YShared.Console.YCEnum.Parse``1(System.String,``0@)
-  name: Parse<T>(string, out T)
-  href: api/YShared.Console.YCEnum.html#YShared_Console_YCEnum_Parse__1_System_String___0__
-  commentId: M:YShared.Console.YCEnum.Parse``1(System.String,``0@)
-  name.vb: Parse(Of T)(String, T)
-  fullName: YShared.Console.YCEnum.Parse<T>(string, out T)
-  fullName.vb: YShared.Console.YCEnum.Parse(Of T)(String, T)
-  nameWithType: YCEnum.Parse<T>(string, out T)
-  nameWithType.vb: YCEnum.Parse(Of T)(String, T)
+- uid: YShared.Console.YCEnum.SetEnumType(System.Type)
+  name: SetEnumType(Type)
+  href: api/YShared.Console.YCEnum.html#YShared_Console_YCEnum_SetEnumType_System_Type_
+  commentId: M:YShared.Console.YCEnum.SetEnumType(System.Type)
+  fullName: YShared.Console.YCEnum.SetEnumType(System.Type)
+  nameWithType: YCEnum.SetEnumType(Type)
+- uid: YShared.Console.YCEnum.SetEnumType*
+  name: SetEnumType
+  href: api/YShared.Console.YCEnum.html#YShared_Console_YCEnum_SetEnumType_
+  commentId: Overload:YShared.Console.YCEnum.SetEnumType
+  fullName: YShared.Console.YCEnum.SetEnumType
+  nameWithType: YCEnum.SetEnumType
+- uid: YShared.Console.YCEnum.Validate(System.Enum)
+  name: Validate(Enum)
+  href: api/YShared.Console.YCEnum.html#YShared_Console_YCEnum_Validate_System_Enum_
+  commentId: M:YShared.Console.YCEnum.Validate(System.Enum)
+  fullName: YShared.Console.YCEnum.Validate(System.Enum)
+  nameWithType: YCEnum.Validate(Enum)
 - uid: YShared.Console.YCEnum.Validate*
   name: Validate
   href: api/YShared.Console.YCEnum.html#YShared_Console_YCEnum_Validate_
   commentId: Overload:YShared.Console.YCEnum.Validate
   fullName: YShared.Console.YCEnum.Validate
   nameWithType: YCEnum.Validate
-- uid: YShared.Console.YCEnum.Validate``1(``0)
-  name: Validate<T>(T)
-  href: api/YShared.Console.YCEnum.html#YShared_Console_YCEnum_Validate__1___0_
-  commentId: M:YShared.Console.YCEnum.Validate``1(``0)
-  name.vb: Validate(Of T)(T)
-  fullName: YShared.Console.YCEnum.Validate<T>(T)
-  fullName.vb: YShared.Console.YCEnum.Validate(Of T)(T)
-  nameWithType: YCEnum.Validate<T>(T)
-  nameWithType.vb: YCEnum.Validate(Of T)(T)
+- uid: YShared.Console.YCEnum.defaultAutocompleteArray
+  name: defaultAutocompleteArray()
+  href: api/YShared.Console.YCEnum.html#YShared_Console_YCEnum_defaultAutocompleteArray
+  commentId: M:YShared.Console.YCEnum.defaultAutocompleteArray
+  fullName: YShared.Console.YCEnum.defaultAutocompleteArray()
+  nameWithType: YCEnum.defaultAutocompleteArray()
+- uid: YShared.Console.YCEnum.defaultAutocompleteArray*
+  name: defaultAutocompleteArray
+  href: api/YShared.Console.YCEnum.html#YShared_Console_YCEnum_defaultAutocompleteArray_
+  commentId: Overload:YShared.Console.YCEnum.defaultAutocompleteArray
+  fullName: YShared.Console.YCEnum.defaultAutocompleteArray
+  nameWithType: YCEnum.defaultAutocompleteArray
 - uid: YShared.Console.YCEnum.enumType
   name: enumType
   href: api/YShared.Console.YCEnum.html#YShared_Console_YCEnum_enumType
@@ -1303,18 +1894,6 @@ references:
   commentId: Overload:YShared.Console.YCEnum.enumType
   fullName: YShared.Console.YCEnum.enumType
   nameWithType: YCEnum.enumType
-- uid: YShared.Console.YCEnum.getAutocompleteArray
-  name: getAutocompleteArray()
-  href: api/YShared.Console.YCEnum.html#YShared_Console_YCEnum_getAutocompleteArray
-  commentId: M:YShared.Console.YCEnum.getAutocompleteArray
-  fullName: YShared.Console.YCEnum.getAutocompleteArray()
-  nameWithType: YCEnum.getAutocompleteArray()
-- uid: YShared.Console.YCEnum.getAutocompleteArray*
-  name: getAutocompleteArray
-  href: api/YShared.Console.YCEnum.html#YShared_Console_YCEnum_getAutocompleteArray_
-  commentId: Overload:YShared.Console.YCEnum.getAutocompleteArray
-  fullName: YShared.Console.YCEnum.getAutocompleteArray
-  nameWithType: YCEnum.getAutocompleteArray
 - uid: YShared.Console.YCEnum.getDescriptorText
   name: getDescriptorText()
   href: api/YShared.Console.YCEnum.html#YShared_Console_YCEnum_getDescriptorText
@@ -1339,33 +1918,33 @@ references:
   commentId: Overload:YShared.Console.YCEnum.getTypeName
   fullName: YShared.Console.YCEnum.getTypeName
   nameWithType: YCEnum.getTypeName
-- uid: YShared.Console.YCEnum.hasAutocompleteArray
-  name: hasAutocompleteArray
-  href: api/YShared.Console.YCEnum.html#YShared_Console_YCEnum_hasAutocompleteArray
-  commentId: P:YShared.Console.YCEnum.hasAutocompleteArray
-  fullName: YShared.Console.YCEnum.hasAutocompleteArray
-  nameWithType: YCEnum.hasAutocompleteArray
-- uid: YShared.Console.YCEnum.hasAutocompleteArray*
-  name: hasAutocompleteArray
-  href: api/YShared.Console.YCEnum.html#YShared_Console_YCEnum_hasAutocompleteArray_
-  commentId: Overload:YShared.Console.YCEnum.hasAutocompleteArray
-  fullName: YShared.Console.YCEnum.hasAutocompleteArray
-  nameWithType: YCEnum.hasAutocompleteArray
+- uid: YShared.Console.YCEnum.hasDefaultAutocompleteArray
+  name: hasDefaultAutocompleteArray
+  href: api/YShared.Console.YCEnum.html#YShared_Console_YCEnum_hasDefaultAutocompleteArray
+  commentId: P:YShared.Console.YCEnum.hasDefaultAutocompleteArray
+  fullName: YShared.Console.YCEnum.hasDefaultAutocompleteArray
+  nameWithType: YCEnum.hasDefaultAutocompleteArray
+- uid: YShared.Console.YCEnum.hasDefaultAutocompleteArray*
+  name: hasDefaultAutocompleteArray
+  href: api/YShared.Console.YCEnum.html#YShared_Console_YCEnum_hasDefaultAutocompleteArray_
+  commentId: Overload:YShared.Console.YCEnum.hasDefaultAutocompleteArray
+  fullName: YShared.Console.YCEnum.hasDefaultAutocompleteArray
+  nameWithType: YCEnum.hasDefaultAutocompleteArray
 - uid: YShared.Console.YCFloat
   name: YCFloat
   href: api/YShared.Console.YCFloat.html
   commentId: T:YShared.Console.YCFloat
   fullName: YShared.Console.YCFloat
   nameWithType: YCFloat
-- uid: YShared.Console.YCFloat.#ctor(System.String,System.Single,System.Single)
-  name: YCFloat(string, float, float)
-  href: api/YShared.Console.YCFloat.html#YShared_Console_YCFloat__ctor_System_String_System_Single_System_Single_
-  commentId: M:YShared.Console.YCFloat.#ctor(System.String,System.Single,System.Single)
-  name.vb: New(String, Single, Single)
-  fullName: YShared.Console.YCFloat.YCFloat(string, float, float)
-  fullName.vb: YShared.Console.YCFloat.New(String, Single, Single)
-  nameWithType: YCFloat.YCFloat(string, float, float)
-  nameWithType.vb: YCFloat.New(String, Single, Single)
+- uid: YShared.Console.YCFloat.#ctor
+  name: YCFloat()
+  href: api/YShared.Console.YCFloat.html#YShared_Console_YCFloat__ctor
+  commentId: M:YShared.Console.YCFloat.#ctor
+  name.vb: New()
+  fullName: YShared.Console.YCFloat.YCFloat()
+  fullName.vb: YShared.Console.YCFloat.New()
+  nameWithType: YCFloat.YCFloat()
+  nameWithType.vb: YCFloat.New()
 - uid: YShared.Console.YCFloat.#ctor*
   name: YCFloat
   href: api/YShared.Console.YCFloat.html#YShared_Console_YCFloat__ctor_
@@ -1375,36 +1954,36 @@ references:
   fullName.vb: YShared.Console.YCFloat.New
   nameWithType: YCFloat.YCFloat
   nameWithType.vb: YCFloat.New
+- uid: YShared.Console.YCFloat.Parse(System.String,System.Single@)
+  name: Parse(string, out float)
+  href: api/YShared.Console.YCFloat.html#YShared_Console_YCFloat_Parse_System_String_System_Single__
+  commentId: M:YShared.Console.YCFloat.Parse(System.String,System.Single@)
+  name.vb: Parse(String, Single)
+  fullName: YShared.Console.YCFloat.Parse(string, out float)
+  fullName.vb: YShared.Console.YCFloat.Parse(String, Single)
+  nameWithType: YCFloat.Parse(string, out float)
+  nameWithType.vb: YCFloat.Parse(String, Single)
 - uid: YShared.Console.YCFloat.Parse*
   name: Parse
   href: api/YShared.Console.YCFloat.html#YShared_Console_YCFloat_Parse_
   commentId: Overload:YShared.Console.YCFloat.Parse
   fullName: YShared.Console.YCFloat.Parse
   nameWithType: YCFloat.Parse
-- uid: YShared.Console.YCFloat.Parse``1(System.String,``0@)
-  name: Parse<T>(string, out T)
-  href: api/YShared.Console.YCFloat.html#YShared_Console_YCFloat_Parse__1_System_String___0__
-  commentId: M:YShared.Console.YCFloat.Parse``1(System.String,``0@)
-  name.vb: Parse(Of T)(String, T)
-  fullName: YShared.Console.YCFloat.Parse<T>(string, out T)
-  fullName.vb: YShared.Console.YCFloat.Parse(Of T)(String, T)
-  nameWithType: YCFloat.Parse<T>(string, out T)
-  nameWithType.vb: YCFloat.Parse(Of T)(String, T)
+- uid: YShared.Console.YCFloat.Validate(System.Single)
+  name: Validate(float)
+  href: api/YShared.Console.YCFloat.html#YShared_Console_YCFloat_Validate_System_Single_
+  commentId: M:YShared.Console.YCFloat.Validate(System.Single)
+  name.vb: Validate(Single)
+  fullName: YShared.Console.YCFloat.Validate(float)
+  fullName.vb: YShared.Console.YCFloat.Validate(Single)
+  nameWithType: YCFloat.Validate(float)
+  nameWithType.vb: YCFloat.Validate(Single)
 - uid: YShared.Console.YCFloat.Validate*
   name: Validate
   href: api/YShared.Console.YCFloat.html#YShared_Console_YCFloat_Validate_
   commentId: Overload:YShared.Console.YCFloat.Validate
   fullName: YShared.Console.YCFloat.Validate
   nameWithType: YCFloat.Validate
-- uid: YShared.Console.YCFloat.Validate``1(``0)
-  name: Validate<T>(T)
-  href: api/YShared.Console.YCFloat.html#YShared_Console_YCFloat_Validate__1___0_
-  commentId: M:YShared.Console.YCFloat.Validate``1(``0)
-  name.vb: Validate(Of T)(T)
-  fullName: YShared.Console.YCFloat.Validate<T>(T)
-  fullName.vb: YShared.Console.YCFloat.Validate(Of T)(T)
-  nameWithType: YCFloat.Validate<T>(T)
-  nameWithType.vb: YCFloat.Validate(Of T)(T)
 - uid: YShared.Console.YCFloat.getDescriptorText
   name: getDescriptorText()
   href: api/YShared.Console.YCFloat.html#YShared_Console_YCFloat_getDescriptorText
@@ -1429,33 +2008,33 @@ references:
   commentId: Overload:YShared.Console.YCFloat.getTypeName
   fullName: YShared.Console.YCFloat.getTypeName
   nameWithType: YCFloat.getTypeName
-- uid: YShared.Console.YCFloat.hasAutocompleteArray
-  name: hasAutocompleteArray
-  href: api/YShared.Console.YCFloat.html#YShared_Console_YCFloat_hasAutocompleteArray
-  commentId: P:YShared.Console.YCFloat.hasAutocompleteArray
-  fullName: YShared.Console.YCFloat.hasAutocompleteArray
-  nameWithType: YCFloat.hasAutocompleteArray
-- uid: YShared.Console.YCFloat.hasAutocompleteArray*
-  name: hasAutocompleteArray
-  href: api/YShared.Console.YCFloat.html#YShared_Console_YCFloat_hasAutocompleteArray_
-  commentId: Overload:YShared.Console.YCFloat.hasAutocompleteArray
-  fullName: YShared.Console.YCFloat.hasAutocompleteArray
-  nameWithType: YCFloat.hasAutocompleteArray
+- uid: YShared.Console.YCFloat.hasDefaultAutocompleteArray
+  name: hasDefaultAutocompleteArray
+  href: api/YShared.Console.YCFloat.html#YShared_Console_YCFloat_hasDefaultAutocompleteArray
+  commentId: P:YShared.Console.YCFloat.hasDefaultAutocompleteArray
+  fullName: YShared.Console.YCFloat.hasDefaultAutocompleteArray
+  nameWithType: YCFloat.hasDefaultAutocompleteArray
+- uid: YShared.Console.YCFloat.hasDefaultAutocompleteArray*
+  name: hasDefaultAutocompleteArray
+  href: api/YShared.Console.YCFloat.html#YShared_Console_YCFloat_hasDefaultAutocompleteArray_
+  commentId: Overload:YShared.Console.YCFloat.hasDefaultAutocompleteArray
+  fullName: YShared.Console.YCFloat.hasDefaultAutocompleteArray
+  nameWithType: YCFloat.hasDefaultAutocompleteArray
 - uid: YShared.Console.YCInt
   name: YCInt
   href: api/YShared.Console.YCInt.html
   commentId: T:YShared.Console.YCInt
   fullName: YShared.Console.YCInt
   nameWithType: YCInt
-- uid: YShared.Console.YCInt.#ctor(System.String,System.Int32,System.Int32)
-  name: YCInt(string, int, int)
-  href: api/YShared.Console.YCInt.html#YShared_Console_YCInt__ctor_System_String_System_Int32_System_Int32_
-  commentId: M:YShared.Console.YCInt.#ctor(System.String,System.Int32,System.Int32)
-  name.vb: New(String, Integer, Integer)
-  fullName: YShared.Console.YCInt.YCInt(string, int, int)
-  fullName.vb: YShared.Console.YCInt.New(String, Integer, Integer)
-  nameWithType: YCInt.YCInt(string, int, int)
-  nameWithType.vb: YCInt.New(String, Integer, Integer)
+- uid: YShared.Console.YCInt.#ctor
+  name: YCInt()
+  href: api/YShared.Console.YCInt.html#YShared_Console_YCInt__ctor
+  commentId: M:YShared.Console.YCInt.#ctor
+  name.vb: New()
+  fullName: YShared.Console.YCInt.YCInt()
+  fullName.vb: YShared.Console.YCInt.New()
+  nameWithType: YCInt.YCInt()
+  nameWithType.vb: YCInt.New()
 - uid: YShared.Console.YCInt.#ctor*
   name: YCInt
   href: api/YShared.Console.YCInt.html#YShared_Console_YCInt__ctor_
@@ -1465,36 +2044,36 @@ references:
   fullName.vb: YShared.Console.YCInt.New
   nameWithType: YCInt.YCInt
   nameWithType.vb: YCInt.New
+- uid: YShared.Console.YCInt.Parse(System.String,System.Int32@)
+  name: Parse(string, out int)
+  href: api/YShared.Console.YCInt.html#YShared_Console_YCInt_Parse_System_String_System_Int32__
+  commentId: M:YShared.Console.YCInt.Parse(System.String,System.Int32@)
+  name.vb: Parse(String, Integer)
+  fullName: YShared.Console.YCInt.Parse(string, out int)
+  fullName.vb: YShared.Console.YCInt.Parse(String, Integer)
+  nameWithType: YCInt.Parse(string, out int)
+  nameWithType.vb: YCInt.Parse(String, Integer)
 - uid: YShared.Console.YCInt.Parse*
   name: Parse
   href: api/YShared.Console.YCInt.html#YShared_Console_YCInt_Parse_
   commentId: Overload:YShared.Console.YCInt.Parse
   fullName: YShared.Console.YCInt.Parse
   nameWithType: YCInt.Parse
-- uid: YShared.Console.YCInt.Parse``1(System.String,``0@)
-  name: Parse<T>(string, out T)
-  href: api/YShared.Console.YCInt.html#YShared_Console_YCInt_Parse__1_System_String___0__
-  commentId: M:YShared.Console.YCInt.Parse``1(System.String,``0@)
-  name.vb: Parse(Of T)(String, T)
-  fullName: YShared.Console.YCInt.Parse<T>(string, out T)
-  fullName.vb: YShared.Console.YCInt.Parse(Of T)(String, T)
-  nameWithType: YCInt.Parse<T>(string, out T)
-  nameWithType.vb: YCInt.Parse(Of T)(String, T)
+- uid: YShared.Console.YCInt.Validate(System.Int32)
+  name: Validate(int)
+  href: api/YShared.Console.YCInt.html#YShared_Console_YCInt_Validate_System_Int32_
+  commentId: M:YShared.Console.YCInt.Validate(System.Int32)
+  name.vb: Validate(Integer)
+  fullName: YShared.Console.YCInt.Validate(int)
+  fullName.vb: YShared.Console.YCInt.Validate(Integer)
+  nameWithType: YCInt.Validate(int)
+  nameWithType.vb: YCInt.Validate(Integer)
 - uid: YShared.Console.YCInt.Validate*
   name: Validate
   href: api/YShared.Console.YCInt.html#YShared_Console_YCInt_Validate_
   commentId: Overload:YShared.Console.YCInt.Validate
   fullName: YShared.Console.YCInt.Validate
   nameWithType: YCInt.Validate
-- uid: YShared.Console.YCInt.Validate``1(``0)
-  name: Validate<T>(T)
-  href: api/YShared.Console.YCInt.html#YShared_Console_YCInt_Validate__1___0_
-  commentId: M:YShared.Console.YCInt.Validate``1(``0)
-  name.vb: Validate(Of T)(T)
-  fullName: YShared.Console.YCInt.Validate<T>(T)
-  fullName.vb: YShared.Console.YCInt.Validate(Of T)(T)
-  nameWithType: YCInt.Validate<T>(T)
-  nameWithType.vb: YCInt.Validate(Of T)(T)
 - uid: YShared.Console.YCInt.getDescriptorText
   name: getDescriptorText()
   href: api/YShared.Console.YCInt.html#YShared_Console_YCInt_getDescriptorText
@@ -1519,33 +2098,33 @@ references:
   commentId: Overload:YShared.Console.YCInt.getTypeName
   fullName: YShared.Console.YCInt.getTypeName
   nameWithType: YCInt.getTypeName
-- uid: YShared.Console.YCInt.hasAutocompleteArray
-  name: hasAutocompleteArray
-  href: api/YShared.Console.YCInt.html#YShared_Console_YCInt_hasAutocompleteArray
-  commentId: P:YShared.Console.YCInt.hasAutocompleteArray
-  fullName: YShared.Console.YCInt.hasAutocompleteArray
-  nameWithType: YCInt.hasAutocompleteArray
-- uid: YShared.Console.YCInt.hasAutocompleteArray*
-  name: hasAutocompleteArray
-  href: api/YShared.Console.YCInt.html#YShared_Console_YCInt_hasAutocompleteArray_
-  commentId: Overload:YShared.Console.YCInt.hasAutocompleteArray
-  fullName: YShared.Console.YCInt.hasAutocompleteArray
-  nameWithType: YCInt.hasAutocompleteArray
+- uid: YShared.Console.YCInt.hasDefaultAutocompleteArray
+  name: hasDefaultAutocompleteArray
+  href: api/YShared.Console.YCInt.html#YShared_Console_YCInt_hasDefaultAutocompleteArray
+  commentId: P:YShared.Console.YCInt.hasDefaultAutocompleteArray
+  fullName: YShared.Console.YCInt.hasDefaultAutocompleteArray
+  nameWithType: YCInt.hasDefaultAutocompleteArray
+- uid: YShared.Console.YCInt.hasDefaultAutocompleteArray*
+  name: hasDefaultAutocompleteArray
+  href: api/YShared.Console.YCInt.html#YShared_Console_YCInt_hasDefaultAutocompleteArray_
+  commentId: Overload:YShared.Console.YCInt.hasDefaultAutocompleteArray
+  fullName: YShared.Console.YCInt.hasDefaultAutocompleteArray
+  nameWithType: YCInt.hasDefaultAutocompleteArray
 - uid: YShared.Console.YCString
   name: YCString
   href: api/YShared.Console.YCString.html
   commentId: T:YShared.Console.YCString
   fullName: YShared.Console.YCString
   nameWithType: YCString
-- uid: YShared.Console.YCString.#ctor(System.String,System.String[])
-  name: YCString(string, string[])
-  href: api/YShared.Console.YCString.html#YShared_Console_YCString__ctor_System_String_System_String___
-  commentId: M:YShared.Console.YCString.#ctor(System.String,System.String[])
-  name.vb: New(String, String())
-  fullName: YShared.Console.YCString.YCString(string, string[])
-  fullName.vb: YShared.Console.YCString.New(String, String())
-  nameWithType: YCString.YCString(string, string[])
-  nameWithType.vb: YCString.New(String, String())
+- uid: YShared.Console.YCString.#ctor
+  name: YCString()
+  href: api/YShared.Console.YCString.html#YShared_Console_YCString__ctor
+  commentId: M:YShared.Console.YCString.#ctor
+  name.vb: New()
+  fullName: YShared.Console.YCString.YCString()
+  fullName.vb: YShared.Console.YCString.New()
+  nameWithType: YCString.YCString()
+  nameWithType.vb: YCString.New()
 - uid: YShared.Console.YCString.#ctor*
   name: YCString
   href: api/YShared.Console.YCString.html#YShared_Console_YCString__ctor_
@@ -1555,48 +2134,48 @@ references:
   fullName.vb: YShared.Console.YCString.New
   nameWithType: YCString.YCString
   nameWithType.vb: YCString.New
+- uid: YShared.Console.YCString.Parse(System.String,System.String@)
+  name: Parse(string, out string)
+  href: api/YShared.Console.YCString.html#YShared_Console_YCString_Parse_System_String_System_String__
+  commentId: M:YShared.Console.YCString.Parse(System.String,System.String@)
+  name.vb: Parse(String, String)
+  fullName: YShared.Console.YCString.Parse(string, out string)
+  fullName.vb: YShared.Console.YCString.Parse(String, String)
+  nameWithType: YCString.Parse(string, out string)
+  nameWithType.vb: YCString.Parse(String, String)
 - uid: YShared.Console.YCString.Parse*
   name: Parse
   href: api/YShared.Console.YCString.html#YShared_Console_YCString_Parse_
   commentId: Overload:YShared.Console.YCString.Parse
   fullName: YShared.Console.YCString.Parse
   nameWithType: YCString.Parse
-- uid: YShared.Console.YCString.Parse``1(System.String,``0@)
-  name: Parse<T>(string, out T)
-  href: api/YShared.Console.YCString.html#YShared_Console_YCString_Parse__1_System_String___0__
-  commentId: M:YShared.Console.YCString.Parse``1(System.String,``0@)
-  name.vb: Parse(Of T)(String, T)
-  fullName: YShared.Console.YCString.Parse<T>(string, out T)
-  fullName.vb: YShared.Console.YCString.Parse(Of T)(String, T)
-  nameWithType: YCString.Parse<T>(string, out T)
-  nameWithType.vb: YCString.Parse(Of T)(String, T)
+- uid: YShared.Console.YCString.Validate(System.String)
+  name: Validate(string)
+  href: api/YShared.Console.YCString.html#YShared_Console_YCString_Validate_System_String_
+  commentId: M:YShared.Console.YCString.Validate(System.String)
+  name.vb: Validate(String)
+  fullName: YShared.Console.YCString.Validate(string)
+  fullName.vb: YShared.Console.YCString.Validate(String)
+  nameWithType: YCString.Validate(string)
+  nameWithType.vb: YCString.Validate(String)
 - uid: YShared.Console.YCString.Validate*
   name: Validate
   href: api/YShared.Console.YCString.html#YShared_Console_YCString_Validate_
   commentId: Overload:YShared.Console.YCString.Validate
   fullName: YShared.Console.YCString.Validate
   nameWithType: YCString.Validate
-- uid: YShared.Console.YCString.Validate``1(``0)
-  name: Validate<T>(T)
-  href: api/YShared.Console.YCString.html#YShared_Console_YCString_Validate__1___0_
-  commentId: M:YShared.Console.YCString.Validate``1(``0)
-  name.vb: Validate(Of T)(T)
-  fullName: YShared.Console.YCString.Validate<T>(T)
-  fullName.vb: YShared.Console.YCString.Validate(Of T)(T)
-  nameWithType: YCString.Validate<T>(T)
-  nameWithType.vb: YCString.Validate(Of T)(T)
-- uid: YShared.Console.YCString.getAutocompleteArray
-  name: getAutocompleteArray()
-  href: api/YShared.Console.YCString.html#YShared_Console_YCString_getAutocompleteArray
-  commentId: M:YShared.Console.YCString.getAutocompleteArray
-  fullName: YShared.Console.YCString.getAutocompleteArray()
-  nameWithType: YCString.getAutocompleteArray()
-- uid: YShared.Console.YCString.getAutocompleteArray*
-  name: getAutocompleteArray
-  href: api/YShared.Console.YCString.html#YShared_Console_YCString_getAutocompleteArray_
-  commentId: Overload:YShared.Console.YCString.getAutocompleteArray
-  fullName: YShared.Console.YCString.getAutocompleteArray
-  nameWithType: YCString.getAutocompleteArray
+- uid: YShared.Console.YCString.defaultAutocompleteArray
+  name: defaultAutocompleteArray()
+  href: api/YShared.Console.YCString.html#YShared_Console_YCString_defaultAutocompleteArray
+  commentId: M:YShared.Console.YCString.defaultAutocompleteArray
+  fullName: YShared.Console.YCString.defaultAutocompleteArray()
+  nameWithType: YCString.defaultAutocompleteArray()
+- uid: YShared.Console.YCString.defaultAutocompleteArray*
+  name: defaultAutocompleteArray
+  href: api/YShared.Console.YCString.html#YShared_Console_YCString_defaultAutocompleteArray_
+  commentId: Overload:YShared.Console.YCString.defaultAutocompleteArray
+  fullName: YShared.Console.YCString.defaultAutocompleteArray
+  nameWithType: YCString.defaultAutocompleteArray
 - uid: YShared.Console.YCString.getDescriptorText
   name: getDescriptorText()
   href: api/YShared.Console.YCString.html#YShared_Console_YCString_getDescriptorText
@@ -1621,18 +2200,18 @@ references:
   commentId: Overload:YShared.Console.YCString.getTypeName
   fullName: YShared.Console.YCString.getTypeName
   nameWithType: YCString.getTypeName
-- uid: YShared.Console.YCString.hasAutocompleteArray
-  name: hasAutocompleteArray
-  href: api/YShared.Console.YCString.html#YShared_Console_YCString_hasAutocompleteArray
-  commentId: P:YShared.Console.YCString.hasAutocompleteArray
-  fullName: YShared.Console.YCString.hasAutocompleteArray
-  nameWithType: YCString.hasAutocompleteArray
-- uid: YShared.Console.YCString.hasAutocompleteArray*
-  name: hasAutocompleteArray
-  href: api/YShared.Console.YCString.html#YShared_Console_YCString_hasAutocompleteArray_
-  commentId: Overload:YShared.Console.YCString.hasAutocompleteArray
-  fullName: YShared.Console.YCString.hasAutocompleteArray
-  nameWithType: YCString.hasAutocompleteArray
+- uid: YShared.Console.YCString.hasDefaultAutocompleteArray
+  name: hasDefaultAutocompleteArray
+  href: api/YShared.Console.YCString.html#YShared_Console_YCString_hasDefaultAutocompleteArray
+  commentId: P:YShared.Console.YCString.hasDefaultAutocompleteArray
+  fullName: YShared.Console.YCString.hasDefaultAutocompleteArray
+  nameWithType: YCString.hasDefaultAutocompleteArray
+- uid: YShared.Console.YCString.hasDefaultAutocompleteArray*
+  name: hasDefaultAutocompleteArray
+  href: api/YShared.Console.YCString.html#YShared_Console_YCString_hasDefaultAutocompleteArray_
+  commentId: Overload:YShared.Console.YCString.hasDefaultAutocompleteArray
+  fullName: YShared.Console.YCString.hasDefaultAutocompleteArray
+  nameWithType: YCString.hasDefaultAutocompleteArray
 - uid: YShared.Console.YCmdArgumentAttribute
   name: YCmdArgumentAttribute
   href: api/YShared.Console.YCmdArgumentAttribute.html
@@ -1741,6 +2320,193 @@ references:
   commentId: F:YShared.Console.YCmdArgumentAttribute.variableName
   fullName: YShared.Console.YCmdArgumentAttribute.variableName
   nameWithType: YCmdArgumentAttribute.variableName
+- uid: YShared.Console.YCmdParser
+  name: YCmdParser
+  href: api/YShared.Console.YCmdParser.html
+  commentId: T:YShared.Console.YCmdParser
+  fullName: YShared.Console.YCmdParser
+  nameWithType: YCmdParser
+- uid: YShared.Console.YCmdParser.#ctor
+  name: YCmdParser()
+  href: api/YShared.Console.YCmdParser.html#YShared_Console_YCmdParser__ctor
+  commentId: M:YShared.Console.YCmdParser.#ctor
+  name.vb: New()
+  fullName: YShared.Console.YCmdParser.YCmdParser()
+  fullName.vb: YShared.Console.YCmdParser.New()
+  nameWithType: YCmdParser.YCmdParser()
+  nameWithType.vb: YCmdParser.New()
+- uid: YShared.Console.YCmdParser.#ctor*
+  name: YCmdParser
+  href: api/YShared.Console.YCmdParser.html#YShared_Console_YCmdParser__ctor_
+  commentId: Overload:YShared.Console.YCmdParser.#ctor
+  name.vb: New
+  fullName: YShared.Console.YCmdParser.YCmdParser
+  fullName.vb: YShared.Console.YCmdParser.New
+  nameWithType: YCmdParser.YCmdParser
+  nameWithType.vb: YCmdParser.New
+- uid: YShared.Console.YCmdParser.Initialize(System.String,System.String)
+  name: Initialize(string, string)
+  href: api/YShared.Console.YCmdParser.html#YShared_Console_YCmdParser_Initialize_System_String_System_String_
+  commentId: M:YShared.Console.YCmdParser.Initialize(System.String,System.String)
+  name.vb: Initialize(String, String)
+  fullName: YShared.Console.YCmdParser.Initialize(string, string)
+  fullName.vb: YShared.Console.YCmdParser.Initialize(String, String)
+  nameWithType: YCmdParser.Initialize(string, string)
+  nameWithType.vb: YCmdParser.Initialize(String, String)
+- uid: YShared.Console.YCmdParser.Initialize*
+  name: Initialize
+  href: api/YShared.Console.YCmdParser.html#YShared_Console_YCmdParser_Initialize_
+  commentId: Overload:YShared.Console.YCmdParser.Initialize
+  fullName: YShared.Console.YCmdParser.Initialize
+  nameWithType: YCmdParser.Initialize
+- uid: YShared.Console.YCmdParser.ParsingType
+  name: ParsingType
+  href: api/YShared.Console.YCmdParser.html#YShared_Console_YCmdParser_ParsingType
+  commentId: P:YShared.Console.YCmdParser.ParsingType
+  fullName: YShared.Console.YCmdParser.ParsingType
+  nameWithType: YCmdParser.ParsingType
+- uid: YShared.Console.YCmdParser.ParsingType*
+  name: ParsingType
+  href: api/YShared.Console.YCmdParser.html#YShared_Console_YCmdParser_ParsingType_
+  commentId: Overload:YShared.Console.YCmdParser.ParsingType
+  fullName: YShared.Console.YCmdParser.ParsingType
+  nameWithType: YCmdParser.ParsingType
+- uid: YShared.Console.YCmdParser.defaultAutocompleteArray
+  name: defaultAutocompleteArray()
+  href: api/YShared.Console.YCmdParser.html#YShared_Console_YCmdParser_defaultAutocompleteArray
+  commentId: M:YShared.Console.YCmdParser.defaultAutocompleteArray
+  fullName: YShared.Console.YCmdParser.defaultAutocompleteArray()
+  nameWithType: YCmdParser.defaultAutocompleteArray()
+- uid: YShared.Console.YCmdParser.defaultAutocompleteArray*
+  name: defaultAutocompleteArray
+  href: api/YShared.Console.YCmdParser.html#YShared_Console_YCmdParser_defaultAutocompleteArray_
+  commentId: Overload:YShared.Console.YCmdParser.defaultAutocompleteArray
+  fullName: YShared.Console.YCmdParser.defaultAutocompleteArray
+  nameWithType: YCmdParser.defaultAutocompleteArray
+- uid: YShared.Console.YCmdParser.getDescriptorText
+  name: getDescriptorText()
+  href: api/YShared.Console.YCmdParser.html#YShared_Console_YCmdParser_getDescriptorText
+  commentId: M:YShared.Console.YCmdParser.getDescriptorText
+  fullName: YShared.Console.YCmdParser.getDescriptorText()
+  nameWithType: YCmdParser.getDescriptorText()
+- uid: YShared.Console.YCmdParser.getDescriptorText*
+  name: getDescriptorText
+  href: api/YShared.Console.YCmdParser.html#YShared_Console_YCmdParser_getDescriptorText_
+  commentId: Overload:YShared.Console.YCmdParser.getDescriptorText
+  fullName: YShared.Console.YCmdParser.getDescriptorText
+  nameWithType: YCmdParser.getDescriptorText
+- uid: YShared.Console.YCmdParser.getTypeName
+  name: getTypeName
+  href: api/YShared.Console.YCmdParser.html#YShared_Console_YCmdParser_getTypeName
+  commentId: P:YShared.Console.YCmdParser.getTypeName
+  fullName: YShared.Console.YCmdParser.getTypeName
+  nameWithType: YCmdParser.getTypeName
+- uid: YShared.Console.YCmdParser.getTypeName*
+  name: getTypeName
+  href: api/YShared.Console.YCmdParser.html#YShared_Console_YCmdParser_getTypeName_
+  commentId: Overload:YShared.Console.YCmdParser.getTypeName
+  fullName: YShared.Console.YCmdParser.getTypeName
+  nameWithType: YCmdParser.getTypeName
+- uid: YShared.Console.YCmdParser.hasDefaultAutocompleteArray
+  name: hasDefaultAutocompleteArray
+  href: api/YShared.Console.YCmdParser.html#YShared_Console_YCmdParser_hasDefaultAutocompleteArray
+  commentId: P:YShared.Console.YCmdParser.hasDefaultAutocompleteArray
+  fullName: YShared.Console.YCmdParser.hasDefaultAutocompleteArray
+  nameWithType: YCmdParser.hasDefaultAutocompleteArray
+- uid: YShared.Console.YCmdParser.hasDefaultAutocompleteArray*
+  name: hasDefaultAutocompleteArray
+  href: api/YShared.Console.YCmdParser.html#YShared_Console_YCmdParser_hasDefaultAutocompleteArray_
+  commentId: Overload:YShared.Console.YCmdParser.hasDefaultAutocompleteArray
+  fullName: YShared.Console.YCmdParser.hasDefaultAutocompleteArray
+  nameWithType: YCmdParser.hasDefaultAutocompleteArray
+- uid: YShared.Console.YCmdParser.variableDescription
+  name: variableDescription
+  href: api/YShared.Console.YCmdParser.html#YShared_Console_YCmdParser_variableDescription
+  commentId: F:YShared.Console.YCmdParser.variableDescription
+  fullName: YShared.Console.YCmdParser.variableDescription
+  nameWithType: YCmdParser.variableDescription
+- uid: YShared.Console.YCmdParser.variableName
+  name: variableName
+  href: api/YShared.Console.YCmdParser.html#YShared_Console_YCmdParser_variableName
+  commentId: F:YShared.Console.YCmdParser.variableName
+  fullName: YShared.Console.YCmdParser.variableName
+  nameWithType: YCmdParser.variableName
+- uid: YShared.Console.YCmdParser`1
+  name: YCmdParser<T>
+  href: api/YShared.Console.YCmdParser-1.html
+  commentId: T:YShared.Console.YCmdParser`1
+  name.vb: YCmdParser(Of T)
+  fullName: YShared.Console.YCmdParser<T>
+  fullName.vb: YShared.Console.YCmdParser(Of T)
+  nameWithType: YCmdParser<T>
+  nameWithType.vb: YCmdParser(Of T)
+- uid: YShared.Console.YCmdParser`1.#ctor
+  name: YCmdParser()
+  href: api/YShared.Console.YCmdParser-1.html#YShared_Console_YCmdParser_1__ctor
+  commentId: M:YShared.Console.YCmdParser`1.#ctor
+  name.vb: New()
+  fullName: YShared.Console.YCmdParser<T>.YCmdParser()
+  fullName.vb: YShared.Console.YCmdParser(Of T).New()
+  nameWithType: YCmdParser<T>.YCmdParser()
+  nameWithType.vb: YCmdParser(Of T).New()
+- uid: YShared.Console.YCmdParser`1.#ctor*
+  name: YCmdParser
+  href: api/YShared.Console.YCmdParser-1.html#YShared_Console_YCmdParser_1__ctor_
+  commentId: Overload:YShared.Console.YCmdParser`1.#ctor
+  name.vb: New
+  fullName: YShared.Console.YCmdParser<T>.YCmdParser
+  fullName.vb: YShared.Console.YCmdParser(Of T).New
+  nameWithType: YCmdParser<T>.YCmdParser
+  nameWithType.vb: YCmdParser(Of T).New
+- uid: YShared.Console.YCmdParser`1.Parse(System.String,`0@)
+  name: Parse(string, out T)
+  href: api/YShared.Console.YCmdParser-1.html#YShared_Console_YCmdParser_1_Parse_System_String__0__
+  commentId: M:YShared.Console.YCmdParser`1.Parse(System.String,`0@)
+  name.vb: Parse(String, T)
+  fullName: YShared.Console.YCmdParser<T>.Parse(string, out T)
+  fullName.vb: YShared.Console.YCmdParser(Of T).Parse(String, T)
+  nameWithType: YCmdParser<T>.Parse(string, out T)
+  nameWithType.vb: YCmdParser(Of T).Parse(String, T)
+- uid: YShared.Console.YCmdParser`1.Parse*
+  name: Parse
+  href: api/YShared.Console.YCmdParser-1.html#YShared_Console_YCmdParser_1_Parse_
+  commentId: Overload:YShared.Console.YCmdParser`1.Parse
+  fullName: YShared.Console.YCmdParser<T>.Parse
+  fullName.vb: YShared.Console.YCmdParser(Of T).Parse
+  nameWithType: YCmdParser<T>.Parse
+  nameWithType.vb: YCmdParser(Of T).Parse
+- uid: YShared.Console.YCmdParser`1.ParsingType
+  name: ParsingType
+  href: api/YShared.Console.YCmdParser-1.html#YShared_Console_YCmdParser_1_ParsingType
+  commentId: P:YShared.Console.YCmdParser`1.ParsingType
+  fullName: YShared.Console.YCmdParser<T>.ParsingType
+  fullName.vb: YShared.Console.YCmdParser(Of T).ParsingType
+  nameWithType: YCmdParser<T>.ParsingType
+  nameWithType.vb: YCmdParser(Of T).ParsingType
+- uid: YShared.Console.YCmdParser`1.ParsingType*
+  name: ParsingType
+  href: api/YShared.Console.YCmdParser-1.html#YShared_Console_YCmdParser_1_ParsingType_
+  commentId: Overload:YShared.Console.YCmdParser`1.ParsingType
+  fullName: YShared.Console.YCmdParser<T>.ParsingType
+  fullName.vb: YShared.Console.YCmdParser(Of T).ParsingType
+  nameWithType: YCmdParser<T>.ParsingType
+  nameWithType.vb: YCmdParser(Of T).ParsingType
+- uid: YShared.Console.YCmdParser`1.Validate(`0)
+  name: Validate(T)
+  href: api/YShared.Console.YCmdParser-1.html#YShared_Console_YCmdParser_1_Validate__0_
+  commentId: M:YShared.Console.YCmdParser`1.Validate(`0)
+  fullName: YShared.Console.YCmdParser<T>.Validate(T)
+  fullName.vb: YShared.Console.YCmdParser(Of T).Validate(T)
+  nameWithType: YCmdParser<T>.Validate(T)
+  nameWithType.vb: YCmdParser(Of T).Validate(T)
+- uid: YShared.Console.YCmdParser`1.Validate*
+  name: Validate
+  href: api/YShared.Console.YCmdParser-1.html#YShared_Console_YCmdParser_1_Validate_
+  commentId: Overload:YShared.Console.YCmdParser`1.Validate
+  fullName: YShared.Console.YCmdParser<T>.Validate
+  fullName.vb: YShared.Console.YCmdParser(Of T).Validate
+  nameWithType: YCmdParser<T>.Validate
+  nameWithType.vb: YCmdParser(Of T).Validate
 - uid: YShared.Console.YCommandAttribute
   name: YCommandAttribute
   href: api/YShared.Console.YCommandAttribute.html
@@ -1756,6 +2522,15 @@ references:
   fullName.vb: YShared.Console.YCommandAttribute.New(String, String, YShared.Console.ObjectFindType, UnityEngine.FindObjectsInactive)
   nameWithType: YCommandAttribute.YCommandAttribute(string, string, ObjectFindType, FindObjectsInactive)
   nameWithType.vb: YCommandAttribute.New(String, String, ObjectFindType, FindObjectsInactive)
+- uid: YShared.Console.YCommandAttribute.#ctor(System.String,YShared.Console.YCommandAttribute)
+  name: YCommandAttribute(string, YCommandAttribute)
+  href: api/YShared.Console.YCommandAttribute.html#YShared_Console_YCommandAttribute__ctor_System_String_YShared_Console_YCommandAttribute_
+  commentId: M:YShared.Console.YCommandAttribute.#ctor(System.String,YShared.Console.YCommandAttribute)
+  name.vb: New(String, YCommandAttribute)
+  fullName: YShared.Console.YCommandAttribute.YCommandAttribute(string, YShared.Console.YCommandAttribute)
+  fullName.vb: YShared.Console.YCommandAttribute.New(String, YShared.Console.YCommandAttribute)
+  nameWithType: YCommandAttribute.YCommandAttribute(string, YCommandAttribute)
+  nameWithType.vb: YCommandAttribute.New(String, YCommandAttribute)
 - uid: YShared.Console.YCommandAttribute.#ctor*
   name: YCommandAttribute
   href: api/YShared.Console.YCommandAttribute.html#YShared_Console_YCommandAttribute__ctor_
@@ -1813,6 +2588,96 @@ references:
   commentId: Overload:YShared.Console.YCommandAttribute.objectFindType
   fullName: YShared.Console.YCommandAttribute.objectFindType
   nameWithType: YCommandAttribute.objectFindType
+- uid: YShared.Console.YDynamicAutocompleteAttribute
+  name: YDynamicAutocompleteAttribute
+  href: api/YShared.Console.YDynamicAutocompleteAttribute.html
+  commentId: T:YShared.Console.YDynamicAutocompleteAttribute
+  fullName: YShared.Console.YDynamicAutocompleteAttribute
+  nameWithType: YDynamicAutocompleteAttribute
+- uid: YShared.Console.YDynamicAutocompleteAttribute.#ctor(System.String)
+  name: YDynamicAutocompleteAttribute(string)
+  href: api/YShared.Console.YDynamicAutocompleteAttribute.html#YShared_Console_YDynamicAutocompleteAttribute__ctor_System_String_
+  commentId: M:YShared.Console.YDynamicAutocompleteAttribute.#ctor(System.String)
+  name.vb: New(String)
+  fullName: YShared.Console.YDynamicAutocompleteAttribute.YDynamicAutocompleteAttribute(string)
+  fullName.vb: YShared.Console.YDynamicAutocompleteAttribute.New(String)
+  nameWithType: YDynamicAutocompleteAttribute.YDynamicAutocompleteAttribute(string)
+  nameWithType.vb: YDynamicAutocompleteAttribute.New(String)
+- uid: YShared.Console.YDynamicAutocompleteAttribute.#ctor*
+  name: YDynamicAutocompleteAttribute
+  href: api/YShared.Console.YDynamicAutocompleteAttribute.html#YShared_Console_YDynamicAutocompleteAttribute__ctor_
+  commentId: Overload:YShared.Console.YDynamicAutocompleteAttribute.#ctor
+  name.vb: New
+  fullName: YShared.Console.YDynamicAutocompleteAttribute.YDynamicAutocompleteAttribute
+  fullName.vb: YShared.Console.YDynamicAutocompleteAttribute.New
+  nameWithType: YDynamicAutocompleteAttribute.YDynamicAutocompleteAttribute
+  nameWithType.vb: YDynamicAutocompleteAttribute.New
+- uid: YShared.Console.YDynamicAutocompleteAttribute.autocompleteList
+  name: autocompleteList
+  href: api/YShared.Console.YDynamicAutocompleteAttribute.html#YShared_Console_YDynamicAutocompleteAttribute_autocompleteList
+  commentId: F:YShared.Console.YDynamicAutocompleteAttribute.autocompleteList
+  fullName: YShared.Console.YDynamicAutocompleteAttribute.autocompleteList
+  nameWithType: YDynamicAutocompleteAttribute.autocompleteList
+- uid: YShared.Console.YRangeAttribute
+  name: YRangeAttribute
+  href: api/YShared.Console.YRangeAttribute.html
+  commentId: T:YShared.Console.YRangeAttribute
+  fullName: YShared.Console.YRangeAttribute
+  nameWithType: YRangeAttribute
+- uid: YShared.Console.YRangeAttribute.#ctor(System.Int32,System.Int32)
+  name: YRangeAttribute(int, int)
+  href: api/YShared.Console.YRangeAttribute.html#YShared_Console_YRangeAttribute__ctor_System_Int32_System_Int32_
+  commentId: M:YShared.Console.YRangeAttribute.#ctor(System.Int32,System.Int32)
+  name.vb: New(Integer, Integer)
+  fullName: YShared.Console.YRangeAttribute.YRangeAttribute(int, int)
+  fullName.vb: YShared.Console.YRangeAttribute.New(Integer, Integer)
+  nameWithType: YRangeAttribute.YRangeAttribute(int, int)
+  nameWithType.vb: YRangeAttribute.New(Integer, Integer)
+- uid: YShared.Console.YRangeAttribute.#ctor*
+  name: YRangeAttribute
+  href: api/YShared.Console.YRangeAttribute.html#YShared_Console_YRangeAttribute__ctor_
+  commentId: Overload:YShared.Console.YRangeAttribute.#ctor
+  name.vb: New
+  fullName: YShared.Console.YRangeAttribute.YRangeAttribute
+  fullName.vb: YShared.Console.YRangeAttribute.New
+  nameWithType: YRangeAttribute.YRangeAttribute
+  nameWithType.vb: YRangeAttribute.New
+- uid: YShared.Console.YRangeAttribute.max
+  name: max
+  href: api/YShared.Console.YRangeAttribute.html#YShared_Console_YRangeAttribute_max
+  commentId: F:YShared.Console.YRangeAttribute.max
+  fullName: YShared.Console.YRangeAttribute.max
+  nameWithType: YRangeAttribute.max
+- uid: YShared.Console.YRangeAttribute.min
+  name: min
+  href: api/YShared.Console.YRangeAttribute.html#YShared_Console_YRangeAttribute_min
+  commentId: F:YShared.Console.YRangeAttribute.min
+  fullName: YShared.Console.YRangeAttribute.min
+  nameWithType: YRangeAttribute.min
+- uid: YShared.Console.YToggleAttribute
+  name: YToggleAttribute
+  href: api/YShared.Console.YToggleAttribute.html
+  commentId: T:YShared.Console.YToggleAttribute
+  fullName: YShared.Console.YToggleAttribute
+  nameWithType: YToggleAttribute
+- uid: YShared.Console.YToggleAttribute.#ctor
+  name: YToggleAttribute()
+  href: api/YShared.Console.YToggleAttribute.html#YShared_Console_YToggleAttribute__ctor
+  commentId: M:YShared.Console.YToggleAttribute.#ctor
+  name.vb: New()
+  fullName: YShared.Console.YToggleAttribute.YToggleAttribute()
+  fullName.vb: YShared.Console.YToggleAttribute.New()
+  nameWithType: YToggleAttribute.YToggleAttribute()
+  nameWithType.vb: YToggleAttribute.New()
+- uid: YShared.Console.YToggleAttribute.#ctor*
+  name: YToggleAttribute
+  href: api/YShared.Console.YToggleAttribute.html#YShared_Console_YToggleAttribute__ctor_
+  commentId: Overload:YShared.Console.YToggleAttribute.#ctor
+  name.vb: New
+  fullName: YShared.Console.YToggleAttribute.YToggleAttribute
+  fullName.vb: YShared.Console.YToggleAttribute.New
+  nameWithType: YToggleAttribute.YToggleAttribute
+  nameWithType.vb: YToggleAttribute.New
 - uid: YShared.MathHelper
   name: YShared.MathHelper
   href: api/YShared.MathHelper.html
@@ -2008,6 +2873,36 @@ references:
   fullName.vb: YShared.MathHelper.ArrayFunctions.SpiralLoop(Of T)(T(,))
   nameWithType: ArrayFunctions.SpiralLoop<T>(T[,])
   nameWithType.vb: ArrayFunctions.SpiralLoop(Of T)(T(,))
+- uid: YShared.MathHelper.ArrayFunctions.StringifyArray*
+  name: StringifyArray
+  href: api/YShared.MathHelper.ArrayFunctions.html#YShared_MathHelper_ArrayFunctions_StringifyArray_
+  commentId: Overload:YShared.MathHelper.ArrayFunctions.StringifyArray
+  fullName: YShared.MathHelper.ArrayFunctions.StringifyArray
+  nameWithType: ArrayFunctions.StringifyArray
+- uid: YShared.MathHelper.ArrayFunctions.StringifyArray``1(``0[])
+  name: StringifyArray<T>(T[])
+  href: api/YShared.MathHelper.ArrayFunctions.html#YShared_MathHelper_ArrayFunctions_StringifyArray__1___0___
+  commentId: M:YShared.MathHelper.ArrayFunctions.StringifyArray``1(``0[])
+  name.vb: StringifyArray(Of T)(T())
+  fullName: YShared.MathHelper.ArrayFunctions.StringifyArray<T>(T[])
+  fullName.vb: YShared.MathHelper.ArrayFunctions.StringifyArray(Of T)(T())
+  nameWithType: ArrayFunctions.StringifyArray<T>(T[])
+  nameWithType.vb: ArrayFunctions.StringifyArray(Of T)(T())
+- uid: YShared.MathHelper.ArrayFunctions.StringifyList*
+  name: StringifyList
+  href: api/YShared.MathHelper.ArrayFunctions.html#YShared_MathHelper_ArrayFunctions_StringifyList_
+  commentId: Overload:YShared.MathHelper.ArrayFunctions.StringifyList
+  fullName: YShared.MathHelper.ArrayFunctions.StringifyList
+  nameWithType: ArrayFunctions.StringifyList
+- uid: YShared.MathHelper.ArrayFunctions.StringifyList``1(System.Collections.Generic.IEnumerable{``0})
+  name: StringifyList<T>(IEnumerable<T>)
+  href: api/YShared.MathHelper.ArrayFunctions.html#YShared_MathHelper_ArrayFunctions_StringifyList__1_System_Collections_Generic_IEnumerable___0__
+  commentId: M:YShared.MathHelper.ArrayFunctions.StringifyList``1(System.Collections.Generic.IEnumerable{``0})
+  name.vb: StringifyList(Of T)(IEnumerable(Of T))
+  fullName: YShared.MathHelper.ArrayFunctions.StringifyList<T>(System.Collections.Generic.IEnumerable<T>)
+  fullName.vb: YShared.MathHelper.ArrayFunctions.StringifyList(Of T)(System.Collections.Generic.IEnumerable(Of T))
+  nameWithType: ArrayFunctions.StringifyList<T>(IEnumerable<T>)
+  nameWithType.vb: ArrayFunctions.StringifyList(Of T)(IEnumerable(Of T))
 - uid: YShared.MathHelper.ArrayFunctions.SumArray(System.Int32[])
   name: SumArray(int[])
   href: api/YShared.MathHelper.ArrayFunctions.html#YShared_MathHelper_ArrayFunctions_SumArray_System_Int32___

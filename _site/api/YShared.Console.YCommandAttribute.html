@@ -115,7 +115,7 @@ Class YCommandAttribute
   <div class="markdown conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[AttributeUsage(AttributeTargets.Method)]
+    <pre><code class="lang-csharp hljs">[AttributeUsage(AttributeTargets.Method|AttributeTargets.Property|AttributeTargets.Field, AllowMultiple = false)]
 public class YCommandAttribute : Attribute</code></pre>
   </div>
 
@@ -309,6 +309,39 @@ public class YCommandAttribute : Attribute</code></pre>
     <dt><code>findObjectsInactive</code> <span class="xref">FindObjectsInactive</span></dt>
     <dd><p>(Optional) Used only when the function is not static to determine whether non-active objects should be able to run the method.</p>
 </dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="YShared_Console_YCommandAttribute__ctor_" data-uid="YShared.Console.YCommandAttribute.#ctor*"></a>
+
+  <h3 id="YShared_Console_YCommandAttribute__ctor_System_String_YShared_Console_YCommandAttribute_" data-uid="YShared.Console.YCommandAttribute.#ctor(System.String,YShared.Console.YCommandAttribute)">
+  YCommandAttribute(string, YCommandAttribute)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public YCommandAttribute(string NameAddendum, YCommandAttribute @base)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>NameAddendum</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>base</code> <a class="xref" href="YShared.Console.YCommandAttribute.html">YCommandAttribute</a></dt>
+    <dd></dd>
   </dl>
 
 

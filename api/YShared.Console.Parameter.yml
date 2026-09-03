@@ -5,8 +5,12 @@ items:
   id: Parameter
   parent: YShared.Console
   children:
+  - YShared.Console.Parameter.Parser
+  - YShared.Console.Parameter.cacheAutocompleteList
   - YShared.Console.Parameter.defaultval
+  - YShared.Console.Parameter.getAutocomplete
   - YShared.Console.Parameter.hasDefault
+  - YShared.Console.Parameter.suggestionModifiers
   langs:
   - csharp
   - vb
@@ -67,6 +71,83 @@ items:
     return:
       type: System.Object
     content.vb: Public defaultval As Object
+- uid: YShared.Console.Parameter.Parser
+  commentId: F:YShared.Console.Parameter.Parser
+  id: Parser
+  parent: YShared.Console.Parameter
+  langs:
+  - csharp
+  - vb
+  name: Parser
+  nameWithType: Parameter.Parser
+  fullName: YShared.Console.Parameter.Parser
+  type: Field
+  assemblies:
+  - YShared.Runtime
+  namespace: YShared.Console
+  syntax:
+    content: public YCmdParser Parser
+    return:
+      type: YShared.Console.YCmdParser
+    content.vb: Public Parser As YCmdParser
+- uid: YShared.Console.Parameter.suggestionModifiers
+  commentId: F:YShared.Console.Parameter.suggestionModifiers
+  id: suggestionModifiers
+  parent: YShared.Console.Parameter
+  langs:
+  - csharp
+  - vb
+  name: suggestionModifiers
+  nameWithType: Parameter.suggestionModifiers
+  fullName: YShared.Console.Parameter.suggestionModifiers
+  type: Field
+  assemblies:
+  - YShared.Runtime
+  namespace: YShared.Console
+  syntax:
+    content: public SuggestionModifierAttribute[] suggestionModifiers
+    return:
+      type: YShared.Console.Suggestion.SuggestionModifierAttribute[]
+    content.vb: Public suggestionModifiers As SuggestionModifierAttribute()
+- uid: YShared.Console.Parameter.cacheAutocompleteList
+  commentId: F:YShared.Console.Parameter.cacheAutocompleteList
+  id: cacheAutocompleteList
+  parent: YShared.Console.Parameter
+  langs:
+  - csharp
+  - vb
+  name: cacheAutocompleteList
+  nameWithType: Parameter.cacheAutocompleteList
+  fullName: YShared.Console.Parameter.cacheAutocompleteList
+  type: Field
+  assemblies:
+  - YShared.Runtime
+  namespace: YShared.Console
+  syntax:
+    content: public bool cacheAutocompleteList
+    return:
+      type: System.Boolean
+    content.vb: Public cacheAutocompleteList As Boolean
+- uid: YShared.Console.Parameter.getAutocomplete
+  commentId: M:YShared.Console.Parameter.getAutocomplete
+  id: getAutocomplete
+  parent: YShared.Console.Parameter
+  langs:
+  - csharp
+  - vb
+  name: getAutocomplete()
+  nameWithType: Parameter.getAutocomplete()
+  fullName: YShared.Console.Parameter.getAutocomplete()
+  type: Method
+  assemblies:
+  - YShared.Runtime
+  namespace: YShared.Console
+  syntax:
+    content: public List<string> getAutocomplete()
+    return:
+      type: System.Collections.Generic.List{System.String}
+    content.vb: Public Function getAutocomplete() As List(Of String)
+  overload: YShared.Console.Parameter.getAutocomplete*
 references:
 - uid: YShared.Console
   commentId: N:YShared.Console
@@ -455,3 +536,141 @@ references:
   nameWithType.vb: Boolean
   fullName.vb: Boolean
   name.vb: Boolean
+- uid: YShared.Console.YCmdParser
+  commentId: T:YShared.Console.YCmdParser
+  parent: YShared.Console
+  isExternal: true
+  href: YShared.Console.YCmdParser.html
+  name: YCmdParser
+  nameWithType: YCmdParser
+  fullName: YShared.Console.YCmdParser
+- uid: YShared.Console.Suggestion.SuggestionModifierAttribute[]
+  isExternal: true
+  href: YShared.Console.Suggestion.SuggestionModifierAttribute.html
+  name: SuggestionModifierAttribute[]
+  nameWithType: SuggestionModifierAttribute[]
+  fullName: YShared.Console.Suggestion.SuggestionModifierAttribute[]
+  nameWithType.vb: SuggestionModifierAttribute()
+  fullName.vb: YShared.Console.Suggestion.SuggestionModifierAttribute()
+  name.vb: SuggestionModifierAttribute()
+  spec.csharp:
+  - uid: YShared.Console.Suggestion.SuggestionModifierAttribute
+    name: SuggestionModifierAttribute
+    isExternal: true
+    href: YShared.Console.Suggestion.SuggestionModifierAttribute.html
+  - name: '['
+  - name: ']'
+  spec.vb:
+  - uid: YShared.Console.Suggestion.SuggestionModifierAttribute
+    name: SuggestionModifierAttribute
+    isExternal: true
+    href: YShared.Console.Suggestion.SuggestionModifierAttribute.html
+  - name: (
+  - name: )
+- uid: YShared.Console.Parameter.getAutocomplete*
+  commentId: Overload:YShared.Console.Parameter.getAutocomplete
+  isExternal: true
+  href: YShared.Console.Parameter.html#YShared_Console_Parameter_getAutocomplete
+  name: getAutocomplete
+  nameWithType: Parameter.getAutocomplete
+  fullName: YShared.Console.Parameter.getAutocomplete
+- uid: System.Collections.Generic.List{System.String}
+  commentId: T:System.Collections.Generic.List{System.String}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.List`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<string>
+  nameWithType: List<string>
+  fullName: System.Collections.Generic.List<string>
+  nameWithType.vb: List(Of String)
+  fullName.vb: System.Collections.Generic.List(Of String)
+  name.vb: List(Of String)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+- uid: System.Collections.Generic.List`1
+  commentId: T:System.Collections.Generic.List`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<T>
+  nameWithType: List<T>
+  fullName: System.Collections.Generic.List<T>
+  nameWithType.vb: List(Of T)
+  fullName.vb: System.Collections.Generic.List(Of T)
+  name.vb: List(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic

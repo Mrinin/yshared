@@ -1,32 +1,33 @@
 using System;
+using System.Collections.Generic;
 namespace YShared.Console
 {
     /// <summary>
     ///         Use <c>YCCmdArg</c> to get registered commands as an input. (Use Command[])
     /// </summary>
-    public sealed class YCCmdArg: YCmdArgumentAttribute
+    public sealed class YCCmdArg: YCmdParser<Command[]>
     {
         public override string getDescriptorText()
         {
             return $"{variableName}:command";
         }
         public override string getTypeName => $"command";
-        public override bool hasAutocompleteArray => true;
-        public override string[] getAutocompleteArray()
+        public override bool hasDefaultAutocompleteArray => true;
+        public override string[] defaultAutocompleteArray()
         {
             return Autocomplete.CommandAsAnArgumentAutocompleteArray();
         }
 
         // Unused for this argument type
-        protected override bool Validate<T>(T s) => true;
+        protected override bool Validate(Command[] s) => true;
 
-        public override bool Parse<T>(string s, out T val)
+        public override bool Parse(string s, out Command[] val)
         {
             val = default;
 
-            if (CommandRegistry.GetCommands(s, out var cmds))
+            if (CommandRegistry.GetCommands(s, out List<Command> cmds))
             {
-                val = (T)(object)cmds;
+                val = cmds.ToArray();
 
                 return true;
             }
@@ -34,9 +35,9 @@ namespace YShared.Console
             return false;
         }
 
-        public YCCmdArg(string varname)
+        /*public YCCmdArg(string varname)
         {
             variableName = varname;
-        }
+        }*/
     }
 }

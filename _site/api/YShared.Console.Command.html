@@ -101,7 +101,7 @@ Class Command
   <div class="markdown conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public class Command</code></pre>
+    <pre><code class="lang-csharp hljs">public sealed class Command</code></pre>
   </div>
 
 
@@ -122,9 +122,6 @@ Class Command
     <dd>
     <div>
       <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
-    </div>
-    <div>
-      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
     </div>
     <div>
       <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
@@ -232,7 +229,7 @@ Class Command
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public MethodInfo action</code></pre>
+    <pre><code class="lang-csharp hljs">public MemberInfo action</code></pre>
   </div>
 
 
@@ -240,7 +237,7 @@ Class Command
 
   <h4 class="section">Field Value</h4>
   <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.reflection.methodinfo">MethodInfo</a></dt>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.reflection.memberinfo">MemberInfo</a></dt>
     <dd></dd>
   </dl>
 
@@ -271,36 +268,6 @@ Class Command
   <h4 class="section">Field Value</h4>
   <dl class="parameters">
     <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2">Dictionary</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>, <a class="xref" href="YShared.Console.AliasData.html">AliasData</a>&gt;</dt>
-    <dd></dd>
-  </dl>
-
-
-
-
-
-
-
-
-
-
-  <h3 id="YShared_Console_Command_arguments" data-uid="YShared.Console.Command.arguments">
-  arguments
-  
-  </h3>
-
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public YCmdArgumentAttribute[] arguments</code></pre>
-  </div>
-
-
-
-
-  <h4 class="section">Field Value</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="YShared.Console.YCmdArgumentAttribute.html">YCmdArgumentAttribute</a>[]</dt>
     <dd></dd>
   </dl>
 
@@ -373,6 +340,36 @@ Class Command
 
 
 
+  <h3 id="YShared_Console_Command_fieldValueCommandType" data-uid="YShared.Console.Command.fieldValueCommandType">
+  fieldValueCommandType
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public FieldValueCommandType fieldValueCommandType</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="YShared.Console.FieldValueCommandType.html">FieldValueCommandType</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
   <h3 id="YShared_Console_Command_findObjectsInactive" data-uid="YShared.Console.Command.findObjectsInactive">
   findObjectsInactive
   
@@ -403,36 +400,6 @@ Class Command
 
 
 
-  <h3 id="YShared_Console_Command_functionParameters" data-uid="YShared.Console.Command.functionParameters">
-  functionParameters
-  
-  </h3>
-
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Parameter[] functionParameters</code></pre>
-  </div>
-
-
-
-
-  <h4 class="section">Field Value</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="YShared.Console.Parameter.html">Parameter</a>[]</dt>
-    <dd></dd>
-  </dl>
-
-
-
-
-
-
-
-
-
-
   <h3 id="YShared_Console_Command_objectFindType" data-uid="YShared.Console.Command.objectFindType">
   objectFindType
   
@@ -451,6 +418,36 @@ Class Command
   <h4 class="section">Field Value</h4>
   <dl class="parameters">
     <dt><a class="xref" href="YShared.Console.ObjectFindType.html">ObjectFindType</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="YShared_Console_Command_parameters" data-uid="YShared.Console.Command.parameters">
+  parameters
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Parameter[] parameters</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="YShared.Console.Parameter.html">Parameter</a>[]</dt>
     <dd></dd>
   </dl>
 
@@ -528,6 +525,37 @@ Class Command
 
 
 
+  <a id="YShared_Console_Command_IsStatic_" data-uid="YShared.Console.Command.IsStatic*"></a>
+
+  <h3 id="YShared_Console_Command_IsStatic" data-uid="YShared.Console.Command.IsStatic">
+  IsStatic
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool IsStatic { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
   <a id="YShared_Console_Command_ProperUsage_" data-uid="YShared.Console.Command.ProperUsage*"></a>
 
   <h3 id="YShared_Console_Command_ProperUsage" data-uid="YShared.Console.Command.ProperUsage">
@@ -551,6 +579,77 @@ Class Command
     <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
     <dd></dd>
   </dl>
+
+
+
+
+
+
+
+
+  <a id="YShared_Console_Command_hasReturnType_" data-uid="YShared.Console.Command.hasReturnType*"></a>
+
+  <h3 id="YShared_Console_Command_hasReturnType" data-uid="YShared.Console.Command.hasReturnType">
+  hasReturnType
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool hasReturnType { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="YShared_Console_Command_parser_" data-uid="YShared.Console.Command.parser*"></a>
+
+  <h3 id="YShared_Console_Command_parser_System_Int32_" data-uid="YShared.Console.Command.parser(System.Int32)">
+  parser(int)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public YCmdParser parser(int ind)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>ind</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="YShared.Console.YCmdParser.html">YCmdParser</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
 
 
 

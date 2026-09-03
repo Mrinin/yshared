@@ -274,8 +274,116 @@ Note that there may be duplicate entires because of commands with the same name 
 
 
 
+
+  <h3 id="YShared_Console_CommandRegistry_parserRegistry" data-uid="YShared.Console.CommandRegistry.parserRegistry">
+  parserRegistry
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static readonly Dictionary&lt;Type, Type&gt; parserRegistry</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2">Dictionary</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Type</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Type</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
   <h2 class="section" id="methods">Methods
 </h2>
+
+
+  <a id="YShared_Console_CommandRegistry_CreateFieldCommand_" data-uid="YShared.Console.CommandRegistry.CreateFieldCommand*"></a>
+
+  <h3 id="YShared_Console_CommandRegistry_CreateFieldCommand_System_Reflection_FieldInfo_YShared_Console_YCommandAttribute_YShared_Console_FieldValueCommandType_" data-uid="YShared.Console.CommandRegistry.CreateFieldCommand(System.Reflection.FieldInfo,YShared.Console.YCommandAttribute,YShared.Console.FieldValueCommandType)">
+  CreateFieldCommand(FieldInfo, YCommandAttribute, FieldValueCommandType)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Command CreateFieldCommand(FieldInfo field, YCommandAttribute attribute, FieldValueCommandType fct)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>field</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.reflection.fieldinfo">FieldInfo</a></dt>
+    <dd></dd>
+    <dt><code>attribute</code> <a class="xref" href="YShared.Console.YCommandAttribute.html">YCommandAttribute</a></dt>
+    <dd></dd>
+    <dt><code>fct</code> <a class="xref" href="YShared.Console.FieldValueCommandType.html">FieldValueCommandType</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="YShared.Console.Command.html">Command</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="YShared_Console_CommandRegistry_CreateMethodCommand_" data-uid="YShared.Console.CommandRegistry.CreateMethodCommand*"></a>
+
+  <h3 id="YShared_Console_CommandRegistry_CreateMethodCommand_System_Reflection_MethodInfo_YShared_Console_YCommandAttribute_" data-uid="YShared.Console.CommandRegistry.CreateMethodCommand(System.Reflection.MethodInfo,YShared.Console.YCommandAttribute)">
+  CreateMethodCommand(MethodInfo, YCommandAttribute)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Command CreateMethodCommand(MethodInfo method, YCommandAttribute attribute)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>method</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.reflection.methodinfo">MethodInfo</a></dt>
+    <dd></dd>
+    <dt><code>attribute</code> <a class="xref" href="YShared.Console.YCommandAttribute.html">YCommandAttribute</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="YShared.Console.Command.html">Command</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
 
 
   <a id="YShared_Console_CommandRegistry_GetCommands_" data-uid="YShared.Console.CommandRegistry.GetCommands*"></a>
@@ -323,7 +431,8 @@ Note that there may be duplicate entires because of commands with the same name 
   
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Find all the commands under this CommandNode. Pass in <code>CommandsRegistry.Root</code> to find all commands.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -333,9 +442,11 @@ Note that there may be duplicate entires because of commands with the same name 
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>node</code> <a class="xref" href="YShared.Console.CommandNode.html">CommandNode</a></dt>
-    <dd></dd>
+    <dd><p>Root node</p>
+</dd>
     <dt><code>commands</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<a class="xref" href="YShared.Console.Command.html">Command</a>&gt;</dt>
-    <dd></dd>
+    <dd><p>Recursive Filled List</p>
+</dd>
   </dl>
 
 
@@ -351,8 +462,8 @@ Note that there may be duplicate entires because of commands with the same name 
 
   <a id="YShared_Console_CommandRegistry_RegisterCommand_" data-uid="YShared.Console.CommandRegistry.RegisterCommand*"></a>
 
-  <h3 id="YShared_Console_CommandRegistry_RegisterCommand_System_Reflection_MethodInfo_" data-uid="YShared.Console.CommandRegistry.RegisterCommand(System.Reflection.MethodInfo)">
-  RegisterCommand(MethodInfo)
+  <h3 id="YShared_Console_CommandRegistry_RegisterCommand_YShared_Console_Command_" data-uid="YShared.Console.CommandRegistry.RegisterCommand(YShared.Console.Command)">
+  RegisterCommand(Command)
   
   </h3>
 
@@ -360,12 +471,12 @@ Note that there may be duplicate entires because of commands with the same name 
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static void RegisterCommand(MethodInfo method)</code></pre>
+    <pre><code class="lang-csharp hljs">public static void RegisterCommand(Command cmd)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
-    <dt><code>method</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.reflection.methodinfo">MethodInfo</a></dt>
+    <dt><code>cmd</code> <a class="xref" href="YShared.Console.Command.html">Command</a></dt>
     <dd></dd>
   </dl>
 

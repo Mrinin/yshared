@@ -5,13 +5,16 @@ items:
   id: CommandRegistry
   parent: YShared.Console
   children:
+  - YShared.Console.CommandRegistry.CreateFieldCommand(System.Reflection.FieldInfo,YShared.Console.YCommandAttribute,YShared.Console.FieldValueCommandType)
+  - YShared.Console.CommandRegistry.CreateMethodCommand(System.Reflection.MethodInfo,YShared.Console.YCommandAttribute)
   - YShared.Console.CommandRegistry.GetCommands(System.String,System.Collections.Generic.List{YShared.Console.Command}@)
   - YShared.Console.CommandRegistry.GetRecursiveCommands(YShared.Console.CommandNode,System.Collections.Generic.List{YShared.Console.Command})
   - YShared.Console.CommandRegistry.HighestDuplicateCommandAmt
   - YShared.Console.CommandRegistry.HighestDuplicateCommandName
-  - YShared.Console.CommandRegistry.RegisterCommand(System.Reflection.MethodInfo)
+  - YShared.Console.CommandRegistry.RegisterCommand(YShared.Console.Command)
   - YShared.Console.CommandRegistry.Root
   - YShared.Console.CommandRegistry.alphabeticalCommands
+  - YShared.Console.CommandRegistry.parserRegistry
   langs:
   - csharp
   - vb
@@ -54,6 +57,25 @@ items:
     return:
       type: YShared.Console.CommandNode
     content.vb: Public Shared ReadOnly Root As CommandNode
+- uid: YShared.Console.CommandRegistry.parserRegistry
+  commentId: F:YShared.Console.CommandRegistry.parserRegistry
+  id: parserRegistry
+  parent: YShared.Console.CommandRegistry
+  langs:
+  - csharp
+  - vb
+  name: parserRegistry
+  nameWithType: CommandRegistry.parserRegistry
+  fullName: YShared.Console.CommandRegistry.parserRegistry
+  type: Field
+  assemblies:
+  - YShared.Runtime
+  namespace: YShared.Console
+  syntax:
+    content: public static readonly Dictionary<Type, Type> parserRegistry
+    return:
+      type: System.Collections.Generic.Dictionary{System.Type,System.Type}
+    content.vb: Public Shared ReadOnly parserRegistry As Dictionary(Of Type, Type)
 - uid: YShared.Console.CommandRegistry.alphabeticalCommands
   commentId: F:YShared.Console.CommandRegistry.alphabeticalCommands
   id: alphabeticalCommands
@@ -116,27 +138,79 @@ items:
     return:
       type: System.String
     content.vb: Public Shared HighestDuplicateCommandName As String
-- uid: YShared.Console.CommandRegistry.RegisterCommand(System.Reflection.MethodInfo)
-  commentId: M:YShared.Console.CommandRegistry.RegisterCommand(System.Reflection.MethodInfo)
-  id: RegisterCommand(System.Reflection.MethodInfo)
+- uid: YShared.Console.CommandRegistry.RegisterCommand(YShared.Console.Command)
+  commentId: M:YShared.Console.CommandRegistry.RegisterCommand(YShared.Console.Command)
+  id: RegisterCommand(YShared.Console.Command)
   parent: YShared.Console.CommandRegistry
   langs:
   - csharp
   - vb
-  name: RegisterCommand(MethodInfo)
-  nameWithType: CommandRegistry.RegisterCommand(MethodInfo)
-  fullName: YShared.Console.CommandRegistry.RegisterCommand(System.Reflection.MethodInfo)
+  name: RegisterCommand(Command)
+  nameWithType: CommandRegistry.RegisterCommand(Command)
+  fullName: YShared.Console.CommandRegistry.RegisterCommand(YShared.Console.Command)
   type: Method
   assemblies:
   - YShared.Runtime
   namespace: YShared.Console
   syntax:
-    content: public static void RegisterCommand(MethodInfo method)
+    content: public static void RegisterCommand(Command cmd)
+    parameters:
+    - id: cmd
+      type: YShared.Console.Command
+    content.vb: Public Shared Sub RegisterCommand(cmd As Command)
+  overload: YShared.Console.CommandRegistry.RegisterCommand*
+- uid: YShared.Console.CommandRegistry.CreateMethodCommand(System.Reflection.MethodInfo,YShared.Console.YCommandAttribute)
+  commentId: M:YShared.Console.CommandRegistry.CreateMethodCommand(System.Reflection.MethodInfo,YShared.Console.YCommandAttribute)
+  id: CreateMethodCommand(System.Reflection.MethodInfo,YShared.Console.YCommandAttribute)
+  parent: YShared.Console.CommandRegistry
+  langs:
+  - csharp
+  - vb
+  name: CreateMethodCommand(MethodInfo, YCommandAttribute)
+  nameWithType: CommandRegistry.CreateMethodCommand(MethodInfo, YCommandAttribute)
+  fullName: YShared.Console.CommandRegistry.CreateMethodCommand(System.Reflection.MethodInfo, YShared.Console.YCommandAttribute)
+  type: Method
+  assemblies:
+  - YShared.Runtime
+  namespace: YShared.Console
+  syntax:
+    content: public static Command CreateMethodCommand(MethodInfo method, YCommandAttribute attribute)
     parameters:
     - id: method
       type: System.Reflection.MethodInfo
-    content.vb: Public Shared Sub RegisterCommand(method As MethodInfo)
-  overload: YShared.Console.CommandRegistry.RegisterCommand*
+    - id: attribute
+      type: YShared.Console.YCommandAttribute
+    return:
+      type: YShared.Console.Command
+    content.vb: Public Shared Function CreateMethodCommand(method As MethodInfo, attribute As YCommandAttribute) As Command
+  overload: YShared.Console.CommandRegistry.CreateMethodCommand*
+- uid: YShared.Console.CommandRegistry.CreateFieldCommand(System.Reflection.FieldInfo,YShared.Console.YCommandAttribute,YShared.Console.FieldValueCommandType)
+  commentId: M:YShared.Console.CommandRegistry.CreateFieldCommand(System.Reflection.FieldInfo,YShared.Console.YCommandAttribute,YShared.Console.FieldValueCommandType)
+  id: CreateFieldCommand(System.Reflection.FieldInfo,YShared.Console.YCommandAttribute,YShared.Console.FieldValueCommandType)
+  parent: YShared.Console.CommandRegistry
+  langs:
+  - csharp
+  - vb
+  name: CreateFieldCommand(FieldInfo, YCommandAttribute, FieldValueCommandType)
+  nameWithType: CommandRegistry.CreateFieldCommand(FieldInfo, YCommandAttribute, FieldValueCommandType)
+  fullName: YShared.Console.CommandRegistry.CreateFieldCommand(System.Reflection.FieldInfo, YShared.Console.YCommandAttribute, YShared.Console.FieldValueCommandType)
+  type: Method
+  assemblies:
+  - YShared.Runtime
+  namespace: YShared.Console
+  syntax:
+    content: public static Command CreateFieldCommand(FieldInfo field, YCommandAttribute attribute, FieldValueCommandType fct)
+    parameters:
+    - id: field
+      type: System.Reflection.FieldInfo
+    - id: attribute
+      type: YShared.Console.YCommandAttribute
+    - id: fct
+      type: YShared.Console.FieldValueCommandType
+    return:
+      type: YShared.Console.Command
+    content.vb: Public Shared Function CreateFieldCommand(field As FieldInfo, attribute As YCommandAttribute, fct As FieldValueCommandType) As Command
+  overload: YShared.Console.CommandRegistry.CreateFieldCommand*
 - uid: YShared.Console.CommandRegistry.GetCommands(System.String,System.Collections.Generic.List{YShared.Console.Command}@)
   commentId: M:YShared.Console.CommandRegistry.GetCommands(System.String,System.Collections.Generic.List{YShared.Console.Command}@)
   id: GetCommands(System.String,System.Collections.Generic.List{YShared.Console.Command}@)
@@ -179,13 +253,17 @@ items:
   assemblies:
   - YShared.Runtime
   namespace: YShared.Console
+  summary: Find all the commands under this CommandNode. Pass in <code>CommandsRegistry.Root</code> to find all commands.
+  example: []
   syntax:
     content: public static void GetRecursiveCommands(CommandNode node, List<Command> commands)
     parameters:
     - id: node
       type: YShared.Console.CommandNode
+      description: Root node
     - id: commands
       type: System.Collections.Generic.List{YShared.Console.Command}
+      description: Recursive Filled List
     content.vb: Public Shared Sub GetRecursiveCommands(node As CommandNode, commands As List(Of Command))
   overload: YShared.Console.CommandRegistry.GetRecursiveCommands*
   nameWithType.vb: CommandRegistry.GetRecursiveCommands(CommandNode, List(Of Command))
@@ -464,6 +542,124 @@ references:
   name: CommandNode
   nameWithType: CommandNode
   fullName: YShared.Console.CommandNode
+- uid: System.Collections.Generic.Dictionary{System.Type,System.Type}
+  commentId: T:System.Collections.Generic.Dictionary{System.Type,System.Type}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.Dictionary`2
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2
+  name: Dictionary<Type, Type>
+  nameWithType: Dictionary<Type, Type>
+  fullName: System.Collections.Generic.Dictionary<System.Type, System.Type>
+  nameWithType.vb: Dictionary(Of Type, Type)
+  fullName.vb: System.Collections.Generic.Dictionary(Of System.Type, System.Type)
+  name.vb: Dictionary(Of Type, Type)
+  spec.csharp:
+  - uid: System.Collections.Generic.Dictionary`2
+    name: Dictionary
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2
+  - name: <
+  - uid: System.Type
+    name: Type
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.type
+  - name: ','
+  - name: " "
+  - uid: System.Type
+    name: Type
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.type
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.Dictionary`2
+    name: Dictionary
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Type
+    name: Type
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.type
+  - name: ','
+  - name: " "
+  - uid: System.Type
+    name: Type
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.type
+  - name: )
+- uid: System.Collections.Generic.Dictionary`2
+  commentId: T:System.Collections.Generic.Dictionary`2
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2
+  name: Dictionary<TKey, TValue>
+  nameWithType: Dictionary<TKey, TValue>
+  fullName: System.Collections.Generic.Dictionary<TKey, TValue>
+  nameWithType.vb: Dictionary(Of TKey, TValue)
+  fullName.vb: System.Collections.Generic.Dictionary(Of TKey, TValue)
+  name.vb: Dictionary(Of TKey, TValue)
+  spec.csharp:
+  - uid: System.Collections.Generic.Dictionary`2
+    name: Dictionary
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2
+  - name: <
+  - name: TKey
+  - name: ','
+  - name: " "
+  - name: TValue
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.Dictionary`2
+    name: Dictionary
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TKey
+  - name: ','
+  - name: " "
+  - name: TValue
+  - name: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
 - uid: YShared.Console.Command[]
   isExternal: true
   href: YShared.Console.Command.html
@@ -512,10 +708,25 @@ references:
 - uid: YShared.Console.CommandRegistry.RegisterCommand*
   commentId: Overload:YShared.Console.CommandRegistry.RegisterCommand
   isExternal: true
-  href: YShared.Console.CommandRegistry.html#YShared_Console_CommandRegistry_RegisterCommand_System_Reflection_MethodInfo_
+  href: YShared.Console.CommandRegistry.html#YShared_Console_CommandRegistry_RegisterCommand_YShared_Console_Command_
   name: RegisterCommand
   nameWithType: CommandRegistry.RegisterCommand
   fullName: YShared.Console.CommandRegistry.RegisterCommand
+- uid: YShared.Console.Command
+  commentId: T:YShared.Console.Command
+  parent: YShared.Console
+  isExternal: true
+  href: YShared.Console.Command.html
+  name: Command
+  nameWithType: Command
+  fullName: YShared.Console.Command
+- uid: YShared.Console.CommandRegistry.CreateMethodCommand*
+  commentId: Overload:YShared.Console.CommandRegistry.CreateMethodCommand
+  isExternal: true
+  href: YShared.Console.CommandRegistry.html#YShared_Console_CommandRegistry_CreateMethodCommand_System_Reflection_MethodInfo_YShared_Console_YCommandAttribute_
+  name: CreateMethodCommand
+  nameWithType: CommandRegistry.CreateMethodCommand
+  fullName: YShared.Console.CommandRegistry.CreateMethodCommand
 - uid: System.Reflection.MethodInfo
   commentId: T:System.Reflection.MethodInfo
   parent: System.Reflection
@@ -524,6 +735,14 @@ references:
   name: MethodInfo
   nameWithType: MethodInfo
   fullName: System.Reflection.MethodInfo
+- uid: YShared.Console.YCommandAttribute
+  commentId: T:YShared.Console.YCommandAttribute
+  parent: YShared.Console
+  isExternal: true
+  href: YShared.Console.YCommandAttribute.html
+  name: YCommandAttribute
+  nameWithType: YCommandAttribute
+  fullName: YShared.Console.YCommandAttribute
 - uid: System.Reflection
   commentId: N:System.Reflection
   isExternal: true
@@ -551,6 +770,29 @@ references:
     name: Reflection
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.reflection
+- uid: YShared.Console.CommandRegistry.CreateFieldCommand*
+  commentId: Overload:YShared.Console.CommandRegistry.CreateFieldCommand
+  isExternal: true
+  href: YShared.Console.CommandRegistry.html#YShared_Console_CommandRegistry_CreateFieldCommand_System_Reflection_FieldInfo_YShared_Console_YCommandAttribute_YShared_Console_FieldValueCommandType_
+  name: CreateFieldCommand
+  nameWithType: CommandRegistry.CreateFieldCommand
+  fullName: YShared.Console.CommandRegistry.CreateFieldCommand
+- uid: System.Reflection.FieldInfo
+  commentId: T:System.Reflection.FieldInfo
+  parent: System.Reflection
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.reflection.fieldinfo
+  name: FieldInfo
+  nameWithType: FieldInfo
+  fullName: System.Reflection.FieldInfo
+- uid: YShared.Console.FieldValueCommandType
+  commentId: T:YShared.Console.FieldValueCommandType
+  parent: YShared.Console
+  isExternal: true
+  href: YShared.Console.FieldValueCommandType.html
+  name: FieldValueCommandType
+  nameWithType: FieldValueCommandType
+  fullName: YShared.Console.FieldValueCommandType
 - uid: YShared.Console.CommandRegistry.GetCommands*
   commentId: Overload:YShared.Console.CommandRegistry.GetCommands
   isExternal: true
@@ -632,43 +874,6 @@ references:
   - name: " "
   - name: T
   - name: )
-- uid: System.Collections.Generic
-  commentId: N:System.Collections.Generic
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system
-  name: System.Collections.Generic
-  nameWithType: System.Collections.Generic
-  fullName: System.Collections.Generic
-  spec.csharp:
-  - uid: System
-    name: System
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system
-  - name: .
-  - uid: System.Collections
-    name: Collections
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.collections
-  - name: .
-  - uid: System.Collections.Generic
-    name: Generic
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
-  spec.vb:
-  - uid: System
-    name: System
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system
-  - name: .
-  - uid: System.Collections
-    name: Collections
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.collections
-  - name: .
-  - uid: System.Collections.Generic
-    name: Generic
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
 - uid: YShared.Console.CommandRegistry.GetRecursiveCommands*
   commentId: Overload:YShared.Console.CommandRegistry.GetRecursiveCommands
   isExternal: true

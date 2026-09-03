@@ -6,6 +6,7 @@ items:
   parent: YShared.Console
   children:
   - YShared.Console.YCommandAttribute.#ctor(System.String,System.String,YShared.Console.ObjectFindType,UnityEngine.FindObjectsInactive)
+  - YShared.Console.YCommandAttribute.#ctor(System.String,YShared.Console.YCommandAttribute)
   - YShared.Console.YCommandAttribute.Desc
   - YShared.Console.YCommandAttribute.Name
   - YShared.Console.YCommandAttribute.findObjectsInactive
@@ -39,11 +40,11 @@ items:
   example: []
   syntax:
     content: >-
-      [AttributeUsage(AttributeTargets.Method)]
+      [AttributeUsage(AttributeTargets.Method|AttributeTargets.Property|AttributeTargets.Field, AllowMultiple = false)]
 
       public class YCommandAttribute : Attribute
     content.vb: >-
-      <AttributeUsage(AttributeTargets.Method)>
+      <AttributeUsage(AttributeTargets.MethodOrAttributeTargets.PropertyOrAttributeTargets.Field, AllowMultiple:=False)>
 
       Public Class YCommandAttribute Inherits Attribute
   inheritance:
@@ -99,7 +100,11 @@ items:
     ctor: System.AttributeUsageAttribute.#ctor(System.AttributeTargets)
     arguments:
     - type: System.AttributeTargets
-      value: 64
+      value: 448
+    namedArguments:
+    - name: AllowMultiple
+      type: System.Boolean
+      value: false
 - uid: YShared.Console.YCommandAttribute.#ctor(System.String,System.String,YShared.Console.ObjectFindType,UnityEngine.FindObjectsInactive)
   commentId: M:YShared.Console.YCommandAttribute.#ctor(System.String,System.String,YShared.Console.ObjectFindType,UnityEngine.FindObjectsInactive)
   id: '#ctor(System.String,System.String,YShared.Console.ObjectFindType,UnityEngine.FindObjectsInactive)'
@@ -136,6 +141,32 @@ items:
   nameWithType.vb: YCommandAttribute.New(String, String, ObjectFindType, FindObjectsInactive)
   fullName.vb: YShared.Console.YCommandAttribute.New(String, String, YShared.Console.ObjectFindType, UnityEngine.FindObjectsInactive)
   name.vb: New(String, String, ObjectFindType, FindObjectsInactive)
+- uid: YShared.Console.YCommandAttribute.#ctor(System.String,YShared.Console.YCommandAttribute)
+  commentId: M:YShared.Console.YCommandAttribute.#ctor(System.String,YShared.Console.YCommandAttribute)
+  id: '#ctor(System.String,YShared.Console.YCommandAttribute)'
+  parent: YShared.Console.YCommandAttribute
+  langs:
+  - csharp
+  - vb
+  name: YCommandAttribute(string, YCommandAttribute)
+  nameWithType: YCommandAttribute.YCommandAttribute(string, YCommandAttribute)
+  fullName: YShared.Console.YCommandAttribute.YCommandAttribute(string, YShared.Console.YCommandAttribute)
+  type: Constructor
+  assemblies:
+  - YShared.Runtime
+  namespace: YShared.Console
+  syntax:
+    content: public YCommandAttribute(string NameAddendum, YCommandAttribute @base)
+    parameters:
+    - id: NameAddendum
+      type: System.String
+    - id: base
+      type: YShared.Console.YCommandAttribute
+    content.vb: Public Sub New(NameAddendum As String, base As YCommandAttribute)
+  overload: YShared.Console.YCommandAttribute.#ctor*
+  nameWithType.vb: YCommandAttribute.New(String, YCommandAttribute)
+  fullName.vb: YShared.Console.YCommandAttribute.New(String, YShared.Console.YCommandAttribute)
+  name.vb: New(String, YCommandAttribute)
 - uid: YShared.Console.YCommandAttribute.Name
   commentId: P:YShared.Console.YCommandAttribute.Name
   id: Name
@@ -2208,6 +2239,14 @@ references:
   name: FindObjectsInactive
   nameWithType: FindObjectsInactive
   fullName: UnityEngine.FindObjectsInactive
+- uid: YShared.Console.YCommandAttribute
+  commentId: T:YShared.Console.YCommandAttribute
+  parent: YShared.Console
+  isExternal: true
+  href: YShared.Console.YCommandAttribute.html
+  name: YCommandAttribute
+  nameWithType: YCommandAttribute
+  fullName: YShared.Console.YCommandAttribute
 - uid: YShared.Console.YCommandAttribute.Name*
   commentId: Overload:YShared.Console.YCommandAttribute.Name
   isExternal: true

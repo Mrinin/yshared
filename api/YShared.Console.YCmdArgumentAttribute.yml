@@ -114,8 +114,6 @@ items:
   assemblies:
   - YShared.Runtime
   namespace: YShared.Console
-  summary: Name of the argument used when previewing command arguments.
-  example: []
   syntax:
     content: public string variableName
     return:
@@ -135,13 +133,10 @@ items:
   assemblies:
   - YShared.Runtime
   namespace: YShared.Console
-  summary: Returns the name and type information of this argument in a nice, descriptive way.
-  example: []
   syntax:
     content: public abstract string getDescriptorText()
     return:
       type: System.String
-      description: Descriptor
     content.vb: Public MustOverride Function getDescriptorText() As String
   overload: YShared.Console.YCmdArgumentAttribute.getDescriptorText*
 - uid: YShared.Console.YCmdArgumentAttribute.getAutocompleteArray
@@ -158,13 +153,10 @@ items:
   assemblies:
   - YShared.Runtime
   namespace: YShared.Console
-  summary: The autocomplete array used for this argument. Optionally return "null" for no autocomplete.
-  example: []
   syntax:
     content: public virtual string[] getAutocompleteArray()
     return:
       type: System.String[]
-      description: Autocomplete Array
     content.vb: Public Overridable Function getAutocompleteArray() As String()
   overload: YShared.Console.YCmdArgumentAttribute.getAutocompleteArray*
 - uid: YShared.Console.YCmdArgumentAttribute.Validate``1(``0)
@@ -181,20 +173,15 @@ items:
   assemblies:
   - YShared.Runtime
   namespace: YShared.Console
-  summary: Validate type.
-  example: []
   syntax:
     content: protected virtual bool Validate<T>(T s)
     parameters:
     - id: s
       type: '{T}'
-      description: ''
     typeParameters:
     - id: T
-      description: ''
     return:
       type: System.Boolean
-      description: IsValid
     content.vb: Protected Overridable Function Validate(Of T)(s As T) As Boolean
   overload: YShared.Console.YCmdArgumentAttribute.Validate*
   nameWithType.vb: YCmdArgumentAttribute.Validate(Of T)(T)
@@ -214,23 +201,17 @@ items:
   assemblies:
   - YShared.Runtime
   namespace: YShared.Console
-  summary: Return the thing.
-  example: []
   syntax:
     content: public abstract bool Parse<T>(string s, out T val)
     parameters:
     - id: s
       type: System.String
-      description: ''
     - id: val
       type: '{T}'
-      description: ''
     typeParameters:
     - id: T
-      description: ''
     return:
       type: System.Boolean
-      description: ''
     content.vb: Public MustOverride Function Parse(Of T)(s As String, val As T) As Boolean
   overload: YShared.Console.YCmdArgumentAttribute.Parse*
   nameWithType.vb: YCmdArgumentAttribute.Parse(Of T)(String, T)
@@ -271,8 +252,6 @@ items:
   assemblies:
   - YShared.Runtime
   namespace: YShared.Console
-  summary: The string name of this argument's type
-  example: []
   syntax:
     content: public abstract string getTypeName { get; }
     parameters: []
@@ -294,8 +273,6 @@ items:
   assemblies:
   - YShared.Runtime
   namespace: YShared.Console
-  summary: Check for whether this argument has an autcomplete array. If it returns <code>true</code>, <code>getAutocompleteArray</code> is called to retrieve the list.
-  example: []
   syntax:
     content: public abstract bool hasAutocompleteArray { get; }
     parameters: []

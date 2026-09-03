@@ -1,0 +1,119 @@
+### YamlMime:ManagedReference
+items:
+- uid: YShared.Console.Suggestion
+  commentId: N:YShared.Console.Suggestion
+  id: YShared.Console.Suggestion
+  children:
+  - YShared.Console.Suggestion.DynamicSuggestionModifierAttribute
+  - YShared.Console.Suggestion.ExcludeAttribute
+  - YShared.Console.Suggestion.IncludeAttribute
+  - YShared.Console.Suggestion.IncludeDynamicAttribute
+  - YShared.Console.Suggestion.NoSuggestionsAttribute
+  - YShared.Console.Suggestion.OverrideAttribute
+  - YShared.Console.Suggestion.SuggestionModifierAttribute
+  - YShared.Console.Suggestion.SuggestionRangeAttribute
+  langs:
+  - csharp
+  - vb
+  name: YShared.Console.Suggestion
+  nameWithType: YShared.Console.Suggestion
+  fullName: YShared.Console.Suggestion
+  type: Namespace
+  assemblies:
+  - YShared.Runtime
+references:
+- uid: YShared.Console.Suggestion.SuggestionModifierAttribute
+  commentId: T:YShared.Console.Suggestion.SuggestionModifierAttribute
+  parent: YShared.Console.Suggestion
+  isExternal: true
+  href: YShared.Console.Suggestion.SuggestionModifierAttribute.html
+  name: SuggestionModifierAttribute
+  nameWithType: SuggestionModifierAttribute
+  fullName: YShared.Console.Suggestion.SuggestionModifierAttribute
+- uid: YShared.Console.Suggestion.IncludeAttribute
+  commentId: T:YShared.Console.Suggestion.IncludeAttribute
+  isExternal: true
+  href: YShared.Console.Suggestion.IncludeAttribute.html
+  name: IncludeAttribute
+  nameWithType: IncludeAttribute
+  fullName: YShared.Console.Suggestion.IncludeAttribute
+- uid: YShared.Console.Suggestion.ExcludeAttribute
+  commentId: T:YShared.Console.Suggestion.ExcludeAttribute
+  isExternal: true
+  href: YShared.Console.Suggestion.ExcludeAttribute.html
+  name: ExcludeAttribute
+  nameWithType: ExcludeAttribute
+  fullName: YShared.Console.Suggestion.ExcludeAttribute
+- uid: YShared.Console.Suggestion.OverrideAttribute
+  commentId: T:YShared.Console.Suggestion.OverrideAttribute
+  isExternal: true
+  href: YShared.Console.Suggestion.OverrideAttribute.html
+  name: OverrideAttribute
+  nameWithType: OverrideAttribute
+  fullName: YShared.Console.Suggestion.OverrideAttribute
+- uid: YShared.Console.Suggestion.NoSuggestionsAttribute
+  commentId: T:YShared.Console.Suggestion.NoSuggestionsAttribute
+  isExternal: true
+  href: YShared.Console.Suggestion.NoSuggestionsAttribute.html
+  name: NoSuggestionsAttribute
+  nameWithType: NoSuggestionsAttribute
+  fullName: YShared.Console.Suggestion.NoSuggestionsAttribute
+- uid: YShared.Console.Suggestion.SuggestionRangeAttribute
+  commentId: T:YShared.Console.Suggestion.SuggestionRangeAttribute
+  isExternal: true
+  href: YShared.Console.Suggestion.SuggestionRangeAttribute.html
+  name: SuggestionRangeAttribute
+  nameWithType: SuggestionRangeAttribute
+  fullName: YShared.Console.Suggestion.SuggestionRangeAttribute
+- uid: YShared.Console.Suggestion.DynamicSuggestionModifierAttribute
+  commentId: T:YShared.Console.Suggestion.DynamicSuggestionModifierAttribute
+  parent: YShared.Console.Suggestion
+  isExternal: true
+  href: YShared.Console.Suggestion.DynamicSuggestionModifierAttribute.html
+  name: DynamicSuggestionModifierAttribute
+  nameWithType: DynamicSuggestionModifierAttribute
+  fullName: YShared.Console.Suggestion.DynamicSuggestionModifierAttribute
+- uid: YShared.Console.Suggestion.IncludeDynamicAttribute
+  commentId: T:YShared.Console.Suggestion.IncludeDynamicAttribute
+  isExternal: true
+  href: YShared.Console.Suggestion.IncludeDynamicAttribute.html
+  name: IncludeDynamicAttribute
+  nameWithType: IncludeDynamicAttribute
+  fullName: YShared.Console.Suggestion.IncludeDynamicAttribute
+- uid: YShared.Console.Suggestion
+  commentId: N:YShared.Console.Suggestion
+  isExternal: true
+  href: YShared.html
+  name: YShared.Console.Suggestion
+  nameWithType: YShared.Console.Suggestion
+  fullName: YShared.Console.Suggestion
+  spec.csharp:
+  - uid: YShared
+    name: YShared
+    isExternal: true
+    href: YShared.html
+  - name: .
+  - uid: YShared.Console
+    name: Console
+    isExternal: true
+    href: YShared.Console.html
+  - name: .
+  - uid: YShared.Console.Suggestion
+    name: Suggestion
+    isExternal: true
+    href: YShared.Console.Suggestion.html
+  spec.vb:
+  - uid: YShared
+    name: YShared
+    isExternal: true
+    href: YShared.html
+  - name: .
+  - uid: YShared.Console
+    name: Console
+    isExternal: true
+    href: YShared.Console.html
+  - name: .
+  - uid: YShared.Console.Suggestion
+    name: Suggestion
+    isExternal: true
+    href: YShared.Console.Suggestion.html

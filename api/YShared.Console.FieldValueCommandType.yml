@@ -1,0 +1,266 @@
+### YamlMime:ManagedReference
+items:
+- uid: YShared.Console.FieldValueCommandType
+  commentId: T:YShared.Console.FieldValueCommandType
+  id: FieldValueCommandType
+  parent: YShared.Console
+  children:
+  - YShared.Console.FieldValueCommandType.get
+  - YShared.Console.FieldValueCommandType.set
+  - YShared.Console.FieldValueCommandType.toggle
+  - YShared.Console.FieldValueCommandType.toggleSet
+  langs:
+  - csharp
+  - vb
+  name: FieldValueCommandType
+  nameWithType: FieldValueCommandType
+  fullName: YShared.Console.FieldValueCommandType
+  type: Enum
+  assemblies:
+  - YShared.Runtime
+  namespace: YShared.Console
+  syntax:
+    content: public enum FieldValueCommandType
+    content.vb: Public Enum FieldValueCommandType
+  extensionMethods:
+  - System.Object.YShared.MathHelper.YMathHelper.TryAs``1({T}@)
+- uid: YShared.Console.FieldValueCommandType.get
+  commentId: F:YShared.Console.FieldValueCommandType.get
+  id: get
+  parent: YShared.Console.FieldValueCommandType
+  langs:
+  - csharp
+  - vb
+  name: get
+  nameWithType: FieldValueCommandType.get
+  fullName: YShared.Console.FieldValueCommandType.get
+  type: Field
+  assemblies:
+  - YShared.Runtime
+  namespace: YShared.Console
+  syntax:
+    content: get = 0
+    return:
+      type: YShared.Console.FieldValueCommandType
+- uid: YShared.Console.FieldValueCommandType.set
+  commentId: F:YShared.Console.FieldValueCommandType.set
+  id: set
+  parent: YShared.Console.FieldValueCommandType
+  langs:
+  - csharp
+  - vb
+  name: set
+  nameWithType: FieldValueCommandType.set
+  fullName: YShared.Console.FieldValueCommandType.set
+  type: Field
+  assemblies:
+  - YShared.Runtime
+  namespace: YShared.Console
+  syntax:
+    content: set = 1
+    return:
+      type: YShared.Console.FieldValueCommandType
+- uid: YShared.Console.FieldValueCommandType.toggle
+  commentId: F:YShared.Console.FieldValueCommandType.toggle
+  id: toggle
+  parent: YShared.Console.FieldValueCommandType
+  langs:
+  - csharp
+  - vb
+  name: toggle
+  nameWithType: FieldValueCommandType.toggle
+  fullName: YShared.Console.FieldValueCommandType.toggle
+  type: Field
+  assemblies:
+  - YShared.Runtime
+  namespace: YShared.Console
+  syntax:
+    content: toggle = 2
+    return:
+      type: YShared.Console.FieldValueCommandType
+- uid: YShared.Console.FieldValueCommandType.toggleSet
+  commentId: F:YShared.Console.FieldValueCommandType.toggleSet
+  id: toggleSet
+  parent: YShared.Console.FieldValueCommandType
+  langs:
+  - csharp
+  - vb
+  name: toggleSet
+  nameWithType: FieldValueCommandType.toggleSet
+  fullName: YShared.Console.FieldValueCommandType.toggleSet
+  type: Field
+  assemblies:
+  - YShared.Runtime
+  namespace: YShared.Console
+  syntax:
+    content: toggleSet = 3
+    return:
+      type: YShared.Console.FieldValueCommandType
+references:
+- uid: YShared.Console
+  commentId: N:YShared.Console
+  isExternal: true
+  href: YShared.html
+  name: YShared.Console
+  nameWithType: YShared.Console
+  fullName: YShared.Console
+  spec.csharp:
+  - uid: YShared
+    name: YShared
+    isExternal: true
+    href: YShared.html
+  - name: .
+  - uid: YShared.Console
+    name: Console
+    isExternal: true
+    href: YShared.Console.html
+  spec.vb:
+  - uid: YShared
+    name: YShared
+    isExternal: true
+    href: YShared.html
+  - name: .
+  - uid: YShared.Console
+    name: Console
+    isExternal: true
+    href: YShared.Console.html
+- uid: System.Object.YShared.MathHelper.YMathHelper.TryAs``1({T}@)
+  commentId: M:YShared.MathHelper.YMathHelper.TryAs``1(System.Object,``0@)
+  parent: YShared.MathHelper.YMathHelper
+  definition: YShared.MathHelper.YMathHelper.TryAs``1(System.Object,``0@)
+  href: YShared.MathHelper.YMathHelper.html#YShared_MathHelper_YMathHelper_TryAs__1_System_Object___0__
+  name: TryAs<T>(object, out T)
+  nameWithType: YMathHelper.TryAs<T>(object, out T)
+  fullName: YShared.MathHelper.YMathHelper.TryAs<T>(object, out T)
+  nameWithType.vb: YMathHelper.TryAs(Of T)(Object, T)
+  fullName.vb: YShared.MathHelper.YMathHelper.TryAs(Of T)(Object, T)
+  name.vb: TryAs(Of T)(Object, T)
+  spec.csharp:
+  - uid: YShared.MathHelper.YMathHelper.TryAs``1(System.Object,``0@)
+    name: TryAs
+    isExternal: true
+    href: YShared.MathHelper.YMathHelper.html#YShared_MathHelper_YMathHelper_TryAs__1_System_Object___0__
+  - name: <
+  - name: T
+  - name: '>'
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - name: out
+  - name: " "
+  - name: T
+  - name: )
+  spec.vb:
+  - uid: YShared.MathHelper.YMathHelper.TryAs``1(System.Object,``0@)
+    name: TryAs
+    isExternal: true
+    href: YShared.MathHelper.YMathHelper.html#YShared_MathHelper_YMathHelper_TryAs__1_System_Object___0__
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - name: T
+  - name: )
+- uid: YShared.MathHelper.YMathHelper.TryAs``1(System.Object,``0@)
+  commentId: M:YShared.MathHelper.YMathHelper.TryAs``1(System.Object,``0@)
+  isExternal: true
+  href: YShared.MathHelper.YMathHelper.html#YShared_MathHelper_YMathHelper_TryAs__1_System_Object___0__
+  name: TryAs<T>(object, out T)
+  nameWithType: YMathHelper.TryAs<T>(object, out T)
+  fullName: YShared.MathHelper.YMathHelper.TryAs<T>(object, out T)
+  nameWithType.vb: YMathHelper.TryAs(Of T)(Object, T)
+  fullName.vb: YShared.MathHelper.YMathHelper.TryAs(Of T)(Object, T)
+  name.vb: TryAs(Of T)(Object, T)
+  spec.csharp:
+  - uid: YShared.MathHelper.YMathHelper.TryAs``1(System.Object,``0@)
+    name: TryAs
+    isExternal: true
+    href: YShared.MathHelper.YMathHelper.html#YShared_MathHelper_YMathHelper_TryAs__1_System_Object___0__
+  - name: <
+  - name: T
+  - name: '>'
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - name: out
+  - name: " "
+  - name: T
+  - name: )
+  spec.vb:
+  - uid: YShared.MathHelper.YMathHelper.TryAs``1(System.Object,``0@)
+    name: TryAs
+    isExternal: true
+    href: YShared.MathHelper.YMathHelper.html#YShared_MathHelper_YMathHelper_TryAs__1_System_Object___0__
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - name: T
+  - name: )
+- uid: YShared.MathHelper.YMathHelper
+  commentId: T:YShared.MathHelper.YMathHelper
+  parent: YShared.MathHelper
+  isExternal: true
+  href: YShared.MathHelper.YMathHelper.html
+  name: YMathHelper
+  nameWithType: YMathHelper
+  fullName: YShared.MathHelper.YMathHelper
+- uid: YShared.MathHelper
+  commentId: N:YShared.MathHelper
+  isExternal: true
+  href: YShared.html
+  name: YShared.MathHelper
+  nameWithType: YShared.MathHelper
+  fullName: YShared.MathHelper
+  spec.csharp:
+  - uid: YShared
+    name: YShared
+    isExternal: true
+    href: YShared.html
+  - name: .
+  - uid: YShared.MathHelper
+    name: MathHelper
+    isExternal: true
+    href: YShared.MathHelper.html
+  spec.vb:
+  - uid: YShared
+    name: YShared
+    isExternal: true
+    href: YShared.html
+  - name: .
+  - uid: YShared.MathHelper
+    name: MathHelper
+    isExternal: true
+    href: YShared.MathHelper.html
+- uid: YShared.Console.FieldValueCommandType
+  commentId: T:YShared.Console.FieldValueCommandType
+  parent: YShared.Console
+  isExternal: true
+  href: YShared.Console.FieldValueCommandType.html
+  name: FieldValueCommandType
+  nameWithType: FieldValueCommandType
+  fullName: YShared.Console.FieldValueCommandType

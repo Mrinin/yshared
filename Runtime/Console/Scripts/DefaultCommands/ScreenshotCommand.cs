@@ -67,7 +67,6 @@ namespace YShared.Console
             );
 
             Size = (texture.GetRawTextureData().Length / 1000f) / 1000f;
-            Debug.Log("asd");
 
             CopyTextureToClipboard(texture);
 
