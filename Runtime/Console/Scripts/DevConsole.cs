@@ -267,7 +267,8 @@ namespace YShared.Console
 
                         hasArrayOfReturnValues = hasReturnValue;
 
-                        DevConsole.Feedback($"Ran on {objs.Length} instances.", FeedbackFlavor.Info);
+                        if (objs.Length >= 2)
+                            DevConsole.Feedback($"Ran on {objs.Length} instances.", FeedbackFlavor.Info);
                     } 
                     else
                     {

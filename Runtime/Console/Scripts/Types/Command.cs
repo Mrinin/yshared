@@ -4,7 +4,8 @@ using System.Diagnostics;
 using System.Linq;
 using System.Reflection;
 using System.Runtime.CompilerServices;
-using YShared.Console.Suggestion;
+using UnityEditor;
+using YShared.Console.Suggestions;
 
 namespace YShared.Console
 {
@@ -72,6 +73,7 @@ namespace YShared.Console
         
         public ObjectFindType objectFindType; 
         public UnityEngine.FindObjectsInactive findObjectsInactive;
+        public bool HideInHelp;
 
         public MemberInfo action;
         // Can be: 

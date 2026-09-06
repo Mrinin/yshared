@@ -8,7 +8,7 @@ using System.Runtime.InteropServices.WindowsRuntime;
 using System.Xml.Schema;
 using Codice.CM.SEIDInfo;
 using UnityEngine;
-using YShared.Console.Suggestion;
+using YShared.Console.Suggestions;
 using YShared.MathHelper;
 
 namespace YShared.Console
@@ -103,15 +103,17 @@ namespace YShared.Console
                         if (property.GetMethod != null)
                         {
                             YCommandAttribute getterAttribute = new YCommandAttribute("get", attribute);
+                            Command getter = CreateMethodCommand(property.GetMethod, getterAttribute);
 
-                            RegisterCommand(CreateMethodCommand(property.GetMethod, getterAttribute));
+                            RegisterCommand(getter);
                         }
 
                         if (property.SetMethod != null)
                         {
                             YCommandAttribute setterAttribute = new YCommandAttribute("set", attribute);
+                            Command setter = CreateMethodCommand(property.SetMethod, setterAttribute);
 
-                            RegisterCommand(CreateMethodCommand(property.SetMethod, setterAttribute));
+                            RegisterCommand(setter);
                         }
                     }
 
@@ -136,8 +138,13 @@ namespace YShared.Console
                                 YCommandAttribute toggleAttribute = new YCommandAttribute("", attribute);
                                 YCommandAttribute setterToggleAttribute = new YCommandAttribute("", attribute);
 
-                                RegisterCommand(CreateFieldCommand(field, toggleAttribute, FieldValueCommandType.toggle));
-                                RegisterCommand(CreateFieldCommand(field, setterToggleAttribute, FieldValueCommandType.toggleSet));
+                                Command toggle = CreateFieldCommand(field, toggleAttribute, FieldValueCommandType.toggle);
+                                Command toggleSet = CreateFieldCommand(field, setterToggleAttribute, FieldValueCommandType.toggleSet);
+
+                                toggleSet.HideInHelp = true;
+
+                                RegisterCommand(toggle);
+                                RegisterCommand(toggleSet);
                             }
                         }
                         else
@@ -150,7 +157,12 @@ namespace YShared.Console
                         }
 
                         YCommandAttribute getterAttribute = new YCommandAttribute("get", attribute);
-                        RegisterCommand(CreateFieldCommand(field, getterAttribute, FieldValueCommandType.get));
+                        Command getter = CreateFieldCommand(field, getterAttribute, FieldValueCommandType.get);
+
+                        if (isToggle)
+                            getter.HideInHelp = true;
+
+                        RegisterCommand(getter);
                     }
                 }
             }

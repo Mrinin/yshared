@@ -41,6 +41,9 @@ namespace YShared.Console
 
             foreach (Command cmd in CommandRegistry.alphabeticalCommands)
             {
+                if (cmd.HideInHelp)
+                    continue;
+
                 if (page != 0)
                 {
                     if (!(commands_looped_through >= lb && commands_looped_through < ub))

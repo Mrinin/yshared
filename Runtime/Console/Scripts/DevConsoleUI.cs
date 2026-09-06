@@ -20,6 +20,7 @@ namespace YShared.Console
         [Header("Appearance")]
         [SerializeField] private int fontSize = 18;
         [SerializeField] private float slideDuration = 0.15f;
+        [SerializeField] private Color[] commandColors;
 
         [Header("Autocomplete")]
         [Tooltip("Editable at runtime via AddAutocompleteCommand / RemoveAutocompleteCommand / SetAutocompleteList.")]
@@ -70,9 +71,12 @@ namespace YShared.Console
             ShowErrors = UnityEditor.EditorPrefs.GetBool($"yconsole_{nameof(ShowErrors)}", true);
             ShowWarnings = UnityEditor.EditorPrefs.GetBool($"yconsole_{nameof(ShowWarnings)}", false);
             ShowInfo = UnityEditor.EditorPrefs.GetBool($"yconsole_{nameof(ShowInfo)}", true);
+            UseColors = UnityEditor.EditorPrefs.GetBool($"yconsole_{nameof(UseColors)}", true);
 #endif
 
             AppendLogLine("UberYagiz++ Console - \"help\" for list of commands.", FeedbackFlavor.Misc);
+
+            InitializeColoredInputField();
 
             //SetAutocompleteList(CommandRegistry.RootCommandArray);
             UpdateAutocompleteListFromText("");
@@ -85,11 +89,15 @@ namespace YShared.Console
             DevConsole.CommandFeedback -= RecievedFeedback;
             DevConsole.CommandLog -= RecievedLog;
             Application.logMessageReceived -= HandleUnityLog;
+        }
 
+        void OnDisable()
+        {
 #if UNITY_EDITOR
             UnityEditor.EditorPrefs.SetBool($"yconsole_{nameof(ShowErrors)}", ShowErrors);
             UnityEditor.EditorPrefs.SetBool($"yconsole_{nameof(ShowWarnings)}", ShowWarnings);
             UnityEditor.EditorPrefs.SetBool($"yconsole_{nameof(ShowInfo)}", ShowInfo);
+            UnityEditor.EditorPrefs.SetBool($"yconsole_{nameof(UseColors)}", UseColors);
 #endif
         }
 
@@ -322,6 +330,63 @@ namespace YShared.Console
             inputField.text = commandHistory[historyCursor];
             inputField.caretPosition = inputField.text.Length;
             caretPosition = inputField.text.Length;
+        }
+
+        // -------------------
+        // Text Input
+        // -------------------
+
+        private TMP_Text coloredText;
+
+        void InitializeColoredInputField()
+        {
+            // Create a copy of the input field's text renderer.
+            GameObject copy = Instantiate(
+                inputField.textComponent.gameObject,
+                inputField.textComponent.transform.parent
+            );
+
+            copy.name = inputField.textComponent.name + "_Colored";
+
+            coloredText = copy.GetComponent<TMP_Text>();
+            coloredText.richText = true;
+
+            // Make the original text invisible.
+            inputField.textComponent.color = new Color(1, 1, 1, 0);
+
+            // Make sure the copy is rendered on top.
+            copy.transform.SetSiblingIndex(
+                inputField.textComponent.transform.GetSiblingIndex() + 1
+            );
+
+            // Initial text.
+            UpdateColoredText();
+
+            // Update whenever the input changes.
+            inputField.onValueChanged.AddListener(_ => UpdateColoredText());
+        }
+
+        void UpdateColoredText()
+        {
+            coloredText.text = Colorize(inputField.text);
+        }
+
+        string Colorize(string text)
+        {
+            if (!UseColors || commandColors.Length == 0)
+                return text;
+
+            string[] words = CommandsHelper.SplitCommand(text, false);
+
+            for (int i = 0; i < words.Length; i++)
+            {
+                if (string.IsNullOrEmpty(words[i]))
+                    continue;
+
+                words[i] = $"<color=#{ColorUtility.ToHtmlStringRGB(commandColors[i % commandColors.Length])}>{words[i]}</color>";
+            }
+
+            return string.Join(" ", words);
         }
 
         // ---------------------------------------------------------------
@@ -601,6 +666,8 @@ namespace YShared.Console
         public bool ShowWarnings;
         [YCommand("yconsole unity_console show_info", "Toggle whether the Unity Console info logs should be the YConsole or not.")] [YToggle] 
         public bool ShowInfo;
+        [YCommand("yconsole is_colorized", "Toggle whether the input is shown in color or not.")] [YToggle] 
+        public bool UseColors;
 
         // Delayed Auto Key
 

@@ -5,7 +5,7 @@ using System.Reflection;
 using UnityEditor;
 using UnityEngine;
 
-namespace YShared.Console.Suggestion
+namespace YShared.Console.Suggestions
 {
     [AttributeUsage(AttributeTargets.Parameter | AttributeTargets.Field, AllowMultiple = true, Inherited = true)]
     public abstract class SuggestionModifierAttribute: System.Attribute

@@ -1259,8 +1259,8 @@ MonoBehaviour:
   m_OnTouchScreenKeyboardStatusChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_CaretColor: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
-  m_CustomCaretColor: 0
+  m_CaretColor: {r: 1, g: 1, b: 1, a: 1}
+  m_CustomCaretColor: 1
   m_SelectionColor: {r: 0.65882355, g: 0.80784315, b: 1, a: 0.7529412}
   m_Text: 
   m_CaretBlinkRate: 0.85
@@ -1431,6 +1431,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: YShared.Runtime::YShared.Console.DevConsoleUI
   fontSize: 16
   slideDuration: 0.3
+  commandColors:
+  - {r: 0, g: 1, b: 1, a: 1}
+  - {r: 0.9843138, g: 0.9921569, b: 0.12941177, a: 1}
+  - {r: 0.6, g: 0.74509805, b: 0, a: 1}
+  - {r: 0.9960785, g: 0.8431373, b: 0, a: 1}
   autocompleteAmount: 9
   canvas: {fileID: 3481226902013819720}
   panelRect: {fileID: 3562035449288863050}

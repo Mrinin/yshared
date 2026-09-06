@@ -5,7 +5,7 @@ using System.Reflection;
 using UnityEditor;
 using UnityEngine;
 
-namespace YShared.Console.Suggestion
+namespace YShared.Console.Suggestions
 {
     public abstract class DynamicSuggestionModifierAttribute: SuggestionModifierAttribute
     {
