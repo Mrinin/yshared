@@ -8,6 +8,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
+using YShared.MathHelper;
 using YShared.NamedTimers;
 using YShared.Singleton;
 
@@ -67,12 +68,10 @@ namespace YShared.Console
             DevConsole.CommandLog += RecievedLog;
             Application.logMessageReceived += HandleUnityLog;
 
-#if UNITY_EDITOR
-            ShowErrors = UnityEditor.EditorPrefs.GetBool($"yconsole_{nameof(ShowErrors)}", true);
-            ShowWarnings = UnityEditor.EditorPrefs.GetBool($"yconsole_{nameof(ShowWarnings)}", false);
-            ShowInfo = UnityEditor.EditorPrefs.GetBool($"yconsole_{nameof(ShowInfo)}", true);
-            UseColors = UnityEditor.EditorPrefs.GetBool($"yconsole_{nameof(UseColors)}", true);
-#endif
+            ShowErrors = YMathHelper.ToBool(PlayerPrefs.GetInt($"yconsole_{nameof(ShowErrors)}", 1));
+            ShowWarnings = YMathHelper.ToBool(PlayerPrefs.GetInt($"yconsole_{nameof(ShowWarnings)}", 0));
+            ShowInfo = YMathHelper.ToBool(PlayerPrefs.GetInt($"yconsole_{nameof(ShowInfo)}", 1));
+            UseColors = YMathHelper.ToBool(PlayerPrefs.GetInt($"yconsole_{nameof(UseColors)}", 1));
 
             AppendLogLine("UberYagiz++ Console - \"help\" for list of commands.", FeedbackFlavor.Misc);
 
@@ -91,14 +90,12 @@ namespace YShared.Console
             Application.logMessageReceived -= HandleUnityLog;
         }
 
-        void OnDisable()
+        void SavePrefs()
         {
-#if UNITY_EDITOR
-            UnityEditor.EditorPrefs.SetBool($"yconsole_{nameof(ShowErrors)}", ShowErrors);
-            UnityEditor.EditorPrefs.SetBool($"yconsole_{nameof(ShowWarnings)}", ShowWarnings);
-            UnityEditor.EditorPrefs.SetBool($"yconsole_{nameof(ShowInfo)}", ShowInfo);
-            UnityEditor.EditorPrefs.SetBool($"yconsole_{nameof(UseColors)}", UseColors);
-#endif
+            PlayerPrefs.SetInt($"yconsole_{nameof(ShowErrors)}", ShowErrors.AsInt0());
+            PlayerPrefs.SetInt($"yconsole_{nameof(ShowWarnings)}", ShowWarnings.AsInt0());
+            PlayerPrefs.SetInt($"yconsole_{nameof(ShowInfo)}", ShowInfo.AsInt0());
+            PlayerPrefs.SetInt($"yconsole_{nameof(UseColors)}", UseColors.AsInt0());
         }
 
         private void Update()
@@ -178,6 +175,8 @@ namespace YShared.Console
                     inputField.text = inputField.text.Substring(0, inputField.text.Length - 1);
 
                 EventSystem.current.SetSelectedGameObject(null);
+
+                SavePrefs();
             }
         }
 

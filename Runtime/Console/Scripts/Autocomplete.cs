@@ -1,8 +1,6 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using Codice.Client.Common.TreeGrouper;
-using Codice.CM.Client.Differences;
 using UnityEngine;
 using YShared.MathHelper;
 

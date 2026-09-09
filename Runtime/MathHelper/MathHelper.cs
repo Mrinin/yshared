@@ -239,6 +239,11 @@ namespace YShared.MathHelper
 			return b ? 1 : -1;
 		}
 
+		public static bool ToBool(int n)
+		{
+			return n != 0;
+		}
+
 		public static T GetRandomEnum<T>() where T : struct, System.Enum
 		{
 			T[] arr = (T[])System.Enum.GetValues(typeof(T));
