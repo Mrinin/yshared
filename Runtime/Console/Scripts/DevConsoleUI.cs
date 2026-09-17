@@ -8,6 +8,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
+using YShared.Console.Suggestions;
 using YShared.MathHelper;
 using YShared.NamedTimers;
 using YShared.Singleton;
@@ -25,7 +26,7 @@ namespace YShared.Console
 
         [Header("Autocomplete")]
         [Tooltip("Editable at runtime via AddAutocompleteCommand / RemoveAutocompleteCommand / SetAutocompleteList.")]
-        string[] autocompleteCommands;
+        Suggestion[] autocompleteCommands;
         [SerializeField] private int autocompleteAmount = 7;
 
         private const int MAX_LOG_ENTRIES = 100;
@@ -40,12 +41,13 @@ namespace YShared.Console
         [SerializeField] RectTransform inputRect;
         [SerializeField] RectTransform autocompleteRoot;
         [SerializeField] TextMeshProUGUI autocompleteRow;
+        //[SerializeField] Image autocompleteDivider;
         TextMeshProUGUI autocompleteTopRow;
         TextMeshProUGUI autocompleteBottomRow;
         List<TextMeshProUGUI> autocompleteRows = new List<TextMeshProUGUI>();
 
 
-        private List<string> currentSuggestions = new List<string>();
+        private List<Suggestion> currentSuggestions = new List<Suggestion>();
         private int autocompleteIndex = -1;
 
         // -- state --
@@ -117,6 +119,11 @@ namespace YShared.Console
             }
             else
             {
+                if (caretPosition != inputField.caretPosition)
+                {
+                    caretPosition = inputField.caretPosition;
+                    OnCaretPositionChanged();
+                }
                 caretPosition = inputField.caretPosition;
             }
 
@@ -125,7 +132,7 @@ namespace YShared.Console
                 if (IsUpArrow()) { MoveAutocomplete(-1); return; }
                 if (IsDownArrow()) { MoveAutocomplete(1); return; }
 
-                if (IsForwardTab()) { AcceptAutocomplete(); return; }
+                if (IsForwardTab()) { AcceptSuggestion(); return; }
                 if (kb.escapeKey.wasPressedThisFrame) { HideAutocomplete(); return; }
             }
             else
@@ -164,8 +171,11 @@ namespace YShared.Console
 
             if (isOpen)
             {
-                EventSystem.current.SetSelectedGameObject(inputField.gameObject);
+                if (EventSystem.current.currentSelectedGameObject != inputField.gameObject)
+                    EventSystem.current.SetSelectedGameObject(inputField.gameObject);
                 inputField.ActivateInputField();
+                inputField.selectionAnchorPosition = caretPosition;
+                inputField.selectionFocusPosition = caretPosition;
             }
             else
             {
@@ -231,23 +241,28 @@ namespace YShared.Console
 
         private void HandleUnityLog(string condition, string stackTrace, LogType type)
         {
+            bool print = false;
             FeedbackFlavor flavor = FeedbackFlavor.Info;
             switch (type)
             {
                 case LogType.Error:
                 case LogType.Assert:
                 case LogType.Exception:
+                    print = ShowErrors;
                     flavor = FeedbackFlavor.Error;
                     break;
                 case LogType.Warning:
+                    print = ShowWarnings;
                     flavor = FeedbackFlavor.Warning;
                     break;
                 case LogType.Log:
+                    print = ShowInfo;
                     flavor = FeedbackFlavor.Info;
                     break;
             }
 
-            AppendLogLine(condition, flavor);
+            if (print)
+                AppendLogLine(condition, flavor);
         }
 
         private void AppendLogLine(string message, FeedbackFlavor flavor)
@@ -392,8 +407,8 @@ namespace YShared.Console
         // Autocomplete list - swap freely at runtime
         // ---------------------------------------------------------------
 
-        string[] emptyCommandList = new string[] { } ;
-        public void SetAutocompleteList(string[] commands) 
+        Suggestion[] emptyCommandList = new Suggestion[] { } ;
+        public void SetAutocompleteList(Suggestion[] commands) 
         {
             commands ??= emptyCommandList;
 
@@ -402,14 +417,16 @@ namespace YShared.Console
 
         void UpdateAutocompleteListFromText(string text)
         {
-            string[] lst = Autocomplete.GetAutocompleteList(text);
+            Suggestion[] lst;
+            lst = Autocomplete.GetAutocompleteList(text);
+
             SetAutocompleteList(lst);
         }
 
-        void ShowSuggestions(string beginning, int location)
+        void UpdateSuggestions(string beginning, int location)
         {
             currentSuggestions = autocompleteCommands
-                .Where(c => c.Contains(beginning, StringComparison.OrdinalIgnoreCase))
+                .Where(c => c.Word.Contains(beginning, StringComparison.OrdinalIgnoreCase))
                 .ToList();
 
             if (currentSuggestions.Count == 0)
@@ -418,7 +435,7 @@ namespace YShared.Console
                 return;
             }
 
-            ShowAutocomplete(location);
+            ShowAutocompleteObject(location);
         }
 
         public void OnInputChanged(string text)
@@ -435,10 +452,32 @@ namespace YShared.Console
             }*/
 
             UpdateAutocompleteListFromText(text);
-            ShowSuggestions(word, wordStart);
+            UpdateSuggestions(word, wordStart);
         }
 
-        private void ShowAutocomplete(int wordStartIndex)
+        bool forceDisableSuggestionsFromCaretPosition = false;
+        void OnCaretPositionChanged()
+        {
+            /*string txt = inputField.text;
+            if (caretPosition < txt.Length && !string.IsNullOrWhiteSpace(txt[caretPosition].ToString()))
+            {
+                if (!forceDisableSuggestionsFromCaretPosition)
+                {
+                    HideAutocomplete();
+                    forceDisableSuggestionsFromCaretPosition = true;
+                }
+            }
+
+            if (forceDisableSuggestionsFromCaretPosition)
+            {
+                OnInputChanged(inputField.text);
+                forceDisableSuggestionsFromCaretPosition = false;
+            }*/
+
+            //Debug.Log(forceDisableSuggestionsFromCaretPosition);
+        }
+
+        private void ShowAutocompleteObject(int wordStartIndex)
         {
             autocompleteIndex = 0;
 
@@ -448,15 +487,15 @@ namespace YShared.Console
             
             for (int i = 0; i < autocompleteAmount; i++)
             {
-                autocompleteRows[i].text = currentSuggestions[Mathf.Clamp(i, 0, currentSuggestions.Count - 1)];
-                autocompleteRows[i].color = i == autocompleteIndex ? Color.yellow : Color.white;
+                Suggestion s = currentSuggestions[Mathf.Clamp(i, 0, currentSuggestions.Count - 1)];
+                PopulateAutocompleteRow(autocompleteRows[i], s, i == autocompleteIndex);
             }
 
             bool allVisibleAtOnce = currentSuggestions.Count <= autocompleteAmount;
             autocompleteBottomRow.gameObject.SetActive(!allVisibleAtOnce);
             autocompleteTopRow.gameObject.SetActive(!allVisibleAtOnce);
 
-            int largest_width = currentSuggestions.Max(str => str.Length);
+            int largest_width = currentSuggestions.Max(str => str.Word.Length);
             autocompleteRoot.sizeDelta = new Vector2(largest_width * fontSize, autocompleteRoot.sizeDelta.y);
 
             MoveAutocomplete(0);
@@ -534,9 +573,7 @@ namespace YShared.Console
             {
                 int suggestionIndex = autocompleteScrollOffset + i;
 
-                autocompleteRows[i].text = currentSuggestions[suggestionIndex];
-
-                autocompleteRows[i].color = i == autocompleteIndex ? Color.yellow : Color.white;
+                PopulateAutocompleteRow(autocompleteRows[i], currentSuggestions[suggestionIndex], i == autocompleteIndex);
             }
 
             // Hide unused rows.
@@ -564,7 +601,32 @@ namespace YShared.Console
             }
         }
 
-        private void AcceptAutocomplete()
+        void PopulateAutocompleteRow(TextMeshProUGUI row_text, Suggestion suggestion, bool selected)
+        {
+            row_text.text = suggestion.Word;
+
+            row_text.fontStyle = suggestion.Underline
+                ? row_text.fontStyle | FontStyles.Underline
+                : row_text.fontStyle & ~FontStyles.Underline;
+
+            /*if (suggestion.Underline)
+                autocompleteDivider.rectTransform.anchoredPosition = row_text.rectTransform.anchoredPosition;*/
+
+
+            if (suggestion.SuggestionType == SuggestionType.Command)
+            {
+                row_text.color = selected ? Color.yellow : Color.white;
+            }
+            else
+            {
+                row_text.color = selected ? Color.yellow : Color.white * 0.75f;
+            }
+
+            /*if (suggestion.Underline)
+                row_text.color = Color.blueViolet;*/
+        }
+
+        private void AcceptSuggestion()
         {
             if (selectedSuggestionIndex < 0 || selectedSuggestionIndex >= currentSuggestions.Count)
                 return;
@@ -575,16 +637,18 @@ namespace YShared.Console
 
             //wordStart = inputField.text.Length;
 
-            string chosen = currentSuggestions[selectedSuggestionIndex];
-            string newText = text.Substring(0, wordStart) + chosen + " " + text.Substring(caret);
+            Suggestion chosen = currentSuggestions[selectedSuggestionIndex];
+            string newText = text.Substring(0, wordStart) + chosen.Word + " " + text.Substring(caret);
 
             inputField.text = newText;
-            inputField.caretPosition = wordStart + chosen.Length + 1;
+            inputField.caretPosition = wordStart + chosen.Word.Length + 1;
 
             inputField.ActivateInputField();
 
+            selectedSuggestionIndex = 0;
+
             UpdateAutocompleteListFromText(newText);
-            ShowSuggestions("", newText.Length);
+            UpdateSuggestions("", newText.Length);
 
             //gameObject.SetTimeout(1f, () => ShowAutocomplete(wordStart));
         }
@@ -629,7 +693,7 @@ namespace YShared.Console
             inputField.ActivateInputField();
 
             UpdateAutocompleteListFromText(newText);
-            ShowSuggestions("", newText.Length);
+            UpdateSuggestions("", newText.Length);
 
             //gameObject.SetTimeout(1f, () => ShowAutocomplete(wordStart));
         }
@@ -656,6 +720,15 @@ namespace YShared.Console
         public static void Clear()
         {
             Instance.ClearLogs();
+        }
+
+        [YCommand("yconsole unity_console", "Show the current state of Info/Warn/Error logs")]
+        public void ShowYConsoleState()
+        {
+            DevConsole.Feedback(
+                $"Info     : {ShowInfo}\n" +
+                $"Warnings : {ShowWarnings}\n" +
+                $"Errors   : {ShowErrors}");
         }
 
         

@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using YShared.Console.Suggestions;
 using YShared.MathHelper;
 
 namespace YShared.Console
@@ -22,7 +23,7 @@ namespace YShared.Console
             return commandAsAnArgumentAutocompleteArray;
         }
         
-        public static string[] GetAutocompleteList(string line)
+        public static Suggestion[] GetAutocompleteList(string line)
         {
             if (RootCommandArray == null)
             {
@@ -35,16 +36,15 @@ namespace YShared.Console
             if (string.IsNullOrEmpty(line))
                 return null;
 
+
             string trimmedVersion = line.TrimEnd(' ');
             int trailingSpaceCount = line.Length - trimmedVersion.Length;
-            /*DevConsole.Log(trailingSpaceCount);
-            if (trailingSpaceCount > 3)
-                return null;*/
             
             string[] parts = CommandsHelper.SplitCommand(trimmedVersion);
 
             int wordCount = parts.Length;
             int parameter_start = 0;
+            int unrecognized_word_amount = 0;
 
             CommandNode node = CommandRegistry.Root;
 
@@ -58,6 +58,7 @@ namespace YShared.Console
                 }
                 else
                 {
+                    unrecognized_word_amount++;
                     break;
                 }
             }
@@ -66,25 +67,33 @@ namespace YShared.Console
             // Therefore either another command word or an argument can follow.
             
             // If this node has only subcommands, suggest them.
-            if (node.children.Count > 0 && node.commands.Count == 0)
-                return node.children.Keys.ToArray();
+            /*if (node.children.Count > 0 && node.commands.Count == 0)
+            {
+                List<Suggestion> lst = new();
+                AddSubcommandsToAutocompleteList(node, ref lst);
+                return lst.ToArray();
+            }*/
 
             // Found the command, this is the end.
             if (node.children.Count == 0 && node.commands.Count == 0)
                 return null;
-            
-            /*if (!trailingSpace)
-                return null;*/
 
             // node.Commands.Count > 0
-            List<string> autocompleteList = new List<string>(50);
+            List<Suggestion> autocompleteList = new List<Suggestion>(50);
 
             int wordIndexCurrentlyWriting = wordCount;
             if (trailingSpaceCount > 0)
                 wordIndexCurrentlyWriting++;
 
             if (node.children.Count > 0)
-                autocompleteList.AddRange(node.children.Keys.ToArray());
+            {
+                /*Debug.Log(unrecognized_word_amount);
+                Debug.Log(trailingSpaceCount);*/
+                if (!(unrecognized_word_amount != 0 && trailingSpaceCount > 0))
+                {
+                    AddSubcommandsToAutocompleteList(node, ref autocompleteList);
+                }
+            }
 
             for (int i = 0; i < node.commands.Count; i++)
             {
@@ -96,11 +105,26 @@ namespace YShared.Console
             return autocompleteList.ToArray();
         }
 
-        public static void AddToAutocompleteList(Command cmd,int word_at, ref List<string> list)
+        public static void AddSubcommandsToAutocompleteList(CommandNode cn, ref List<Suggestion> list)
+        {
+            foreach (var kvp in cn.children)
+            {
+                list.Add(Suggestion.Subcommand(kvp.Key));
+            }
+
+            if (list.Count > 0)
+            {
+                var s = list[list.Count - 1];
+                s.Underline = true;
+                list[list.Count - 1] = s;
+            }
+        }
+
+        public static void AddToAutocompleteList(Command cmd, int word_at, ref List<Suggestion> list)
         {
             if (word_at >= 0 && word_at < cmd.parameters.Length)
             {    
-                List<string> strings = cmd.parameters[word_at].getAutocomplete();
+                List<Suggestion> strings = cmd.parameters[word_at].getAutocomplete();
                 if (strings != null)
                 {
                     list.AddRange(strings);

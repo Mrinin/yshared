@@ -40,7 +40,7 @@ namespace YShared.Console
             {
                 foreach (Type type in assembly.GetTypes())
                 {
-                    Type? current = type;
+                    Type current = type;
 
                     while (current != null)
                     {

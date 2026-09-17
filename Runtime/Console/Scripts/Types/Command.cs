@@ -1,10 +1,8 @@
 using System;
 using System.Collections.Generic;
-using System.Diagnostics;
+using System.Drawing;
 using System.Linq;
 using System.Reflection;
-using System.Runtime.CompilerServices;
-using UnityEditor;
 using YShared.Console.Suggestions;
 
 namespace YShared.Console
@@ -19,10 +17,10 @@ namespace YShared.Console
 
         public bool cacheAutocompleteList;
 
-        List<string> cachedAutocompleteList;
+        List<Suggestion> cachedAutocompleteList;
         bool isAutocompleteListCached;
 
-        public List<string> getAutocomplete()
+        public List<Suggestion> getAutocomplete()
         {
             if (isAutocompleteListCached && cachedAutocompleteList != null)
             {
@@ -56,13 +54,14 @@ namespace YShared.Console
             if (strings.Count == 0)
                 strings = null;
 
+            var lst = Suggestion.CreateParameterSuggestionArray(strings, UnityEngine.Color.white);
             if (cacheAutocompleteList)
             {
-                cachedAutocompleteList = strings;
+                cachedAutocompleteList = lst;
                 isAutocompleteListCached = true;
             }
 
-            return strings;
+            return lst;
         }
     }
 

@@ -17,8 +17,7 @@ namespace YShared.Console
         private int fontSize = 18;
 
         public int FPS_Limit = 0;
-
-        bool isEnabled = true;
+        public bool isEnabled = true;
 
         string FinalText = "";
 

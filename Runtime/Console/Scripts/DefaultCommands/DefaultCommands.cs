@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+using YShared.Console.Suggestions;
 using YShared.MathHelper;
 
 namespace YShared.Console
@@ -107,16 +108,16 @@ namespace YShared.Console
                         defaulttext = $" = {cmd.parameters[i].defaultval}";
 
                     string nextline = $"{parser.getDescriptorText()}{defaulttext}";
-                    List<string> autocompleteList = cmd.parameters[i].getAutocomplete();
+                    List<Suggestion> autocompleteList = cmd.parameters[i].getAutocomplete();
 
                     if (autocompleteList != null)
                     {
                         string autocompletePreview = "Options: (";
                         List<string> autocompleteParts = new();
 
-                        foreach (string s in cmd.parameters[i].getAutocomplete())
+                        foreach (Suggestion s in autocompleteList)
                         {
-                            autocompleteParts.Add(s);
+                            autocompleteParts.Add(s.Word);
                         }
 
                         autocompletePreview += string.Join(", ", autocompleteParts);
