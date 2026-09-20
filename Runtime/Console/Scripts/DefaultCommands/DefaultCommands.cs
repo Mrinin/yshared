@@ -11,7 +11,7 @@ namespace YShared.Console
         [YCommand("help", "Show this text.")]
         static void Help(int page = 0)
         {
-            const int PAGE_SIZE = 10;
+            const int PAGE_SIZE = 15;
             string result = "";
 
             int commands_showed = 0;

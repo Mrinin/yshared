@@ -59,6 +59,8 @@ namespace YShared.Console
         private Coroutine slideRoutine;
         private int caretPosition;
 
+        bool pendingCanvasRefresh = false;
+
         public bool IsOpen => isAnimating || isOpen;
 
         private void Start()
@@ -102,7 +104,18 @@ namespace YShared.Console
 
         private void Update()
         {
+            if (pendingCanvasRefresh)
+            {
+                //Canvas.ForceUpdateCanvases();
+                scrollRect.verticalNormalizedPosition = 0f; // pin to bottom
+                pendingCanvasRefresh = false;
+            }
+
             var kb = Keyboard.current;
+            if (kb == null)
+            {
+                return;
+            }
 
             if (kb.backquoteKey.wasPressedThisFrame)
             {
@@ -169,10 +182,16 @@ namespace YShared.Console
 
             slideRoutine = StartCoroutine(Slide(isOpen));
 
+            if (EventSystem.current == null)
+            {
+                throw new Exception("Place an event system in the current scene");
+            }
+
             if (isOpen)
             {
                 if (EventSystem.current.currentSelectedGameObject != inputField.gameObject)
                     EventSystem.current.SetSelectedGameObject(inputField.gameObject);
+                    
                 inputField.ActivateInputField();
                 inputField.selectionAnchorPosition = caretPosition;
                 inputField.selectionFocusPosition = caretPosition;
@@ -288,8 +307,7 @@ namespace YShared.Console
             }
 
             logText.text += $"<color={hex}>{message}</color>\n";
-            Canvas.ForceUpdateCanvases();
-            scrollRect.verticalNormalizedPosition = 0f; // pin to bottom
+            pendingCanvasRefresh = true;
         }
 
         private void RebuildLogText()
