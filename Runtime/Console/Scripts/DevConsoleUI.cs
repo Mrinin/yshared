@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using TMPro;
 using UnityEditor;
 using UnityEngine;
@@ -104,13 +105,6 @@ namespace YShared.Console
 
         private void Update()
         {
-            if (pendingCanvasRefresh)
-            {
-                //Canvas.ForceUpdateCanvases();
-                scrollRect.verticalNormalizedPosition = 0f; // pin to bottom
-                pendingCanvasRefresh = false;
-            }
-
             var kb = Keyboard.current;
             if (kb == null)
             {
@@ -165,6 +159,17 @@ namespace YShared.Console
             }
         }
 
+        private void LateUpdate()
+        {
+            if (pendingCanvasRefresh && IsOpen)
+            {
+                scrollRect.verticalNormalizedPosition = 0f; // pin to bottom
+                pendingCanvasRefresh = false;
+
+                BuildLogText();
+            }
+        }
+
         // ---------------------------------------------------------------
         // Toggle / slide
         // ---------------------------------------------------------------
@@ -184,8 +189,9 @@ namespace YShared.Console
 
             if (EventSystem.current == null)
             {
-                throw new Exception("Place an event system in the current scene");
+                throw new Exception("DevConsoleUI needs an event system to work. Place an event system in the current scene.");
             }
+            pendingCanvasRefresh = isOpen;
 
             if (isOpen)
             {
@@ -195,6 +201,7 @@ namespace YShared.Console
                 inputField.ActivateInputField();
                 inputField.selectionAnchorPosition = caretPosition;
                 inputField.selectionFocusPosition = caretPosition;
+
             }
             else
             {
@@ -291,38 +298,63 @@ namespace YShared.Console
             if (logEntries.Count > MAX_LOG_ENTRIES) 
                 logEntries.RemoveAt(0);
 
-            if (logText == null) return; // UI not built yet, entry is still stored above and shown once it is
+            if (logText == null) 
+                return; // UI not built yet, entry is still stored above and shown once it is
 
-            string hex;
-            switch (flavor)
-            {
-                case FeedbackFlavor.Warning: hex = "#FFD100"; break;
-                case FeedbackFlavor.Error: hex = "#FF4C4C"; break;
-                case FeedbackFlavor.Misc: hex = "#1980ff"; break;
-                case FeedbackFlavor.Return: hex = "#8cbccf"; break;
-                case FeedbackFlavor.Command: hex = "#4C9CFF"; break;
-                case FeedbackFlavor.Info: hex = "#adadad"; break;
-                case FeedbackFlavor.Feedback:
-                    default: hex = "#FFFFFF"; break; // Feedback, Info
-            }
+            string hex = HexColor(flavor);
 
             logText.text += $"<color={hex}>{message}</color>\n";
             pendingCanvasRefresh = true;
         }
 
-        private void RebuildLogText()
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        private static string HexColor(FeedbackFlavor flavor)
         {
-            if (logText == null) return;
-            logText.text = "";
+            switch (flavor)
+            {    
+                case FeedbackFlavor.Warning: return "#FFD100";
+                case FeedbackFlavor.Error: return  "#FF4C4C";
+                case FeedbackFlavor.Misc: return "#1980ff";
+                case FeedbackFlavor.Return: return "#8cbccf";
+                case FeedbackFlavor.Command: return "#4C9CFF";
+                case FeedbackFlavor.Info: return "#adadad";
+                default: return "#FFFFFF";
+            }
+        }
+
+        private void ClearLogs()
+        {
+            logEntries.Clear();
+
+            if (logText != null)
+                logText.text = "";
+        }
+
+        private void RebuildLogs()
+        {
+            if (logText == null) 
+                return;
+
+            logText.text = "";           
 
             foreach (var e in logEntries)
                 AppendLogLine(e.text, e.flavor);
         }
 
-        private void ClearLogs()
+        private void BuildLogText()
         {
-            logText.text = "";
-            logEntries.Clear();
+            var builder = new System.Text.StringBuilder();
+            foreach (var (text, flavor) in logEntries)
+                builder
+                    .Append("<color=")
+                    .Append(HexColor(flavor))
+                    .Append('>')
+                    .Append(text)
+                    .Append("</color>\n");
+
+            logText.text = builder.ToString();
+            LayoutRebuilder.ForceRebuildLayoutImmediate(logText.rectTransform);
+            scrollRect.verticalNormalizedPosition = 0f; // pin to bottom<
         }
 
         // ---------------------------------------------------------------

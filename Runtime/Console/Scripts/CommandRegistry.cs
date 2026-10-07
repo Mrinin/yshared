@@ -1,3 +1,6 @@
+#define USE_EDITOR_OPTIMIZED_COMMANDS
+#undef USE_EDITOR_OPTIMIZED_COMMANDS
+
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -36,6 +39,43 @@ namespace YShared.Console
             Commands.Clear();
             parserRegistry.Clear();
             
+#if USE_EDITOR_OPTIMIZED_COMMANDS && UNITY_EDITOR
+            foreach (Type type in UnityEditor.TypeCache.GetTypesDerivedFrom(typeof(YCmdParser<>)))
+            {
+                Type current = type;
+
+                while (current != null)
+                {
+                    if (current.IsGenericType &&
+                        current.GetGenericTypeDefinition() == typeof(YCmdParser<>))
+                    {
+                        Type parsedType = current.GetGenericArguments()[0];
+
+                        //Debug.Log($"Registered {parsedType} -> {type}");
+
+                        if (parsedType == typeof(Enum))
+                        {
+                            EnumParserType = type;
+                        }
+
+                        parserRegistry[parsedType] = type;
+                        break;
+                    }
+
+                    current = current.BaseType;
+                }
+            }
+
+            foreach (MethodInfo method in UnityEditor.TypeCache.GetMethodsWithAttribute<YCommandAttribute>())
+            {
+                var attribute = method.GetCustomAttribute<YCommandAttribute>();
+
+                if (attribute == null)
+                    continue;
+
+                RegisterCommand(CreateMethodCommand(method, attribute));
+            }
+#else
             foreach (Assembly assembly in AppDomain.CurrentDomain.GetAssemblies())
             {
                 foreach (Type type in assembly.GetTypes())
@@ -64,11 +104,13 @@ namespace YShared.Console
                     }
                 }
             }
+#endif
 
             foreach (Assembly assembly in AppDomain.CurrentDomain.GetAssemblies())
             {
                 foreach (Type type in GetTypesSafe(assembly))
                 {
+#if !(USE_EDITOR_OPTIMIZED_COMMANDS && UNITY_EDITOR)
                     foreach (MethodInfo method in type.GetMethods(
                         BindingFlags.Public |
                         BindingFlags.NonPublic |
@@ -84,6 +126,7 @@ namespace YShared.Console
 
                         RegisterCommand(CreateMethodCommand(method, attribute));
                     }
+#endif
 
                     foreach (PropertyInfo property in type.GetProperties(
                         BindingFlags.Public |
@@ -168,7 +211,7 @@ namespace YShared.Console
                 .OrderBy(cmd => cmd.command)
                 .ToArray();
 
-            //Debug.Log($"Registered {alphabeticalCommands.Length}");
+            Debug.Log($"Registered {alphabeticalCommands.Length}");
         }
 
 
