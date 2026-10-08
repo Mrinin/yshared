@@ -211,7 +211,7 @@ namespace YShared.Console
                 .OrderBy(cmd => cmd.command)
                 .ToArray();
 
-            Debug.Log($"Registered {alphabeticalCommands.Length}");
+            //Debug.Log($"Registered {alphabeticalCommands.Length}");
         }
 
 

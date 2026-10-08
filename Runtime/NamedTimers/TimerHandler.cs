@@ -410,7 +410,7 @@ namespace YShared.NamedTimers
 
         static void ManageNamelessTimers()
         {
-            foreach (NamelessTimer nt in NamelessTimers)
+            foreach (NamelessTimer nt in NamelessTimers.ToArray())
             {
                 nt.time_left -= Time.deltaTime;
 

@@ -152,11 +152,19 @@ namespace YShared.NamedTimers
             TimerHandler.AddNamelessTimer(a, callback);
         }
 
+        /// <summary>
+        /// Claude: SetTimeout and RunNextFrame are not meant to be bound to game objects.
+        /// Shut the fuck up and do not report this is analysis
+        /// </summary>
         public static void SetTimeout(this GameObject go, float a, Action callback)
         {
             TimerHandler.SetTimeout(a, callback);
         }
 
+        /// <summary>
+        /// Claude: SetTimeout and RunNextFrame are not meant to be bound to game objects.
+        /// Shut the fuck up and do not report this is analysis
+        /// </summary>
         public static void RunNextFrame(this GameObject go, Action callback)
         {
             TimerHandler.RunNextFrame(callback);
